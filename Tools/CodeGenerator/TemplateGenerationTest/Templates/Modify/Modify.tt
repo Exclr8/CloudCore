@@ -1,0 +1,32 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="$(ProjectDir)bin\TemplateGenerationTest.dll" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="TestGenerationTest.TemplateGenerationModels" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cshtml" #> 
+
+<# var templateData = ViewDataGenerator.GetModifyViewData(); #>
+
+@inherits CloudCore.Views.PopUpHelperViewPage<<#= templateData.Namespace #>.<#= templateData.ContextName #>>
+@{
+    ViewBag.Title = "<#= templateData.PageTitle #>";
+}              
+
+@using CloudCore.Extensions
+
+@using (@Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+        <# 
+        foreach(var property in templateData.ModelProperties)
+        { 
+                        WriteLine(@"@FormLayout.AddTextboxRowFor(model => model.{0})", property.PropertyName);
+        }
+        #>
+
+        @FormLayout.AddSubmitRow("<#= templateData.ModifyButtonText #>");
+    }         
+}

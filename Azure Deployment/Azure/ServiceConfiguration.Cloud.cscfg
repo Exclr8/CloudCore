@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="Cache">
+    <Instances count="2" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="f1admin" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCED5GyZFDqzeQTwSyVNdFINYwDQYJKoZIhvcNAQEBBQAEggEAXJalAsnhjowk7qvyloNROWEmP0lCs447z62jclp4yNhV9xW1tT+8HzXNG92HbMJnGgGWtijuPj+EZz2XdjQJ4jcPWm0Oleo4XrYjDLEO57yw8bHHGeKww4mqHCCD6HNqkXd9noS2pnlYmVgQtVQthtAG3kSjTL22XQWS2Ne0wnIdJSbnGTE6yo0kGk8KyBJ2pVsKPBTHbA+XDx0N5Is7+oPo2B373StFjxu78r32dtDWOpJBbwxiPYpEEE21wUg8xpnWh8tqV1gsxMJ4RvAYzbP8zqw6nOd1HIg5H2TSlvSRDsZtIOsqAEi2hGS50gkh4jwClACMjyr22kynKW0IdTAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECHHeuvyZ6b7agBBFCsLpGdH6iGOSTmIGlUEt" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2016-10-13T23:59:59.0000000+02:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.NamedCaches" value="{&quot;caches&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;policy&quot;:{&quot;eviction&quot;:{&quot;type&quot;:0},&quot;expiration&quot;:{&quot;defaultTTL&quot;:10,&quot;isExpirable&quot;:true,&quot;type&quot;:1},&quot;serverNotification&quot;:{&quot;isEnabled&quot;:false}},&quot;secondaries&quot;:0}]}" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.DiagnosticLevel" value="1" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.CacheSizePercentage" value="30" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.ConfigStoreConnectionString" value="UseDevelopmentStorage=true" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="A1086E601B9DA49AFBC7E106E01F9EA35A7E708F" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+  <Role name="Site">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Offline" value="false" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="f1admin" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCED5GyZFDqzeQTwSyVNdFINYwDQYJKoZIhvcNAQEBBQAEggEAXJalAsnhjowk7qvyloNROWEmP0lCs447z62jclp4yNhV9xW1tT+8HzXNG92HbMJnGgGWtijuPj+EZz2XdjQJ4jcPWm0Oleo4XrYjDLEO57yw8bHHGeKww4mqHCCD6HNqkXd9noS2pnlYmVgQtVQthtAG3kSjTL22XQWS2Ne0wnIdJSbnGTE6yo0kGk8KyBJ2pVsKPBTHbA+XDx0N5Is7+oPo2B373StFjxu78r32dtDWOpJBbwxiPYpEEE21wUg8xpnWh8tqV1gsxMJ4RvAYzbP8zqw6nOd1HIg5H2TSlvSRDsZtIOsqAEi2hGS50gkh4jwClACMjyr22kynKW0IdTAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECHHeuvyZ6b7agBBFCsLpGdH6iGOSTmIGlUEt" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2016-10-13T23:59:59.0000000+02:00" />
+      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=cloudcoredemostorageacc;AccountKey=QP17g9C6GtTr6Kj7TWAIduyi0AxXyWO9Fh48iMdZtiTD3EZxZmEp3vPWJrJXt3AhdEA42h2C6+94072ELICRwg==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.NamedCaches" value="{&quot;caches&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;policy&quot;:{&quot;eviction&quot;:{&quot;type&quot;:0},&quot;expiration&quot;:{&quot;defaultTTL&quot;:10,&quot;isExpirable&quot;:true,&quot;type&quot;:1},&quot;serverNotification&quot;:{&quot;isEnabled&quot;:false}},&quot;secondaries&quot;:0}]}" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.DiagnosticLevel" value="1" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.CacheSizePercentage" value="30" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.ConfigStoreConnectionString" value="UseDevelopmentStorage=true" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="A1086E601B9DA49AFBC7E106E01F9EA35A7E708F" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+  <Role name="VirtualWorker">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="f1admin" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCED5GyZFDqzeQTwSyVNdFINYwDQYJKoZIhvcNAQEBBQAEggEAXJalAsnhjowk7qvyloNROWEmP0lCs447z62jclp4yNhV9xW1tT+8HzXNG92HbMJnGgGWtijuPj+EZz2XdjQJ4jcPWm0Oleo4XrYjDLEO57yw8bHHGeKww4mqHCCD6HNqkXd9noS2pnlYmVgQtVQthtAG3kSjTL22XQWS2Ne0wnIdJSbnGTE6yo0kGk8KyBJ2pVsKPBTHbA+XDx0N5Is7+oPo2B373StFjxu78r32dtDWOpJBbwxiPYpEEE21wUg8xpnWh8tqV1gsxMJ4RvAYzbP8zqw6nOd1HIg5H2TSlvSRDsZtIOsqAEi2hGS50gkh4jwClACMjyr22kynKW0IdTAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECHHeuvyZ6b7agBBFCsLpGdH6iGOSTmIGlUEt" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2016-10-13T23:59:59.0000000+02:00" />
+      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=cloudcoredemostorageacc;AccountKey=QP17g9C6GtTr6Kj7TWAIduyi0AxXyWO9Fh48iMdZtiTD3EZxZmEp3vPWJrJXt3AhdEA42h2C6+94072ELICRwg==" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="A1086E601B9DA49AFBC7E106E01F9EA35A7E708F" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

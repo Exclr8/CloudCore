@@ -1,0 +1,18 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.SystemValueUpdateModel>
+@{
+    ViewBag.Title = "Update System Value";
+}
+
+@using (Html.BeginForm())
+{
+    
+    using (FormLayout.BeginTable())
+    {
+
+        @FormLayout.AddTitleHeaderRow("System Value Details")
+        @FormLayout.AddTextboxRowFor(model => model.ValueName,new {@readonly = true})
+        @FormLayout.AddTextboxRowFor(model => model.ValueData)
+        @FormLayout.AddTextAreaFor(model => model.ValueDescription,5,70)
+    }
+    FormLayout.AddSubmitButtonWithBar("Update System Value");
+}

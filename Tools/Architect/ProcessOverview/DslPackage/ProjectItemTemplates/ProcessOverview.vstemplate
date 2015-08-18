@@ -1,0 +1,24 @@
+﻿<!--DSL Tools Language Template-->
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+	<TemplateData>
+		<Name Package="{a82781ab-ef77-4e96-834c-3caea8e141c1}" ID="103"/>
+		<Description Package="{a82781ab-ef77-4e96-834c-3caea8e141c1}" ID="102"/>
+		<Icon Package="{a82781ab-ef77-4e96-834c-3caea8e141c1}" ID="201" />
+		<TemplateID>{a82781ab-ef77-4e96-834c-3caea8e141c1}</TemplateID>
+		<TemplateGroupID>CloudCore</TemplateGroupID>
+		<ProjectType>CSharp</ProjectType>
+		<ProjectSubType>CloudCore</ProjectSubType>	
+		<RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+		<SortOrder>360</SortOrder>
+		<DefaultName>CloudCoreArchitectProcessOverview.process</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem TargetFileName="$fileinputname$.process" CustomTool="">process.process</ProjectItem>
+		<ProjectItem TargetFileName="$fileinputname$.process.diagram">process.diagram</ProjectItem>
+	</TemplateContent>
+	<WizardExtension>
+        <Assembly>Architect.ProcessOverview.DslPackage</Assembly>
+        <FullClassName>Architect.CustomCode.Forms.NewProcess</FullClassName>
+    </WizardExtension>
+</VSTemplate>
+

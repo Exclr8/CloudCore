@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<group xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="d2ba6fb1-832d-4d5f-b561-09fd5d5b7545" groupName="Test" xmlns="http://schemas.microsoft.com/dsltools/ScheduledTasks">
+  <elements>
+    <sqlScheduledTask Id="d37e5a1e-0983-4892-869f-60b00baf722f" name="SqlScheduledTask1" intervalType="Seconds" interval="3" startDate="05/06/2014 10:32:58" />
+    <cSharpScheduledTask Id="092dbe81-ac1e-4ad2-8e84-700dfa18fc11" name="CSharpScheduledTask1" intervalType="Seconds" interval="5" startDate="05/06/2014 10:33:18" />
+  </elements>
+</group>

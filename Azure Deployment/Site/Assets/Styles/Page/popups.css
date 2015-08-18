@@ -1,0 +1,72 @@
+﻿.popUpError {
+    min-height:200px;
+    -moz-min-width:400px;
+    -ms-min-width:400px;
+    -o-min-width:400px;
+    -webkit-min-width:400px;
+    min-width:400px;
+    max-width:800px;
+}
+
+.popUpStructure{
+    display:none;
+    position:fixed;
+    _position:absolute; /* hack for internet explorer 6*/
+    font-size:13px;
+    padding:3px;
+}
+
+#popupIFrame
+{
+    position:relative;
+    top:0;
+    border:0;
+    background-color:#fff;
+ }
+
+ 
+  #backgroundPopup {
+	background-color:#565656;
+	width:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	position:fixed;
+	display: none;
+	overflow:hidden;
+}
+
+#popUpTitle {
+    height: 57px;
+}
+
+ .popCloseButton
+ {
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: bold;
+    height: 17px;
+    line-height: 13px;
+    margin: 2px 5px 10px 10px;
+    padding: 0 10px;
+    position: absolute;
+    right: 0;
+ }
+ 
+
+.popupTitleIcon
+{
+    height: 40px;
+    margin: 10px 10px 10px 18px;
+    position: absolute;
+    width: 40px;
+ }
+
+#titleText
+{
+    color: #FFFFFF;
+    font-size: 16px;
+    margin-left: 61px;
+    position: relative;
+    top: 15px;
+}

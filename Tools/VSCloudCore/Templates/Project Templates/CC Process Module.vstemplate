@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="ProjectGroup"
+    xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+    <TemplateData>
+        <Name>CloudCore Process Module</Name>
+        <Description>Template for CloudCore Process Module</Description>
+        <Icon>processmodule.ico</Icon>
+        <ProjectType>CSharp</ProjectType>
+        <ProjectSubType>Eisk</ProjectSubType>
+        <DefaultName>CloudCoreProcessModule</DefaultName>
+        <TemplateGroupID>CloudCore</TemplateGroupID>
+        <TemplateID>CloudCore.Module.Process</TemplateID>
+      <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    </TemplateData>
+    <TemplateContent>
+        <ProjectCollection>
+                <ProjectTemplateLink ProjectName="$ProductName$.Process">
+                    ProjectTemplates\ProcessModule\ProcessModuleTemplate.vstemplate
+                </ProjectTemplateLink>
+        </ProjectCollection>
+    </TemplateContent>
+    <WizardExtension>
+        <Assembly>CloudCore.VSExtension.Wizards, Version=2015.5.14.1814, Culture=neutral, PublicKeyToken=e7a823e48f920dce</Assembly>
+        <FullClassName>CloudCore.VSExtension.Wizards.ICCNewProcessModuleImplementation</FullClassName>
+    </WizardExtension>
+</VSTemplate>

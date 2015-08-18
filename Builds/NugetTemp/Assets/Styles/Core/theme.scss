@@ -1,0 +1,222 @@
+/* Theme overrides base styles */
+
+$primary-color:#004378; /*cloudcore default blue: #1d69bb*/
+
+/* Set button text color based on backgorund color lightness */
+@function text-color($primary-color) {
+  @if (lightness($primary-color) > 75) {
+    @return #000000; 
+  } @else {
+    @return #ffffff;
+  }
+}
+.btn-custom {
+  color: text-color($primary-color);
+  background-color: $primary-color;
+  border-color:lighten($primary-color, 10%);
+}
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom.focus,
+.btn-custom:active,
+.btn-custom.active,
+.open > .dropdown-toggle.btn-custom {
+  color: text-color($primary-color);
+  background-color: lighten($primary-color, 10%);
+  border-color: lighten($primary-color, 10%);
+}
+.btn-custom:active,
+.btn-custom.active,
+.open > .dropdown-toggle.btn-custom {
+  background-image: none;
+}
+.btn-custom.disabled,
+.btn-custom[disabled],
+fieldset[disabled] .btn-custom,
+.btn-custom.disabled:hover,
+.btn-custom[disabled]:hover,
+fieldset[disabled] .btn-custom:hover,
+.btn-custom.disabled:focus,
+.btn-custom[disabled]:focus,
+fieldset[disabled] .btn-custom:focus,
+.btn-custom.disabled.focus,
+.btn-custom[disabled].focus,
+fieldset[disabled] .btn-custom.focus,
+.btn-custom.disabled:active,
+.btn-custom[disabled]:active,
+fieldset[disabled] .btn-custom:active,
+.btn-custom.disabled.active,
+.btn-custom[disabled].active,
+fieldset[disabled] .btn-custom.active {
+  background-color: #fff;
+  border-color: #ccc;
+}
+.btn-custom .badge {
+  color: #fff;
+  background-color: #333;
+}
+.navbar-inverse {
+  background-color:$primary-color;
+  border-color: lighten($primary-color, 10%);
+}
+.navbar-inverse .navbar-brand {
+  color: text-color($primary-color);
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: text-color($primary-color);
+  background-color: lighten($primary-color, 10%);
+}
+.navbar-inverse .navbar-text {
+  color: text-color($primary-color);
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: text-color($primary-color);
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: text-color($primary-color);
+  background-color: lighten($primary-color, 10%);
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: text-color($primary-color);
+  background-color: darken($primary-color, 10%);
+}
+.navbar-inverse .navbar-nav > .disabled > a,
+.navbar-inverse .navbar-nav > .disabled > a:hover,
+.navbar-inverse .navbar-nav > .disabled > a:focus {
+  color: text-color($primary-color);
+  background-color: transparent;
+}
+.navbar-inverse .navbar-toggle {
+  border-color: darken($primary-color, 20%);
+}
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+  background-color: $primary-color;
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+  background-color: darken($primary-color, 45%);
+}
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+  border-color: #101010;
+}
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  color: text-color($primary-color);
+  background-color: $primary-color;
+}
+@media (max-width: 767px) {
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
+    border-color: lighten($primary-color, 45%);
+  }
+  .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
+    background-color: lighten($primary-color, 45%);
+  }
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color:  text-color($primary-color);
+  }
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: text-color($primary-color);
+    background-color: darken($primary-color, 10%) ;
+  }
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color:text-color($primary-color);
+    background-color: darken($primary-color, 10%);
+  }
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a,
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: text-color($primary-color);
+    background-color: transparent;
+  }
+}
+.navbar-inverse .navbar-link {
+  color: text-color($primary-color);
+}
+.navbar-inverse .navbar-link:hover {
+  color: text-color(lighten($primary-color, 10%));
+}
+.navbar-inverse .btn-link {
+  color: text-color($primary-color);
+}
+.navbar-inverse .btn-link:hover,
+.navbar-inverse .btn-link:focus {
+  color: text-color(lighten($primary-color, 10%));
+}
+.navbar-inverse .btn-link[disabled]:hover,
+fieldset[disabled] .navbar-inverse .btn-link:hover,
+.navbar-inverse .btn-link[disabled]:focus,
+fieldset[disabled] .navbar-inverse .btn-link:focus {
+  color: #444;
+}
+.footer {
+	background-color: $primary-color;
+	
+	p {
+		color: text-color($primary-color);
+	}
+}
+.cc-signin {
+	background:$primary-color;
+	background: -webkit-radial-gradient(30% 50%, $primary-color, darken($primary-color, 25%)); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(30% 50%, $primary-color, darken($primary-color, 25%)); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(30% 50%, $primary-color, darken($primary-color, 25%)); /* For Firefox 3.6 to 15 */
+  background: radial-gradient(30% 50%, $primary-color, darken($primary-color, 25%)); /* Standard syntax */
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+	margin-bottom: 0 !important;
+}
+.form-signin {
+	color:text-color($primary-color);
+}
+/* TODO: Remove and restructure cloudcore themeable items. (This is a temp style.) */
+
+input[type="button"], input[type="submit"], button, #l_head, #l_foot, #l_favtitle, .tasklistitem, .popUpStructure, .uploadimage, #l_fav td, .toolitem {
+	background-color: $primary-color;
+}
+a {
+	 color:$primary-color;
+} 
+
+.infowebgrid .title {
+	color:$primary-color;
+} 
+#l_cro .title, .l_ft .title, #l_sb .title, .tool_heading {
+	color:$primary-color;
+} 
+
+.menuaccent {
+	color:$primary-color;
+}
+.sboptions div.sbitem:hover, #breadcrumbs .breadcrumb:hover {
+	color:$primary-color !important;
+}
+.cc-signin {
+	a{
+		color:text-color($primary-color);
+		&:hover {
+			color:#fff;
+		}
+		&:visited {
+			color:#efefef;
+		}
+		&:focus {
+			color:#ccc;
+		}
+		&:active {
+			color:#ccc;
+		}
+	}
+}
+.progress-loader-item {
+	color:$primary-color;
+}

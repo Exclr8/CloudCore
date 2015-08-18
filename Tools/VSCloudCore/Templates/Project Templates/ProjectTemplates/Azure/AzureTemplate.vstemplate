@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>Azure Project Template</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <ProjectType>CloudServiceProject</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>$safeprojectname$</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="$safeprojectname$.ccproj" File="AzureTemplate.ccproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="ServiceConfiguration.Cloud.cscfg">ServiceConfiguration.Cloud.cscfg</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ServiceConfiguration.Local.cscfg">ServiceConfiguration.Local.cscfg</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ServiceDefinition.csdef">ServiceDefinition.csdef</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>CloudCore.VSExtension.Wizards, Version=2015.5.14.1814, Culture=neutral, PublicKeyToken=e7a823e48f920dce</Assembly>
+    <FullClassName>CloudCore.VSExtension.Wizards.ICCSIAzureImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>

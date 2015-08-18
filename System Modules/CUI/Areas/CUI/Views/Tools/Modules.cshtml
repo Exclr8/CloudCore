@@ -1,0 +1,22 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Web.Models.InstalledSystemModulesModel>
+
+@{
+    ViewBag.Title = "Installed System Modules";
+}
+
+@(Html.InfoGrid(Model.InstalledSystemModules)
+.Columns(column =>
+{
+    column.For(item => item.AssemblyName)
+        .Visible(false);
+    column.For(item => Html.ActionLink(item.Assembly.FullName, "ModuleDetails", new { moduleIndex = item.ModuleIndex }))
+        .Named("Assembly Name")
+        .SortColumnName("AssemblyName")
+        .Sortable(true);
+    column.For(item => item.ModuleType);
+    column.For(item => item.UniqueModuleId.ToString()).Named("UID");
+    column.For(item => item.DefaultNamespace).Named("Default Namespace");
+})
+.Title("Listing of currently registered modules")
+)
+

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProductVersion>2.1</ProductVersion>
+        <ProjectGuid>$guid1$</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>$safeprojectname$</RootNamespace>
+        <AssemblyName>$safeprojectname$</AssemblyName>
+        <StartDevelopmentStorage>True</StartDevelopmentStorage>
+        <Name>$ProductName$</Name>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>    
+  <!-- Items for the project -->
+  <ItemGroup>
+    <ServiceDefinition Include="ServiceDefinition.csdef" />
+    <ServiceConfiguration Include="ServiceConfiguration.Local.cscfg" />
+    <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\$sitemodule.safeprojectname$\$sitemodule.safeprojectname$.csproj">
+      <Name>$sitemodule.safeprojectname$</Name>
+      <Project>{$sitemodule.guid$}</Project>
+      <Private>True</Private>
+      <RoleType>Web</RoleType>
+      <RoleName>$sitemodule.safeprojectname$</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+    <ProjectReference Include="..\$cacherole.safeprojectname$\$cacherole.safeprojectname$.csproj">
+        <Name>$cacherole.safeprojectname$</Name>
+        <Project>{$cacherole.guid$}</Project>
+        <Private>True</Private>
+        <RoleType>Worker</RoleType>
+        <RoleName>$cacherole.safeprojectname$</RoleName>
+        <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+    <ProjectReference Include="..\$virtualworker.safeprojectname$\$virtualworker.safeprojectname$.csproj">
+        <Name>$virtualworker.safeprojectname$</Name>
+        <Project>{$virtualworker.guid$}</Project>
+        <Private>True</Private>
+        <RoleType>Worker</RoleType>
+        <RoleName>$virtualworker.safeprojectname$</RoleName>
+        <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+  </ItemGroup>
+  <!-- Import the target files for this project template -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">11.0</VisualStudioVersion>
+    <CloudExtensionsDir Condition=" '$(CloudExtensionsDir)' == '' ">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Windows Azure Tools\2.1\</CloudExtensionsDir>
+  </PropertyGroup>
+  <Import Project="$(CloudExtensionsDir)Microsoft.WindowsAzure.targets" />
+  <Target Name="CopyWorkerRoleConfigurations" BeforeTargets="AfterPackageComputeService">
+    <Copy SourceFiles="..\$virtualworker.safeprojectname$\bin\$(Configuration)\$virtualworker.safeprojectname$.dll.config" DestinationFolder="$(IntermediateOutputPath)$virtualworker.safeprojectname$" OverwriteReadOnlyFiles="true" />
+  </Target>
+</Project>

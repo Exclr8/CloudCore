@@ -1,0 +1,24 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Web.Models.PersonalLoginHistorySearchModel>
+@{
+    ViewBag.Title = "Search Personal Login History";
+}
+
+@using (@Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddTitleHeaderRow("Search")
+        @FormLayout.AddDateTimePickerRowFor(m => m.StartDate)
+        @FormLayout.AddDateTimePickerRowFor(m => m.EndDate)
+ 
+    }
+    FormLayout.AddSubmitButtonWithBar("Search");     
+    @(Html.SearchGrid(Model.SearchResults)
+            .Title("Login History Search Results")
+            .EmptyTableItemName("Login History")
+            .Columns( column => {
+                column.For(result => result.Connected)
+                    .Named("Time");
+        })
+        )
+}

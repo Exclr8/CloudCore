@@ -1,0 +1,14 @@
+@inherits CloudCore.Web.Core.BaseViews.WorkItemView<CloudCore.WebModuleTest.Models._c9e8e0c2_06ef_4dc1_b51c_9ca6ad1c6d46Model>
+@{
+    ViewBag.Title = "My WorkItem Title";
+ }
+
+<div>
+    This is a test page for the test process. It does nothing except to finish the worklist item task/activity and flow on in the workflow process.
+</div>
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.InstanceId)
+}

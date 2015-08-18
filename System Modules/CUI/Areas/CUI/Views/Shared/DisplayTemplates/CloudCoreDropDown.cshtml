@@ -1,0 +1,7 @@
+﻿@model object
+@{
+    var list = Html.GetAutomatedList(m => m);
+    
+    var foundValue = (list == null ? null : list.SingleOrDefault(v => v.Value == (Model == null ? string.Empty : Model.ToString()))) ?? new SelectListItem() { Selected = true, Text = string.Empty, Value = null };
+}
+@foundValue.Text

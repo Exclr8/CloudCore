@@ -1,0 +1,29 @@
+﻿.header
+{
+    border: 1px solid;
+    border-radius: 8px 8px 0 0;
+    font-size: 14px;
+    padding: 5px 20px 3px;
+}
+
+.tab
+{
+    border: 1px solid;
+    height: 300px;
+    margin-left: 28px;
+    margin-top: -29px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    padding-top: 20px;
+    width: 513px;
+}
+
+.label.other
+{
+    width: 180px;
+}
+
+.label
+{
+    width: 100px;
+}

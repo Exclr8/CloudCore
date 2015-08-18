@@ -1,0 +1,10 @@
+﻿#popUpBody {
+    margin: 10px;
+    padding-top: 0;
+    /*line-height: 1;*/
+}
+
+#popUpBody #GridArea
+{
+    margin: 0px;
+}

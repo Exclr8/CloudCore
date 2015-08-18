@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
+  <WorkerRole name="Cache" vmsize="Small">
+    <Imports>
+      <Import moduleName="RemoteAccess" />
+      <Import moduleName="RemoteForwarder" />
+      <Import moduleName="Caching" />
+    </Imports>
+    <LocalResources>
+      <LocalStorage name="DiagnosticStore" sizeInMB="20000" cleanOnRoleRecycle="false" />
+    </LocalResources>
+  </WorkerRole>
+  <WebRole name="Site" vmsize="Small">
+    <Sites>
+      <Site name="Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="Endpoint1" />
+          <Binding name="HttpDashboardInternal" endpointName="HttpDashboardInternal" />
+        </Bindings>
+      </Site>
+    </Sites>
+    <Endpoints>
+      <InputEndpoint name="Endpoint1" protocol="http" port="80" localPort="80" />
+      <InternalEndpoint name="HttpDashboardInternal" protocol="http" />
+    </Endpoints>
+    <Imports>
+      <Import moduleName="RemoteAccess" />
+      <Import moduleName="Caching" />
+    </Imports>
+    <LocalResources>
+      <LocalStorage name="DiagnosticStore" sizeInMB="20000" cleanOnRoleRecycle="false" />
+    </LocalResources>
+    <ConfigurationSettings>
+      <Setting name="Offline" />
+      <Setting name="StorageConnectionString" />
+    </ConfigurationSettings>
+  </WebRole>
+  <WorkerRole name="VirtualWorker" vmsize="Small">
+    <Runtime executionContext="elevated" />
+    <Endpoints>
+      <InternalEndpoint name="highchartInternal" protocol="http" port="55256" />
+    </Endpoints>
+    <Imports>
+      <Import moduleName="RemoteAccess" />
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="StorageConnectionString" />
+    </ConfigurationSettings>
+  </WorkerRole>
+</ServiceDefinition>

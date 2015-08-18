@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "My Account: Personal Information";
+}
+
+@section Assets {
+
+}
+@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Web.Models.LoggedInUserModel>
+
+@using (Html.BeginForm("UpdatePersonalDetails", "Tools", FormMethod.Post, new { @encType = "multipart/form-data" }))
+{
+    using (FormLayout.BeginTable())
+    {
+    @FormLayout.AddTitleHeaderRow("Basic Information")
+    @FormLayout.AddTextboxRowFor(model => model.Initials)
+    @FormLayout.AddTextboxRowFor(model => model.FirstName)
+    @FormLayout.AddTextboxRowFor(model => model.Surname)
+        
+    @FormLayout.AddTitleHeaderRow("Contact Information")
+    @FormLayout.AddTextboxRowFor(model => model.CellNumber)
+    @FormLayout.AddTextboxRowFor(model => model.Email)
+
+    @FormLayout.AddTitleHeaderRow("Image")
+    @FormLayout.AddFileUploadRow("User Image", "userimage", 220, "jpg|jpeg|png|gif")
+    }
+    FormLayout.AddSubmitButtonWithBar("Save");
+
+    <button type="submit" class="btn btn-custom" value="test">Test</button>
+}

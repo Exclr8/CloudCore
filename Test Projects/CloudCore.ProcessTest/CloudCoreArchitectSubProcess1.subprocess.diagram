@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SubProcessDiagram dslVersion="1.0.0.0" Id="457c0893-63b8-4e5f-81f1-274e90159ed6" absoluteBounds="0, 0, 11, 8.5" diagramId="45e2a062-9031-4fbe-a05f-14d399f8a3fa" name="CloudCoreArchitectSubProcess1">
+  <BTProcessMoniker Id="7c293d3f-bad7-445d-8935-ea78a94421cd" />
+  <nestedChildShapes>
+    <sQLEventShape Id="43948511-23d6-4287-8c24-ac4c28eccb89" absoluteBounds="3, 1.5, 1.243, 0.84025">
+      <EventMoniker Id="31ba9bf0-6bdb-4850-9a92-f9b82ae1b008" />
+      <relativeChildShapes />
+    </sQLEventShape>
+    <stopShape Id="96402200-c2fc-4f12-8a74-715deb706595" absoluteBounds="9, 1.5, 0.83675, 0.83675">
+      <BTStopMoniker Id="05477667-9449-4ed3-b713-91d787f856b2" />
+    </stopShape>
+    <pageShape Id="bdb3f711-b40c-4b90-b78f-6f08c9654eb4" absoluteBounds="6, 1.5, 1.243, 0.84025">
+      <BTPageMoniker Id="c9e8e0c2-06ef-4dc1-b51c-9ca6ad1c6d46" />
+      <relativeChildShapes />
+    </pageShape>
+    <flowMinimalConnector Id="9d874eb1-d958-498d-a5d3-cd239bd39e77" edgePoints="[(4.243 : 1.920125); (6 : 1.920125)]" fixedFrom="NotFixed" fixedTo="NotFixed" color="Blue">
+      <flowMinimalMoniker Id="e8ea2bed-bfe8-4a45-8b36-c30703348b2a" />
+      <nodes>
+        <sQLEventShapeMoniker Id="43948511-23d6-4287-8c24-ac4c28eccb89" />
+        <pageShapeMoniker Id="bdb3f711-b40c-4b90-b78f-6f08c9654eb4" />
+      </nodes>
+    </flowMinimalConnector>
+    <flowMinimalConnector Id="39a7eb29-174b-456d-b556-e1ff6377f6df" edgePoints="[(7.243 : 1.920125); (7.618 : 1.920125); (7.618 : 1.918375); (9 : 1.918375)]" fixedFrom="NotFixed" fixedTo="NotFixed" color="Blue">
+      <flowMinimalMoniker Id="4cac9e22-77cd-4e25-8183-546e120fc049" />
+      <nodes>
+        <pageShapeMoniker Id="bdb3f711-b40c-4b90-b78f-6f08c9654eb4" />
+        <stopShapeMoniker Id="96402200-c2fc-4f12-8a74-715deb706595" />
+      </nodes>
+    </flowMinimalConnector>
+  </nestedChildShapes>
+</SubProcessDiagram>

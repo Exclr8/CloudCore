@@ -1,0 +1,31 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.PopupView<CloudCore.Web.Models.AvailableUsersDashboardItemsModel>
+@{
+    ViewBag.Title = "Select Dashboard Item";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.DashboardId)
+    @Html.HiddenFor(m => m.TilePosition)
+    @(Html.InfoGrid(Model.UserAvailableDashboardItems)
+        .Title("")
+            .EmptyTableItemName("No Available Dashboard Items Found")
+        .PageSize(20)
+        .Sort(null)
+        .Columns(column =>
+        {
+            column.For(r => Html.Raw(string.Format(@"<a class=""addItem"" data-val-dashboardId=""{1}"" style=""cursor:pointer;"">{0}</a>", r.Title, r.Id)));
+            column.For(r => r.Description);
+        })
+    )
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.addItem').on('click', function () {
+            $('#DashboardId').val($(this).attr('data-val-dashboardId'));
+            
+            $('form').submit();
+        });
+    });
+</script>

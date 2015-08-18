@@ -1,0 +1,18 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.SystemApplicationContext>
+@{
+    ViewBag.Title = "Delete System Application Details";
+}       
+
+@using (Html.BeginForm())
+{ 
+    using(FormLayout.BeginTable())
+    {
+        @Html.HiddenFor(m => m.ApplicationId);
+        @Html.HiddenFor(m => m.ApplicationName);
+        @Html.HiddenFor(m => m.CompanyName);
+        @Html.HiddenFor(m => m.ContactNumber);
+        @Html.HiddenFor(m => m.ContactPerson);
+        @FormLayout.AddStaticTextRow("Are you sure you want to delete this Application?"); 
+    }
+    FormLayout.AddSubmitButtonWithBar("Delete");    
+}  

@@ -1,0 +1,24 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.ScheduledTaskGroup.ScheduledTaskGroupSearchModel>
+@{
+    ViewBag.Title = "Search for Scheduled Task Groups";
+}
+@using (Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddFilterEditRowFor(m => m.Name, m => m.NameFilter)
+        @FormLayout.AddFilterEditRowFor(m => m.UserName, m => m.UserNameFilter)
+    }
+    FormLayout.AddSubmitButtonWithBar("Search");
+
+    
+    @(Html.SearchGrid(Model.SearchResults)
+            .Empty("No Records To Be Displayed")
+            .Columns(column =>
+            {
+                column.For(result => Html.ActionLink(result.Name, "Details", new { scheduledTaskGroupId = result.Id }));
+                column.For(result => result.ManagerName);
+            })
+                .Title("Scheduled Task Group Search Results")
+        )​
+}

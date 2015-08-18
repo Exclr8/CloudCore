@@ -1,0 +1,3 @@
+REM FOR /F "tokens=*" %%G IN ('..\.nuget\nuget list "CloudCore.Core"') DO if not "%%G" == "No packages found." ..\.nuget\nuget delete %%G "%1" -NoPrompt
+REM FOR /F "tokens=*" %%G IN ('..\.nuget\nuget list "CloudCore.Web"') DO if not "%%G" == "No packages found." ..\.nuget\nuget delete %%G "%1" -NoPrompt
+REM FOR /F "tokens=*" %%G IN ('..\.nuget\nuget list "CloudCore.Site"') DO if not "%%G" == "No packages found." ..\.nuget\nuget delete %%G "%1" -NoPrompt

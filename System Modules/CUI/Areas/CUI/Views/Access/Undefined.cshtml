@@ -1,0 +1,11 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Access Denied";
+}
+
+@using (Html.BeginForm())
+{  
+    <div>Access Denied - No permission set has been defined for this action.</div><br /><br />
+    <div>Code: @Model.Text</div>
+}

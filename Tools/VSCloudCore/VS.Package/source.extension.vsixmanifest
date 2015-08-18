@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="cd733063-7383-4175-a38b-283e39e02fcc" Version="2015.05.13.1014" Language="en-US" Publisher="Exclr8 Business Automation" />
+    <DisplayName>CloudCore Project Extension</DisplayName>
+    <Description>Contains all project templates and item templates required to create CloudCore projects</Description>
+    <MoreInfo>http://www.frameworkone.co.za</MoreInfo>
+    <Icon>Resources\cloudcore.ico</Icon>
+    <PreviewImage>Resources\cloudcore.ico</PreviewImage>
+  </Metadata>
+  <Installation AllUsers="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="11.0" />
+    <InstallationTarget Version="[12.0,13.0)" Id="Microsoft.VisualStudio.Pro" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="4.5" />
+    <Dependency Id="Microsoft.VisualStudio.MPF.11.0" DisplayName="Visual Studio MPF 11.0" d:Source="Installed" Version="11.0" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="Wizards" Path="|Wizards|" AssemblyName="|Wizards;AssemblyName|" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="ProjectTemplates" d:TargetPath="|ProjectTemplates;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+    <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="Project" d:ProjectName="ItemTemplates" d:TargetPath="|ItemTemplates;TemplateProjectOutputGroup|" Path="ItemTemplates" d:VsixSubPath="ItemTemplates" />
+  </Assets>
+</PackageManifest>

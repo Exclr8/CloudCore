@@ -1,0 +1,15 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.SystemValueCategoryCreateModel>
+@{
+    ViewBag.Title = "Add System Value Category";
+}
+
+@using (Html.BeginForm())
+{
+    
+    using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddTitleHeaderRow("System Value Category Details")
+        @FormLayout.AddTextboxRowFor(model => model.CategoryName)
+    }
+    FormLayout.AddSubmitButtonWithBar("Save");    
+}

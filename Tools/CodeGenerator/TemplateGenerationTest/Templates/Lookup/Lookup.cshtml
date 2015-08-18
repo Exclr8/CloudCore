@@ -1,0 +1,32 @@
+﻿ 
+
+
+@inherits CloudCore.Views.PopUpHelperViewPage<TemplateGenerationTest.Lookup>
+@{
+    ViewBag.Title = "The Title";
+ }
+ 
+@using CloudCore.Controls.UI.Grid;
+@using CloudCore.Extensions;
+
+@using (Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+              @FormLayout.AddFilterEditRowFor(m => m.InputColumn1, m => m.FilterOptions);
+@FormLayout.AddFilterEditRowFor(m => m.InputColumn2, m => m.FilterOptions);
+@FormLayout.AddFilterEditRowFor(m => m.InputColumn3, m => m.FilterOptions);
+        @FormLayout.AddSubmitRow("Search");
+    }
+    
+     @(Html.SearchGrid(@Model.DataSource)
+            .Columns(column =>
+            {
+                     column.For(result => Html.ActionLink(result.DisplayColumn1, "Remove", new { Id = result.Id })).Named("Display Column 1 ");
+column.For(result => result.DisplayColumn2).Named("Display Column 2");
+column.For(result => result.DisplayColumn3).Named("Display Column 3");
+column.For(result => result.DisplayColumn4).Named("Display Column 4");
+            }
+            ).Title("The title")
+       )
+}

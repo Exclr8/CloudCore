@@ -1,0 +1,11 @@
+--- CloudCore.Data.csproj
++++ CloudCore.Data.csproj
+@@ -126,6 +126,8 @@
+     <Compile Include="SystemApplication\GetApplicationActivitiesImpl.cs" />
+     <Compile Include="SystemApplication\SystemApplicationFindAll.cs" />
+     <Compile Include="SystemApplication\SystemApplicationInsert.cs" />
++    <Compile Include="SystemApplication\SystemApplicationUpdate.cs" />
++    <Compile Include="SystemApplication\SystemApplicationDelete.cs" />
+     <Compile Include="SystemModule\SystemModuleUploadImpl.cs" />
+     <Compile Include="SystemModule\SystemModuleFindAll.cs" />
+     <Compile Include="SystemValueCategory\SystemValueCategoryUpdate.cs" />

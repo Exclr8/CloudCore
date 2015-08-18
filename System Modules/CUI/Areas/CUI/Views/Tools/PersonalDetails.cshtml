@@ -1,0 +1,11 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Web.Models.LoggedInUserModel>
+@{
+    ViewBag.Title = "Personal Information";
+}
+<table style="width: 100%;">
+    <tr>
+        <td style="width: 200px;">
+            @Html.Image(Model.Image)
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,169 @@
+﻿<#@ template language="C#" hostspecific="True" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="CloudCore.VSExtension.Wizards" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
+<#@ Output Extension=".js" #>
+<# if (templateData.Type == DashboardTypeEnum.ColumnChart) { #>
+chart: {
+	{
+        type: 'column'
+    },
+    title: {
+        text: '<#= templateData.DashboardTitle #>'
+    },
+    subtitle: {
+        text: '<#= templateData.DashboardSubTitle #>'
+    },
+    xAxis: {
+        categories: []
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'yAxis Text'
+        }
+    },
+    tooltip: {
+        headerFormat: '<table>',
+        pointFormat: '',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+	series: //*seriesData*//
+}
+
+<#} else if (templateData.Type == DashboardTypeEnum.BarChart) {#>
+chart: {
+	{
+        type: 'bar'
+    },
+    title: {
+        text: '<#= templateData.DashboardTitle #>'
+    },
+    subtitle: {
+        text: '<#= templateData.DashboardSubTitle #>'
+    },
+    xAxis: {
+        categories: [],
+        title: {
+            text: ''
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: '',
+            align: 'high'
+        },
+        labels: {
+            overflow: 'justify'
+        }
+    },
+    tooltip: {
+        valueSuffix: ''
+    },
+    plotOptions: {
+        bar: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'top',
+        x: -40,
+        y: 100,
+        floating: true,
+        borderWidth: 1,
+        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+        shadow: true
+    },
+    credits: {
+        enabled: false
+    },
+	series: //*seriesData*//
+}
+<#} else if (templateData.Type == DashboardTypeEnum.LineChart) {#>
+chart: {
+	title: {
+        text: '<#= templateData.DashboardTitle #>',
+        x: -20 //center
+    },
+    subtitle: {
+        text: '<#= templateData.DashboardSubTitle #>',
+        x: -20
+    },
+    xAxis: {
+        categories: []
+    },
+    yAxis: {
+        title: {
+            text: ''
+        },
+        plotLines: [{
+            value: 0,
+            width: 1,
+            color: '#808080'
+        }]
+    },
+    tooltip: {
+        valueSuffix: ''
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle',
+        borderWidth: 0
+    },
+	series: //*seriesData*//
+}
+<# } else if (templateData.Type == DashboardTypeEnum.PieChart) {#>
+chart: {
+	{
+        plotBackgroundColor: null,
+        plotBorderWidth: 1,
+        plotShadow: false
+    },
+    title: {
+        text: '<#= templateData.DashboardTitle #>'
+    },
+    subtitle: {
+        text: '<#= templateData.DashboardSubTitle #>'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                style: {
+                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+            }
+        }
+    },
+	series: //*seriesData*//
+}
+<#} #>
+
+
+// Parameters ------------------------------------------------------------------------------
+//
+//  //*seriesData*// - Required, Result of GetKpiData will be added here
+//  //*UsersName*//  - Optional, Will be replaced with NFullName of logged in user
+//
+//------------------------------------------------------------------------------------------

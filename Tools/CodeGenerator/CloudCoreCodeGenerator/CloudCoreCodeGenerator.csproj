@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4AB936F4-0DAE-45C9-8272-F600748E5964}</ProjectGuid>
+    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FrameworkOne.CloudCoreCodeGenerator</RootNamespace>
+    <AssemblyName>CloudCoreCodeGenerator</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FrameworkOne.VS.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=35f031473b9522ef, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\FrameworkOne.VS.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.9.0" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.10.0" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.11.0">
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextManager.Interop" />
+    <Reference Include="Microsoft.VisualStudio.Shell.11.0" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Immutable.10.0" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Immutable.11.0" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="EnvDTE">
+      <Guid>{80CC9F66-E7D8-4DDD-85B6-D9E6CD0E93E2}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="EnvDTE100">
+      <Guid>{26AD1324-4B7C-44BC-84F8-B86AED45729F}</Guid>
+      <VersionMajor>10</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="EnvDTE80">
+      <Guid>{1A31287A-4D7D-413E-8E32-3B374931BD89}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="EnvDTE90">
+      <Guid>{2CE2370E-D744-4936-A090-3FFFE667B0E1}</Guid>
+      <VersionMajor>9</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.VisualStudio.CommandBars">
+      <Guid>{1CBA492E-7263-47BB-87FE-639000619B15}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CodeGenerators\Classes\CROGenerator.cs" />
+    <Compile Include="CodeGenerators\CROGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CROGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Data\BaseData.cs" />
+    <Compile Include="CodeGenerators\Data\CRO_Data.cs" />
+    <Compile Include="CodeGenerators\Data\DataStore.cs" />
+    <Compile Include="CodeGenerators\Data\IBaseData.cs" />
+    <Compile Include="CodeGenerators\Data\IClassData.cs" />
+    <Compile Include="CodeGenerators\Data\IDataColumn.cs" />
+    <Compile Include="CodeGenerators\Data\IQueryData.cs" />
+    <Compile Include="CodeGenerators\Helpers\DteHelper.cs" />
+    <Compile Include="CodeGenerators\Helpers\PagesGroups.cs" />
+    <Compile Include="CodeGenerators\Helpers\TransformHelper.cs" />
+    <Compile Include="CodeGenerators\Helpers\ValidationHelper.cs" />
+    <Compile Include="Controls\CROPropertyItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CROPropertyItem.Designer.cs">
+      <DependentUpon>CROPropertyItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\BaseFinishWizard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\BaseFinishWizard.Designer.cs">
+      <DependentUpon>BaseFinishWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\BaseGeneratorWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\BaseGeneratorWizard.Designer.cs">
+      <DependentUpon>BaseGeneratorWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\BasePropertiesPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\BasePropertiesPage.Designer.cs">
+      <DependentUpon>BasePropertiesPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CRO\CROFinish.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\CRO\CROFinish.Designer.cs">
+      <DependentUpon>CROFinish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CRO\CROPropertiesPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\CRO\CROPropertiesPage.Designer.cs">
+      <DependentUpon>CROPropertiesPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CRO\CROPropertiesPageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\CRO\CROPropertiesPageView.Designer.cs">
+      <DependentUpon>CROPropertiesPageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CRO\CROWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CRO\CROWizard.Designer.cs">
+      <DependentUpon>CROWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\General\ClassInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\General\ClassInformation.Designer.cs">
+      <DependentUpon>ClassInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\General\DbContextPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\General\DbContextPage.Designer.cs">
+      <DependentUpon>DbContextPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guids.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="CloudCoreCodeGeneratorPackage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PkgCmdID.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\CROPropertyItem.resx">
+      <DependentUpon>CROPropertyItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\BaseFinishWizard.resx">
+      <DependentUpon>BaseFinishWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\BasePropertiesPage.resx">
+      <DependentUpon>BasePropertiesPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CRO\CROFinish.resx">
+      <DependentUpon>CROFinish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CRO\CROPropertiesPage.resx">
+      <DependentUpon>CROPropertiesPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CRO\CROPropertiesPageView.resx">
+      <DependentUpon>CROPropertiesPageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CRO\CROWizard.resx">
+      <DependentUpon>CROWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\General\ClassInformation.resx">
+      <DependentUpon>ClassInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\General\DbContextPage.resx">
+      <DependentUpon>DbContextPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VSPackage.resx">
+      <MergeWithCTO>true</MergeWithCTO>
+      <ManifestResourceName>VSPackage</ManifestResourceName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CodeGenerators\CROGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CROGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="source.extension.vsixmanifest">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Key.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <VSCTCompile Include="CloudCoreCodeGenerator.vsct">
+      <ResourceName>Menus.ctmenu</ResourceName>
+    </VSCTCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Package.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <UseCodebase>true</UseCodebase>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

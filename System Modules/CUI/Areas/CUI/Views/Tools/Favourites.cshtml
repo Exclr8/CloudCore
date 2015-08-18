@@ -1,0 +1,15 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Web.Models.ViewFavouriteActionsModel>
+
+@{
+    ViewBag.Title = "Manage Favourites";
+
+    @(Html.InfoGrid(Model.Favourites)
+        .Columns(column =>
+        {
+            column.For(f => f.Title).Named("Title").Sortable(false);
+            column.For(item => Html.ActionLink("Remove", "RemoveFavourite", "Tools", new { Reference = item.Reference }, null)).Sortable(false);
+        }).Title("Favourites")
+    )
+//    FormLayout.AddPopupButtonWithBar("AddFavourite", "Add Favourite", 600, 400, Url.Action("SearchFavourite", "CUIPopup", null), "Add Favourite");
+}
+    

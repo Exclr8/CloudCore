@@ -1,0 +1,12 @@
+﻿<Window x:Class="ProcessViewer.ProcessViewerDialog"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:res="clr-namespace:ProcessViewer.Resources" xmlns:View="clr-namespace:ProcessViewer.View" Icon="Resources/Images/BIcon.png"
+  Title="{x:Static res:Strings.ProcessViewerDialogTitle}"
+  ShowInTaskbar="True"
+  Width="600" Height="400"
+  WindowStartupLocation="CenterScreen"
+  WindowStyle="ToolWindow"
+  >
+    <View:ProcessViewerWizardView Loaded="ProcessViewerWizardView_Loaded" />
+</Window>

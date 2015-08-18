@@ -1,0 +1,15 @@
+﻿<#@ assembly name="$(ProjectDir)bin\TemplateGenerationTest.dll" #>
+<#@ import namespace="TestGenerationTest.TemplateGenerationModels" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<#+ void WriteProperties(IEnumerable<PropertyItem> properties)
+{
+
+ foreach(var property in properties)
+{#>
+		[Display(Name="<#= property.DisplayName#>")]
+		public <#= property.PropertyType.ToString()#> <#= property.PropertyName#> { get; set; }
+
+<#+}
+}
+#>

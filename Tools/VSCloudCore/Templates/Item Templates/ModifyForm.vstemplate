@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>CloudCore Modify/Update Form</Name>
+    <Description>Template for a Modify/Update form</Description>
+    <Icon>ModifyForm.ico</Icon>
+    <TemplateID>CloudCore.Form.Modify</TemplateID>
+      <TemplateGroupID>CloudCore</TemplateGroupID>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <DefaultName>ModifyForm</DefaultName>
+  </TemplateData>
+  <TemplateContent>  
+      <ProjectItem ReplaceParameters="true" TargetFileName="Models\$ContextName$\Modify.cs">ItemTemplates\Modify\Model.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Controllers\$ContextName$\Modify.cs">ItemTemplates\Modify\Controller.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Views\$ContextName$\Modify.cshtml">ItemTemplates\Modify\View.tt</ProjectItem>
+  </TemplateContent>
+    <WizardExtension>
+        <Assembly>CloudCore.VSExtension.Wizards, Version=2015.5.14.1814, Culture=neutral, PublicKeyToken=e7a823e48f920dce</Assembly>
+        <FullClassName>CloudCore.VSExtension.Wizards.T4ModifyFormWizard</FullClassName>
+    </WizardExtension>
+</VSTemplate>          

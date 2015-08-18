@@ -1,0 +1,21 @@
+﻿@model CloudCore.Web.Models.SystemAdminModel
+
+@{
+    ViewBag.Title = "System Administration";
+}
+
+<div id="content-area" class="col-lg-12 col-md-12">
+
+    @foreach (var folder in Model.Folders)
+    {
+        <h4 class="page-header">@folder.Title</h4>
+        <div class="settings-items-container">
+            @foreach (var page in folder.ChildSubMenuItems)
+            {
+                <a class="settings-item" href="@UrlHelper.GenerateContentUrl(page.Path, Context)">
+                    <h5 class="settings-item-title">@page.Title <span class="glyphicon glyphicon-cog pull-right"></span></h5>
+                </a>
+            }
+        </div>
+    }
+</div>

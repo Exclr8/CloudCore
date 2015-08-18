@@ -1,0 +1,107 @@
+﻿input[type="button"], input[type="submit"], button
+{
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    color: #ffffff;
+    padding: 10px 20px;
+}
+
+input[type="button"]:active , input[type="submit"]:active , button:active 
+{
+    position:relative;
+    top:1px;
+}
+
+/* textboxes */
+
+input[type="text"], input[type="password"], input[type="file"]
+{
+    width:220px;
+}
+
+input[type="text"], input[type="password"], input[type="file"], textarea
+{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #b4bbcd;
+    padding: 4px;
+    font-size: 12px;
+}
+
+input[disabled="disabled"]
+{
+    color: #afafaf;
+}
+
+input[readonly]
+{
+    color: #afafaf;
+}
+
+.filterEdit > .form-control {
+    -ms-border-radius: 0;
+    border-radius: 0;
+    display: inline-block;
+    height: 27px;
+    padding: 0 5px;
+    vertical-align: bottom;
+    width: 100px;
+}
+
+.filterEdit > Input
+{
+    margin-left: 5px;
+}
+
+.roundedButton 
+{
+    background-image: url(../../../asset/Get?file=/layout/button_bg.png&resourceArea=CUI);
+    background-repeat: repeat-x;
+    cursor: pointer;
+    padding: 7px 20px;
+    text-transform: capitalize;
+    text-decoration: none;
+    height: 30px;
+}
+
+.singleHiddenCheckBox{display: none;}
+
+
+
+
+/* LOGO */
+
+.beta {
+	position:absolute;
+	top:0px;
+	right:0px;
+	height:40px;
+	width:40px;
+	background:url(images/img_beta.png) left top no-repeat;
+}
+
+
+
+.lookupDisplayDiv {
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #b4bbcd;
+    float: left;
+    font-size: 12px;
+    height: 15px;
+    margin-top: 5px;
+    padding: 5px;
+    width: 218px;
+    color: #7F7F7F;
+}
+
+.lookupButton {
+    height: 27px !Important;
+    width: 26px;
+    margin: 5px 6px !important;
+    background: url(../../../asset/Get?file=/controls/Search.png&resourceArea=CUI) no-repeat;
+    background-color: transparent !important;
+}
+
+.loadingImg {
+    position: absolute;
+}

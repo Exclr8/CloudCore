@@ -1,0 +1,75 @@
+﻿@using System.Web
+@using System.Web.Optimization
+@inherits CloudCore.Web.Core.BaseViews.Master.CROMaster<dynamic>        
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <!-- Framework Assets -->    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Assets/Scripts/Bootstrap/bootstrap")
+    @Styles.Render("~/Content/Core")
+    @Styles.Render("~/Content/Internal")
+    @Styles.Render("~/Content/Page")
+    
+    @Html.InternalFrameworkAssets()
+    
+    @RenderSection("Assets", false)
+    @Html.Partial("IE9GradientFix")
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+
+    <script type="text/javascript">
+            $(document).ready(function () {
+                initialiseDisableSubmit('@VirtualPathUtility.ToAbsolute("~")');
+        });
+    </script>
+</head>
+
+<body>
+    @if (IsSectionDefined("Navigation"))
+    {
+        <div class="message-overlay"></div>
+        @Html.Partial("~/Areas/CUI/Views/Shared/_ModalPopUp.cshtml")
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                @RenderSection("Navigation", false)
+            </div>
+            <div class="sub-menu-container">
+                @RenderSection("SubNavigationSearch", false)
+                @RenderSection("SubNavigation", false)
+            </div>
+        </nav>
+    }
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 main">
+                <div class="container-fluid">
+                    @if (!string.IsNullOrEmpty(ViewBag.Title))
+                    {
+                        <h3 class="page-header">@ViewBag.Title</h3>
+                    }
+
+                    @if (IsSectionDefined("CachedReusableObjects"))
+                    {
+                        <div class="row">
+                            @RenderSection("CachedReusableObjects", false)
+                        </div>
+                    }
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (IsSectionDefined("Footer"))
+    {
+        <footer id="footer" class="footer">
+            @RenderSection("Footer", false)
+        </footer>
+    }
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

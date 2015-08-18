@@ -1,0 +1,38 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.AccessPoolContextModel>
+
+@{
+    ViewBag.Title = "Update Access Pool";
+}
+
+<script type="text/javascript">
+    function htmlEncode(value) {
+        return $('<div/>').text(value).html();
+    }
+
+    function UpdateUserLookupValues(userId, fullName) {
+        var encodedFullName = htmlEncode(fullName);
+        $("#ManagerUserId").val(userId);
+        $("#ManagerName").val(encodedFullName);
+    }
+</script>
+
+
+@using (Html.BeginForm())
+{ 
+    @Html.HiddenFor(field => field.AccessPoolId)
+        
+    using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddTextboxRowFor(model => model.AccessPoolName)
+        @FormLayout.AddLookupFor(lookup => lookup.ManagerUserId, lookupValue => lookupValue.ManagerName, "User Lookup", Url.Action("UserLookup", "AdminPopup"), true)
+@*        @FormLayout.AddLookupFor(lookup => lookup.ManagerUserId, *@
+@*                                    lookupValue => lookupValue.ManagerName, *@
+@*                                    "UserLookup",*@
+@*                                    "User Lookup",*@
+@*                                    640,*@
+@*                                    480,*@
+@*                                    Url.Action("UserLookup","AdminPopup"))*@
+
+    }
+    FormLayout.AddSubmitButtonWithBar("Save");    
+}

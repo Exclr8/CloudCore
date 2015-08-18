@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <version>$version$</version>
+    <authors>Exclr8 Business Automation</authors>
+    <owners>Exclr8</owners>
+    <projectUrl>http://www.exclr8.co.za</projectUrl>
+    <iconUrl>http://www.exclr8.co.za/resources/cloudcore.png</iconUrl>
+    <id>CloudCore.Core</id>
+    <title>CloudCore Core</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The core modules required to build CloudCore-based system.</description>
+    <copyright>2015</copyright>
+    <language>en-ZA</language>
+    <dependencies>
+      <dependency id="Microsoft.Data.Edm" version="5.6.4" xmlns="" />
+      <dependency id="Microsoft.Data.OData" version="5.6.4" xmlns="" />
+      <dependency id="Microsoft.WindowsAzure.Caching" version="2.6.0.0" xmlns="" />
+      <dependency id="Microsoft.WindowsAzure.ConfigurationManager" version="3.1.0" xmlns="" />
+      <dependency id="Newtonsoft.Json" version="6.0.8" xmlns="" />
+      <dependency id="System.Spatial" version="5.6.4" xmlns="" />
+      <dependency id="Unity" version="3.5.1404.0" xmlns="" />
+      <dependency id="WindowsAzure.Storage" version="4.3.0" xmlns="" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="lib\net45\CloudCore.Core.dll" target="lib\net45" />
+    <file src="lib\net45\CloudCore.Core.pdb" target="lib\net45" />
+    <file src="lib\net45\CloudCore.Core.Data.dll" target="lib\net45" />
+    <file src="lib\net45\CloudCore.Core.Data.pdb" target="lib\net45" />
+    <file src="lib\net45\CloudCoreDB.dll" target="database" />
+    <file src="lib\net45\CloudCoreDB.dacpac" target="database" />
+    <file src="lib\net45\CloudCoreDB.publish.sql" target="database" />
+    <file src="lib\net45\CloudCore.VSExtension.vsix" target="extensions" />
+    <file src="lib\net45\Architect.DslPackage.vsix" target="extensions" />
+    <file src="lib\net45\Architect.ScheduledTasks.DslPackage.vsix" target="extensions" />
+    <file src="lib\net45\Architect.ProcessOverview.DslPackage.vsix" target="extensions" />
+  </files>
+</package>

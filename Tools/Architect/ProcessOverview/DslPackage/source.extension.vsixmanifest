@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
+  <Identifier Id="a82781ab-ef77-4e96-834c-3caea8e141c1">
+    <Name>CloudCore - Architect Process Overview Designer</Name>
+    <Author>Framework One</Author>
+    <Version>2015.05.13.1014</Version>
+    <Description>CloudCore architect process overview designer</Description>
+	<InstalledByMsi>false</InstalledByMsi>
+    <Locale>1033</Locale>
+    <MoreInfoUrl></MoreInfoUrl>
+    <GettingStartedGuide></GettingStartedGuide>
+    <Icon>Resources\File.ico</Icon>
+    <PreviewImage>Resources\File.ico</PreviewImage>
+    <SupportedProducts>
+      <VisualStudio Version="11.0">
+        <Edition>Ultimate</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Pro</Edition>
+      </VisualStudio>
+        <VisualStudio Version="12.0">
+            <Edition>Ultimate</Edition>
+            <Edition>Premium</Edition>
+            <Edition>Pro</Edition>
+        </VisualStudio>
+    </SupportedProducts>
+    <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.0" />
+  </Identifier>
+  <References/>
+  <Content>
+    <VsPackage>|%CurrentProject%;PkgdefProjectOutputGroup|</VsPackage>
+    <MefComponent>Architect.ProcessOverview.Dsl.dll</MefComponent>
+    <MefComponent>|%CurrentProject%|</MefComponent>
+    <ItemTemplate>ItemTemplates</ItemTemplate>
+    <MefComponent>Architect.ProcessOverview.ModelBusAdapter.dll</MefComponent>
+  </Content>
+</Vsix>

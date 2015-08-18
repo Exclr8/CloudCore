@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{15BA3625-9078-4CE4-A2BD-DC498CB793F5}</ProjectGuid>
+    <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CloudCore.Admin</RootNamespace>
+    <AssemblyName>CloudCore.Admin</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <MvcBuildViews>true</MvcBuildViews>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\Shared Files\cloudcore.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Shared Files\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Areas\Admin\Controllers\AccessPoolController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ActivityController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PagesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminPopupController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ScheduledTaskController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ScheduledTaskGroupController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SystemApplicationController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SystemValuesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\WorkflowToolsController.cs" />
+    <Compile Include="Areas\Admin\Models\AccessPoolLookupModel.cs" />
+    <Compile Include="Areas\Admin\Models\AccessPool\AccessPoolItem.cs" />
+    <Compile Include="Areas\Admin\Models\AccessPool\AccessPoolSearchModel.cs" />
+    <Compile Include="Areas\Admin\Models\AccessPool\AccessPoolMember.cs" />
+    <Compile Include="Areas\Admin\Models\AccessPool\AccessPoolUserSearch.cs" />
+    <Compile Include="Areas\Admin\Models\ActivityLookupModel.cs" />
+    <Compile Include="Areas\Admin\Models\Activity\ActivitySearchModel.cs" />
+    <Compile Include="Areas\Admin\Models\Activity\ActivityDetailsModel.cs" />
+    <Compile Include="Areas\Admin\Models\Activity\ActivityAccessPoolAllocationModel.cs" />
+    <Compile Include="Areas\Admin\Models\Activity\ActivityAutomatedRetriesModel.cs" />
+    <Compile Include="Areas\Admin\Models\AdminPopup\WorkListFailureReasonModel.cs" />
+    <Compile Include="Areas\Admin\Models\FailedActivityModel.cs" />
+    <Compile Include="Areas\Admin\Models\ScheduledTaskGroup\ScheduledTaskGroupModifyModel.cs" />
+    <Compile Include="Areas\Admin\Models\ScheduledTaskGroup\ScheduledTaskGroupSearchModel.cs" />
+    <Compile Include="Areas\Admin\Models\ScheduledTaskModelEnableDisable.cs" />
+    <Compile Include="Areas\Admin\Models\SystemApplicationActivitiesModel.cs" />
+    <Compile Include="Areas\Admin\Models\SystemApplicationActivity.cs" />
+    <Compile Include="Areas\Admin\Models\FailedActivitiesModel.cs" />
+    <Compile Include="Areas\Admin\Models\PageAccessPoolLookupModel.cs" />
+    <Compile Include="Areas\Admin\Models\PagesModel.cs" />
+    <Compile Include="Areas\Admin\Models\PagesSearchItemModel.cs" />
+    <Compile Include="Areas\Admin\Models\PagesSearchModel.cs" />
+    <Compile Include="Areas\Admin\Models\PageWithoutRightsModel.cs" />
+    <Compile Include="Areas\Admin\Models\ReferenceTypes.cs" />
+    <Compile Include="Areas\Admin\Models\ScheduledTaskModel.cs" />
+    <Compile Include="Areas\Admin\Models\ScheduledTaskSearchItemModel.cs" />
+    <Compile Include="Areas\Admin\Models\ScheduledTaskSearchModel.cs" />
+    <Compile Include="Areas\Admin\Models\SystemApplicationSearchModel.cs" />
+    <Compile Include="Areas\Admin\Models\SystemCategoryCreateModel.cs" />
+    <Compile Include="Areas\Admin\Models\SystemCategoryDetailsModel.cs" />
+    <Compile Include="Areas\Admin\Models\SystemCategoryModel.cs" />
+    <Compile Include="Areas\Admin\Models\SystemCategorySearchModel.cs" />
+    <Compile Include="Areas\Admin\Models\SystemValueCreateModel.cs" />
+    <Compile Include="Areas\Admin\Models\SystemValueDetailModel.cs" />
+    <Compile Include="Areas\Admin\Models\SystemValueUpdateModel.cs" />
+    <Compile Include="Areas\Admin\Models\User\UserSearchModel.cs" />
+    <Compile Include="Areas\Admin\Models\WorkListItemModel.cs" />
+    <Compile Include="Areas\Admin\Models\WorklistSearchItemModel.cs" />
+    <Compile Include="Areas\Admin\Models\WorklistSearchModel.cs" />
+    <Compile Include="AdminConfiguration.cs" />
+    <Compile Include="Classes\CachedReusableObjects\ScheduledGroupCachedReusableObject.cs" />
+    <Compile Include="Classes\CachedReusableObjects\SystemApplicationCachedReusableObject.cs" />
+    <Compile Include="Classes\CachedReusableObjects\SystemCategoryCachedReusableObject.cs" />
+    <Compile Include="Classes\CachedReusableObjects\SystemValueCachedReusableObject.cs" />
+    <Compile Include="Classes\DashboardObjects\UserSearchDBO.cs" />
+    <Compile Include="Areas\Admin\Models\AccessPool\AccessPoolContextModel.cs" />
+    <Compile Include="Classes\FormObjects\ActivityForm.cs" />
+    <Compile Include="Classes\FormObjects\ScheduledTaskGroupForm.cs" />
+    <Compile Include="Classes\FormObjects\SystemPageContext.cs" />
+    <Compile Include="Classes\FormObjects\ProcessForm.cs" />
+    <Compile Include="Classes\FormObjects\ScheduledTaskForm.cs" />
+    <Compile Include="Classes\FormObjects\SubProcessForm.cs" />
+    <Compile Include="Classes\FormObjects\SystemApplicationForm.cs" />
+    <Compile Include="Classes\FormObjects\SystemCategoryForm.cs" />
+    <Compile Include="Classes\FormObjects\SystemValueForm.cs" />
+    <Compile Include="Areas\Admin\Models\User\UserContextModel.cs" />
+    <Compile Include="Classes\FormObjects\WorkListItemForm.cs" />
+    <Compile Include="Classes\CachedReusableObjects\AccessPoolCachedReusableObject.cs" />
+    <Compile Include="Classes\CachedReusableObjects\ActivityCachedReusableObject.cs" />
+    <Compile Include="Classes\CachedReusableObjects\PagesCachedReusableObject.cs" />
+    <Compile Include="Classes\CachedReusableObjects\ProcessCachedReusableObject.cs" />
+    <Compile Include="Classes\CachedReusableObjects\ScheduledTaskCachedReusableObject.cs" />
+    <Compile Include="Classes\CachedReusableObjects\SubProcessCachedReusableObject.cs" />
+    <Compile Include="Classes\CachedReusableObjects\UserCachedReusableObject.cs" />
+    <Compile Include="Classes\CachedReusableObjects\WorkListItemCachedReusableObject.cs" />
+    <Compile Include="Areas\Admin\CRO\UserCachedReusableObject.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterModule.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\User\Search.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\User\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\User\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPopup\AddAccessPoolUser.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPopup\AccessPoolLookup.cshtml" />
+    <Content Include="Areas\Admin\Views\User\UserAccessStatus.cshtml" />
+    <Content Include="Areas\Admin\Views\ScheduledTask\Search.cshtml" />
+    <Content Include="Areas\Admin\Views\ScheduledTask\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ScheduledTask\Modify.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPopup\UserLookup.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Search.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPopup\PageAccessPoolLookup.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\ShowWithoutRights.cshtml" />
+    <Content Include="Areas\Admin\Views\WorkflowTools\FailedActivities.cshtml" />
+    <Content Include="Areas\Admin\Views\WorkflowTools\FindWorklistItem.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPopup\FailedInstanceInfo.cshtml" />
+    <Content Include="Areas\Admin\Views\WorkflowTools\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\WorkflowTools\ChangeUser.cshtml" />
+    <Content Include="Areas\Admin\Views\WorkflowTools\ChangePriority.cshtml" />
+    <Content Include="Areas\Admin\Views\WorkflowTools\CancelItem.cshtml" />
+    <Content Include="Areas\Admin\Views\WorkflowTools\ReleaseItem.cshtml" />
+    <Content Include="Areas\Admin\Views\WorkflowTools\ChangeDueDate.cshtml" />
+    <Content Include="Areas\Admin\Views\SystemApplication\CreateApplication.cshtml" />
+    <Content Include="Areas\Admin\Views\SystemApplication\FindApplication.cshtml" />
+    <Content Include="Areas\Admin\Views\SystemApplication\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPopup\ActivityLookup.cshtml" />
+    <Content Include="Areas\Admin\Views\SystemApplication\ModifyApplication.cshtml" />
+    <Content Include="Areas\Admin\Views\SystemApplication\DeleteApplication.cshtml" />
+    <Content Include="Areas\Admin\Views\SystemValues\Search.cshtml" />
+    <Content Include="Areas\Admin\Views\SystemValues\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SystemValues\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\SystemValues\AddSystemValue.cshtml" />
+    <Content Include="Areas\Admin\Views\SystemValues\ModifySystemValue.cshtml" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\Shared Files\cloudcore.snk">
+      <Link>cloudcore.snk</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ScheduledTaskGroup\Search.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ScheduledTaskGroup\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\ScheduledTaskGroup\Modify.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\AdminPopup\ManagerLookup.cshtml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\User\UserResetPassword.cshtml" />
+    <Content Include="Areas\Admin\Views\Activity\Search.cshtml" />
+    <Content Include="Areas\Admin\Views\Activity\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Activity\AccessPoolAllocation.cshtml" />
+    <Content Include="Areas\Admin\Views\Activity\AutomatedRetries.cshtml" />
+    <Content Include="Areas\Admin\Views\AccessPool\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AccessPool\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AccessPool\Modify.cshtml" />
+    <Content Include="Areas\Admin\Views\AccessPool\Search.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core Libraries\CloudCore.Core\CloudCore.Core.csproj">
+      <Project>{c9d0d0dd-1bc4-4de6-96ee-730bbab6b467}</Project>
+      <Name>CloudCore.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core Libraries\CloudCore.Web.Core\CloudCore.Web.Core.csproj">
+      <Project>{477ac7f0-9779-4607-a255-1889e6a74b0b}</Project>
+      <Name>CloudCore.Web.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataLayer\Data\CloudCore.Data.csproj">
+      <Project>{246E33E8-86A8-4E21-A966-9387D3563B4D}</Project>
+      <Name>CloudCore.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'SqlExpress|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'SqlExpress|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="BeforeBuild">
+    <ItemGroup>
+      <EmbeddedResource Include="**\*.ico;**\*.aspx;**\*.ascx;**\*.png;**\*.css;**\*.js;**\*.gif;**\*.ashx;**\*.jpg;**\*.resx;**\*.xml;**\*.btomic;**\*.sql;**\*.asmx;**\*.cshtml;**\*.config" />
+    </ItemGroup>
+  </Target>
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349C5851-65DF-11DA-9384-00065B846F21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>30531</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:30531/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Label="SlowCheetah">
+    <SlowCheetahToolsPath>$([System.IO.Path]::GetFullPath( $(MSBuildProjectDirectory)\..\..\packages\SlowCheetah.2.5.12\tools\))</SlowCheetahToolsPath>
+    <SlowCheetah_EnableImportFromNuGet Condition=" '$(SlowCheetah_EnableImportFromNuGet)'=='' ">true</SlowCheetah_EnableImportFromNuGet>
+    <SlowCheetah_NuGetImportPath Condition=" '$(SlowCheetah_NuGetImportPath)'=='' ">$([System.IO.Path]::GetFullPath( $(MSBuildProjectDirectory)\Properties\SlowCheetah\SlowCheetah.Transforms.targets ))</SlowCheetah_NuGetImportPath>
+    <SlowCheetahTargets Condition=" '$(SlowCheetah_EnableImportFromNuGet)'=='true' and Exists('$(SlowCheetah_NuGetImportPath)') ">$(SlowCheetah_NuGetImportPath)</SlowCheetahTargets>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="$(SlowCheetahTargets)" Condition="Exists('$(SlowCheetahTargets)')" Label="SlowCheetah" />
+</Project>

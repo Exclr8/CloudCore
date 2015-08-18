@@ -1,0 +1,19 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.ScheduledTaskGroup.ScheduledTaskGroupModifyModel>
+
+@{
+    ViewBag.Title = "Modify Details";
+}
+
+
+@using (Html.BeginForm())
+{
+
+    using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddTitleHeaderRow("Scheduled Task Group Information")
+        @FormLayout.AddTextboxRowFor(model => model.ScheduledTaskGroupName)
+        @FormLayout.AddLookupFor(l => l.UserId, p => p.UserName, "User Lookup", Url.Action("UserLookup", "AdminPopup"), true)
+        @Html.HiddenFor(model => model.ScheduledTaskGroupId)
+    }
+    FormLayout.AddSubmitButtonWithBar("Save");
+}

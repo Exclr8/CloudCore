@@ -1,0 +1,30 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Web.Models.GlobalLoginHistorySearchModel>
+
+@{
+    ViewBag.Title = "Search Global Login History";
+}
+
+@using (Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    { 
+        @FormLayout.AddTitleHeaderRow("Search")
+        @FormLayout.AddFilterEditRowFor(model => model.UserFullName, model => model.FilterOptions, new { id = "userFullName" }, new { id = "userFullNameSearch" })
+
+        @FormLayout.AddDateTimePickerRowFor(model => model.StartDate)
+        @FormLayout.AddDateTimePickerRowFor(model => model.EndDate)
+    }
+    
+    FormLayout.AddSubmitButtonWithBar("Search");    
+    @(Html.SearchGrid(Model.SearchResults)
+        .Title("Login History Results")
+        .EmptyTableItemName("Login History")
+        .PageSize(20)
+        .Columns(column =>
+        {
+            column.For(r => r.UserFullName).Named("User Name");
+            column.For(r => r.Login).Named("Login");
+            column.For(r => r.DateTimeLoggedIn).Named("Time");
+        })
+    )
+}

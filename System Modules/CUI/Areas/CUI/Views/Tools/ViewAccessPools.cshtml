@@ -1,0 +1,12 @@
+﻿@using CloudCore.Web.Core.BaseViews;
+@using CloudCore.Web.Core.Razor.Extensions;
+@inherits WebView<CloudCore.Web.Models.PersonalDetailsModel>
+
+@(Html.InfoGrid(Model.AccessPools)
+    .Empty("There are currently no user access pools to display")
+    .Columns(column =>
+    {
+        column.For(userpool => userpool.AccessPoolName);
+        column.For(userpool => userpool.ManagerName);
+    })
+)

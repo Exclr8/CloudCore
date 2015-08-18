@@ -1,0 +1,53 @@
+﻿@using CloudCore.Web.Models
+@model TaskListModel
+
+@section Sidebar
+{
+    @Html.Action("RenderTaskListSidebar")
+}
+
+@section Searchbar
+{
+    @Html.Action("RenderTaskListSearchBar")
+}
+
+<div id="@TaskListModel.ContentPlaceHolderName"></div>
+
+<div class="progress-loader-item" id="loaderGlyph" style="display: none">
+    <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+</div>
+
+<script type="text/javascript">
+    function clearPlaceHolderContent() {
+        $("#@(TaskListModel.ContentPlaceHolderName)").empty();
+    }
+
+    function setActiveItem(modelTitle, elementName, listType, isStandardQuery) {
+        //Set hidden item
+        $("#listType").val(listType);
+        $("#activeTab").val(elementName);
+        $("#isStandard").val(isStandardQuery);
+        $("#activeTabTitle").html(modelTitle);
+
+        //Set active class on li element
+        $("ul.nav-sidebar > li").removeClass("active");
+        getParentListItemElement($("#" + elementName)).addClass("active");
+    }   
+
+    function getParentListItemElement(element) {
+        var listItemElement = element.parent();
+        if (!listItemElement.is("li"))
+            throw new TypeError("For this function to work the child element must be contained in a li element.");
+
+        return listItemElement;
+    }
+
+    function onDocumentReadyLoadActiveSidebarTab() {
+        var activeTab = "@(Model.ActiveSidebarTab)";
+        $("#" + activeTab).click();
+    }
+
+    (function () {
+        onDocumentReadyLoadActiveSidebarTab();
+    })();
+</script>

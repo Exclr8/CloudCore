@@ -1,0 +1,53 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="CloudCore.VSExtension.Wizards" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+@inherits CloudCore.Web.Core.BaseViews.WebView<$rootnamespace$.Models.<#= templateData.ContextName #>SearchModel>
+@{
+    ViewBag.Title = "<#= templateData.PageTitle #>";
+}              
+
+@using CloudCore.Extensions
+@using CloudCore.Controls.UI.Grid
+
+@using (Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+              <#
+              foreach(var column in templateData.Columns)
+              {
+			     if (column.AddAsFilter)
+				 {
+                     WriteLine(@"@FormLayout.AddFilterEditRowFor(m => m.{0}, m => m.{0}Filter);", column.ColumnName);
+			     }
+              }
+              #>
+        @FormLayout.AddSubmitRow("Search");
+    }
+    
+     @(Html.SearchGrid(@Model.SearchResults)
+            .Columns(column =>
+            {
+                     <#
+                     foreach(var column in templateData.Columns)
+                     {
+					    if (column.AddToGrid)
+						{
+                           if(column.IsPrimaryDisplay)
+                           {
+						     WriteLine(@"column.For(item => Html.ActionLink(item.{0}, ""Details"", new {{ {1} = item.{1} }})).Named(""{2}"");", templateData.PrimaryDisplay.ColumnName, templateData.PrimaryKey.ColumnName, templateData.PrimaryDisplay.DisplayName);
+                           }
+                           else
+                           {
+                             WriteLine(@"column.For(item => item.{0}).Named(""{1}"");", column.ColumnName, column.DisplayName);
+                           }
+						}
+                     }
+                     #>
+            }
+            ).Title("<#= templateData.Title #>")
+       )
+}

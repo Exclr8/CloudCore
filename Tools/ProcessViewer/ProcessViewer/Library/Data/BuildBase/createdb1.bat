@@ -1,0 +1,1 @@
+sqlmetal /server:. /namespace:ProcessViewer.Data1 /database:CloudCoreDB /code:"%~dp0\ProcessViewerDbBase1.cs" /views /functions /sprocs /language:c# /context:CloudCoreDB

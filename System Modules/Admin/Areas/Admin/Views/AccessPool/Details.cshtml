@@ -1,0 +1,28 @@
+﻿@using CloudCore.Web.Core.BaseViews;
+@using System.Web.Mvc.Html;
+@using CloudCore.Admin.Models;
+@using CloudCore.Web.Core.Razor.Extensions;
+@inherits  WebView<AccessPoolContextModel>
+
+@{
+
+    ViewBag.Title = "Access Pool Details";
+
+    @Html.HiddenFor(m => m.AccessPoolId)
+    @Html.HiddenFor(m => m.ManagerUserId)
+    
+    @(Html.InfoGrid(Model.Members)
+    .EmptyTableItemName("User")
+    .Columns(column =>
+        {
+            column.For(col => col.Fullname).Named("Name");
+            column.For(col => col.Email);
+            column.For(item => Html.ActionLink("Remove", "Remove", "AccessPool", new { userId = item.UserId, accessPoolId = Model.AccessPoolId }, null));
+        })
+        .Title("Users in this Access Pool")
+          )
+    FormLayout.AddPopupButtonWithBar("Add User", Url.Action("AddAccessPoolUser", "AdminPopup", new { accessPoolId = Model.AccessPoolId, userId = Model.ManagerUserId }));
+//    FormLayout.AddPopupButtonWithBar("AddUserToAccessPool", "Add User", 600, 400, Url.Action("AddAccessPoolUser", "AdminPopup", new { accessPoolId = Model.AccessPoolId, userId = Model.ManagerUserId }), "Add User");
+}
+
+

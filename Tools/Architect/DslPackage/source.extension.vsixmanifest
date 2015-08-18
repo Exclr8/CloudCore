@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
+  <Identifier Id="3a60313d-10af-44d3-b0c1-3cdbef0caa43">
+    <Name>CloudCore - Architect Sub-Process Designer</Name>
+    <Author>Framework One</Author>
+    <Version>2015.05.13.1014</Version>
+    <Description>CloudCore architect sub-process designer</Description>
+	<InstalledByMsi>false</InstalledByMsi>
+    <Locale>1033</Locale>
+    <MoreInfoUrl></MoreInfoUrl>
+    <GettingStartedGuide></GettingStartedGuide>
+    <Icon>Resources\File.ico</Icon>
+    <PreviewImage>Resources\File.ico</PreviewImage>
+    <SupportedProducts>
+      <VisualStudio Version="11.0">
+        <Edition>Ultimate</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Pro</Edition>
+      </VisualStudio>
+        <VisualStudio Version="12.0">
+            <Edition>Ultimate</Edition>
+            <Edition>Premium</Edition>
+            <Edition>Pro</Edition>
+        </VisualStudio>
+    </SupportedProducts>
+    <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.0" />
+  </Identifier>
+  <References/>
+  <Content>
+    <VsPackage>|%CurrentProject%;PkgdefProjectOutputGroup|</VsPackage>
+    <MefComponent>Architect.Dsl.dll</MefComponent>
+    <MefComponent>|%CurrentProject%|</MefComponent>
+    <ItemTemplate>ItemTemplates</ItemTemplate>
+    <MefComponent>Architect.ModelBusAdapter.dll</MefComponent>
+  </Content>
+</Vsix>

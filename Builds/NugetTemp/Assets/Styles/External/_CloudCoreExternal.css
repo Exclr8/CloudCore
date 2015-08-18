@@ -1,0 +1,211 @@
+﻿/*html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Verdana,Geneva,Arial,Helvetica,Sans-serif;
+}*/
+
+#container {
+    min-height:100%;
+    position:relative;
+}
+
+#meat {
+    padding-bottom:37px;	
+}
+
+#footer {
+    position:absolute;
+    bottom:0;
+    padding-bottom: 10px;
+    width:100%;
+    height:27px;			
+    text-align:right;
+}
+
+#body_external 
+{
+    font-family: Verdana,Geneva,Arial,Helvetica,Sans-serif;
+}
+
+#wireframe 
+{
+    color: #555555;
+    height: 100%;
+    min-height: 100%;
+    min-width: 1000px;
+    table-layout: fixed;
+    width: 100%;
+}
+
+#formarea
+{
+    font-size: 12px;
+    padding: 10px;
+    vertical-align: top;
+    height: 100%;
+    min-height: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: medium none;
+    padding: 0;
+    table-layout: auto;
+}
+
+#loginarea {
+    height: auto;
+    text-align: center;
+    width: 100%;
+}
+
+
+#loginbox {
+    display: block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    height: 400px;
+    left: 50%;
+    margin: -300px -200px -200px;
+    padding: 20px;
+    position: absolute;
+    text-align: center;
+    top: 43%;
+    width: 400px;
+}
+
+.resetpassword {
+    text-align: left;
+
+}
+
+.LoginImage
+{
+    padding-bottom: 30px;
+    width: 400px;
+}
+
+.LoginSplit
+{
+    padding-left: 50px;
+    width: 60px;
+}
+
+#tabLogin {
+    margin: 0;
+    table-layout: auto;
+    width: 100%;
+    color: #FFFFFF;
+}
+
+#tabLogin td {
+    text-align: left;  
+    padding-left: 50px;
+}
+
+#tabLogin a
+{
+    color: #ffffff;
+    margin-left: 135px;
+}
+
+#tabForgotPassword {
+    margin: 0;
+    table-layout: auto;
+    width: 100%;
+    color: #FFFFFF;
+}
+
+#tabForgotPassword td {
+    padding: 5px 0;
+    text-align: left;
+}
+
+.ExtTbl tr td
+{
+    font-size: 12px; 
+    padding-bottom:3px;
+}
+
+.ExternalTableHeader
+{
+    text-transform: capitalize; 
+}
+
+.loginvalidationsummary {
+    color: #fff;
+    padding-bottom: 10px;
+}
+
+.nSubtitle 
+{
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    height: 25px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.nSubtitle .subtitleImg {
+    padding: 3px;
+    -ms-border-radius: 5px;
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    width: 30px; 
+    height: 30px; 
+    background-color: #EFEFEF; 
+    -moz-box-shadow: 0px 1px 0px #FFFFFF inset;
+    -webkit-box-shadow: 0px 1px 0px #FFFFFF inset;
+    -o-box-shadow: 0px 1px 0px #FFFFFF inset;
+    -ms-box-shadow: 0px 1px 0px #FFFFFF inset;
+    box-shadow: 0px 1px 0px #FFFFFF inset; 
+    border: 1px solid #CECFD1;
+}
+
+.nSubtitle .titleItem
+{
+    border-bottom: 1px dotted #B8B9BD; 
+}
+
+.fieldvalue
+{
+    color: #000000;
+    font-size:11px;
+    padding-left:5px;
+    width:85%;
+}
+
+.caption
+{
+    color: #fff;
+    padding-right: 20px;
+    text-align: right;
+    white-space: nowrap;
+    width: 15%;
+}
+
+.SingleColumnRow
+{
+    color: #fff;
+    padding-bottom:10px;
+}
+
+
+.loginbutton
+{
+    background-color: transparent !important;
+    background: url(../../../asset/Get?file=/layout/ExternalSubmit.png&resourceArea=CUI) no-repeat left;
+    width: 40px;
+    height: 24px;
+}
+
+.normalbutton
+{
+    border: 1px solid #ffffff !important;
+    padding: 5px !important;
+    margin: 0px !important;
+}

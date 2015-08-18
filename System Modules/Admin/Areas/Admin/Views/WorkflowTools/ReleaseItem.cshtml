@@ -1,0 +1,24 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.WorkListItemModel>
+
+@{
+    ViewBag.Title = "Release Worklist Item";
+}
+
+<style type="text/css">
+    .formtable 
+    {
+        width:100%;
+        padding-right: 20px;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+        <tr>
+            <td>Are you sure you want to release this Worklist item?</td>
+        </tr>
+            FormLayout.AddSubmitButtonWithBar("Continue");
+    }
+}

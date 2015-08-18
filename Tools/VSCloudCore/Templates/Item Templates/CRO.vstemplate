@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>CloudCore CRO and Context Model</Name>
+    <Description>Template for a CRO and Context Model</Description>
+    <Icon>CRO.ico</Icon>
+    <TemplateID>d5409456-20df-4d4d-bbcf-773300f9828a</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <DefaultName>BaseClasses</DefaultName>
+  </TemplateData>
+  <TemplateContent>  
+      <ProjectItem ReplaceParameters="true" TargetFileName="Models\$ContextName$\$ContextName$CRO.cs">ItemTemplates\Base\CRO.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Models\$ContextName$\ContextModel.cs">ItemTemplates\Base\ContextModel.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Models\$ContextName$\Details.cs">ItemTemplates\Base\Model.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Controllers\$ContextName$\Details.cs">ItemTemplates\Base\Controller.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Views\$ContextName$\Details.cshtml">ItemTemplates\Base\View.tt</ProjectItem>    
+  </TemplateContent>
+    <WizardExtension>
+        <Assembly>CloudCore.VSExtension.Wizards, Version=2015.5.14.1814, Culture=neutral, PublicKeyToken=e7a823e48f920dce</Assembly>
+        <FullClassName>CloudCore.VSExtension.Wizards.T4BaseContextWizard</FullClassName>
+    </WizardExtension>
+</VSTemplate>          

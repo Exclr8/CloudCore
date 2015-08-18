@@ -1,0 +1,57 @@
+﻿@using CloudCore.Core.Domain
+@inherits CloudCore.Web.Core.BaseViews.PopupView<CloudCore.Admin.Models.AccessPoolUserSearch>
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    <h4 class="modal-title">Search Access Pool Users</h4>
+</div>
+<div class="modal-body">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(m => m.AccessPoolId)
+        @Html.HiddenFor(m => m.UserId)
+
+        using (FormLayout.BeginTable(FormLayoutType.Popup))
+        {
+            @FormLayout.AddFilterEditRowFor(m => m.Fullname, m => m.FullnameFilter)
+            @FormLayout.AddFilterEditRowFor(m => m.Email, m => m.EmailFilter)
+            @FormLayout.AddFilterEditRowFor(m => m.Login, m => m.LoginFilter)
+        }
+
+        @(Html.SearchGrid(Model.SearchResults)
+        .Title("Users")
+        .EmptyTableItemName("User")
+        .Columns(column =>
+        {
+            column.For(m => Html.ActionLink(m.Fullname, "SetAccessPoolUserFromAccessPool", "AdminPopup", new { userId = m.UserId, accesspoolId = Model.AccessPoolId }, null)).Named("Name");
+            column.For(m => m.Email);
+            column.For(m => m.Login);
+        })
+        )
+        <div class="clearfix"></div>
+        <button type="button" class="btn btn-default pull-right" data-dismiss="modal">CLOSE</button>
+        <button id="btn-search-Submit" type="button" class="btn btn-custom pull-right">Search</button>
+        <div class="clearfix"></div>
+    }
+</div>
+
+<script type="text/javascript">
+
+    $(function () {
+        $('#btn-search-Submit').click(function (e) {
+            e.preventDefault();
+            var self = $(this);
+            $.ajax({
+                url: '@(Url.Action("AddAccessPoolUser", "AdminPopup", null))',
+                type: 'POST',
+                data: self.closest('form').serialize(),
+                success: function (data) {
+                    $('#modal-container .modal-content').html(data);
+                    return false;
+                }
+            });
+            return false;
+        });
+    });
+
+</script>

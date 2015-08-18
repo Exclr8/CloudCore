@@ -1,0 +1,25 @@
+﻿@using CloudCore.Web.Models
+@model CloudCore.Web.Areas.CUI.Models.TaskList.TaskListSidebarObject
+
+@functions
+{
+    string CreateUniqueId()
+    {
+        return Model.IsStandardQuery
+            ? String.Format("standard_{0}", Model.ListType)
+            : String.Format("custom_{0}", Model.ListType);
+    }
+}
+
+@Ajax.ActionLink(Model.Title, null, null,
+    new AjaxOptions
+    {
+        UpdateTargetId = TaskListModel.ContentPlaceHolderName,
+        HttpMethod = "GET",
+        AllowCache = false,
+        Url = Model.Link,
+        InsertionMode = InsertionMode.Replace,
+        LoadingElementId = "loaderGlyph",
+        OnSuccess = String.Format("setActiveItem('{0}', '{1}', {2}, '{3}')", Model.Title, CreateUniqueId(), Model.ListType, Model.IsStandardQuery),
+        OnBegin = "clearPlaceHolderContent"
+    }, new { data_listtype = Model.ListType, id = CreateUniqueId() })

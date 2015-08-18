@@ -1,0 +1,39 @@
+﻿@using System.Globalization
+@{
+    var value = ViewData.TemplateInfo.FormattedModelValue is DateTime ? (DateTime?)ViewData.TemplateInfo.FormattedModelValue : null;
+
+    if (value.HasValue && value.Value == DateTime.MinValue) { value = null; }
+}
+
+<div class="input-group date" style="max-width: 280px !important;" id="@(ViewData.ModelMetadata.PropertyName)">
+    @Html.TextBox("", @value, "{0:yyyy/MM/dd HH:mm}", new { @class = "form-control" })
+    <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+    </span>
+</div>
+
+<script type="text/javascript">
+
+    @if (Request.IsAjaxRequest())
+    {
+        <text>
+    $(function () {
+        $('#@(ViewData.ModelMetadata.PropertyName)').datetimepicker(
+        {
+            format: 'YYYY/MM/DD HH:mm'
+        });
+    });
+    </text>
+    }
+    else
+    {
+        <text>
+    $(window).load(function () {
+        $('#@(ViewData.ModelMetadata.PropertyName)').datetimepicker(
+        {
+            format: 'YYYY/MM/DD HH:mm'
+        });
+    });
+    </text>
+    }
+</script>

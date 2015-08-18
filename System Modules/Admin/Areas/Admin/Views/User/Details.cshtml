@@ -1,0 +1,18 @@
+﻿@inherits WebView<CloudCore.Admin.Models.UserContextModel>
+
+@{
+    ViewBag.Title = "User Details";
+}
+@using (Html.BeginForm())
+{    
+    @(Html.InfoGrid(Model.AccessPools)
+          .EmptyTableItemName("Access Pool")
+          .Columns(column =>
+          {
+              column.For(item => item.AccessPoolName);
+              column.For(item => Html.ActionLink("Remove", "DeleteAccessPoolFromUser", "User", new {accessPoolId = item.AccessPoolId, userId = Model.UserId}, new {}));
+          })
+          .Title(string.Format("Access Pool(s) Assigned to this user"))
+    )
+    FormLayout.AddPopupButtonWithBar("Add Access Pool", Url.Action("AccessPoolLookup", "AdminPopup", new {returnRouteAction = "SetAccessPoolUserFromUser", returnRouteController = "AdminPopup", returnRouteId = Model.UserId, returnRouteIdName = "userId"}));
+}

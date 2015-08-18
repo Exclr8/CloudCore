@@ -1,0 +1,36 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.PopupView<CloudCore.Admin.Models.WorklistSearchModel>
+@{
+    ViewBag.Title = "Find Worklist Items";
+}
+
+
+@using (Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddFilterEditRowFor(m => m.KeyValue, m => m.KeyValueFilter)
+        @FormLayout.AddFilterEditRowFor(m => m.ProcessName, m => m.ProcessNameFilter)
+        @FormLayout.AddFilterEditRowFor(m => m.SubProcessName, m => m.SubProcessNameFilter)
+        @FormLayout.AddFilterEditRowFor(m => m.ActivityName, m => m.ActivityNameFilter)
+        @FormLayout.AddFilterEditRowFor(m => m.UserName, m => m.UserNameFilter)
+        @FormLayout.AddDropDownRowFor(m => m.Status, Model.LstStatusTypes)
+        @FormLayout.AddDropDownRowFor(m => m.DocWait, Model.LstDocWait)
+    }
+    FormLayout.AddSubmitButtonWithBar("Search");    
+     @(Html.SearchGrid(Model.SearchResults)
+            .Columns(column =>
+            {
+                column.For(result => Html.ActionLink("View", "Details", "WorkflowTools", new { result.InstanceId }, null)).Named("");
+                column.For(result => result.KeyValue);
+                column.For(result => result.ProcessName);
+                column.For(result => result.SubProcessName);
+                column.For(result => result.ActivityName);
+                column.For(result => result.UserName);
+                column.For(result => result.StatusTypeName);
+                column.For(result => result.DocWait);
+            }
+            )
+            .Title("Worklist Item Search Results")
+       )
+    
+}

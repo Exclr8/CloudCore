@@ -1,0 +1,59 @@
+﻿@using CloudCore.Web.Core.Menu
+@model CloudCore.Web.Core.Menu.SubMenuModel
+
+<div id="submenu-navbar-collapse" class="collapse navbar-collapse sub-menu">
+    <ul class="nav navbar-nav list">
+        @foreach (var menuItem in Model.RootMenuItems)
+        {            
+            if (menuItem.isFolder)
+            {
+                if (menuItem.ChildSubMenuItems.Count > 0)
+                {
+                    var uniqueMenuTitle = menuItem.Title.ToLower().Replace(" ", "");
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            @menuItem.Title <span class="glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-submenu" role="menu">
+
+                            @for (int index = 0; index < menuItem.ChildSubMenuItems.Count; index++)
+                            {
+                                var child = menuItem.ChildSubMenuItems[index];
+                                if (child.isFolder)
+                                {
+                                    if (child.ChildSubMenuItems.Count > 0)
+                                    {
+                                        <li>
+                                            <a href="#" data-target="#submenu-group-@uniqueMenuTitle-@index" class="expandable-link" data-toggle="collapse">
+                                                @child.Title <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                                            </a>
+                                            <ul class="collapse list-group" id="submenu-group-@uniqueMenuTitle-@index">
+                                                @foreach (var subChild in child.ChildSubMenuItems)
+                                                {
+                                                    <li class="list-group-item"><a href="@UrlHelper.GenerateContentUrl(subChild.Path, Context)">@subChild.Title</a></li>
+                                                }
+                                            </ul>
+                                        </li>
+                                    }
+                                }
+                                else
+                                {
+                                    <li>
+                                        <a href="@UrlHelper.GenerateContentUrl(child.Path, Context)">@child.Title</a>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </li>
+                }
+            }
+            else
+            {
+                <li class="dropdown">
+                    <a href="@UrlHelper.GenerateContentUrl(menuItem.Path, Context)">@menuItem.Title</a>
+                </li>
+            }
+        }
+    </ul>
+</div>

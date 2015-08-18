@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseName>$ProductDBName$</TargetDatabaseName>
+    <DeployScriptFileName>$ProductDBName$.sql</DeployScriptFileName>
+    <TargetConnectionString>Data Source=localhost;Integrated Security=True;Pooling=False</TargetConnectionString>
+    <ProfileVersionNumber>1</ProfileVersionNumber>
+    <ScriptDatabaseOptions>True</ScriptDatabaseOptions>
+    <BlockOnPossibleDataLoss>True</BlockOnPossibleDataLoss>
+    <CreateNewDatabase>True</CreateNewDatabase>
+  </PropertyGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="AdminPassword">
+      <Value>masterkey</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="ApplicationKey">
+      <Value>$ApplicationKey$</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="BuildConfiguration">
+      <Value>Debug</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="CCIsRuntime">
+      <Value>0</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="CCLicenceKey">
+      <Value>00000000000000000000000</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="EnableAdminAccount">
+      <Value>1</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="LicenceKey">
+      <Value>00000000000000000000000</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="LicenseMode">
+      <Value>Development</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="master">
+      <Value>master</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="UiApplicationKey">
+      <Value>D4D0C239-787A-4809-91F6-3E7D49184A64</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,11 @@
+using System;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.ConstrainedExecution;
+
+[assembly: AssemblyTitle("CloudCore Architect Process Overview Dsl")]
+
+[assembly: CLSCompliant(true)]
+[assembly: ReliabilityContract(Consistency.MayCorruptProcess, Cer.None)]
+
+[assembly: InternalsVisibleTo(@"Architect.ProcessOverview.DslPackage, PublicKey=0024000004800000940000000602000000240000525341310004000001000100956c892d795f27249fa6f5d7124ef9260ea5bf8881526bd95f7362bfd8566333c051998fb466a9bef34a77363f4f78acd342d7dc059dee8892dd4cc59e63901822662692d6cc37c3fc7f628d5fdb85f03807f3c411bedc196eebd0a88e3abd628f700e82c0aeaa7402bd1e4fc827480441406ba805bd1c22584024ee0bad4593")]

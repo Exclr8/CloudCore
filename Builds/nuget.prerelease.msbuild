@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="PackPackageOnly;PublishNuGetPackagesOnly" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
+  <Import Project="$(MSBuildExtensionsPath)\ExtensionPack\4.0\MSBuild.ExtensionPack.tasks"/>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v12.0\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets"/>
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.targets" />
+  
+  <PropertyGroup>
+	<Major>2</Major>
+	<Minor>0</Minor>
+	<FixVersion>0</FixVersion>
+	<VersionNumber></VersionNumber>
+	<nugetFailMailSubject></nugetFailMailSubject>
+	<nugetFailMailMessage></nugetFailMailMessage>
+	<FileVersionNumber></FileVersionNumber>
+	<BuildNumber Condition="'$(BuildNumber)' == ''">1</BuildNumber>
+	<BaseDir>..</BaseDir>
+	<NuSpecDir>$(MSBuildProjectDirectory)\NuSpec</NuSpecDir> 
+	<F1DbSolutionFileAndPath>..\Data Layer\DB\CloudCoreDB\CloudCoreDB.sqlproj</F1DbSolutionFileAndPath>
+	<NugetOrgKey Condition="'$(NugetOrgKey)' == ''">ed8d46ba-66de-4318-96ac-dec021359a1a</NugetOrgKey>
+	<NugetOrgHost Condition="'$(NugetOrgHost)' == ''">https://nuget.org/</NugetOrgHost>
+	<F1NugetApiKey Condition="'$(F1NugetApiKey)' == ''">acc886d8-b22d-4e78-b612-11b6db28f487</F1NugetApiKey>
+	<F1NugetGalleryHost Condition="'$(F1NugetGalleryHost)' == ''">http://f1ci.cloudapp.net:81/nuget/</F1NugetGalleryHost>
+	<TargetDotNetVersion>45</TargetDotNetVersion>
+	
+	<!-- **************************************************************************************************-->
+	<!-- ***************************** Nuget Package Names... *********************************************-->
+	<!-- **************************************************************************************************-->
+	<ApiClientSpec>CloudCore.Api.Client</ApiClientSpec>
+	<CoreSpec>CloudCore.Core</CoreSpec>
+	<VWSpec>CloudCore.VirtualWorker</VWSpec>
+	<WebSpec>CloudCore.Web</WebSpec>
+	<SiteSpec>CloudCore.Site</SiteSpec>
+  </PropertyGroup>
+	
+  <Target Name="SetVersionNumber">
+	<CreateProperty Value="$(Major).$(Minor).$([MSBuild]::Add($(BuildNumber), 0)).$(FixVersion)">
+		<Output TaskParameter="Value" PropertyName="VersionNumber" />
+	</CreateProperty>
+	<CreateProperty Value="$([System.DateTime]::Now.ToString(`yyyy.MM.dd.HHmm`))">
+		<Output TaskParameter="Value" PropertyName="FileVersionNumber" />
+	</CreateProperty>
+  </Target>
+  
+  <Target Name="UpdateAssemblyInfoFiles" DependsOnTargets="SetVersionNumber">
+	<ItemGroup>
+		<AssemblyInfoFiles Include="$(BaseDir)\Shared Files\GlobalAssemblyInfo.cs"/>
+	</ItemGroup>
+	<MSBuild.ExtensionPack.Framework.AssemblyInfo
+		AssemblyInfoFiles="@(AssemblyInfoFiles)"
+		AssemblyVersion="$(VersionNumber)"
+		AssemblyFileVersion="$(FileVersionNumber)" />
+  </Target>
+      
+  <Target Name="PackPackageOnly" DependsOnTargets="SetVersionNumber">
+	<CallTarget Targets="CleanUpPackages"/>
+    <MakeDir Directories="$(MSBuildProjectDirectory)\NuGetPackaged" />
+    <Exec Command="$(BaseDir)\.nuget\nuget.exe pack $(NuSpecDir)\$(ApiClientSpec).nuspec -version 2.2.0.0 -o $(MSBuildProjectDirectory)\NuGetPackaged" />
+	<Exec Command="$(BaseDir)\.nuget\nuget.exe pack $(NuSpecDir)\$(CoreSpec).nuspec -version 2.2.0.0  -o $(MSBuildProjectDirectory)\NuGetPackaged" />
+	<Exec Command="$(BaseDir)\.nuget\nuget.exe pack $(NuSpecDir)\$(VWSpec).nuspec -version 2.2.0.0  -o $(MSBuildProjectDirectory)\NuGetPackaged" />
+	<Exec Command="$(BaseDir)\.nuget\nuget.exe pack $(NuSpecDir)\$(WebSpec).nuspec -version 2.2.0.0  -o $(MSBuildProjectDirectory)\NuGetPackaged" />
+	<Exec Command="$(BaseDir)\.nuget\nuget.exe pack $(NuSpecDir)\$(SiteSpec).nuspec -version 2.2.0.0  -o $(MSBuildProjectDirectory)\NuGetPackaged" />
+  </Target>
+  
+  <Target Name="CheckPackages" DependsOnTargets="SetVersionNumber">
+		<Error Condition="!Exists('$(MSBuildProjectDirectory)\NuGetPackaged\$(ApiClientSpec).$(VersionNumber).nupkg')" Text="Could not find $(ApiClientSpec).$(VersionNumber).nupkg" />
+		<Error Condition="!Exists('$(MSBuildProjectDirectory)\NuGetPackaged\$(CoreSpec).$(VersionNumber).nupkg')" Text="Could not find $(CoreSpec).$(VersionNumber).nupkg" />
+		<Error Condition="!Exists('$(MSBuildProjectDirectory)\NuGetPackaged\$(VWSpec).$(VersionNumber).nupkg')" Text="Could not find $(VWSpec).$(VersionNumber).nupkg" />
+		<Error Condition="!Exists('$(MSBuildProjectDirectory)\NuGetPackaged\$(WebSpec).$(VersionNumber).nupkg')" Text="Could not find $(WebSpec).$(VersionNumber).nupkg" />
+		<Error Condition="!Exists('$(MSBuildProjectDirectory)\NuGetPackaged\$(SiteSpec).$(VersionNumber).nupkg')" Text="Could not find $(SiteSpec).$(VersionNumber).nupkg" />
+  </Target>
+  
+  <!--Pushing to F1 Nuget Gallery-->
+  <Target Name="PublishF1NuGetPackageOnly" DependsOnTargets="SetVersionNumber;CheckPackages">
+    <Exec Command="$(BaseDir)\.nuget\nuget.exe push $(MSBuildProjectDirectory)\NuGetPackaged\$(ApiClientSpec).$(VersionNumber).nupkg -s $(F1NugetGalleryHost) $(F1NugetApiKey) -Timeout 300"  />
+    <Exec Command="$(BaseDir)\.nuget\nuget.exe push $(MSBuildProjectDirectory)\NuGetPackaged\$(CoreSpec).$(VersionNumber).nupkg -s $(F1NugetGalleryHost) $(F1NugetApiKey) -Timeout 300"  />
+    <Exec Command="$(BaseDir)\.nuget\nuget.exe push $(MSBuildProjectDirectory)\NuGetPackaged\$(VWSpec).$(VersionNumber).nupkg -s $(F1NugetGalleryHost) $(F1NugetApiKey) -Timeout 300"  />
+	<Exec Command="$(BaseDir)\.nuget\nuget.exe push $(MSBuildProjectDirectory)\NuGetPackaged\$(WebSpec).$(VersionNumber).nupkg -s $(F1NugetGalleryHost) $(F1NugetApiKey) -Timeout 300"  />
+	<Exec Command="$(BaseDir)\.nuget\nuget.exe push $(MSBuildProjectDirectory)\NuGetPackaged\$(SiteSpec).$(VersionNumber).nupkg -s $(F1NugetGalleryHost) $(F1NugetApiKey) -Timeout 300"  />
+  </Target>
+  
+  <!--Pushing to Public Nuget Gallery-->
+  <Target Name="PublishNuGetOrgPackagesOnly" DependsOnTargets="SetVersionNumber;CheckPackages">
+    <Exec Command="$(BaseDir)\.nuget\nuget.exe push $(MSBuildProjectDirectory)\NuGetPackaged\$(ApiClientSpec).$(VersionNumber).nupkg -s $(NugetOrgHost) $(NugetOrgKey) -Timeout 300"  />
+    <Exec Command="$(BaseDir)\.nuget\nuget.exe push $(MSBuildProjectDirectory)\NuGetPackaged\$(CoreSpec).$(VersionNumber).nupkg -s $(NugetOrgHost) $(NugetOrgKey) -Timeout 300"  />
+    <Exec Command="$(BaseDir)\.nuget\nuget.exe push $(MSBuildProjectDirectory)\NuGetPackaged\$(VWSpec).$(VersionNumber).nupkg -s $(NugetOrgHost) $(NugetOrgKey) -Timeout 300"  />
+	<Exec Command="$(BaseDir)\.nuget\nuget.exe push $(MSBuildProjectDirectory)\NuGetPackaged\$(WebSpec).$(VersionNumber).nupkg -s $(NugetOrgHost) $(NugetOrgKey) -Timeout 300"  />
+	<Exec Command="$(BaseDir)\.nuget\nuget.exe push $(MSBuildProjectDirectory)\NuGetPackaged\$(SiteSpec).$(VersionNumber).nupkg -s $(NugetOrgHost) $(NugetOrgKey) -Timeout 300"  />
+	<OnError ExecuteTargets="OnNugetOrgPushError" />
+  </Target>
+  
+  <Target Name="OnNugetOrgPushError">
+        <CallTarget Targets="SetMailMessageContent" />
+		<Message Text="$(nugetFailMailMessage)" />
+		<Exec Command="$(MSBuildProjectDirectory)\mail\SecureMail.exe -h smtp.office365.com -u cloudcore@exclr8.co.za -p Zaxa07051 -t team@exclr8.co.za -s &quot;$(nugetFailMailSubject)&quot; -m &quot;$(nugetFailMailMessage)&quot;" />
+  </Target>
+  
+  <Target Name="SetMailMessageContent">
+  	<CreateProperty Value="Nuget.org Push Failed: CloudCore">
+		<Output TaskParameter="Value" PropertyName="nugetFailMailSubject" />
+	</CreateProperty>
+	<CreateProperty Value="WARNING!!! The nuget.org push service is not responding for some CloudCore packages. A complete copy of this CloudCore Package Suite for this build ($(VersionNumber)) should be  available at: $(F1NugetGalleryHost)">
+		<Output TaskParameter="Value" PropertyName="nugetFailMailMessage" />
+	</CreateProperty>
+  </Target>
+  
+  <Target Name="PublishNuGetPackagesOnly">
+    <CallTarget Targets="PublishF1NuGetPackageOnly"/>
+	<CallTarget Targets="PublishNuGetOrgPackagesOnly"/>
+  </Target>
+  
+  <Target Name="CleanUpPackages">
+    <ItemGroup>
+      <DirectoriesToRemove Include="$(MSBuildProjectDirectory)\NuGetPackaged"/>
+    </ItemGroup>
+    <RemoveDir Directories="@(DirectoriesToRemove)"/>
+  </Target>
+
+</Project>

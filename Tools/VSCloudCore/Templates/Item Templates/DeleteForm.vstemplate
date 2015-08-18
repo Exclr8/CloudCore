@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>CloudCore Delete Form</Name>
+    <Description>Template for a Delete form</Description>
+    <Icon>DeleteForm.ico</Icon>
+      <TemplateGroupID>CloudCore</TemplateGroupID>  
+    <TemplateID>CloudCore.Form.Modify</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <DefaultName>DeleteContext</DefaultName>
+  </TemplateData>
+  <TemplateContent>  
+      <ProjectItem ReplaceParameters="true" TargetFileName="Models\$ContextName$\Delete.cs">ItemTemplates\Delete\Model.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Controllers\$ContextName$\Delete.cs">ItemTemplates\Delete\Controller.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Views\$ContextName$\Delete.cshtml">ItemTemplates\Delete\View.tt</ProjectItem>
+  </TemplateContent>
+    <WizardExtension>
+        <Assembly>CloudCore.VSExtension.Wizards, Version=2015.5.14.1814, Culture=neutral, PublicKeyToken=e7a823e48f920dce</Assembly>
+        <FullClassName>CloudCore.VSExtension.Wizards.T4DeleteFormWizard</FullClassName>
+    </WizardExtension>
+</VSTemplate>          

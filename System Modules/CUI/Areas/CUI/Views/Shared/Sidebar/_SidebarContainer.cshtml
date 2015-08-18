@@ -1,0 +1,14 @@
+﻿@using System.Linq
+@model CloudCore.Web.Core.SidebarBase
+
+@foreach (var sidebarGroup in Model.Where(sidebar => sidebar.Items.Any()))
+{
+    <ul class="nav nav-sidebar">
+        <li class="sidebar-title">@sidebarGroup.Title</li>
+        @*<li class="active"><a href="#">Overview <span class="glyphicon glyphicon-triangle-right pull-right"></span><span class="sr-only">(current)</span></a></li>*@
+        @foreach (var sidebarItem in sidebarGroup.Items)
+        {
+            <li>@Html.Partial(Model.SidebarListItemPartialViewName(), sidebarItem)</li>
+        }
+    </ul>
+}

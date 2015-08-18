@@ -1,0 +1,49 @@
+﻿@model UserNotificationModel
+
+@{
+    string hasReadClass = Model.HasRead ? "text-muted" : "";
+    string disabledClass = Model.HasRead ? "disabled" : "";
+    string importantClass = Model.Important ? "important" : "";
+    string btnWarningClass = Model.Important ? "btn-warning" : "btn-default";
+}
+
+<li id="item-@Model.NotificationId" class="messages-item @importantClass">
+
+    <span class="message-checkbox">
+        <input id="@Model.NotificationId" type="checkbox" />
+    </span>
+
+    <a href="#messages-group-@Model.NotificationId" class="expandable-link pull-right" data-toggle="collapse" aria-expanded="false">
+
+        <span id="subject" class="pull-left @hasReadClass">@Model.Subject</span>
+        <span id="created" class="pull-left @hasReadClass">@Model.Created</span>
+        <span class="expand-icon glyphicon glyphicon-chevron-down pull-right @hasReadClass"></span>
+
+    </a>
+
+    <div class="clearfix"></div>
+
+    <div id="messages-group-@Model.NotificationId" class="collapse message-group">
+        <p class="user-message-text @hasReadClass">@Html.Raw(Model.Message)</p>
+
+        <span class="pull-right">
+            <a href="#" id="btn-flag-@Model.NotificationId" class="btn @btnWarningClass" data-toggle="tooltip" data-placement="top" title="FLAG IMPORTANT" onclick="ToggleImportant(@Model.NotificationId)">
+                <span class="glyphicon glyphicon-flag"></span>
+            </a>
+        </span>
+
+        <span class="pull-right" data-toggle="tooltip" data-placement="top" title="DELETE">
+            <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete-modal" onclick="SetDeleteMessageId(@Model.NotificationId)">
+                <span class="glyphicon glyphicon-remove-circle"></span>
+            </a>
+        </span>
+
+        <span class="pull-right">
+            <a href="#" id="btn-mark-read-@Model.NotificationId" class="btn btn-custom @disabledClass" data-toggle="tooltip" data-placement="top" title="MARK AS READ" onclick="MarkAsRead(@Model.NotificationId)">
+                <span class="glyphicon glyphicon-ok-circle"></span>
+            </a>
+        </span>
+
+    </div>
+    <div class="clearfix"></div>
+</li>

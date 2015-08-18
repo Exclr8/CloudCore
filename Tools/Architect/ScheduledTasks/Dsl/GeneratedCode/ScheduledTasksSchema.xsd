@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema id="ScheduledTasksSchema" targetNamespace="http://schemas.microsoft.com/dsltools/ScheduledTasks" elementFormDefault="qualified" xmlns="http://schemas.microsoft.com/dsltools/ScheduledTasks" xmlns:core="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import id="CoreSchema" namespace="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" />
+  <!-- Group -->
+  <xsd:element name="group" type="Group" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="Group">
+    <xsd:annotation>
+      <xsd:documentation>A group containing scheduled tasks</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Relationship: GroupHasScheduledTasks -->
+          <xsd:element name="elements" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of GroupHasScheduledTasks</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:choice minOccurs="0" maxOccurs="unbounded" >
+                  <xsd:element ref="groupHasScheduledTasks">
+                    <xsd:annotation>
+                      <xsd:documentation>[Relationship deriving from GroupHasScheduledTasks needs to be serialized in full-form]</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element ref="baseScheduledTask" >
+                    <xsd:annotation>
+                      <xsd:documentation>[Target role-player]</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                </xsd:choice>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- dslVersion -->
+        <xsd:attribute name="dslVersion" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Version of the model serialized in this file.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: GroupName -->
+        <xsd:attribute name="groupName" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Group Moniker -->
+  <xsd:element name="groupMoniker" type="GroupMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="GroupMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Group instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- BaseScheduledTask -->
+  <xsd:element name="baseScheduledTask" type="BaseScheduledTask" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="BaseScheduledTask">
+    <xsd:annotation>
+      <xsd:documentation>Scheduled Task base</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Name -->
+        <xsd:attribute name="name" type="xsd:string" use="required" />
+        <!-- Property: IntervalType -->
+        <xsd:attribute name="intervalType" type="IntervalType" />
+        <!-- Property: Interval -->
+        <xsd:attribute name="interval" type="xsd:integer" />
+        <!-- Property: StartDate -->
+        <xsd:attribute name="startDate" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- BaseScheduledTask Moniker -->
+  <xsd:element name="baseScheduledTaskMoniker" type="BaseScheduledTaskMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="BaseScheduledTaskMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for BaseScheduledTask instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="name" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CSharpScheduledTask -->
+  <xsd:element name="cSharpScheduledTask" type="CSharpScheduledTask" substitutionGroup="baseScheduledTask" />
+  <xsd:complexType name="CSharpScheduledTask">
+    <xsd:complexContent>
+      <xsd:extension base="BaseScheduledTask">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CSharpScheduledTask Moniker -->
+  <xsd:element name="cSharpScheduledTaskMoniker" type="CSharpScheduledTaskMoniker" substitutionGroup="baseScheduledTaskMoniker" />
+  <xsd:complexType name="CSharpScheduledTaskMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for CSharpScheduledTask instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="BaseScheduledTaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- SqlScheduledTask -->
+  <xsd:element name="sqlScheduledTask" type="SqlScheduledTask" substitutionGroup="baseScheduledTask" />
+  <xsd:complexType name="SqlScheduledTask">
+    <xsd:complexContent>
+      <xsd:extension base="BaseScheduledTask">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- SqlScheduledTask Moniker -->
+  <xsd:element name="sqlScheduledTaskMoniker" type="SqlScheduledTaskMoniker" substitutionGroup="baseScheduledTaskMoniker" />
+  <xsd:complexType name="SqlScheduledTaskMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for SqlScheduledTask instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="BaseScheduledTaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- GroupHasScheduledTasks -->
+  <xsd:element name="groupHasScheduledTasks" abstract="true" type="GroupHasScheduledTasks" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="GroupHasScheduledTasks" abstract="true" >
+    <xsd:annotation>
+      <xsd:documentation>Embedding relationship between the Model and Elements</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end BaseScheduledTask -->
+          <xsd:element ref="baseScheduledTask" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- GroupHasScheduledTasks Moniker -->
+  <xsd:element name="groupHasScheduledTasksMoniker" type="GroupHasScheduledTasksMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="GroupHasScheduledTasksMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for GroupHasScheduledTasks instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Enum IntervalType -->
+  <xsd:simpleType name="IntervalType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Years"/>
+      <xsd:enumeration value="Months"/>
+      <xsd:enumeration value="Weeks"/>
+      <xsd:enumeration value="Days"/>
+      <xsd:enumeration value="Hours"/>
+      <xsd:enumeration value="Minutes"/>
+      <xsd:enumeration value="Seconds"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <!-- Enum TaskType -->
+  <xsd:simpleType name="TaskType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="CSharp"/>
+      <xsd:enumeration value="SQL"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+</xsd:schema>
+

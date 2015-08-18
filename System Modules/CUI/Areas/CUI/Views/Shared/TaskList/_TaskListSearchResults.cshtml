@@ -1,0 +1,17 @@
+﻿@model List<CloudCore.Domain.Workflow.TaskItem>
+
+<div class="tasklist-items-container">
+    @foreach (var taskItem in Model)
+    {
+        <a href="@Url.Action("OpenWorkItemByInstance", "TaskList", new { InstanceId = taskItem.InstanceId })">
+            <div class="tasklist-item">
+                <h4 class="page-header tasklist-item-title"><span class="glyphicon glyphicon-list"></span>&nbsp;@taskItem.Header@*<span class="label label-success pull-right">85%</span>*@</h4>
+                <h5>@taskItem.SubHeader</h5>
+                <p class="small">@taskItem.ActivityName</p>
+                <p class="small">Reference: @taskItem.KeyValue</p>
+                <p class="small">Priority: @taskItem.Priority</p>
+                <p class="label label-default">Active Since: @taskItem.ActivationSchedule</p>
+            </div>
+        </a>
+    }
+</div>

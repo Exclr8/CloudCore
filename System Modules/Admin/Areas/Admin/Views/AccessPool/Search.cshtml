@@ -1,0 +1,28 @@
+﻿@using CloudCore.Web.Core.Razor.Extensions;
+@using CloudCore.Web.Core.BaseViews;
+@using CloudCore.Admin.Models;
+@using System.Web.Mvc.Html;
+
+@inherits PopupView<AccessPoolSearchModel>
+
+@{
+    ViewBag.Title = "Search Access Pools";
+}
+
+@using (Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddFilterEditRowFor(m => m.AccessPoolName, m => m.AccessPoolNameFilter);
+    @FormLayout.AddFilterEditRowFor(m => m.ManagerFullname, m => m.ManagerFullnameFilter);
+    }
+    FormLayout.AddSubmitButtonWithBar("Search");
+    @(Html.SearchGrid(Model.SearchResults.AsQueryable())
+    .Columns(column =>
+        {
+            column.For(item => Html.ActionLink(item.AccessPoolName, "Details", new { accesspoolId = item.AccessPoolId })).Named("Access Pool Name");
+            column.For(item => item.ManagerName);
+        })
+            .Title("Access Pool Search Results")
+    )
+}

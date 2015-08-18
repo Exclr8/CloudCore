@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="PublishPackagesToNuget" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Project="$(MSBuildExtensionsPath)\ExtensionPack\4.0\MSBuild.ExtensionPack.tasks"/>
+	<Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v12.0\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets"/>
+	<Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
+  
+	<PropertyGroup>
+           <VersionNumber>$([System.DateTime]::Now.ToString(`yyyy.MM.dd.HHmm`))</VersionNumber>
+           <BaseDir>$(MSBuildProjectDirectory)\..</BaseDir>
+           <BuildDir>$(BaseDir)\Builds</BuildDir>
+    
+    <F1SolutionFile>CloudCore.sln</F1SolutionFile>
+    <F1NuPackageFile>CloudCore</F1NuPackageFile>
+	<NuSpecDir>$(MSBuildProjectDirectory)\NugetTemp</NuSpecDir> 
+	<NugetOrgKey Condition="'$(NugetOrgKey)' == ''">ed8d46ba-66de-4318-96ac-dec021359a1a</NugetOrgKey>
+	<NugetOrgHost Condition="'$(NugetOrgHost)' == ''">https://nuget.org/</NugetOrgHost>
+
+    <DestinationPath>$(BaseDir)\Builds\Release</DestinationPath>
+    	<CoreSpec>CloudCore.Core</CoreSpec>
+     	<WebSpec>CloudCore.Web</WebSpec>
+	    <SiteSpec>CloudCore.Site</SiteSpec>
+		<VWSpec>CloudCore.VirtualWorker</VWSpec>
+	</PropertyGroup>
+
+	<Target Name="PrepareForBuild">
+		<Exec Command="BuildPrepare.bat"></Exec>
+	</Target>
+	
+	<Target Name="DeployDB" DependsOnTargets="PrepareForBuild">
+		<MSBuild Projects="$(BaseDir)\DataLayer\DB\CloudCoreDB\CloudCoreDB.sqlproj" 
+             Targets="Clean;Build;Publish" 
+             Properties="SqlPublishProfilePath=local.publish.xml"></MSBuild>
+	</Target>
+
+	<Target Name="SqlMetal" DependsOnTargets="DeployDB;PrepareForBuild">
+		<Exec Command="BuildDB.bat"></Exec>
+	</Target>
+
+	<Target Name="UpdateAssemblyInfoFiles">
+		<ItemGroup>
+			<AssemblyInfoFiles Include="..\Shared Files\GlobalAssemblyInfo.cs"/>
+		</ItemGroup>
+		
+		<MSBuild.ExtensionPack.Framework.AssemblyInfo
+			AssemblyInfoFiles="@(AssemblyInfoFiles)"
+			AssemblyVersion="$(VersionNumber)"
+			AssemblyFileVersion="$(VersionNumber)" />
+	</Target>
+  
+  <Target Name="BuildSolution" DependsOnTargets="UpdateAssemblyInfoFiles;SqlMetal;PrepareForBuild">
+    <MSBuild Projects="$(BaseDir)\CloudCoreRelease.sln"
+             Targets="Clean;Build"
+             Properties="Configuration=Release"
+             />
+  </Target>
+  
+
+  
+  <Target Name="UpdateToolsFiles">
+    <ItemGroup>
+      <ProjectFiles Include="$(BaseDir)\Tools\VSCloudCore\Templates\Project Templates\ProjectTemplates\**\*.csproj"/>
+	  <PackageConfigFiles Include="$(BaseDir)\Tools\VSCloudCore\Templates\Project Templates\ProjectTemplates\**\packages.config"/>
+      <TemplateFiles Include="$(BaseDir)\Tools\VSCloudCore\Templates\Project Templates\ProjectTemplates\**\*.vstemplate"/>
+      <VsPackageProject Include="$(BaseDir)\Tools\VSCloudCore\VS.Package\Package.csproj"/>
+      <SourceExtensionFiles Include="$(BaseDir)\Tools\**\*.extension.tt"/>
+      <ExtensionFiles Include="$(BaseDir)\Tools\VSCloudCore\VS.Package\source.extension.vsixmanifest"/>
+
+    </ItemGroup>
+				
+    <XmlUpdate  XmlFileName="%(ProjectFiles.FullPath)"
+                XPath="//*[name()='HintPath'][contains(.,'CloudCore.Core.dll')]"
+                Value="..\..\..\packages\$(CoreSpec).$(VersionNumber)\lib\$(TargetDotNetVersion)\CloudCore.Core.dll" />
+
+				<XmlUpdate  XmlFileName="%(ProjectFiles.FullPath)"
+                XPath="//*[name()='HintPath'][contains(.,'CloudCore.Admin.dll')]"
+                Value="..\..\..\packages\$(SiteSpec).$(VersionNumber)\lib\$(TargetDotNetVersion)\CloudCore.Admin.dll" />
+    
+    <XmlUpdate  XmlFileName="%(ProjectFiles.FullPath)"
+                XPath="//*[name()='HintPath'][contains(.,'CloudCore.Web.dll')]"
+                Value="..\..\..\packages\$(SiteSpec).$(VersionNumber)\lib\$(TargetDotNetVersion)\CloudCore.Web.dll" />
+    
+    <XmlUpdate  XmlFileName="%(ProjectFiles.FullPath)"
+                XPath="//*[name()='HintPath'][contains(.,'CloudCore.Site.dll')]"
+                Value="..\..\..\packages\$(SiteSpec).$(VersionNumber)\lib\$(TargetDotNetVersion)\CloudCore.Site.dll" />
+    
+    <XmlUpdate  XmlFileName="%(ProjectFiles.FullPath)"
+                XPath="//*[name()='HintPath'][contains(.,'CloudCore.Core.Web.dll')]"
+                Value="..\..\..\packages\$(WebSpec).$(VersionNumber)\lib\$(TargetDotNetVersion)\CloudCore.Core.Web.dll" />
+    
+    <XmlUpdate  XmlFileName="%(ProjectFiles.FullPath)"
+                XPath="//*[name()='HintPath'][contains(.,'CloudCore.Data.dll')]"
+                Value="..\..\..\packages\$(CoreSpec).$(VersionNumber)\lib\$(TargetDotNetVersion)\CloudCore.Core.Data.dll" />
+    
+    <XmlUpdate XmlFileName="%(TemplateFiles.FullPath)"
+                  XPath="//*[@id = 'CloudCore']/@version"
+                  Value="$(VersionNumber)" />
+
+    <XmlUpdate XmlFileName="%(ExtensionFiles.FullPath)"
+               XPath="//*[name() = 'Identity']/@Version"
+               Value="$(VersionNumber)"/>
+   
+   <XmlUpdate  XmlFileName="%(PackageConfigFiles.FullPath)"
+                XPath="//*[name()='package'][contains(@id,'$(CoreSpec)')]/@version"
+                Value="$(VersionNumber)" />			   
+   <XmlUpdate  XmlFileName="%(PackageConfigFiles.FullPath)"
+                XPath="//*[name()='package'][contains(@id,'$(WebSpec)')]/@version"
+                Value="$(VersionNumber)" />					   
+    <XmlUpdate  XmlFileName="%(PackageConfigFiles.FullPath)"
+                XPath="//*[name()='package'][contains(@id,'$(SiteSpec)')]/@version"
+                Value="$(VersionNumber)" />	
+				
+    <FileUpdate Files="%(SourceExtensionFiles.FullPath)"
+                Regex="&lt;Version&gt;.*&lt;/Version&gt;"
+                ReplacementText="&lt;Version&gt;$(VersionNumber)&lt;/Version&gt;"
+                />
+    
+  </Target>
+
+  <Target Name="BuildToolsPackages" DependsOnTargets="UpdateToolsFiles;SqlMetal" >
+    <MSBuild Projects="$(BaseDir)\Tools\VSCloudCore\CloudCore.VSExtension.sln"
+             Targets="Clean;Build"
+             Properties="Configuration=Release;Verbosity=Minimal"/>
+  </Target>
+
+  <Target Name="PreparePackage" DependsOnTargets="UpdateAssemblyInfoFiles;SqlMetal;BuildSolution;BuildToolsPackages">
+		<Exec Command="BuildGetArtifacts.bat" />
+  </Target>
+  
+  <Target Name="PackPackageOnly" DependsOnTargets="PreparePackage">
+    <MakeDir Directories="$(MSBuildProjectDirectory)\NuGetPackaged" />
+	<Exec Command="$(BaseDir)\.nuget\nuget.exe pack $(NuSpecDir)\$(CoreSpec).nuspec -version $(VersionNumber) -o $(MSBuildProjectDirectory)\NuGetPackaged" />
+	<Exec Command="$(BaseDir)\.nuget\nuget.exe pack $(NuSpecDir)\$(VWSpec).nuspec -version $(VersionNumber)  -o $(MSBuildProjectDirectory)\NuGetPackaged" />
+	<Exec Command="$(BaseDir)\.nuget\nuget.exe pack $(NuSpecDir)\$(WebSpec).nuspec -version $(VersionNumber)  -o $(MSBuildProjectDirectory)\NuGetPackaged" />
+	<Exec Command="$(BaseDir)\.nuget\nuget.exe pack $(NuSpecDir)\$(SiteSpec).nuspec -version $(VersionNumber)  -o $(MSBuildProjectDirectory)\NuGetPackaged" />
+  </Target>
+  
+  <Target Name="CheckPackages" DependsOnTargets="PackPackageOnly">
+		<Error Condition="!Exists('$(MSBuildProjectDirectory)\NuGetPackaged\$(CoreSpec).$(VersionNumber).nupkg')" Text="Could not find $(CoreSpec).$(VersionNumber).nupkg" />
+		<Error Condition="!Exists('$(MSBuildProjectDirectory)\NuGetPackaged\$(VWSpec).$(VersionNumber).nupkg')" Text="Could not find $(VWSpec).$(VersionNumber).nupkg" />
+		<Error Condition="!Exists('$(MSBuildProjectDirectory)\NuGetPackaged\$(WebSpec).$(VersionNumber).nupkg')" Text="Could not find $(WebSpec).$(VersionNumber).nupkg" />
+		<Error Condition="!Exists('$(MSBuildProjectDirectory)\NuGetPackaged\$(SiteSpec).$(VersionNumber).nupkg')" Text="Could not find $(SiteSpec).$(VersionNumber).nupkg" />
+  </Target>
+  
+  
+  <!--Pushing to Public Nuget Gallery-->
+  <Target Name="PublishPackagesToNuget" DependsOnTargets="CheckPackages">
+    <Exec Command="$(BaseDir)\.nuget\nuget.exe push $(MSBuildProjectDirectory)\NuGetPackaged\$(CoreSpec).$(VersionNumber).nupkg -s $(NugetOrgHost) $(NugetOrgKey) -Timeout 300"  />
+    <Exec Command="$(BaseDir)\.nuget\nuget.exe push $(MSBuildProjectDirectory)\NuGetPackaged\$(VWSpec).$(VersionNumber).nupkg -s $(NugetOrgHost) $(NugetOrgKey) -Timeout 300"  />
+	<Exec Command="$(BaseDir)\.nuget\nuget.exe push $(MSBuildProjectDirectory)\NuGetPackaged\$(WebSpec).$(VersionNumber).nupkg -s $(NugetOrgHost) $(NugetOrgKey) -Timeout 300"  />
+	<Exec Command="$(BaseDir)\.nuget\nuget.exe push $(MSBuildProjectDirectory)\NuGetPackaged\$(SiteSpec).$(VersionNumber).nupkg -s $(NugetOrgHost) $(NugetOrgKey) -Timeout 300"  />
+  </Target>
+
+  
+  
+</Project>

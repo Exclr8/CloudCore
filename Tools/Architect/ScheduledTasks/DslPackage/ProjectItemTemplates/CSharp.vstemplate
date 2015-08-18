@@ -1,0 +1,20 @@
+﻿<!--DSL Tools Language Template-->
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TemplateData>
+		<Name Package="{5a65e48f-af3b-49a1-930d-c3ba417cd25f}" ID="103"/>
+		<Description Package="{5a65e48f-af3b-49a1-930d-c3ba417cd25f}" ID="102"/>
+		<Icon Package="{5a65e48f-af3b-49a1-930d-c3ba417cd25f}" ID="201" />
+		<TemplateID>{5a65e48f-af3b-49a1-930d-c3ba417cd25f}</TemplateID>
+		<TemplateGroupID>CloudCore</TemplateGroupID>
+		<ProjectType>CSharp</ProjectType>
+		<ProjectSubType>CloudCore</ProjectSubType>	
+		<RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+		<SortOrder>360</SortOrder>
+		<DefaultName>ScheduledTasks.stask</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem TargetFileName="$fileinputname$.stask" CustomTool="">stask.stask</ProjectItem>
+		<ProjectItem TargetFileName="$fileinputname$.stask.diagram">stask.diagram</ProjectItem>
+	</TemplateContent>
+</VSTemplate>
+

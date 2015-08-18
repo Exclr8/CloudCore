@@ -1,0 +1,21 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.ActivityAccessPoolAllocationModel>
+
+@{
+    ViewBag.Title = "Configure Access Pools";
+}
+
+@using (Html.BeginForm())
+{
+    @(Html.InfoGrid(Model.AccessPools)
+        .EmptyTableItemName("Access Pools")
+        .Columns(column =>
+            {
+                column.For(col => col.AccessPoolName).Named("Access Pool Name");
+                column.For(item => Html.ActionLink("Remove", "RemoveAccessPool", "Activity", new { activityId = Model.ActivityId, accessPoolId = item.AccessPoolId }, null));
+            })
+    )
+
+    FormLayout.AddPopupButtonWithBar("Add Access Pool", Url.Action("AccessPoolLookup", "AdminPopup", new { returnRouteAction = "AddAccessPoolForActivity", returnRouteController = "AdminPopup", returnRouteId = Model.ActivityId, returnRouteIdName = "activityId" }));
+    //    FormLayout.AddPopupButtonWithBar("AccessPopup", "Add Access Pool", 500, 400, Url.Action("AccessPoolLookup", "AdminPopup", new { returnRouteAction = "AddAccessPoolForActivity", returnRouteController = "AdminPopup", returnRouteId = Model.ActivityId, returnRouteIdName = "activityId" }), "Add Access Pool");
+}
+

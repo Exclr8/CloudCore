@@ -1,0 +1,47 @@
+﻿@using CloudCore.Admin.Areas.Admin.Models
+@using CloudCore.Admin.Models
+@inherits WebView<CloudCore.Admin.Models.ScheduledTaskGroup.ScheduledTaskGroupModifyModel>
+
+@{
+    ViewBag.Title = "Scheduled Task Group Details";
+}
+
+@using (FormLayout.BeginTable())
+{
+    using (Html.BeginForm())
+    {
+        @FormLayout.AddTimePickerRowFor(m => m.TimePicker);
+    }
+}
+
+@Html.InfoGrid(Model.ScheduledTasks).Columns(column =>
+        {
+            column.For(t => t.ScheduledTaskName).Named("Task Name").Sortable(isColumnSortable: false);
+            column.For(r => Html.CheckBox(r.ScheduledTaskName, r.IsRunning, new { id = r.ScheduledTaskId })).Named("Is enabled?");
+        }).Title("Enable/Disable Scheduled Tasks")
+
+<script type="text/javascript">
+    $(":checkbox").change(function () {
+
+        var scheduledTaskId = $(this).attr('id');
+        var isChecked = $(this).is(':checked');
+
+        $.ajax({
+            url: '@Url.Action("EnableDisable", "ScheduledTaskGroup")',
+            contentType: 'application/json; charset=utf-8',
+            type: 'POST',
+            dataType: 'json',
+            data: JSON.stringify({ 'scheduledTaskId': scheduledTaskId, 'isActive': isChecked })
+        })
+            .success(function (result) {
+                if (result.Successfull) {
+                    ShowSuccess(result.Message, 'Success');
+                } else {
+                    ShowError(result.Message, 'Failure');
+                }
+            })
+            .error(function (xhr, status) {
+                console.log('error', xhr, status);
+            });
+    });
+</script>

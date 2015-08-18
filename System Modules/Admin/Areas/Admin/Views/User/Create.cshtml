@@ -1,0 +1,25 @@
+﻿@using CloudCore.Web.Core.BaseViews;
+@using CloudCore.Admin.Models;
+@using System.Web.Mvc.Html;
+@using CloudCore.Web.Core.Razor.Extensions;
+
+@inherits PopupView<UserContextModel>
+@{
+    ViewBag.Title = "Create User";
+}
+
+@using (Html.BeginForm())
+{
+    
+    using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddTextboxRowFor(model => model.Login);
+        @FormLayout.AddTextboxRowFor(model => model.Email);
+        @FormLayout.AddTextboxRowFor(model => model.Initials);
+        @FormLayout.AddTextboxRowFor(model => model.FirstName);
+        @FormLayout.AddTextboxRowFor(model => model.Surname);
+        @FormLayout.AddTextboxRowFor(model => model.CellNumber);
+
+    }
+    FormLayout.AddSubmitButtonWithBar("Save");    
+}

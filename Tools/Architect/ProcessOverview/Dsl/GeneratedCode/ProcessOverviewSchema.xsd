@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema id="CloudCoreArchitectProcessOverviewSchema" targetNamespace="http://schemas.microsoft.com/dsltools/CloudCoreArchitectProcessOverview" elementFormDefault="qualified" xmlns="http://schemas.microsoft.com/dsltools/CloudCoreArchitectProcessOverview" xmlns:core="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import id="CoreSchema" namespace="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" />
+  <!-- Process -->
+  <xsd:element name="process" type="Process" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="Process">
+    <xsd:annotation>
+      <xsd:documentation>The root in which all other elements are embedded. Appears as a diagram.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Relationship: ProcessHasSubProcess -->
+          <xsd:element name="bTSubProcess" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of ProcessHasSubProcess</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:choice minOccurs="0" maxOccurs="unbounded" >
+                  <xsd:element ref="processHasSubProcess">
+                    <xsd:annotation>
+                      <xsd:documentation>[Relationship deriving from ProcessHasSubProcess needs to be serialized in full-form]</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element ref="subProcessElement" >
+                    <xsd:annotation>
+                      <xsd:documentation>[Target role-player]</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                </xsd:choice>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- dslVersion -->
+        <xsd:attribute name="dslVersion" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Version of the model serialized in this file.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: ProcessName -->
+        <xsd:attribute name="processName" type="xsd:string" />
+        <!-- Property: VisioId -->
+        <xsd:attribute name="visioId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Process Moniker -->
+  <xsd:element name="processMoniker" type="ProcessMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ProcessMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Process instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- SubProcessElement -->
+  <xsd:element name="subProcessElement" type="SubProcessElement" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="SubProcessElement">
+    <xsd:annotation>
+      <xsd:documentation>Elements embedded in the model. Appear as boxes on the diagram.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Relationship: SubProcessElementReferencesTargets -->
+          <xsd:element name="targets" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of SubProcessElementReferencesTargets</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="subProcessElementReferencesTargets" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of SubProcessElementReferencesTargets needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Name -->
+        <xsd:attribute name="name" type="xsd:string" use="required" />
+        <!-- Property: SubProcessRef -->
+        <xsd:attribute name="subProcessRef" type="xsd:string" />
+        <!-- Property: VisioId -->
+        <xsd:attribute name="visioId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- SubProcessElement Moniker -->
+  <xsd:element name="subProcessElementMoniker" type="SubProcessElementMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="SubProcessElementMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for SubProcessElement instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="name" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ProcessHasSubProcess -->
+  <xsd:element name="processHasSubProcess" abstract="true" type="ProcessHasSubProcess" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ProcessHasSubProcess" abstract="true" >
+    <xsd:annotation>
+      <xsd:documentation>Embedding relationship between the Model and Elements</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end SubProcessElement -->
+          <xsd:element ref="subProcessElement" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ProcessHasSubProcess Moniker -->
+  <xsd:element name="processHasSubProcessMoniker" type="ProcessHasSubProcessMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ProcessHasSubProcessMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ProcessHasSubProcess instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- SubProcessElementReferencesTargets -->
+  <xsd:element name="subProcessElementReferencesTargets" type="SubProcessElementReferencesTargets" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="SubProcessElementReferencesTargets">
+    <xsd:annotation>
+      <xsd:documentation>Reference relationship between Elements.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end SubProcessElement -->
+          <xsd:element ref="subProcessElementMoniker" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- SubProcessElementReferencesTargets Moniker -->
+  <xsd:element name="subProcessElementReferencesTargetsMoniker" type="SubProcessElementReferencesTargetsMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="SubProcessElementReferencesTargetsMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for SubProcessElementReferencesTargets instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+</xsd:schema>
+

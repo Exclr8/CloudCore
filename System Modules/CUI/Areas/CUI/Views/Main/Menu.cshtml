@@ -1,0 +1,305 @@
+﻿@section Assets {
+    <script src="@Url.Menus()" type="text/javascript"></script>
+    <script src="@Url.LoginReference()" type="text/javascript"></script>
+}
+
+@*@section MenuFavourites {
+    <script id="FavitemTemplate" type="text/jsrender-tmpl">
+        <div onclick="location.href='{{:Path}}';" class="favourites-item" id="{{:ID}}">
+            {{if (MType == "folder") }}
+            <span class="glyphicon glyphicon-folder-open favourites-icon"></span>
+            {{else (MType == "back")}}
+            <span class="glyphicon glyphicon-circle-arrow-left favourites-icon"></span>
+            {{else (MType == "report")}}
+            <span class="glyphicon glyphicon-file favourites-icon"></span>
+            {{else}}
+            {{if (MType == "create") }}
+                <span class="glyphicon glyphicon-plus-sign favourites-icon"></span>
+            {{else (MType == "search")}}
+                <span class="glyphicon glyphicon-search favourites-icon"></span>
+            {{else (MType == "details")}}
+                <span class="glyphicon glyphicon-file favourites-icon"></span>
+            {{else (MType == "delete")}}    
+                <span class="glyphicon glyphicon-trash favourites-icon"></span>
+            {{else (MType == "info")}}      
+                <span class="glyphicon glyphicon-info-sign favourites-icon"></span>
+            {{else (MType == "modify")}}    
+                <span class="glyphicon glyphicon-wrench favourites-icon"></span>
+            {{else (MType == "secure")}}  
+                <span class="glyphicon glyphicon-lock favourites-icon"></span>
+            {{else (MType == "statistics")}}
+                <span class="glyphicon glyphicon-stats favourites-icon"></span>
+            {{else (MType == "tools")}}   
+                <span class="glyphicon glyphicon-wrench favourites-icon"></span>
+            {{else (MType == "task")}}      
+                <span class="glyphicon glyphicon-tasks favourites-icon"></span>
+            {{/if}}
+            {{/if}}
+
+            <span class="title">{{:Title}}</span>
+        </div>
+    </script>
+
+    <script id="MaintainFavitemTemplate" type="text/jsrender-tmpl">
+        <div class="favourites-item" style="height:25px" onclick="location.href = '@Url.Action("Favourites", "Tools")';">
+            <span class="glyphicon glyphicon-wrench favourites-icon"></span>
+            <span class="title">Maintain Favourites</span>
+        </div>
+    </script>
+
+    <script type="text/javascript">
+        var total = 0;
+        $(document).ready(function () {
+            var _fvitms = [];
+            //ID,ImageHash,Title is needed for favourites
+            var myfavIDs = cc_userprofile.MenuFavourites;
+
+            $.each(myfavIDs, function (r) {
+                $.each(cc_menudata.MenuItems, function (q) {
+                    if (myfavIDs[r].ActionId == cc_menudata.MenuItems[q].ID) {
+                        _fvitms.push(cc_menudata.MenuItems[q]);
+                    }
+                });
+            });
+            if (myfavIDs.length > 0) {
+                $("#favouriteitems").html(
+                    $("#FavitemTemplate").render(_fvitms)
+                );
+                $("#favouriteitems").append(
+                    $("#MaintainFavitemTemplate").render()
+                );
+            }
+            else {
+                $("#favouriteitems").css('display','none');
+            }
+        });
+    </script>
+}*@
+
+<script id="menuitemTemplate" type="text/jsrender-tmpl">
+  <div {{if (!isFolder)}} onclick="location.href='{{:Path}}';" {{/if}} 
+      class="ccmenuitem {{if (isFolder)}}activemenuitem{{/if}} pg{{:MType}}"  
+      id="{{:ID}}" 
+      path="{{:Path}}" 
+      parent="{{:PID}}" 
+      itemtitle="{{:Title}}" 
+      itemfolder={{:isFolder}}>
+      <div class="menuglyphicon">
+          {{if (MType == "folder") }}
+            <div class="fs2 menuaccent" aria-hidden="true" data-icon="&#xe00d;"></div>
+		    <div class="fs2 menuborder" aria-hidden="true" data-icon="&#xe00e;"></div>
+          {{else (MType == "back")}}
+            <div class="fs2 menuaccent" aria-hidden="true" data-icon="&#xe00f;"></div>
+          {{else (MType == "report")}}
+            <div class="fs2 menuborder" aria-hidden="true" data-icon="&#xe012;"></div>
+		    <div class="fs2 menufiller" aria-hidden="true" data-icon="&#xe011;"></div>
+		    <div class="fs2 menuaccent" aria-hidden="true" data-icon="&#xe010;"></div>
+          {{else}}
+            <div class="fs2 menuborder" aria-hidden="true" data-icon="&#xe000;" ></div>
+		    <div class="fs2 menufiller" aria-hidden="true" data-icon="&#xe002;"></div>
+		    <div class="fs2 menuaccent" aria-hidden="true" data-icon="&#xe001;"></div>
+            {{if (MType == "create") }}  
+                <div class="fs2 menuicon" aria-hidden="true" data-icon="&#xe004;"></div>
+            {{else (MType == "search")}}
+                <div class="fs2 menuicon" aria-hidden="true" data-icon="&#xe009;"></div>
+            {{else (MType == "details")}}
+                <div class="fs2 menuicon" aria-hidden="true" data-icon="&#xe006;"></div>
+            {{else (MType == "delete")}}    
+                <div class="fs2 menuicon" aria-hidden="true" data-icon="&#xe005;"></div>
+            {{else (MType == "info")}}      
+                <div class="fs2 menuicon" aria-hidden="true" data-icon="&#xe007;"></div>
+            {{else (MType == "modify")}}    
+                <div class="fs2 menuicon" aria-hidden="true" data-icon="&#xe006;"></div>
+            {{else (MType == "secure")}}  
+                <div class="fs2 menuicon" aria-hidden="true" data-icon="&#xe003;"></div>  
+            {{else (MType == "statistics")}}
+                <div class="fs2 menuicon" aria-hidden="true" data-icon="&#xe00a;"></div>
+            {{else (MType == "tools")}}   
+                <div class="fs2 menuicon" aria-hidden="true" data-icon="&#xe008;"></div>  
+            {{else (MType == "task")}}      
+                <div class="fs2 menuicon" aria-hidden="true" data-icon="&#xe00c;"></div>
+            {{/if}}
+          {{/if}}
+
+      </div>
+      <span class="title">{{:Title}}</span>
+  </div>
+</script>
+
+<script type="text/javascript">
+    function stopEvent(pE) {
+        if (!pE)
+            if (window.event)
+                pE = window.event;
+            else
+                return;
+        if (pE.cancelBubble)
+            pE.cancelBubble = true;
+        if (pE.stopPropagation)
+            pE.stopPropagation();
+         if (pE.preventDefault)
+         pE.preventDefault();
+    }
+    $('.alink').on('click', function (e) {
+        document.location.href = $(this).attr('Path');
+    });
+</script>
+
+<script type="text/javascript">
+    function DrawMenu(selectitem) {
+        //var selectitem = $(this);
+        var ParentID;
+        var TopMostParentID;
+        var menuitems = []
+        var breadcrumbs = []
+        var a_newItemID;
+        if (selectitem[0].parentNode.tagName != "A") {
+
+
+            $("#menustructure").slideUp(100, function () {
+                $("#menustructure").empty(menuitems);
+                $.each(cc_menudata.MenuItems, function (i) {
+                    if (cc_menudata.MenuItems[i].PID == selectitem[0].id) {
+                        ParentID = cc_menudata.MenuItems[i].PID;
+                        sessionStorage.setItem('ccMenuId_' + loginReference, selectitem[0].id);
+                        if (cc_menudata.MenuItems[i].ID > 0) {
+                            menuitems.push(cc_menudata.MenuItems[i]);
+                            a_newItemID = cc_menudata.MenuItems[i].ID;
+                        }
+                    }
+                });
+                //Get top most parentID to insert "uplevel" folder
+                if (ParentID > 0) {
+                    var found = false;
+                    $.each(cc_menudata.MenuItems, function (i) {
+                        if ((cc_menudata.MenuItems[i].ID == ParentID) && (found == false)) {
+                            found = true;
+                            TopMostParentID = cc_menudata.MenuItems[i].PID;
+                            menuitems.splice(0, 0, { "ID": TopMostParentID, "PID": TopMostParentID, "Title": "..", "isFolder": "true", "MType" : "back" });
+                        }
+                    });
+                }
+
+                var currentcrumbs = $(".breadcrumb")
+                //Handle Breadcrumbs
+                if (selectitem.attr('itemtitle') == "..") {
+                    //Remove BreadCrumb
+                    $(currentcrumbs[currentcrumbs.length - 1]).remove();
+                }
+                else {
+                    //Check if selected on breadcrumbs
+                    if (selectitem.hasClass('breadcrumb')) {
+                        var found = false;
+                        //Iterate through breadcrumbs and remove where items id is greather than selected one.
+                        $.each(currentcrumbs, function (j) {
+                            if (parseInt($(currentcrumbs[j]).attr('id')) > parseInt(selectitem.attr('id'))) {
+                                $(currentcrumbs[j]).remove();
+                            }
+                        });
+                    }
+                    else {
+                        //Add BreadCrumb
+                        $("#breadcrumbs").append("<div id='" + selectitem.attr('id') + "' class='breadcrumb sub activemenuitem' options='' itemtitle='" + selectitem.attr('itemtitle') + "' parent='" + selectitem.attr('parent') + "'>" + selectitem.attr('itemtitle') + "</div>");
+                    }
+                }
+                sessionStorage.setItem('ccMenuBreadCrumbs_' + loginReference, $("#breadcrumbs").html());
+                $("#menustructure").html(
+                    $("#menuitemTemplate").render(menuitems)
+                );
+                $("#menustructure").slideDown(100, function () {
+                });
+            });
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    function ReDrawMenuFromSession(selecteditemId) {
+        //var selectitem = $(this);
+        var ParentID;
+        var TopMostParentID;
+        var menuitems = []
+        var breadcrumbs = []
+        var a_newItemID;
+        $("#menustructure").empty(menuitems);
+
+        $("#menustructure").slideUp('fast', function () {
+            $.each(cc_menudata.MenuItems, function (i) {
+                if (cc_menudata.MenuItems[i].PID == selecteditemId) {
+                    ParentID = cc_menudata.MenuItems[i].PID;
+                    if (cc_menudata.MenuItems[i].ID > 0) {
+                        menuitems.push(cc_menudata.MenuItems[i]);
+                        a_newItemID = cc_menudata.MenuItems[i].ID;
+                    }
+                }
+            });
+            //Get top most parentID to insert "uplevel" folder
+            if (ParentID > 0) {
+                var found = false;
+                $.each(cc_menudata.MenuItems, function (i) {
+                    if ((cc_menudata.MenuItems[i].ID == ParentID) && (found == false)) {
+                        found = true;
+                        TopMostParentID = cc_menudata.MenuItems[i].PID;
+                        menuitems.splice(0, 0, { "ID": TopMostParentID, "PID": TopMostParentID, "Title": "..", "isFolder": "true", "MType": "back" });
+                    }
+                });
+            }
+
+            var currentcrumbs = $(".breadcrumb")
+            var ccMenuBreadCrumbs = sessionStorage.getItem('ccMenuBreadCrumbs_' + loginReference);
+            $("#breadcrumbs").html(ccMenuBreadCrumbs);
+            $("#menustructure").html(
+                $("#menuitemTemplate").render(menuitems)
+            );
+            $("#menustructure").show(function () { });
+
+
+        });
+    }
+
+</script>
+
+
+<script type="text/javascript">
+    
+    var menuitems = []
+    var CurrentItem;
+    var MenuOptionItem;
+
+    $(document).ready(function () {
+        
+        var ccMenuId = sessionStorage.getItem('ccMenuId_' + loginReference);
+        if (ccMenuId == null) {
+            $("#menustructure").hide();
+            $.each(cc_menudata.MenuItems, function (i) {
+                if ((cc_menudata.MenuItems[i].PID == 0) && (cc_menudata.MenuItems[i].ID > 0)) {
+                    menuitems.push(cc_menudata.MenuItems[i]);
+                    CurrentItem = cc_menudata.MenuItems[i].ID;
+                    MenuOptionItem = $(cc_menudata.MenuItems[i]);
+                }
+            });
+            $("#breadcrumbs").append("<div id='0' class='breadcrumb activemenuitem' options='' itemtitle='Menu Options' parent='0'>Menu Options</div>");
+            $("#menustructure").html(
+                $("#menuitemTemplate").render(menuitems)
+            );
+            $("#menustructure").slideDown('fast', function () {});
+        }
+        else
+        {
+            ReDrawMenuFromSession(ccMenuId);
+        }
+        $("#breadcrumbs").slideDown('fast');
+
+        $("#breadcrumbs").on('click', '.activemenuitem', function () {
+            DrawMenu($(this));
+        });
+
+        $("#menustructure").on('click', '.activemenuitem', function () {
+            DrawMenu($(this));
+        });
+    });
+</script>
+
+<br />
+<div id="breadcrumbs">&nbsp;</div>
+<div id="menustructure">&nbsp;</div>

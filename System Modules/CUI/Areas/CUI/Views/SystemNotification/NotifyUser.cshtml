@@ -1,0 +1,18 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Web.Models.NotificationModelForUser>
+@{
+    ViewBag.Title = "Notify User";
+}
+
+@using (Html.BeginForm())
+{ 
+    @Html.HiddenFor(m => m.LookupInputId)
+    @Html.HiddenFor(m => m.LookupInputIdValue)
+
+    using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddTextboxRowFor(m => m.Subject)
+        @FormLayout.AddTextAreaFor(m => m.Message, 7, 75)
+        @FormLayout.AddLookupFor(m => m.UserId, p => p.UserFullName, "Select User For Notification", Url.Action("UserLookup", "CUIPopup", new { area="CUI" }))
+    }
+    FormLayout.AddSubmitButtonWithBar("Send");    
+}

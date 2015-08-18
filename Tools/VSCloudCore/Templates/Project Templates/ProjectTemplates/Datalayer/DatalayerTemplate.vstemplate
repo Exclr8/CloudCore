@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>CC Datalayer Template</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <Icon>
+    </Icon>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>9021CC28-4A0D-4104-8FBF-5243AD799BD2</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>$safeprojectname$</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="$safeprojectname$.csproj" File="DatalayerTemplate.csproj" ReplaceParameters="true">
+      <Folder Name="properties" TargetFolderName="properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      </Folder>
+      <Folder Name="buildbase" TargetFolderName="buildbase">
+        <ProjectItem ReplaceParameters="true" TargetFileName="createdbbase.bat">createdbbase.bat</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="$ProductDBName$base.cs">dbcontextbase.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="VSCommandPrompt.lnk">VSCommandPrompt.lnk</ProjectItem>
+      </Folder>
+      <Folder Name="data" TargetFolderName="data">
+        <ProjectItem ReplaceParameters="true" TargetFileName="$ProductDBName$context.cs">dbcontext.cs</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="packages.config">packages.config</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>CloudCore.VSExtension.Wizards, Version=2015.5.14.1814, Culture=neutral, PublicKeyToken=e7a823e48f920dce</Assembly>
+    <FullClassName>CloudCore.VSExtension.Wizards.ICCSIDatalayerImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>

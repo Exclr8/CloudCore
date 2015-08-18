@@ -1,0 +1,17 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.WorkListItemModel>
+
+@{
+    ViewBag.Title = "Worklist Item Details";
+}
+
+
+@(Html.InfoGrid(Model.InstanceFailedHistory)
+    .EmptyTableItemName("Instance History")
+    .Title("Failed History For Instance")
+    .Columns(column => 
+            {
+                column.For(item => item.DateFailed).Named("Date Failed");
+                column.For(item => item.ActivityName).Named("Failed on Activity");
+                column.For(item => item.Reason);
+            })
+    )

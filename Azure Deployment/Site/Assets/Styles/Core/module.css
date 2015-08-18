@@ -1,0 +1,229 @@
+﻿div.content
+{
+    margin-left: 20px;
+    margin-top: -10px;
+    padding-top: 25px;
+    margin-bottom: -15px;
+    padding-bottom: 20px;
+    width: 97%;
+    display:inline-block;
+}
+.moduleitem.active
+{
+    background-image: url(../../../asset/Get?file=layout/module_active_bg.png&resourceArea=CUI);
+    background-repeat: repeat-x;
+    width: 97%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 3px; 
+    border-radius: 6px 6px 6px 6px; 
+    -moz-border-radius: 6px 6px 6px 6px; 
+    -webkit-border-radius: 6px 6px 6px 6px; 
+    box-shadow: 0 2px 1px #DDDDDD;
+    -moz-box-shadow: 0 2px 1px #DDDDDD;
+    -webkit-box-shadow: 0 2px 1px #DDDDDD;
+    border: 1px solid #C9C9C9; 
+    color: White;
+    font-weight:bold;
+    font-size:11px;
+    position: relative;
+}
+.moduleitem.active div.moduleicon
+{
+       width: 47px;
+       height: 46px;
+       background-image: url(../../../asset/Get?file=module/SelectedIcon.png&resourceArea=CUI);
+       margin: 5px;
+}
+.moduleitem.active div.edit
+{
+       width: 22px;
+       height: 22px;
+       background-image: url(../../../asset/Get?file=module/ModuleEditIcon.png&resourceArea=CUI);
+       margin: 5px;
+}
+.moduleitem.active div.edit:hover
+{
+       width: 22px;
+       height: 22px;
+       background-image: url(../../../asset/Get?file=module/ModuleEditIcon-HoverOver.png&resourceArea=CUI);
+       margin: 5px;
+}
+.moduleitem.active div.remove
+{
+       width: 20px;
+       height: 22px;
+       background-image: url(../../../asset/Get?file=module/ModuleRemove.png&resourceArea=CUI);
+       margin: 5px;
+}
+.moduleitem.active div.remove:hover
+{
+       width: 20px;
+       height: 22px;
+       background-image: url(../../../asset/Get?file=module/ModuleRemove-HoverOver.png&resourceArea=CUI);
+       margin: 5px;
+}
+
+.moduleitem.inactive tr.first td.button
+{
+    border-left: 1px solid #cacbcd;
+    box-shadow: 1px 0 0 #ffffff inset;
+    -moz-box-shadow: 1px 0 0 #ffffff inset;
+    -webkit-box-shadow: 1px 0 0 #ffffff inset;
+}
+
+.moduleitem.active tr.first td.button
+{
+    border-left: 1px solid #2d5d83;
+    box-shadow: 1px 0 0 #74b6f0 inset;
+    -moz-box-shadow: 1px 0 0 #74b6f0 inset;
+    -webkit-box-shadow: 1px 0 0 #74b6f0 inset;
+}
+.moduleitem.inactive
+{
+    border: 1px solid #C9C9C9; 
+    background-image: url(../../../asset/Get?file=layout/module_inactive_bg.png&resourceArea=CUI);
+    background-repeat: repeat-x;
+    width: 97%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: -10px; 
+    border-radius: 6px 6px 6px 6px; 
+    -moz-border-radius: 6px 6px 6px 6px; 
+    -webkit-border-radius: 6px 6px 6px 6px; 
+    box-shadow: 0 2px 1px #DDDDDD;
+    -moz-box-shadow: 0 2px 1px #DDDDDD;
+    -webkit-box-shadow: 0 2px 1px #DDDDDD;
+    border: 1px solid #C9C9C9; 
+    color: #999999;
+    font-weight:bold;
+    font-size:11px;
+    position: relative;
+}
+.moduleitem.inactive div.moduleicon
+{
+       width: 47px;
+       height: 46px;
+       margin: 5px;
+}
+.moduleitem.inactive div.edit
+{
+       width: 22px;
+       height: 22px;
+       background-image: url(../../../asset/Get?file=module/ModuleEditIcon-NonSelected.png&resourceArea=CUI);
+       margin: 5px;
+}
+.moduleitem.inactive div.edit:hover
+{
+       width: 22px;
+       height: 22px;
+       background-image: url(../../../asset/Get?file=module/ModuleEditIcon-HoverOver.png&resourceArea=CUI);
+       margin: 5px;
+}
+.moduleitem.inactive div.remove
+{
+       width: 20px;
+       height: 22px;
+       background-image: url(../../../asset/Get?file=module/ModuleRemove-NonSelected.png&resourceArea=CUI);
+       margin: 5px;
+}
+.moduleitem.inactive div.remove:hover
+{
+       width: 20px;
+       height: 22px;
+       background-image: url(../../../asset/Get?file=module/ModuleRemove-HoverOver.png&resourceArea=CUI);
+       margin: 5px;
+}
+.content 
+{
+    display:none;
+}
+
+.moduleitem img
+{
+    padding: 5px;
+}
+.moduleitem tr.first td
+{
+    vertical-align: bottom;    
+}
+.moduleitem tr.first td.button
+{
+    vertical-align: middle;    
+}
+.moduleitem tr.second td
+{
+    padding-bottom: 4px;    
+}
+table.infowebgrid
+{
+    width: 97%;
+    margin-left: 20px;
+    cellspacing: "0";
+    cellpadding: "0";
+}
+table.infowebgrid div.syncDetails
+{
+    width: 34px;
+    height: 35px;
+    background-image: url(../../../asset/Get?file=module/SyncSummaryIcon.png&resourceArea=CUI);
+}
+table.infowebgrid div.syncDetails:hover
+{
+    width: 34px;
+    height: 35px;
+    background-image: url(../../../asset/Get?file=module/SyncSummaryIcon-HoverOver.png&resourceArea=CUI);
+}
+table.infowebgrid div.syncModule
+{
+    width: 34px;
+    height: 35px;
+    background-image: url(../../../asset/Get?file=module/SyncIcon.png&resourceArea=CUI);
+}
+table.infowebgrid div.syncModule:hover
+{
+    width: 34px;
+    height: 35px;
+    background-image: url(../../../asset/Get?file=module/SyncIcon-HoverOver.png&resourceArea=CUI);
+}
+table.infowebgrid div.DeployImg
+{
+    width: 34px;
+    height: 35px;
+    background-image: url(../../../asset/Get?file=module/DeployIcon.png&resourceArea=CUI);
+}
+table.infowebgrid div.DeployImg:hover
+{
+    width: 34px;
+    height: 35px;
+    background-image: url(../../../asset/Get?file=module/DeployIcon-HoverOver.png&resourceArea=CUI);
+}
+table.infowebgrid div.processDetails
+{
+    width: 34px;
+    height: 35px;
+    background-image: url(../../../asset/Get?file=module/SyncSummaryIcon.png&resourceArea=CUI);
+}
+table.infowebgrid div.processDetails:hover
+{
+    width: 34px;
+    height: 35px;
+    background-image: url(../../../asset/Get?file=module/SyncSummaryIcon-HoverOver.png&resourceArea=CUI);
+}
+.header
+{
+     background-color: #01fa00;
+     margin: 20px;
+     height: 25px;
+     border-radius: 6px 6px 6px 6px; 
+     box-shadow: 0 2px 1px #DDDDDD;
+     border: 1px solid #C9C9C9;
+     text-align: left;
+     color: #474747;
+     font-size: 15px;
+     vertical-align: middle;
+     padding-left: 15px;
+     padding-top: 7px;
+     font-variant: small-caps;
+     font-weight: bold;
+}

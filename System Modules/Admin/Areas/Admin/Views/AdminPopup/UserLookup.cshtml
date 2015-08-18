@@ -1,0 +1,27 @@
+﻿@using CloudCore.Core.Domain
+@inherits LookupView<CloudCore.Admin.Models.UserSearchModel>
+
+@using (FormLayout.BeginModal("Find User"))
+{    
+    using (Html.BeginForm())
+    {        
+        using (FormLayout.BeginTable(FormLayoutType.Popup))
+        {
+            @FormLayout.AddFilterEditRowFor(searchModel => searchModel.Email, searchModel => searchModel.EmailFilter)
+            @FormLayout.AddFilterEditRowFor(searchModel => searchModel.Name, searchModel => searchModel.NameFilter)
+        }
+
+        @(Html.SearchGrid(Model.SearchResults)
+              .Title("Users")
+              .EmptyTableItemName("User")
+              .Columns(column =>
+              {
+//                  column.For(item => SetLookUpControlValuesAsHref(item.UserId.ToString(), item.FullName, item.FullName)).Named("Name");
+                  column.For(item => AddHrefToSetLookupValue(Model, m => m.LookupInputId, m => m.LookupInputIdValue, item.UserId.ToString(), item.FullName, item.FullName)).Named("Name");
+                  column.For(item => item.Email);
+              })
+              .Title("Search Results")
+        )
+        @FormLayout.AddModalSearchButtonBar(Url.Action("UserLookup", "AdminPopup", null))
+    }
+}

@@ -1,0 +1,21 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.SystemValueCategorySearchModel>
+@{
+    ViewBag.Title = "Search System Value Category";
+}
+
+
+@using (Html.BeginForm())
+{ 
+    using(FormLayout.BeginTable())
+    {
+        @FormLayout.AddFilterEditRowFor(m => m.CategoryName, m => m.FilterOptions);
+    }
+    FormLayout.AddSubmitButtonWithBar("Search");    
+    @(Html.SearchGrid(Model.SearchResults.AsQueryable())
+    .Columns(column => 
+        {
+            column.For(r => Html.ActionLink(r.CategoryName, "Details", new { categoryId = r.CategoryId})).Named("Category Name");
+        })
+            .Title("Access Pool Search Results")
+    )
+}      

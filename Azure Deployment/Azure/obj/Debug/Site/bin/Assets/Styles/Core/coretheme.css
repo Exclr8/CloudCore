@@ -1,0 +1,104 @@
+﻿/*External Background Colors*/
+#body_external{
+  /* fallback */
+  background-color: #1D69BB;
+  
+  /* Safari 4-5, Chrome 1-9 */
+  /* Can't specify a percentage size? Laaaaaame. */
+  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#2482CC), to(#0E3157));
+  
+  /* Safari 5.1+, Chrome 10+ */
+  background: -webkit-radial-gradient(circle, #1D69BB, #0E3157);
+  
+  /* Firefox 3.6+ */ 
+  background: -moz-radial-gradient(circle, #1D69BB, #0E3157);
+  
+  /* IE 10 */ 
+  background: -ms-radial-gradient(circle, #1D69BB, #0E3157);
+  
+  /* Opera cannot do radial gradients yet */
+
+}
+
+input[type="button"], input[type="submit"], button,
+#l_head, #l_foot, #l_favtitle, .tasklistitem, .popUpStructure, .uploadimage, #l_fav td, .toolitem{
+    background-color: #1d69bb;
+}
+
+input[type="text"], input[type="password"], input[type="file"], textarea
+{
+    color: #515151; /* Text color inside normal editable textboxes */
+}
+
+a,
+.sboptions div.sbitem:hover,
+#breadcrumbs .breadcrumb:hover,
+.infowebgrid .title, 
+#l_cro .title,
+.l_ft .title,
+#l_sb .title,
+.tool_heading,
+.menuaccent
+{
+    color: #1d69bb;
+}
+
+.tasklistitem, 
+#layout div.lticon.ia, 
+#layout div.rticon.ia, .toolitem,
+div.rticon.nomsg
+{
+    color: #7FB2CC;
+}
+
+.popCloseButton
+{
+    background-color: #7FB2CC;
+}
+
+/*Page Header Styling*/
+.pagetoolbar
+{
+    background-color: #EAEBF0;
+    border-bottom: 1px solid #B8B9BD;
+    color: #767676;
+}
+
+
+/*Styling of a link button*/
+.roundedButton
+{
+    border: 1px solid #A8A8AA;
+    color: #999999;
+}
+
+.roundedButton:hover 
+{
+    color: #666666;
+}
+
+
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus
+{
+    border: 1px solid #3399ff;
+    color: #3399ff;
+}
+
+.ui-state-hover a, .ui-state-hover a:hover
+{
+    color: #3399ff;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active
+{
+    border: 1px solid #3399ff;
+    color: #3399ff;
+}
+
+.ui-widget-header
+{
+    border: 1px solid #3399FF;
+    background-color: #3399FF;
+}
+

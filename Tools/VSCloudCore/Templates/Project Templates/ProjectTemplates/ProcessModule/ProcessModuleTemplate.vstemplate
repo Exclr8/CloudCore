@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>ProcessModuleTemplate</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <Icon>
+    </Icon>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>VSCloudCore.ProcessModule</ProjectSubType>
+    <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>$ProductName$.Process</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="$safeprojectname$.csproj" File="ProcessModuleTemplate.csproj" ReplaceParameters="true">
+      <Folder Name="Activities" TargetFolderName="Activities" />
+      <Folder Name="Processes" TargetFolderName="Processes" />
+      <Folder Name="Scheduled Tasks" TargetFolderName="Scheduled Tasks" />
+      <Folder Name="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>CloudCore.VSExtension.Wizards, Version=2015.5.14.1814, Culture=neutral, PublicKeyToken=e7a823e48f920dce</Assembly>
+    <FullClassName>CloudCore.VSExtension.Wizards.ICCSIProcessModuleImplementation</FullClassName>
+  </WizardExtension>
+  <WizardExtension>
+    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
+  </WizardExtension>
+  <WizardData>
+    <packages repository="extension" repositoryId="cd733063-7383-4175-a38b-283e39e02fcc">
+      <!--Put default package references here 
+            (Must exist within: "C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Packages\" or wherever you installed Visual Studio)-->
+      <!--<package id="Newtonsoft.Json" version="4.5.11" skipAssemblyReferences="true" />-->
+    </packages>
+  </WizardData>
+</VSTemplate>

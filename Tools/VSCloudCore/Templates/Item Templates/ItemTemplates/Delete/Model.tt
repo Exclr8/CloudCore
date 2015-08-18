@@ -1,0 +1,22 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="CloudCore.VSExtension.Wizards" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+namespace $rootnamespace$.Models
+{
+	public class <#=templateData.ContextName #>DeleteModel
+	{
+       <# foreach(var property in templateData.ModelProperties) { #>
+   
+		[Display(Name="<#= property.DisplayName#>")]
+        public <#= property.PropertyType.ToString()#> <#= property.PropertyName#> { get; set; }
+
+       <# } #>
+	}
+}

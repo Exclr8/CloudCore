@@ -1,0 +1,60 @@
+
+
+#toolitem 
+{
+    font-size:12px;
+}
+        
+.toolsection
+{
+    height:auto; 
+    width: auto;
+    margin-top: 15px;
+}
+        
+.toolitems
+{
+    margin-top: 20px;
+}
+
+.toolitemimg
+{
+    width: 30px;
+    height: 30px;
+    bottom: -35px;
+    position: relative;
+}
+
+.toolitem
+{
+    display: block;
+    float: left;
+    font-size: 12px;
+    height: 100px;
+    margin-right: 20px;
+    padding: 10px;
+    text-decoration: none;
+    width: 150px;
+}
+
+.toolitem:hover
+{
+    color: #ffffff;
+}
+       
+.tool_heading
+{
+    font-size: 20px;
+    text-transform: uppercase;  
+}
+        
+.tool_description
+{
+    font-size:14px;
+    color: #5B5B5B;
+}
+		 		 
+/* FEEL FREE TO CUSTOMIZE THE FOLLOWING RULES */
+		
+dd p{line-height:120%}
+

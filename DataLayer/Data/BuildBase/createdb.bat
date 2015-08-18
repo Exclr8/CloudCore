@@ -1,0 +1,1 @@
+sqlmetal /server:localhost /namespace:CloudCore.Data.Buildbase /database:CloudCoreDB /code:"%~dp0\CloudCoreDBbase.cs" /views /functions /sprocs /language:c# /context:CloudCoreDBBase

@@ -1,0 +1,58 @@
+﻿@using CloudCore.Web.Core.Security.Authentication
+
+@{
+    ViewBag.Title = "Settings";
+}
+
+
+<div id="content-area" class="col-lg-12 col-md-12">
+
+    <h4>Personal Information & Settings</h4>
+    <h5 class="text-muted">View or manage your personal information and settings</h5>
+
+    <div class="settings-items-container">
+
+        <a class="settings-item" href="@Url.Action("PersonalDetails", "Tools", new { area="CUI" })">
+            <h5 class="settings-item-title">My Details <span class="glyphicon glyphicon-user pull-right"></span></h5>
+        </a>
+        <a class="settings-item" href="@Url.Action("PersonalLoginHistory", "Tools", new {area = "CUI"})">
+            <h5 class="settings-item-title">Login History <span class="glyphicon glyphicon-log-in pull-right"></span></h5>
+        </a>
+        <a class="settings-item" href="@Url.Action("Favourites", "Tools", new {area = "CUI"})">
+            <h5 class="settings-item-title">Favourites <span class="glyphicon glyphicon-star pull-right"></span></h5>
+        </a>
+
+    </div>
+
+    @if (CloudCoreIdentity.IsAdministrator)
+    {
+        <h4>Business Tools</h4>
+        <h5 class="text-muted">View or manage your business tools</h5>
+
+        <div class="settings-items-container">
+
+            <a class="settings-item" href="@Url.Action("Index", "SystemNotification", new {area = "CUI"})">
+                <h5 class="settings-item-title">Notifications <span class="glyphicon glyphicon-envelope pull-right"></span></h5>
+            </a>
+
+        </div>
+
+        <h4>System Configuration</h4>
+        <h5 class="text-muted">View or manage system wide configuration and settings</h5>
+
+        <div class="settings-items-container">
+
+            <a class="settings-item" href="@Url.Action("Modules", "Tools", new {area = "CUI"})">
+                <h5 class="settings-item-title">System Modules <span class="glyphicon glyphicon-th pull-right"></span></h5>
+            </a>
+            <a class="settings-item" href="@Url.Action("GlobalLoginHistory", "Tools", new {area = "CUI"})">
+                <h5 class="settings-item-title">Global Login History <span class="glyphicon glyphicon-log-in pull-right"></span></h5>
+            </a>
+            <a class="settings-item" href="@Url.Action("Logs", "Tools", new {area = "CUI"})">
+                <h5 class="settings-item-title">System Logs <span class="glyphicon glyphicon-list pull-right"></span></h5>
+            </a>
+
+        </div>
+    }
+</div>
+

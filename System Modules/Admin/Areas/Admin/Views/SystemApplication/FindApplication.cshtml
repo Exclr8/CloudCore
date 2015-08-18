@@ -1,0 +1,28 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.SystemApplicationSearchModel>
+@{
+    ViewBag.Title = "Find System Application";
+}
+
+@using (Html.BeginForm())
+{ 
+    using(FormLayout.BeginTable())
+    {
+        @FormLayout.AddFilterEditRowFor(m => m.ApplicationName, m => m.FilterOptionsApplicationName);
+        @FormLayout.AddFilterEditRowFor(m => m.CompanyName, m => m.FilterOptionsCompanyName);
+        @FormLayout.AddFilterEditRowFor(m => m.ContactPerson, m => m.FilterOptionsContactPerson);
+    
+    }
+    FormLayout.AddSubmitButtonWithBar("Search");
+    
+    
+    
+    @(Html.SearchGrid(Model.SearchResults.AsQueryable())
+    .Columns(column => 
+        {
+            column.For(r => Html.ActionLink(r.ApplicationName, "Details", new { ApplicationId = r.ApplicationId })).Named("Application Name");
+            column.For(r => r.CompanyName);
+            column.For(r => r.ContactPerson);
+        })
+            .Title("System Application Search Result(s)")
+    )
+}      

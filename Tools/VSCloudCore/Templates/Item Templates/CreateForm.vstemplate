@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>CloudCore Create Form</Name>
+    <Description>Template for a Create View</Description>
+    <Icon>CreateForm.ico</Icon>
+    <TemplateGroupID>CloudCore</TemplateGroupID>  
+    <TemplateID>CloudCore.Form.Create</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <DefaultName>CreateView</DefaultName>
+  </TemplateData>
+  <TemplateContent>  
+      <ProjectItem ReplaceParameters="true" TargetFileName="Models\$ContextName$\Create.cs">ItemTemplates\Create\Model.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Controllers\$ContextName$\Create.cs">ItemTemplates\Create\Controller.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Views\$ContextName$\Create.cshtml">ItemTemplates\Create\View.tt</ProjectItem>
+  </TemplateContent>
+    <WizardExtension>
+        <Assembly>CloudCore.VSExtension.Wizards, Version=2015.5.14.1814, Culture=neutral, PublicKeyToken=e7a823e48f920dce</Assembly>
+        <FullClassName>CloudCore.VSExtension.Wizards.T4CreateViewWizard</FullClassName>
+    </WizardExtension>
+</VSTemplate>          

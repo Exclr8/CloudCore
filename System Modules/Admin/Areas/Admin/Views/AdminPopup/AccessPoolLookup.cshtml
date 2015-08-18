@@ -1,0 +1,26 @@
+﻿@using CloudCore.Core.Domain
+@inherits PopupView<CloudCore.Admin.Models.AccessPoolLookupModel>
+
+@using (FormLayout.BeginModal("Find Access Pool"))
+{
+    using (Html.BeginForm())
+    {
+        @Html.HiddenFor(m => m.ReturnRouteId)
+        @Html.HiddenFor(m => m.ReturnRouteIdName)
+        @Html.HiddenFor(m => m.ReturnRouteAction)
+        @Html.HiddenFor(m => m.ReturnRouteController)
+
+        using (FormLayout.BeginTable(FormLayoutType.Popup))
+        {
+            @FormLayout.AddFilterEditRowFor(m => m.Name, m => m.NameFilter)
+        }
+
+        @(Html.SearchGrid(Model.SearchResults)
+              .Empty("There are no access pools available")
+              .Columns(column =>
+                  column.For(item => Html.ActionLink(item.Name, Model.ReturnRouteAction, Model.ReturnRouteController, Model.GetReturnRouteValues((int)item.Id), null)).Named("Name"))
+        )
+
+        @FormLayout.AddModalSearchButtonBar(Url.Action("AccessPoolLookup", "AdminPopup", null))
+    }
+}

@@ -1,0 +1,74 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CloudCore.VSExtension.Wizards" #>
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web.Mvc;
+using CloudCore.Web.Core;
+using CloudCore.Web.Core.BaseModels;
+using $rootnamespace$.CRO;
+
+namespace $rootnamespace$.Models
+{
+	public class <#= templateData.ContextName#>ContextModel : BaseContextModel
+	{
+       <# 
+	      PushIndent("\t\t");
+	      WriteLine(@"public {0}CRO Active{0};", templateData.ContextName);
+		  WriteLine("");
+	      foreach(var column in templateData.Columns)
+	  	  {
+		       if (column.AddAsProperty || column.IsPrimary)
+		       {
+		          WriteLine(@"[Display(Name=""{0}"")]", column.DisplayName);
+		          WriteLine(@"public {0} {1}",column.ColumnType.Name, column.ColumnName); 
+		          WriteLine("{");
+		          PushIndent("\t");
+				  if (column.IsPrimary)
+				  {
+		            WriteLine(@"get { return Convert.ToInt32(Key); }");
+					WriteLine(@"set { Key = value; }");
+				  } else {
+	                WriteLine(@"get {{ return Active{0}.{1}; }} ", templateData.ContextName, column.ColumnName);
+					WriteLine(@"set {{ Active{0}.{1} = value; }}", templateData.ContextName, column.ColumnName);
+				  }
+				    
+	              PopIndent();
+		          WriteLine("}");
+			      WriteLine("");
+			    }
+			} 
+			PopIndent();
+			ClearIndent();
+	   #>
+
+		public override void InitializeCachedReusableObjects(CachedReusableObjectList cachedReusableObjects, long key)
+		{
+		  <# 
+	        PushIndent("\t\t\t");
+	        WriteLine(@"Active{0} = {0}CRO.Create(key);", templateData.ContextName);
+			WriteLine(@"cachedReusableObjects.Add(Active{0});", templateData.ContextName);
+			WriteLine(@"base.InitializeCachedReusableObjects(cachedReusableObjects, key);");
+            PopIndent();
+			ClearIndent();
+		  #>
+		}
+
+        public override void InitializeSidebar(Sidebar sidebar, WebViewPage baseview)
+        {
+		  <#
+            PushIndent("\t\t\t");
+			WriteLine(@"sidebar.AddSidebarItem(SidebarObjectType.ViewDisplay, ""Search"", baseview.Url.Action(""Search"", ""{0}""));", templateData.ContextName);
+			WriteLine(@"sidebar.AddSidebarItem(SidebarObjectType.ViewDisplay, ""Details"", baseview.Url.Action(""Details"", ""{0}"", new {{ {1} = Active{0}.{1} }}));", templateData.ContextName, templateData.PrimaryKey.ColumnName);
+			WriteLine(@"sidebar.AddSidebarItem(SidebarObjectType.ManageConfigure, ""Modify"", baseview.Url.Action(""Modify"", ""{0}"", new {{ {1} = Active{0}.{1} }}));", templateData.ContextName, templateData.PrimaryKey.ColumnName);
+            PopIndent();
+			ClearIndent();
+		  #>
+        }
+	}
+}

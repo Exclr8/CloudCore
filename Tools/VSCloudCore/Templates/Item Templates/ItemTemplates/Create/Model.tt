@@ -1,0 +1,63 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="CloudCore.VSExtension.Wizards" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+using System.ComponentModel.DataAnnotations;
+using <#= templateData.DBContextNamespace#>;
+
+namespace $rootnamespace$.Models
+{
+	public class <#=templateData.ContextName #>CreateModel
+	{
+       <# 
+	     PushIndent("\t\t\t");
+		 WriteLine("");
+	     foreach(var field in templateData.Fields) 
+         {
+		    if (field.IsByReference)
+			{
+			  if (field.IsNullable) 
+			  {
+			     WriteLine(@"public {0}? {1} = null;", field.ColumnType, field.ColumnName);
+			  } else {
+			     WriteLine(@"public {0} {1};", field.ColumnType, field.ColumnName);
+			  }
+			} else {
+			  if (!field.IsNullable) { WriteLine("[Required]"); }
+	          WriteLine(@"[Display(Name=""{0}"")]", field.DisplayName);
+		      WriteLine(@"public {0} {1} {{ get; set; }}",field.ColumnType.Name, field.ColumnName);    
+			} 
+			WriteLine("");
+		    
+
+         } 
+		 PopIndent();
+		 ClearIndent();
+	   #>
+
+	   public void Create()
+	   {
+	      var db = new <#= templateData.DBContextClassname#>();
+
+		<#
+		  PushIndent("\t\t\t");
+		  bool isFirst = true;
+          Write(@"var result = db.{0}(", templateData.StoredProcedure);
+		  foreach(var field in templateData.Fields)
+		  {
+		     if (!isFirst) { Write(", "); }
+		     if (field.IsByReference) { Write("ref "); }
+		     Write(@"this.{0}", field.ColumnName);
+			 isFirst = false;
+		  }
+		  Write(");\r\n");
+		  PopIndent();
+		  ClearIndent();
+        #>
+	   }
+
+	}
+}

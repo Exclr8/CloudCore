@@ -1,0 +1,26 @@
+﻿@using CloudCore.Admin.Models;
+@using CloudCore.Web.Core.BaseViews;
+@using System.Web.Mvc.Html;
+@inherits WebView<UserContextModel>
+
+@{
+    ViewBag.Title = "Modify User";
+}
+
+@using (Html.BeginForm())
+{
+        using (FormLayout.BeginTable())
+        {
+            @FormLayout.AddTitleHeaderRow("Basic Information")
+            @FormLayout.AddTextboxRowFor(model => model.Initials)
+            @FormLayout.AddTextboxRowFor(model => model.FirstName)
+            @FormLayout.AddTextboxRowFor(model => model.Surname)
+            @FormLayout.AddTitleHeaderRow("Contact Information")
+            @FormLayout.AddTextboxRowFor(model => model.CellNumber)
+            @FormLayout.AddTextboxRowFor(model => model.Email)
+            @FormLayout.AddTitleHeaderRow("Image")
+            @FormLayout.AddFileUploadRow("User Image", "userimage", 220, "jpg|jpeg|png|gif")
+        }
+
+    FormLayout.AddSubmitButtonWithBar("Save");
+}

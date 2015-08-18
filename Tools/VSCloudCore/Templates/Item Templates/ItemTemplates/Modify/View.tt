@@ -1,0 +1,27 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="CloudCore.VSExtension.Wizards" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+@inherits CloudCore.Web.Core.BaseViews.WebView<$rootnamespace$.Models.<#= templateData.ContextName #>ModifyModel>
+@{
+    ViewBag.Title = "<#= templateData.PageTitle #>";
+}              
+
+@using CloudCore.Extensions
+
+@using (@Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+        <# 
+        foreach(var property in templateData.ModelProperties)
+        { 
+                        WriteLine(@"@FormLayout.AddTextboxRowFor(model => model.{0})", property.PropertyName);
+        }
+        #>
+
+        @FormLayout.AddSubmitRow("<#= templateData.ModifyButtonText #>");
+    }         
+}

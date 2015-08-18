@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <NugetToolsPathCustom Condition="$(NugetToolsPathCustom) == ''">..\..\</NugetToolsPathCustom>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C9D0D0DD-1BC4-4DE6-96EE-730BBAB6B467}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CloudCore.Core</RootNamespace>
+    <AssemblyName>CloudCore.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>
+    </DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\Shared Files\cloudcore.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Shared Files\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Configuration\cloudcorecommonsection.cs" />
+    <Compile Include="Configuration\cloudcorewebsection.cs" />
+    <Compile Include="Configuration\cloudcoreworkersection.cs" />
+    <Compile Include="Configuration\Elements\ApiSettingsElement.cs" />
+    <Compile Include="Configuration\Elements\application.cs" />
+    <Compile Include="Configuration\Elements\ClickatellElement.cs" />
+    <Compile Include="Configuration\Elements\cloudcoreapisection.cs" />
+    <Compile Include="Configuration\Elements\defaultaction.cs" />
+    <Compile Include="Configuration\Elements\RecipientElement.cs" />
+    <Compile Include="Configuration\Elements\ExceptionRecipientCollection.cs" />
+    <Compile Include="Configuration\Elements\location.cs" />
+    <Compile Include="Configuration\Elements\logging.cs" />
+    <Compile Include="Configuration\Elements\postage.cs" />
+    <Compile Include="Configuration\Elements\servicebus.cs" />
+    <Compile Include="Configuration\Elements\services.cs" />
+    <Compile Include="Configuration\Elements\storage.cs" />
+    <Compile Include="Configuration\Elements\usersessiontimeout.cs" />
+    <Compile Include="Configuration\Elements\websettings.cs" />
+    <Compile Include="Configuration\Elements\worker.cs" />
+    <Compile Include="Configuration\GlobalConfiguration.cs" />
+    <Compile Include="Configuration\Location\ILocationConfigurable.cs" />
+    <Compile Include="Configuration\Location\LocationConfig.cs" />
+    <Compile Include="Configuration\LoginActionElement.cs" />
+    <Compile Include="Configuration\Validators\JquerySourceValidator.cs" />
+    <Compile Include="Dashboard\INotifyService.cs" />
+    <Compile Include="Dashboard\KpiDashboardNotification.cs" />
+    <Compile Include="Dashboard\KpiScheduledTaskStorageTable.cs" />
+    <Compile Include="Dashboard\KpiTableEntity.cs" />
+    <Compile Include="Data\CloudCoreDataModule.cs" />
+    <Compile Include="DependencyResolution\IoC.cs" />
+    <Compile Include="Logging\AzureTableStorage\TableStorage.cs" />
+    <Compile Include="Logging\Configuration\ILoggingConfig.cs" />
+    <Compile Include="Logging\Configuration\VerbosityLevel.cs" />
+    <Compile Include="Logging\DebugLogger.cs" />
+    <Compile Include="Logging\EventLogLogger.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\LogEntry.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Logging\Resources.Designer.cs" />
+    <Compile Include="Logging\TableStorageLogger.cs" />
+    <Compile Include="Logging\TraceLogger.cs" />
+    <Compile Include="Menu\ModuleFolder.cs" />
+    <Compile Include="ModuleActions\ModuleAction.cs" />
+    <Compile Include="ModuleActions\ModuleActionList.cs" />
+    <Compile Include="Modules\CloudCoreModule.cs" />
+    <Compile Include="Modules\CloudCoreModuleType.cs" />
+    <Compile Include="Modules\Environment.cs" />
+    <Compile Include="Hosting\VirtualFiles\CloudCoreResourceFile.cs" />
+    <Compile Include="Hosting\VirtualFiles\EmbeddedResourcePathProvider.cs" />
+    <Compile Include="Hosting\VirtualFiles\EmbeddedResourceVirtualFile.cs" />
+    <Compile Include="Hosting\VirtualFileBaseCollection.cs" />
+    <Compile Include="Modules\ICloudCoreModule.cs" />
+    <Compile Include="Modules\IModuleConfiguration.cs" />
+    <Compile Include="Modules\IModuleHost.cs" />
+    <Compile Include="Menu\ModuleRoot.cs" />
+    <Compile Include="Modules\ModuleDeployment.cs" />
+    <Compile Include="Modules\ModuleLoadException.cs" />
+    <Compile Include="Modules\CoreCommonModule.cs" />
+    <Compile Include="Modules\ModuleHostRegistrar.cs" />
+    <Compile Include="ThirdParty\ClickaTell\ClickatellClient.cs" />
+    <Compile Include="ThirdParty\ClickaTell\ClickatellException.cs" />
+    <Compile Include="ThirdParty\ClickaTell\ClickatellMessage.cs" />
+    <Compile Include="ThirdParty\PostageApp\Attachment.cs" />
+    <Compile Include="ThirdParty\PostageApp\EmailRecipient.cs" />
+    <Compile Include="Repository.cs" />
+    <Compile Include="Security\Api\AccessToken.cs" />
+    <Compile Include="Reporting\SqlReporting.cs" />
+    <Compile Include="Logging\LoggingCategories.cs" />
+    <Compile Include="Serialization\Expando.cs" />
+    <Compile Include="Serialization\ExpandoPropertyBag.cs" />
+    <Compile Include="Security\Encryption.cs" />
+    <Compile Include="Storage\BlobStorage.cs" />
+    <Compile Include="Workflow\ITaskListQuery.cs" />
+    <Compile Include="Workflow\ITaskFilter.cs" />
+    <Compile Include="Workflow\TaskListQuery.cs" />
+    <Compile Include="TaskList\TaskListQueryList.cs" />
+    <Compile Include="TaskList\Standard\AllActiveTaskQuery.cs" />
+    <Compile Include="TaskList\Standard\AllocatedTaskQuery.cs" />
+    <Compile Include="TaskList\Standard\AllTaskQuery.cs" />
+    <Compile Include="TaskList\Standard\OfferedTaskQuery.cs" />
+    <Compile Include="TaskList\Standard\StartedTaskQuery.cs" />
+    <Compile Include="TaskList\Standard\SuspendedTaskQuery.cs" />
+    <Compile Include="ThirdParty\PostageApp\PostagAppSender.cs" />
+    <Compile Include="ThirdParty\PostageApp\PostageAppClient.cs" />
+    <Compile Include="ThirdParty\PostageApp\PostageAppMessage.cs" />
+    <Compile Include="Utilities\DateTimeUtils.cs" />
+    <Compile Include="Utilities\GenericUtils.cs" />
+    <Compile Include="Utilities\RegularExpressionPatterns.cs" />
+    <Compile Include="Utilities\SerializationUtils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Shared Files\cloudcore.snk">
+      <Link>cloudcore.snk</Link>
+    </None>
+    <None Include="app.config" />
+    <None Include="Microsoft.WindowsAzure.Caching\ClientPerfCountersInstaller.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ApplicationServer.Caching.AzureClientHelper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.Caching.2.6.0.0\lib\net40-full\Microsoft.ApplicationServer.Caching.AzureClientHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationServer.Caching.AzureCommon, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.Caching.2.6.0.0\lib\net40-full\Microsoft.ApplicationServer.Caching.AzureCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationServer.Caching.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.Caching.2.6.0.0\lib\net40-full\Microsoft.ApplicationServer.Caching.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationServer.Caching.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.Caching.2.6.0.0\lib\net40-full\Microsoft.ApplicationServer.Caching.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.DistributedCache, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.Caching.2.6.0.0\lib\net40-full\Microsoft.Web.DistributedCache.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration">
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.ConfigurationManager.3.1.0\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=2.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.7\bin\runtimes\base\x64\Microsoft.WindowsAzure.ServiceRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=4.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WindowsAzure.Storage.4.3.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsFabric.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.Caching.2.6.0.0\lib\net40-full\Microsoft.WindowsFabric.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsFabric.Data.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.Caching.2.6.0.0\lib\net40-full\Microsoft.WindowsFabric.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Reflection.Context" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Microsoft.WindowsAzure.Caching\ClientPerfCountersInstaller.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Microsoft.WindowsAzure.Caching\PerformanceCounters.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DataLayer\Data\CloudCore.Data.csproj">
+      <Project>{246e33e8-86a8-4e21-a966-9387d3563b4d}</Project>
+      <Name>CloudCore.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'SqlExpress|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\SqlExpress\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Label="SlowCheetah">
+    <SlowCheetahToolsPath>$([System.IO.Path]::GetFullPath( $(MSBuildProjectDirectory)\..\..\packages\SlowCheetah.2.5.12\tools\))</SlowCheetahToolsPath>
+    <SlowCheetah_EnableImportFromNuGet Condition=" '$(SlowCheetah_EnableImportFromNuGet)'=='' ">true</SlowCheetah_EnableImportFromNuGet>
+    <SlowCheetah_NuGetImportPath Condition=" '$(SlowCheetah_NuGetImportPath)'=='' ">$([System.IO.Path]::GetFullPath( $(MSBuildProjectDirectory)\Properties\SlowCheetah\SlowCheetah.Transforms.targets ))</SlowCheetah_NuGetImportPath>
+    <SlowCheetahTargets Condition=" '$(SlowCheetah_EnableImportFromNuGet)'=='true' and Exists('$(SlowCheetah_NuGetImportPath)') ">$(SlowCheetah_NuGetImportPath)</SlowCheetahTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'SqlExpress|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\SqlExpress\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="BeforeBuild">
+    <ItemGroup>
+      <EmbeddedResource Include="**\*.ico;**\*.aspx;**\*.ascx;**\*.png;**\*.css;**\*.js;**\*.gif;**\*.ashx;**\*.jpg;**\*.resx;**\*.xml;**\*.btomic;**\*.sql;**\*.asmx;**\*.cshtml;**\*.config" />
+    </ItemGroup>
+  </Target>
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <Import Project="$(SlowCheetahTargets)" Condition="Exists('$(SlowCheetahTargets)')" Label="SlowCheetah" />
+</Project>

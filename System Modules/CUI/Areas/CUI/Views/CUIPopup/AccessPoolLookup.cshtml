@@ -1,0 +1,29 @@
+﻿@using CloudCore.Core.Domain
+@inherits CloudCore.Web.Core.BaseViews.LookupView<CloudCore.Web.Models.AccessPoolLookupModel>
+
+@using (FormLayout.BeginModal("Search for Access Pool"))
+{
+    using (Html.BeginForm())
+    {
+        @Html.HiddenFor(m => m.LookupInputId)
+        @Html.HiddenFor(m => m.LookupInputIdValue)
+        
+        using (FormLayout.BeginTable(FormLayoutType.Popup))
+        {
+            @FormLayout.AddFilterEditRowFor(m => m.Name, m => m.NameFilter)
+            @FormLayout.AddFilterEditRowFor(m => m.ManagerName, m => m.ManagerNameFilter)
+        }
+
+        @(Html.SearchGrid(Model.SearchResults)
+              .Columns(column =>
+              {
+//                  column.For(item => AddHrefToSetLookupValue("AccessPoolId", item.AccessPoolId.ToString(), "AccessPoolName", item.AccessPoolName, item.AccessPoolName)).Named("Access Pool Name");
+                  column.For(item => AddHrefToSetLookupValue(Model, m => m.LookupInputId, m => m.LookupInputIdValue, item.AccessPoolId.ToString(), item.AccessPoolName, item.AccessPoolName)).Named("Access Pool Name");
+                  column.For(r => r.ManagerName);
+              })
+              .Title("Access Pool Search Results")
+        )
+
+        @FormLayout.AddModalSearchButtonBar(Url.Action("AccessPoolLookup", "CUIPopup", new { area = "CUI" }))
+    }
+}

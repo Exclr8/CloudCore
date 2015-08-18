@@ -1,0 +1,49 @@
+﻿@using System
+@using CloudCore.Web.Core.Notifications
+@{
+    /*Only show notification in popup if the parent isn't going to be reloaded*/
+    if ((ViewData["RedirectParentUrl"] == null) && (ViewData["ReloadParent"] == null || !Convert.ToBoolean(ViewData["ReloadParent"])))
+    {
+        var notification = NotificationBaloonMessage.Get(TempData);
+        if (notification != null)
+        {
+            var renderer = new NotificationBaloonRender(notification);
+            Write(renderer.Render(isPopUp: true));
+        }
+    }
+}
+
+@if (ViewData["ClosePopUp"] != null)
+{
+    var reloadString = string.Empty;
+
+    if (Convert.ToBoolean(ViewData["ClosePopUp"]))
+    {
+        if (ViewData["ReloadParent"] != null)
+        {
+            if (Convert.ToBoolean(ViewData["ReloadParent"]))
+            {
+                reloadString = "parent.window.document.location.href = parent.window.document.location.href;";
+            }
+            else
+            {
+                if (ViewData["RedirectParentUrl"] != null)
+                {
+                    reloadString = string.Format("parent.document.location.href='{0}';", Convert.ToString(ViewData["RedirectParentUrl"]));
+                }
+            }
+        }
+    }
+    <script type="text/javascript">
+        @(new MvcHtmlString(reloadString))
+    </script>
+
+    if (reloadString == string.Empty)
+    {
+        <script type="text/javascript">
+            parent.disablePopup();
+        </script>
+    }
+
+    Response.Flush();
+}

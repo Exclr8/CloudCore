@@ -1,0 +1,28 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Web.Models.LogsModel>
+
+@{
+    ViewBag.Title = "View Logs";
+}
+
+@(Html.InfoGrid(Model.LogItems)
+        .Title("System Logs")
+        .EmptyTableItemName("System Log")
+        .PageSize(20)
+        .Sort(null)
+        .Columns(column =>
+        {
+            column.For(r => r.Level);
+            column.For(r => r.Logger);
+            column.For(r => r.Date);
+            column.For(r => r.Message);
+            column.For(r => r.Exception);
+        })
+    )
+
+@using (Html.BeginForm("DeleteOldLogs", "Tools"))
+{
+    using (FormLayout.BeginTable())
+    {
+        FormLayout.AddSubmitButtonWithBar("Delete Old Logs");
+    }
+}

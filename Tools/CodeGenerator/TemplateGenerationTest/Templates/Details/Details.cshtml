@@ -1,0 +1,20 @@
+﻿ 
+
+
+
+@inherits CloudCore.Views.PopUpHelperViewPage<TemplateGenerationTest.Details>
+@{
+    ViewBag.Title = "Modify Test";
+}
+
+@using CloudCore.Extensions
+
+@using (@Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddDisplayRowFor(model => model.InputColumn1)
+@FormLayout.AddDisplayRowFor(model => model.InputColumn2)
+@FormLayout.AddDisplayRowFor(model => model.InputColumn3)
+    }         
+}

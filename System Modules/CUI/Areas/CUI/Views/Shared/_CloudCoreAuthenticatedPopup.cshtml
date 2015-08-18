@@ -1,0 +1,29 @@
+﻿@using System.Web
+@using System.Web.Optimization
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <!-- Framework Assets -->
+
+    @Styles.Render("~/Content/Core")
+    @Styles.Render("~/Content/Internal")
+    @Styles.Render("~/Content/Page")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Assets/Scripts/Bootstrap/bootstrap")
+
+    <!-- Allow child pages to render the code -->
+    @RenderSection("Assets", false)
+    @Html.Partial("IE9GradientFix")
+    @Html.Partial("_PopUp")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            initialiseDisableSubmit('@VirtualPathUtility.ToAbsolute("~")');
+            });
+    </script>
+</head>
+<body id="popUpBody" class="container">
+    @RenderBody()
+</body>
+</html>

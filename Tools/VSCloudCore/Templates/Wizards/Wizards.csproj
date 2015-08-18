@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{40787BBB-07C7-4A3B-987F-84DDD2DA69A9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CloudCore.VSExtension</RootNamespace>
+    <AssemblyName>CloudCore.VSExtension.Wizards</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\..\..\Shared Files\cloudcore.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="envdte, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="EnvDTE100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="envdte90, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.11.0, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 11.0\VSSDK\VisualStudioIntegration\Common\Assemblies\v4.0\Microsoft.VisualStudio.Shell.11.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.11.0, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.9.0, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.TemplateWizardInterface, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.11.0, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 11.0\VSSDK\VisualStudioIntegration\Common\Assemblies\v4.0\Microsoft.VisualStudio.TextTemplating.11.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 11.0\VSSDK\VisualStudioIntegration\Common\Assemblies\v4.0\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.11.0, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 11.0\VSSDK\VisualStudioIntegration\Common\Assemblies\v4.0\Microsoft.VisualStudio.TextTemplating.Interfaces.11.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.VSHost.11.0, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 11.0\VSSDK\VisualStudioIntegration\Common\Assemblies\v4.0\Microsoft.VisualStudio.TextTemplating.VSHost.11.0.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="VSLangProj110, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Item Wizard T4 Classes\DashboardType.cs" />
+    <Compile Include="Item Wizard T4 Classes\DataColumns.cs" />
+    <Compile Include="Item Wizards\Wizards\Create\CreateTemplateData.cs" />
+    <Compile Include="Item Wizards\Wizards\Create\ListStoredProcsSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Create\ListStoredProcsSheet.Designer.cs">
+      <DependentUpon>ListStoredProcsSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Create\CreateDetailsSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Create\CreateDetailsSheet.Designer.cs">
+      <DependentUpon>CreateDetailsSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Create\T4CreateFormWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\BaseContext\CRODisplayColumnsSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\BaseContext\CRODisplayColumnsSheet.Designer.cs">
+      <DependentUpon>CRODisplayColumnsSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\BaseContext\CROPropertyColumnsSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\BaseContext\CROPropertyColumnsSheet.Designer.cs">
+      <DependentUpon>CROPropertyColumnsSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Common\DataContextSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Common\DataContextSheet.Designer.cs">
+      <DependentUpon>DataContextSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\BaseContext\BaseDetailsSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\BaseContext\BaseDetailsSheet.Designer.cs">
+      <DependentUpon>BaseDetailsSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\BaseContext\BaseContextQuerySheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\BaseContext\BaseContextQuerySheet.Designer.cs">
+      <DependentUpon>BaseContextQuerySheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\BaseContext\CROTemplateData.cs" />
+    <Compile Include="Item Wizards\Wizards\BaseContext\T4BaseContextWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Dashboard\DashboardTypeSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Dashboard\DashboardTypeSheet.Designer.cs">
+      <DependentUpon>DashboardTypeSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Dashboard\DashboardData.cs" />
+    <Compile Include="Item Wizards\Wizards\Dashboard\T4DashboardWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Delete\DeleteTemplateData.cs" />
+    <Compile Include="Item Wizards\Wizards\Delete\T4DeleteFormWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Details\DetailsTemplateData.cs" />
+    <Compile Include="Item Wizard T4 Classes\DisplayColumns.cs" />
+    <Compile Include="Item Wizard T4 Classes\InputColumns.cs" />
+    <Compile Include="Item Wizards\Wizards\Lookup\LookupTemplateData.cs" />
+    <Compile Include="Item Wizards\Wizards\Details\T4DetailsFormWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\ListView\ListViewTemplateData.cs" />
+    <Compile Include="Item Wizards\Wizards\ListView\T4ListViewFormWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Lookup\T4LookupFormWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Modify\ModifyDetailsSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Modify\ModifyDetailsSheet.Designer.cs">
+      <DependentUpon>ModifyDetailsSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Modify\ModifyTemplateData.cs" />
+    <Compile Include="Item Wizard T4 Classes\PropertyItem.cs" />
+    <Compile Include="Item Wizards\Wizards\Search\SearchFilterColumnsSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Search\SearchFilterColumnsSheet.Designer.cs">
+      <DependentUpon>SearchFilterColumnsSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Search\SearchGridColumnsSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Search\SearchGridColumnsSheet.Designer.cs">
+      <DependentUpon>SearchGridColumnsSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Search\SearchQuerySheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Search\SearchQuerySheet.Designer.cs">
+      <DependentUpon>SearchQuerySheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Search\SearchDetailsSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Search\SearchDetailsSheet.Designer.cs">
+      <DependentUpon>SearchDetailsSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Search\SearchTemplateData.cs" />
+    <Compile Include="Item Wizards\Wizards\Modify\T4ModifyFormWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Details\DetailsDetailsSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Item Wizards\Wizards\Details\DetailsDetailsSheet.Designer.cs">
+      <DependentUpon>DetailsDetailsSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Item Wizard T4 Classes\TemplateTestData.cs" />
+    <Compile Include="Item Wizards\Wizards\Search\T4SearchViewWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item Wizard T4 Classes\TemplateData.cs" />
+    <Compile Include="Project Wizard Classes\CommonSettings.cs" />
+    <Compile Include="Project Wizard Classes\WizardSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Project Wizards\ProcessModuleWizard\ICCNewProcessModuleImplementation.cs" />
+    <Compile Include="Project Wizards\SiteInstanceWizard\ICCSICacheWorkerImplementation.cs" />
+    <Compile Include="Project Wizards\SiteInstanceWizard\ICCSIDatabaseImplementation.cs" />
+    <Compile Include="Project Wizards\SiteInstanceWizard\ICCSISharedFilesImplementation.cs" />
+    <Compile Include="Project Wizards\SiteInstanceWizard\ICCSIVirtualWorkerImplementation.cs" />
+    <Compile Include="Project Wizards\SiteInstanceWizard\ICCSIProcessModuleImplementation.cs" />
+    <Compile Include="Project Wizards\SiteInstanceWizard\ICCSIWebModuleImplementation.cs" />
+    <Compile Include="Project Wizards\SiteInstanceWizard\Instance\ConnectionSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Project Wizards\SiteInstanceWizard\Instance\ConnectionSheet.Designer.cs">
+      <DependentUpon>ConnectionSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project Wizards\SiteInstanceWizard\Instance\ClickatellSettingsSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Project Wizards\SiteInstanceWizard\Instance\ClickatellSettingsSheet.Designer.cs">
+      <DependentUpon>ClickatellSettingsSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project Wizards\SiteInstanceWizard\Instance\SMTPSettingsSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Project Wizards\SiteInstanceWizard\Instance\SMTPSettingsSheet.Designer.cs">
+      <DependentUpon>SMTPSettingsSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project Wizards\SiteInstanceWizard\Instance\PostageSettingsSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Project Wizards\SiteInstanceWizard\Instance\PostageSettingsSheet.Designer.cs">
+      <DependentUpon>PostageSettingsSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project Wizards\SiteInstanceWizard\Site\ICCSISiteImplementation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project Wizards\SiteInstanceWizard\ICCSIAzureImplementation.cs" />
+    <Compile Include="Project Wizards\SiteInstanceWizard\ICCSIDatalayerImplementation.cs" />
+    <Compile Include="Project Wizards\SiteInstanceWizard\Instance\ICloudCoreSystemImplementation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project Wizards\SiteInstanceWizard\Instance\SiteDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Project Wizards\SiteInstanceWizard\Instance\SiteDetails.Designer.cs">
+      <DependentUpon>SiteDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project Wizards\WebModuleWizard\ICCNewWebModuleImplementation.cs" />
+    <Compile Include="Project Wizards\WebProjectWizard\ICCWebModuleImplementation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Project Wizards\WebProjectWizard\ICCWebModuleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project Wizards\WebProjectWizard\ICCWebModuleForm.Designer.cs">
+      <DependentUpon>ICCWebModuleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project Wizards\WebProjectWizard\ModuleInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Project Wizards\WebProjectWizard\ModuleInformation.Designer.cs">
+      <DependentUpon>ModuleInformation.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Item Wizards\Wizards\BaseContext\CRODisplayColumnsSheet.resx">
+      <DependentUpon>CRODisplayColumnsSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item Wizards\Wizards\BaseContext\CROPropertyColumnsSheet.resx">
+      <DependentUpon>CROPropertyColumnsSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item Wizards\Wizards\Common\DataContextSheet.resx">
+      <DependentUpon>DataContextSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item Wizards\Wizards\BaseContext\BaseDetailsSheet.resx">
+      <DependentUpon>BaseDetailsSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item Wizards\Wizards\BaseContext\BaseContextQuerySheet.resx">
+      <DependentUpon>BaseContextQuerySheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item Wizards\Wizards\Create\ListStoredProcsSheet.resx">
+      <DependentUpon>ListStoredProcsSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item Wizards\Wizards\Create\CreateDetailsSheet.resx">
+      <DependentUpon>CreateDetailsSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item Wizards\Wizards\Dashboard\DashboardTypeSheet.resx">
+      <DependentUpon>DashboardTypeSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item Wizards\Wizards\Details\DetailsDetailsSheet.resx">
+      <DependentUpon>DetailsDetailsSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item Wizards\Wizards\Modify\ModifyDetailsSheet.resx">
+      <DependentUpon>ModifyDetailsSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item Wizards\Wizards\Search\SearchFilterColumnsSheet.resx">
+      <DependentUpon>SearchFilterColumnsSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item Wizards\Wizards\Search\SearchGridColumnsSheet.resx">
+      <DependentUpon>SearchGridColumnsSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item Wizards\Wizards\Search\SearchQuerySheet.resx">
+      <DependentUpon>SearchQuerySheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item Wizards\Wizards\Search\SearchDetailsSheet.resx">
+      <DependentUpon>SearchDetailsSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Wizards\SiteInstanceWizard\Instance\ConnectionSheet.resx">
+      <DependentUpon>ConnectionSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Wizards\SiteInstanceWizard\Instance\ClickatellSettingsSheet.resx">
+      <DependentUpon>ClickatellSettingsSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Wizards\SiteInstanceWizard\Instance\ICloudCoreSystemImplementation.resx">
+      <DependentUpon>ICloudCoreSystemImplementation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Wizards\SiteInstanceWizard\Instance\SMTPSettingsSheet.resx">
+      <DependentUpon>SMTPSettingsSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Wizards\SiteInstanceWizard\Instance\PostageSettingsSheet.resx">
+      <DependentUpon>PostageSettingsSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Wizards\SiteInstanceWizard\Instance\SiteDetails.resx">
+      <DependentUpon>SiteDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Wizards\WebProjectWizard\ICCWebModuleForm.resx">
+      <DependentUpon>ICCWebModuleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Wizards\WebProjectWizard\ModuleInformation.resx">
+      <DependentUpon>ModuleInformation.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\VS.Classes\Classes.csproj">
+      <Project>{aba3f767-2f01-4229-8fa4-730d192556f2}</Project>
+      <Name>Classes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\VS.Controls\Controls.csproj">
+      <Project>{0a5734ec-480d-4359-a44e-da5e77c74766}</Project>
+      <Name>Controls</Name>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\Shared Files\cloudcore.snk">
+      <Link>cloudcore.snk</Link>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

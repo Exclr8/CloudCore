@@ -1,0 +1,18 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.SystemApplicationContext>
+@{
+    ViewBag.Title = "Modify System Application Details";
+}       
+
+@using (Html.BeginForm())
+{ 
+    using (FormLayout.BeginTable())
+        {
+            @FormLayout.AddTitleHeaderRow("Application Information")
+            @FormLayout.AddTextboxRowFor(model => model.ApplicationName)
+            @FormLayout.AddTextboxRowFor(model => model.CompanyName)
+            @FormLayout.AddTextboxRowFor(model => model.ContactPerson)
+            @FormLayout.AddTextboxRowFor(model => model.ContactNumber)
+            @FormLayout.AddCheckboxRowFor(model => model.Enabled);
+        }
+    FormLayout.AddSubmitButtonWithBar("Save");       
+}  

@@ -1,0 +1,21 @@
+﻿@inherits WebView<CloudCore.Admin.Models.PagesModel>
+
+@{
+    ViewBag.Title = "Page Details";
+}
+
+
+@using (Html.BeginForm())
+{
+    @(Html.InfoGrid(Model.AccessPools)
+              .EmptyTableItemName("Access Pool")
+              .Columns(column =>
+              {
+                  column.For(item => item.Name);
+                  column.For(item => Html.ActionLink("Remove", "RemoveAccessPoolFromPage", "Pages", new { accessPoolId = item.Id, actionId = Model.ActionId }, new { }));
+              })
+              .Title("Access Pool(s) Assigned to page")
+    )
+
+    FormLayout.AddPopupButtonWithBar("Add Access Pool", Url.Action("PageAccessPoolLookup", "AdminPopup", new { actionId = Model.ActionId }));
+}

@@ -1,0 +1,16 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.SystemApplicationContext>
+@{
+    ViewBag.Title = "Create System Application";
+}       
+
+@using (Html.BeginForm())
+{ 
+    using(FormLayout.BeginTable())
+    {
+        @FormLayout.AddTextboxRowFor(m => m.ApplicationName);
+        @FormLayout.AddTextboxRowFor(m => m.CompanyName);
+        @FormLayout.AddTextboxRowFor(m => m.ContactPerson);
+        @FormLayout.AddTextboxRowFor(m => m.ContactNumber);
+    }
+    FormLayout.AddSubmitButtonWithBar("Save");    
+}  

@@ -1,0 +1,16 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Web.Models.UserNotificationModelResult>
+@{
+    ViewBag.Title = "Notifications";
+}
+
+
+@(Html.InfoGrid(Model.Notifications)
+    .Title("Notifications")
+    .Empty("There are currently no notifications to display")
+    .Columns(column =>
+    {
+        column.For(item => PopUps.CreateAsHref("Notification Details", Url.Action("UserNotification", "CUIPopup", new { item.NotificationId }), item.Subject)).Named("Subject");
+        column.For(notifications => notifications.Created);
+    })
+)
+

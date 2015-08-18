@@ -1,0 +1,62 @@
+﻿@using CloudCore.Web.Core.BaseViews;
+@using System.Web.Mvc.Html;
+@using CloudCore.Admin.Models;
+@using CloudCore.Web.Core.Razor.Extensions;
+
+@inherits WebView<FailedActivitiesModel>
+
+@{
+    ViewBag.Title = "Failed Activities";
+}
+
+@using (Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddTitleHeaderRow("Filter")
+        @FormLayout.AddFilterEditRowFor(model => model.ActivityName, m => m.ActivityNameFilter)
+        @FormLayout.AddFilterEditRowFor(model => model.SubProcessName, m => m.SubProcessNameFilter)
+        @FormLayout.AddFilterEditRowFor(model => model.ProcessName, m => m.ProcessNameFilter)
+        @FormLayout.AddCheckboxRowFor(model => model.GroupByActivity);
+    }
+    FormLayout.AddSubmitButtonWithBar("Filter");
+    <br />
+    if (Model.GroupByActivity)
+    {
+        @(Html.InfoGrid(Model.FailedActivities)
+            .EmptyTableItemName("Failed Workflow")
+            .Title("Failed Workflow Items")
+            .Columns(column => 
+                    {
+                        column.For(item => item.ActivityName).Named("Activity").Sortable(true);
+                        column.For(item => item.SubProcessName).Named("Sub-process").Sortable(true);
+                        column.For(item => item.ProcessName).Named("Process").Sortable(true);
+                        column.For(item => item.TotalFailures).Named("Failed Items").Sortable(true);
+                        column.For(item => Html.ActionLink("retry", "RestartFailedActivity", new { activityId = item.ActivityId })).Sortable(false);
+
+                    })
+            .InitialSortColumn(model => model.ActivityName, SortDirection.Ascending)
+        )
+    }
+    else
+    {
+        @(Html.InfoGrid(Model.FailedWorklistItems)
+            .EmptyTableItemName("Failed Workflow")
+            .Title("Failed Workflow Items")
+            .Columns(column => 
+                    {
+                        column.For(item => Html.ActionLink("View", "Details","WorkflowTools", new { instanceId = item.KeyValue},null)).Named("");
+                        column.For(item => item.KeyValue).Named("Key-Value").Sortable(true);
+                        column.For(item => item.ActivityName).Named("Activity").Sortable(true);
+                        column.For(item => item.SubProcessName).Named("Sub-Process").Sortable(true);
+                        column.For(item => item.ProcessName).Named("Process").Sortable(true);
+                        column.For(item => item.FailedDateTime).Named("Failed At").Sortable(true);
+                        column.For(item => PopUps.CreateAsHref("Failed Activity Reason", Url.Action("FailedInstanceInfo", "AdminPopup",new { instanceId = item.InstanceId }).ToString(), "reason"));
+                        column.For(item => Html.ActionLink("retry", "RestartFailedInstance", new { instanceId = item.InstanceId }));
+
+                    })
+                .InitialSortColumn(model => model.FailedDateTime, SortDirection.Descending)
+        )
+    }
+}
+

@@ -1,0 +1,12 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.PopupView<CloudCore.Admin.Models.WorkListFailureReasonModel>
+
+@{
+    
+    ViewBag.Title = "Failure Reasons";
+
+    @(Html.InfoGrid(Model.Reasons)
+        .EmptyTableItemName("Reason")
+        .Columns(column => column.For(col => col).Named("Reason"))
+        .Title("Failure reasons")
+     )
+}

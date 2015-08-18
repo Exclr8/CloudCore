@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>12.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\DSLTools\Microsoft.DslTools.settings.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\DSLTools\Microsoft.DslTools.settings.targets" Condition="false" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20723</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F0CF3088-FE34-40B0-9C1F-C0EC5DE67BDE}</ProjectGuid>
+    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <RootNamespace>Architect</RootNamespace>
+    <AssemblyName>Architect.DslPackage</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\Key.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <SignAssembly>true</SignAssembly>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ClearToolboxCacheInExpHive>true</ClearToolboxCacheInExpHive>
+    <StartupObject>
+    </StartupObject>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DeployExtension>False</DeployExtension>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DeployExtension>False</DeployExtension>
+  </PropertyGroup>
+  <!-- Properties for VSSDK/DSL Targets: Must be defined before importing the targets -->
+  <PropertyGroup>
+    <RegisterOutputPackage>true</RegisterOutputPackage>
+    <UseCodebase>true</UseCodebase>
+    <GacTargetOutput>false</GacTargetOutput>
+    <TransformOnBuild>True</TransformOnBuild>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets" Condition="false" />
+  <Import Project="$(DslTargetsPath)\Microsoft.DSLTools.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Reference Include="envdte, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Visio, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Modeling.Sdk$(DslToolsVersionSuffix)" />
+    <Reference Include="Microsoft.VisualStudio.Modeling.Sdk.Diagrams$(DslToolsVersionSuffix)" />
+    <Reference Include="Microsoft.VisualStudio.Modeling.Sdk.Integration$(DslToolsVersionSuffix)" />
+    <Reference Include="Microsoft.VisualStudio.Modeling.Sdk.Integration.Shell$(DslToolsVersionSuffix)" />
+    <Reference Include="Microsoft.VisualStudio.Modeling.Sdk.Shell$(DslToolsVersionSuffix)" />
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell$(MpfVersionSuffix)" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Immutable$(MpfVersionSuffix)" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.9.0, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.TemplateWizardInterface, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.TextManager.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating$(T4VersionSuffix)" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.11.0, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.VSHost$(T4VersionSuffix)" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces$(T4VersionSuffix)" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Immutable.10.0" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.11.0" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.10.0" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.9.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\Shared Files\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CustomCode\ContextMenu\cmdshowcontrollersource.cs" />
+    <Compile Include="CustomCode\ContextMenu\cmdshowmodelsource.cs" />
+    <Compile Include="CustomCode\ContextMenu\cmdshowviewsource.cs" />
+    <Compile Include="CustomCode\ContextMenu\cmdshowsourcebase.cs" />
+    <Compile Include="CustomCode\ContextMenu\cmdArchitectbase.cs" />
+    <Compile Include="CustomCode\ContextMenu\subprocesscommandset.cs" />
+    <Compile Include="CustomCode\ContextMenu\dslmenucommand.cs" />
+    <Compile Include="CustomCode\Forms\SubProcessForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomCode\Forms\SubProcessForm.Designer.cs">
+      <DependentUpon>SubProcessForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomCode\Forms\NewSubProcess.cs" />
+    <Compile Include="CustomCode\Forms\Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomCode\Forms\Import.Designer.cs">
+      <DependentUpon>Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomCode\Guids.cs" />
+    <Compile Include="CustomCode\ContextMenu\CloudCoreCommandSet.cs" />
+    <Compile Include="CustomCode\Helpers\FileHelper.cs" />
+    <Compile Include="CustomCode\Helpers\ImportHelper.cs" />
+    <Compile Include="CustomCode\Helpers\VisioImport.cs" />
+    <Compile Include="GeneratedCode\CommandSet.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommandSet.tt</DependentUpon>
+    </Compile>
+    <None Include="ProjectItemTemplates\SubProcess.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SubProcess.vstemplate</LastGenOutput>
+    </None>
+    <None Include="source.extension.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>source.extension.vsixmanifest</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="source.extension.vsixmanifest">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>source.extension.tt</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GeneratedCode\Constants.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Constants.cs</LastGenOutput>
+    </None>
+    <Compile Include="GeneratedCode\Constants.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Constants.tt</DependentUpon>
+    </Compile>
+    <None Include="GeneratedCode\DocData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DocData.cs</LastGenOutput>
+    </None>
+    <Compile Include="GeneratedCode\DocData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DocData.tt</DependentUpon>
+    </Compile>
+    <None Include="GeneratedCode\DocView.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DocView.cs</LastGenOutput>
+    </None>
+    <Compile Include="GeneratedCode\DocView.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DocView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneratedCode\EditorFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneratedCode\ModelExplorer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelExplorer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneratedCode\ModelExplorerToolWindow.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelExplorerToolWindow.tt</DependentUpon>
+    </Compile>
+    <None Include="GeneratedCode\ModelExplorer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelExplorer.cs</LastGenOutput>
+    </None>
+    <Compile Include="GeneratedCode\Package.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Package.tt</DependentUpon>
+    </Compile>
+    <None Include="GeneratedCode\EditorFactory.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EditorFactory.cs</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\ModelExplorerToolWindow.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelExplorerToolWindow.cs</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\Package.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Package.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core Libraries\CloudCore.Core\CloudCore.Core.csproj">
+      <Project>{c9d0d0dd-1bc4-4de6-96ee-730bbab6b467}</Project>
+      <Name>CloudCore.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataLayer\Data\CloudCore.Data.csproj">
+      <Project>{246e33e8-86a8-4e21-a966-9387d3563b4d}</Project>
+      <Name>CloudCore.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dsl\Dsl.csproj">
+      <Project>{57daa198-c91d-40eb-9da5-39ae524b20c5}</Project>
+      <Name>Dsl</Name>
+      <IncludeOutputGroupsInVSIX>
+        BuiltProjectOutputGroup;
+      </IncludeOutputGroupsInVSIX>
+      <IncludeOutputGroupsInVSIXLocalOnly>
+        DebugSymbolsProjectOutputGroup;
+      </IncludeOutputGroupsInVSIXLocalOnly>
+    </ProjectReference>
+    <ProjectReference Include="..\ModelBusAdapter\ModelBusAdapter.csproj">
+      <Project>{4585BA2B-B41A-4E95-A7BA-A7CBE1440E97}</Project>
+      <Name>ModelBusAdapter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProcessOverview\DslPackage\DslPackage.csproj">
+      <Project>{fab6675d-58db-4be0-a9e2-21af605075e5}</Project>
+      <Name>DslPackage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProcessOverview\Dsl\Dsl.csproj">
+      <Project>{3306C8F6-51A4-4CAF-84C6-45566D99D216}</Project>
+      <Name>Dsl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4df5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomCode\Forms\SubProcessForm.resx">
+      <DependentUpon>SubProcessForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomCode\Forms\Import.resx">
+      <DependentUpon>Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VSPackage.resx">
+      <SubType>Designer</SubType>
+      <MergeWithCTO>true</MergeWithCTO>
+      <ManifestResourceName>VSPackage</ManifestResourceName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Key.snk">
+      <Link>Key.snk</Link>
+    </None>
+    <VSCTCompile Include="Commands.vsct">
+      <ResourceName>1000.ctmenu</ResourceName>
+      <SubType>Designer</SubType>
+    </VSCTCompile>
+    <None Include="GeneratedCode\CommandSet.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CommandSet.cs</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\GeneratedVSCT.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GeneratedVSCT.vsct</LastGenOutput>
+    </None>
+    <None Include="GeneratedCode\GeneratedVSCT.vsct">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneratedVSCT.tt</DependentUpon>
+    </None>
+    <None Include="ProjectItemTemplates\SubProcess.subprocess">
+      <SubType>Designer</SubType>
+      <LastGenOutput>btomic.cs</LastGenOutput>
+    </None>
+    <None Include="ProjectItemTemplates\SubProcess.diagram">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <StartProgram>$(DevEnvDir)\devenv.exe</StartProgram>
+    <StartAction>Program</StartAction>
+    <StartArguments>/rootsuffix Exp "..\..\..\Debugging\Debugging.sln"</StartArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml">
+      <Link>CodeAnalysisDictionary.xml</Link>
+    </CodeAnalysisDictionary>
+    <Content Include="Resources\File.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Resources\ModelExplorerToolWindowBitmaps.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CustomCode\Toolbox\" />
+  </ItemGroup>
+  <ItemGroup>
+    <VSItemTemplate Include="ProjectItemTemplates\SubProcess.vstemplate">
+      <DependentUpon>SubProcess.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </VSItemTemplate>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+</Project>

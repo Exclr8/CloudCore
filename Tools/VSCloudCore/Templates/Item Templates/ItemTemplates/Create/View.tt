@@ -1,0 +1,35 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="CloudCore.VSExtension.Wizards" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+@inherits CloudCore.Web.Core.BaseViews.WebView<$rootnamespace$.Models.<#= templateData.ContextName #>CreateModel>
+@{
+    ViewBag.Title = "<#= templateData.PageTitle #>";
+}              
+
+@using CloudCore.Extensions
+
+@using (@Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+        <# 
+		  PushIndent("\t\t\t"); 
+			foreach(var field in templateData.Fields)
+			{ 
+			   if (!field.IsByReference)
+			   {
+				  WriteLine(@"@FormLayout.AddTextboxRowFor(model => model.{0});", field.ColumnName);
+			   }
+			}
+		  WriteLine("");
+		  WriteLine(@"@FormLayout.AddSubmitRow(""Create {0}"");", templateData.ContextName);
+		  PopIndent();
+		  ClearIndent();
+        #>
+
+        
+    }         
+}

@@ -1,0 +1,16 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Web.Models.NotificationHistoryModel>
+@{
+    ViewBag.Title = "Last 5 Notifications";
+}
+
+
+@(Html.InfoGrid(Model.Notifications)
+    .Title("Last 5 Notifications")
+    .Empty("There are currently no notifications to display")
+    .Columns(column =>
+    {
+        column.For(notifications => notifications.Subject);
+        column.For(notifications => notifications.Created);
+        column.For(item => Html.ActionLink("Remove", "Remove", "SystemNotification", new { notificationId = item.NotificationId }, null));
+    })
+)

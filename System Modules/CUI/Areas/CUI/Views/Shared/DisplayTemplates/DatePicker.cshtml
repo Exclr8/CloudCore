@@ -1,0 +1,2 @@
+﻿@model DateTime?
+@(new MvcHtmlString(Model.HasValue ? Model.Value.ToShortDateString() : string.Empty))

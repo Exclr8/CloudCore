@@ -1,0 +1,40 @@
+﻿@using System.Web.Optimization
+@inherits CloudCore.Web.Core.BaseViews.Master.CoreMaster<dynamic>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/jquery")    
+    @Scripts.Render("~/Assets/Scripts/Bootstrap/bootstrap")
+    @Styles.Render("~/Content/Core")
+    @Styles.Render("~/Content/Page")
+
+    @RenderSection("Assets", false)
+
+    @Html.Partial("IE9GradientFix")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            window.initialiseDisableSubmit('@VirtualPathUtility.ToAbsolute("~")');
+        });
+    </script>
+</head>
+<body class="cc-signin">
+    <div class="container">
+        <div class="row ">
+            <div class="col-lg-12 text-center">
+                <img src="@Url.Logo()" alt="logo" class="LoginImage" />
+            </div>
+        </div>
+        <div class="row">
+            @RenderBody()
+        </div>
+    </div>
+    <footer id="footer" class="footer">
+        <div class="container-fluid">
+            <span class="pull-right">@Html.PoweredByCloudCore(ImageSize.small)</span>
+        </div>
+    </footer>
+</body>
+</html>
+

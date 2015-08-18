@@ -1,0 +1,1547 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Architect.CloudCoreArchitectSubProcessDomainModel.Description" xml:space="preserve">
+    <value>CloudCore architect sub-process designer</value>
+    <comment>Description for DslLibrary &apos;CloudCoreArchitectSubProcess&apos;</comment>
+  </data>
+  <data name="Architect.CloudCoreArchitectSubProcessDomainModel.DisplayName" xml:space="preserve">
+    <value>CloudCore - Architect Sub-Process Designer</value>
+    <comment>DisplayName for DslLibrary &apos;CloudCoreArchitectSubProcess&apos;</comment>
+  </data>
+  <data name="Architect.SubProcess.Description" xml:space="preserve">
+    <value>The root in which all other elements are embedded. Appears as a diagram.</value>
+    <comment>Description for DomainClass &apos;SubProcess&apos;</comment>
+  </data>
+  <data name="Architect.SubProcess.DisplayName" xml:space="preserve">
+    <value>Process</value>
+    <comment>DisplayName for DomainClass &apos;SubProcess&apos;</comment>
+  </data>
+  <data name="Architect.SubProcess/SubProcessName.Description" xml:space="preserve">
+    <value>Description for Architect.SubProcess.Sub Process Name</value>
+    <comment>Description for DomainProperty &apos;SubProcessName&apos; on DomainClass &apos;SubProcess&apos;</comment>
+  </data>
+  <data name="Architect.SubProcess/SubProcessName.DisplayName" xml:space="preserve">
+    <value>Sub Process Name</value>
+    <comment>DisplayName for DomainProperty &apos;SubProcessName&apos; on DomainClass &apos;SubProcess&apos;</comment>
+  </data>
+  <data name="Architect.SubProcess/VisioId.Description" xml:space="preserve">
+    <value>Description for Architect.SubProcess.Visio Id</value>
+    <comment>Description for DomainProperty &apos;VisioId&apos; on DomainClass &apos;SubProcess&apos;</comment>
+  </data>
+  <data name="Architect.SubProcess/VisioId.DisplayName" xml:space="preserve">
+    <value>Visio Id</value>
+    <comment>DisplayName for DomainProperty &apos;VisioId&apos; on DomainClass &apos;SubProcess&apos;</comment>
+  </data>
+  <data name="Architect.SubProcess/ProcessRef.Description" xml:space="preserve">
+    <value>Description for Architect.SubProcess.Process Ref</value>
+    <comment>Description for DomainProperty &apos;ProcessRef&apos; on DomainClass &apos;SubProcess&apos;</comment>
+  </data>
+  <data name="Architect.SubProcess/ProcessRef.DisplayName" xml:space="preserve">
+    <value>Process Ref</value>
+    <comment>DisplayName for DomainProperty &apos;ProcessRef&apos; on DomainClass &apos;SubProcess&apos;</comment>
+  </data>
+  <data name="Architect.SubProcess/ProcessOverviewSubProcessRef.Description" xml:space="preserve">
+    <value>Description for Architect.SubProcess.Process Overview Sub Process Ref</value>
+    <comment>Description for DomainProperty &apos;ProcessOverviewSubProcessRef&apos; on DomainClass &apos;SubProcess&apos;</comment>
+  </data>
+  <data name="Architect.SubProcess/ProcessOverviewSubProcessRef.DisplayName" xml:space="preserve">
+    <value>Process Overview Sub Process Ref</value>
+    <comment>DisplayName for DomainProperty &apos;ProcessOverviewSubProcessRef&apos; on DomainClass &apos;SubProcess&apos;</comment>
+  </data>
+  <data name="Architect.Activity.Description" xml:space="preserve">
+    <value>Description for Architect.Activity</value>
+    <comment>Description for DomainClass &apos;Activity&apos;</comment>
+  </data>
+  <data name="Architect.Activity.DisplayName" xml:space="preserve">
+    <value>Activity</value>
+    <comment>DisplayName for DomainClass &apos;Activity&apos;</comment>
+  </data>
+  <data name="Architect.Activity/Name.Description" xml:space="preserve">
+    <value>Description for Architect.Activity.Name</value>
+    <comment>Description for DomainProperty &apos;Name&apos; on DomainClass &apos;Activity&apos;</comment>
+  </data>
+  <data name="Architect.Activity/Name.DisplayName" xml:space="preserve">
+    <value>Name</value>
+    <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;Activity&apos;</comment>
+  </data>
+  <data name="Architect.Activity/IsMenuItem.Description" xml:space="preserve">
+    <value>Description for Architect.Activity.Is Menu Item</value>
+    <comment>Description for DomainProperty &apos;IsMenuItem&apos; on DomainClass &apos;Activity&apos;</comment>
+  </data>
+  <data name="Architect.Activity/IsMenuItem.DisplayName" xml:space="preserve">
+    <value>Is Menu Item</value>
+    <comment>DisplayName for DomainProperty &apos;IsMenuItem&apos; on DomainClass &apos;Activity&apos;</comment>
+  </data>
+  <data name="Architect.Activity/Width.Description" xml:space="preserve">
+    <value>Description for Architect.Activity.Width</value>
+    <comment>Description for DomainProperty &apos;Width&apos; on DomainClass &apos;Activity&apos;</comment>
+  </data>
+  <data name="Architect.Activity/Width.DisplayName" xml:space="preserve">
+    <value>Width</value>
+    <comment>DisplayName for DomainProperty &apos;Width&apos; on DomainClass &apos;Activity&apos;</comment>
+  </data>
+  <data name="Architect.Activity/Height.Description" xml:space="preserve">
+    <value>Description for Architect.Activity.Height</value>
+    <comment>Description for DomainProperty &apos;Height&apos; on DomainClass &apos;Activity&apos;</comment>
+  </data>
+  <data name="Architect.Activity/Height.DisplayName" xml:space="preserve">
+    <value>Height</value>
+    <comment>DisplayName for DomainProperty &apos;Height&apos; on DomainClass &apos;Activity&apos;</comment>
+  </data>
+  <data name="Architect.Activity/Top.Description" xml:space="preserve">
+    <value>Description for Architect.Activity.Top</value>
+    <comment>Description for DomainProperty &apos;Top&apos; on DomainClass &apos;Activity&apos;</comment>
+  </data>
+  <data name="Architect.Activity/Top.DisplayName" xml:space="preserve">
+    <value>Top</value>
+    <comment>DisplayName for DomainProperty &apos;Top&apos; on DomainClass &apos;Activity&apos;</comment>
+  </data>
+  <data name="Architect.Activity/Left.Description" xml:space="preserve">
+    <value>Description for Architect.Activity.Left</value>
+    <comment>Description for DomainProperty &apos;Left&apos; on DomainClass &apos;Activity&apos;</comment>
+  </data>
+  <data name="Architect.Activity/Left.DisplayName" xml:space="preserve">
+    <value>Left</value>
+    <comment>DisplayName for DomainProperty &apos;Left&apos; on DomainClass &apos;Activity&apos;</comment>
+  </data>
+  <data name="Architect.Activity/VisioId.Description" xml:space="preserve">
+    <value>Description for Architect.Activity.Visio Id</value>
+    <comment>Description for DomainProperty &apos;VisioId&apos; on DomainClass &apos;Activity&apos;</comment>
+  </data>
+  <data name="Architect.Activity/VisioId.DisplayName" xml:space="preserve">
+    <value>Visio Id</value>
+    <comment>DisplayName for DomainProperty &apos;VisioId&apos; on DomainClass &apos;Activity&apos;</comment>
+  </data>
+  <data name="Architect.WorkflowRule.Description" xml:space="preserve">
+    <value>Rule makes a decision in the process</value>
+    <comment>Description for DomainClass &apos;WorkflowRule&apos;</comment>
+  </data>
+  <data name="Architect.WorkflowRule.DisplayName" xml:space="preserve">
+    <value>Workflow Rule</value>
+    <comment>DisplayName for DomainClass &apos;WorkflowRule&apos;</comment>
+  </data>
+  <data name="Architect.CloudcoreUser.Description" xml:space="preserve">
+    <value>Page has a web page linked to it for user input</value>
+    <comment>Description for DomainClass &apos;CloudcoreUser&apos;</comment>
+  </data>
+  <data name="Architect.CloudcoreUser.DisplayName" xml:space="preserve">
+    <value>Cloudcore User</value>
+    <comment>DisplayName for DomainClass &apos;CloudcoreUser&apos;</comment>
+  </data>
+  <data name="Architect.CloudcoreUser/DocWait.Description" xml:space="preserve">
+    <value>Description for Architect.CloudcoreUser.Doc Wait</value>
+    <comment>Description for DomainProperty &apos;DocWait&apos; on DomainClass &apos;CloudcoreUser&apos;</comment>
+  </data>
+  <data name="Architect.CloudcoreUser/DocWait.DisplayName" xml:space="preserve">
+    <value>Doc Wait</value>
+    <comment>DisplayName for DomainProperty &apos;DocWait&apos; on DomainClass &apos;CloudcoreUser&apos;</comment>
+  </data>
+  <data name="Architect.DatabaseEvent.Description" xml:space="preserve">
+    <value>Used to do any database processing</value>
+    <comment>Description for DomainClass &apos;DatabaseEvent&apos;</comment>
+  </data>
+  <data name="Architect.DatabaseEvent.DisplayName" xml:space="preserve">
+    <value>Database Event</value>
+    <comment>DisplayName for DomainClass &apos;DatabaseEvent&apos;</comment>
+  </data>
+  <data name="Architect.Stop.Description" xml:space="preserve">
+    <value>Stop of process</value>
+    <comment>Description for DomainClass &apos;Stop&apos;</comment>
+  </data>
+  <data name="Architect.Stop.DisplayName" xml:space="preserve">
+    <value>Stop</value>
+    <comment>DisplayName for DomainClass &apos;Stop&apos;</comment>
+  </data>
+  <data name="Architect.Start.Description" xml:space="preserve">
+    <value>Start of a process</value>
+    <comment>Description for DomainClass &apos;Start&apos;</comment>
+  </data>
+  <data name="Architect.Start.DisplayName" xml:space="preserve">
+    <value>Stop</value>
+    <comment>DisplayName for DomainClass &apos;Start&apos;</comment>
+  </data>
+  <data name="Architect.Start/IsStartable.Description" xml:space="preserve">
+    <value>Description for Architect.Start.Is Startable</value>
+    <comment>Description for DomainProperty &apos;IsStartable&apos; on DomainClass &apos;Start&apos;</comment>
+  </data>
+  <data name="Architect.Start/IsStartable.DisplayName" xml:space="preserve">
+    <value>Is Startable</value>
+    <comment>DisplayName for DomainProperty &apos;IsStartable&apos; on DomainClass &apos;Start&apos;</comment>
+  </data>
+  <data name="Architect.DatabasePark.Description" xml:space="preserve">
+    <value>Description for Architect.DatabasePark</value>
+    <comment>Description for DomainClass &apos;DatabasePark&apos;</comment>
+  </data>
+  <data name="Architect.DatabasePark.DisplayName" xml:space="preserve">
+    <value>Database Park</value>
+    <comment>DisplayName for DomainClass &apos;DatabasePark&apos;</comment>
+  </data>
+  <data name="Architect.ToProcessConnector.Description" xml:space="preserve">
+    <value>Description for Architect.ToProcessConnector</value>
+    <comment>Description for DomainClass &apos;ToProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.ToProcessConnector.DisplayName" xml:space="preserve">
+    <value>To Process Connector</value>
+    <comment>DisplayName for DomainClass &apos;ToProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.ToProcessConnector/ToProcessConnectorRef.Description" xml:space="preserve">
+    <value>Description for Architect.ToProcessConnector.To Process Connector Ref</value>
+    <comment>Description for DomainProperty &apos;ToProcessConnectorRef&apos; on DomainClass &apos;ToProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.ToProcessConnector/ToProcessConnectorRef.DisplayName" xml:space="preserve">
+    <value>To Process Connector Ref</value>
+    <comment>DisplayName for DomainProperty &apos;ToProcessConnectorRef&apos; on DomainClass &apos;ToProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.ToProcessConnector/ExternalActivityRef.Description" xml:space="preserve">
+    <value>Description for Architect.ToProcessConnector.External Activity Ref</value>
+    <comment>Description for DomainProperty &apos;ExternalActivityRef&apos; on DomainClass &apos;ToProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.ToProcessConnector/ExternalActivityRef.DisplayName" xml:space="preserve">
+    <value>External Activity Ref</value>
+    <comment>DisplayName for DomainProperty &apos;ExternalActivityRef&apos; on DomainClass &apos;ToProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.ToProcessConnector/ToProcessConnectorName.Description" xml:space="preserve">
+    <value>Description for Architect.ToProcessConnector.To Process Connector Name</value>
+    <comment>Description for DomainProperty &apos;ToProcessConnectorName&apos; on DomainClass &apos;ToProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.ToProcessConnector/ToProcessConnectorName.DisplayName" xml:space="preserve">
+    <value>To Process Connector Name</value>
+    <comment>DisplayName for DomainProperty &apos;ToProcessConnectorName&apos; on DomainClass &apos;ToProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.ToProcessConnector/ToActivityGuid.Description" xml:space="preserve">
+    <value>Description for Architect.ToProcessConnector.To Activity Guid</value>
+    <comment>Description for DomainProperty &apos;ToActivityGuid&apos; on DomainClass &apos;ToProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.ToProcessConnector/ToActivityGuid.DisplayName" xml:space="preserve">
+    <value>To Activity Guid</value>
+    <comment>DisplayName for DomainProperty &apos;ToActivityGuid&apos; on DomainClass &apos;ToProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.FromProcessConnector.Description" xml:space="preserve">
+    <value>Description for Architect.FromProcessConnector</value>
+    <comment>Description for DomainClass &apos;FromProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.FromProcessConnector.DisplayName" xml:space="preserve">
+    <value>From Process Connector</value>
+    <comment>DisplayName for DomainClass &apos;FromProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.FromProcessConnector/FromProcessConnectorRef.Description" xml:space="preserve">
+    <value>Description for Architect.FromProcessConnector.From Process Connector Ref</value>
+    <comment>Description for DomainProperty &apos;FromProcessConnectorRef&apos; on DomainClass &apos;FromProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.FromProcessConnector/FromProcessConnectorRef.DisplayName" xml:space="preserve">
+    <value>From Process Connector Ref</value>
+    <comment>DisplayName for DomainProperty &apos;FromProcessConnectorRef&apos; on DomainClass &apos;FromProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.FromProcessConnector/CanDelete.Description" xml:space="preserve">
+    <value>Description for Architect.FromProcessConnector.Can Delete</value>
+    <comment>Description for DomainProperty &apos;CanDelete&apos; on DomainClass &apos;FromProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.FromProcessConnector/CanDelete.DisplayName" xml:space="preserve">
+    <value>Can Delete</value>
+    <comment>DisplayName for DomainProperty &apos;CanDelete&apos; on DomainClass &apos;FromProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.FromProcessConnector/FromProcessConnectorName.Description" xml:space="preserve">
+    <value>Description for Architect.FromProcessConnector.From Process Connector Name</value>
+    <comment>Description for DomainProperty &apos;FromProcessConnectorName&apos; on DomainClass &apos;FromProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.FromProcessConnector/FromProcessConnectorName.DisplayName" xml:space="preserve">
+    <value>From Process Connector Name</value>
+    <comment>DisplayName for DomainProperty &apos;FromProcessConnectorName&apos; on DomainClass &apos;FromProcessConnector&apos;</comment>
+  </data>
+  <data name="Architect.CloudCustom.Description" xml:space="preserve">
+    <value>Description for Architect.CloudCustom</value>
+    <comment>Description for DomainClass &apos;CloudCustom&apos;</comment>
+  </data>
+  <data name="Architect.CloudCustom.DisplayName" xml:space="preserve">
+    <value>Cloud Custom</value>
+    <comment>DisplayName for DomainClass &apos;CloudCustom&apos;</comment>
+  </data>
+  <data name="Architect.PostageApp.Description" xml:space="preserve">
+    <value>Description for Architect.PostageApp</value>
+    <comment>Description for DomainClass &apos;PostageApp&apos;</comment>
+  </data>
+  <data name="Architect.PostageApp.DisplayName" xml:space="preserve">
+    <value>PostageApp Activity</value>
+    <comment>DisplayName for DomainClass &apos;PostageApp&apos;</comment>
+  </data>
+  <data name="Architect.Clickatell.Description" xml:space="preserve">
+    <value>Description for Architect.Clickatell</value>
+    <comment>Description for DomainClass &apos;Clickatell&apos;</comment>
+  </data>
+  <data name="Architect.Clickatell.DisplayName" xml:space="preserve">
+    <value>Clickatell Activity</value>
+    <comment>DisplayName for DomainClass &apos;Clickatell&apos;</comment>
+  </data>
+  <data name="Architect.DatabaseCosting.Description" xml:space="preserve">
+    <value>Description for Architect.DatabaseCosting</value>
+    <comment>Description for DomainClass &apos;DatabaseCosting&apos;</comment>
+  </data>
+  <data name="Architect.DatabaseCosting.DisplayName" xml:space="preserve">
+    <value>Database Costing</value>
+    <comment>DisplayName for DomainClass &apos;DatabaseCosting&apos;</comment>
+  </data>
+  <data name="Architect.CloudCosting.Description" xml:space="preserve">
+    <value>Description for Architect.CloudCosting</value>
+    <comment>Description for DomainClass &apos;CloudCosting&apos;</comment>
+  </data>
+  <data name="Architect.CloudCosting.DisplayName" xml:space="preserve">
+    <value>Cloud Costing</value>
+    <comment>DisplayName for DomainClass &apos;CloudCosting&apos;</comment>
+  </data>
+  <data name="Architect.DatabaseBatchStart.Description" xml:space="preserve">
+    <value>Description for Architect.DatabaseBatchStart</value>
+    <comment>Description for DomainClass &apos;DatabaseBatchStart&apos;</comment>
+  </data>
+  <data name="Architect.DatabaseBatchStart.DisplayName" xml:space="preserve">
+    <value>Database Batch Start</value>
+    <comment>DisplayName for DomainClass &apos;DatabaseBatchStart&apos;</comment>
+  </data>
+  <data name="Architect.CloudBatchStart.Description" xml:space="preserve">
+    <value>Description for Architect.CloudBatchStart</value>
+    <comment>Description for DomainClass &apos;CloudBatchStart&apos;</comment>
+  </data>
+  <data name="Architect.CloudBatchStart.DisplayName" xml:space="preserve">
+    <value>Cloud Batch Start</value>
+    <comment>DisplayName for DomainClass &apos;CloudBatchStart&apos;</comment>
+  </data>
+  <data name="Architect.CloudBatchWait.Description" xml:space="preserve">
+    <value>Description for Architect.CloudBatchWait</value>
+    <comment>Description for DomainClass &apos;CloudBatchWait&apos;</comment>
+  </data>
+  <data name="Architect.CloudBatchWait.DisplayName" xml:space="preserve">
+    <value>Cloud Batch Wait</value>
+    <comment>DisplayName for DomainClass &apos;CloudBatchWait&apos;</comment>
+  </data>
+  <data name="Architect.CloudPark.Description" xml:space="preserve">
+    <value>Description for Architect.CloudPark</value>
+    <comment>Description for DomainClass &apos;CloudPark&apos;</comment>
+  </data>
+  <data name="Architect.CloudPark.DisplayName" xml:space="preserve">
+    <value>Cloud Park</value>
+    <comment>DisplayName for DomainClass &apos;CloudPark&apos;</comment>
+  </data>
+  <data name="Architect.Corticon.Description" xml:space="preserve">
+    <value>Description for Architect.Corticon</value>
+    <comment>Description for DomainClass &apos;Corticon&apos;</comment>
+  </data>
+  <data name="Architect.Corticon.DisplayName" xml:space="preserve">
+    <value>Corticon</value>
+    <comment>DisplayName for DomainClass &apos;Corticon&apos;</comment>
+  </data>
+  <data name="Architect.CustomUser.Description" xml:space="preserve">
+    <value>Description for Architect.CustomUser</value>
+    <comment>Description for DomainClass &apos;CustomUser&apos;</comment>
+  </data>
+  <data name="Architect.CustomUser.DisplayName" xml:space="preserve">
+    <value>Custom User</value>
+    <comment>DisplayName for DomainClass &apos;CustomUser&apos;</comment>
+  </data>
+  <data name="Architect.CustomUser/DocWait.Description" xml:space="preserve">
+    <value>Description for Architect.CustomUser.Doc Wait</value>
+    <comment>Description for DomainProperty &apos;DocWait&apos; on DomainClass &apos;CustomUser&apos;</comment>
+  </data>
+  <data name="Architect.CustomUser/DocWait.DisplayName" xml:space="preserve">
+    <value>Doc Wait</value>
+    <comment>DisplayName for DomainProperty &apos;DocWait&apos; on DomainClass &apos;CustomUser&apos;</comment>
+  </data>
+  <data name="Architect.DatabaseBatchWait.Description" xml:space="preserve">
+    <value>Description for Architect.DatabaseBatchWait</value>
+    <comment>Description for DomainClass &apos;DatabaseBatchWait&apos;</comment>
+  </data>
+  <data name="Architect.DatabaseBatchWait.DisplayName" xml:space="preserve">
+    <value>Database Batch Wait</value>
+    <comment>DisplayName for DomainClass &apos;DatabaseBatchWait&apos;</comment>
+  </data>
+  <data name="Architect.BaseBatchStart.Description" xml:space="preserve">
+    <value>Description for Architect.BaseBatchStart</value>
+    <comment>Description for DomainClass &apos;BaseBatchStart&apos;</comment>
+  </data>
+  <data name="Architect.BaseBatchStart.DisplayName" xml:space="preserve">
+    <value>Base Batch Start</value>
+    <comment>DisplayName for DomainClass &apos;BaseBatchStart&apos;</comment>
+  </data>
+  <data name="Architect.BaseBatchStart/StartActivityGuid.Description" xml:space="preserve">
+    <value>Description for Architect.BaseBatchStart.Start Activity Guid</value>
+    <comment>Description for DomainProperty &apos;StartActivityGuid&apos; on DomainClass &apos;BaseBatchStart&apos;</comment>
+  </data>
+  <data name="Architect.BaseBatchStart/StartActivityGuid.DisplayName" xml:space="preserve">
+    <value>Start Activity Guid</value>
+    <comment>DisplayName for DomainProperty &apos;StartActivityGuid&apos; on DomainClass &apos;BaseBatchStart&apos;</comment>
+  </data>
+  <data name="Architect.Email.Description" xml:space="preserve">
+    <value>Description for Architect.Email</value>
+    <comment>Description for DomainClass &apos;Email&apos;</comment>
+  </data>
+  <data name="Architect.Email.DisplayName" xml:space="preserve">
+    <value>Email</value>
+    <comment>DisplayName for DomainClass &apos;Email&apos;</comment>
+  </data>
+  <data name="Architect.MobileActivity.Description" xml:space="preserve">
+    <value>Description for Architect.MobileActivity</value>
+    <comment>Description for DomainClass &apos;MobileActivity&apos;</comment>
+  </data>
+  <data name="Architect.MobileActivity.DisplayName" xml:space="preserve">
+    <value>Mobile Activity</value>
+    <comment>DisplayName for DomainClass &apos;MobileActivity&apos;</comment>
+  </data>
+  <data name="Architect.HybridActivity.Description" xml:space="preserve">
+    <value>Description for Architect.HybridActivity</value>
+    <comment>Description for DomainClass &apos;HybridActivity&apos;</comment>
+  </data>
+  <data name="Architect.HybridActivity.DisplayName" xml:space="preserve">
+    <value>Hybrid Activity</value>
+    <comment>DisplayName for DomainClass &apos;HybridActivity&apos;</comment>
+  </data>
+  <data name="Architect.UserActivity.Description" xml:space="preserve">
+    <value>Description for Architect.UserActivity</value>
+    <comment>Description for DomainClass &apos;UserActivity&apos;</comment>
+  </data>
+  <data name="Architect.UserActivity.DisplayName" xml:space="preserve">
+    <value>User Activity</value>
+    <comment>DisplayName for DomainClass &apos;UserActivity&apos;</comment>
+  </data>
+  <data name="Architect.UserActivity/OnlyVisibleAtLocation.Description" xml:space="preserve">
+    <value>Description for Architect.UserActivity.Only Visible At Location</value>
+    <comment>Description for DomainProperty &apos;OnlyVisibleAtLocation&apos; on DomainClass &apos;UserActivity&apos;</comment>
+  </data>
+  <data name="Architect.UserActivity/OnlyVisibleAtLocation.DisplayName" xml:space="preserve">
+    <value>Only Visible At Location</value>
+    <comment>DisplayName for DomainProperty &apos;OnlyVisibleAtLocation&apos; on DomainClass &apos;UserActivity&apos;</comment>
+  </data>
+  <data name="Architect.UserActivity/LocationRadius.Description" xml:space="preserve">
+    <value>Description for Architect.UserActivity.Location Radius</value>
+    <comment>Description for DomainProperty &apos;LocationRadius&apos; on DomainClass &apos;UserActivity&apos;</comment>
+  </data>
+  <data name="Architect.UserActivity/LocationRadius.DisplayName" xml:space="preserve">
+    <value>Location Radius</value>
+    <comment>DisplayName for DomainProperty &apos;LocationRadius&apos; on DomainClass &apos;UserActivity&apos;</comment>
+  </data>
+  <data name="Architect.Flow.Description" xml:space="preserve">
+    <value>Description for Architect.Flow</value>
+    <comment>Description for DomainClass &apos;Flow&apos;</comment>
+  </data>
+  <data name="Architect.Flow.DisplayName" xml:space="preserve">
+    <value>Flow</value>
+    <comment>DisplayName for DomainClass &apos;Flow&apos;</comment>
+  </data>
+  <data name="Architect.Flow/Outcome.Description" xml:space="preserve">
+    <value>Description for Architect.Flow.Outcome</value>
+    <comment>Description for DomainProperty &apos;Outcome&apos; on DomainClass &apos;Flow&apos;</comment>
+  </data>
+  <data name="Architect.Flow/Outcome.DisplayName" xml:space="preserve">
+    <value>Outcome</value>
+    <comment>DisplayName for DomainProperty &apos;Outcome&apos; on DomainClass &apos;Flow&apos;</comment>
+  </data>
+  <data name="Architect.Flow/Storyline.Description" xml:space="preserve">
+    <value>Description for Architect.Flow.Storyline</value>
+    <comment>Description for DomainProperty &apos;Storyline&apos; on DomainClass &apos;Flow&apos;</comment>
+  </data>
+  <data name="Architect.Flow/Storyline.DisplayName" xml:space="preserve">
+    <value>Storyline</value>
+    <comment>DisplayName for DomainProperty &apos;Storyline&apos; on DomainClass &apos;Flow&apos;</comment>
+  </data>
+  <data name="Architect.Flow/SourceActivity.Description" xml:space="preserve">
+    <value>Description for Architect.Flow.SourceActivity</value>
+    <comment>Description for DomainRole &apos;SourceActivity&apos; on DomainRelationship &apos;Flow&apos;</comment>
+  </data>
+  <data name="Architect.Flow/SourceActivity.DisplayName" xml:space="preserve">
+    <value>Source Activity</value>
+    <comment>DisplayName for DomainRole &apos;SourceActivity&apos; on DomainRelationship &apos;Flow&apos;</comment>
+  </data>
+  <data name="Architect.Flow/SourceActivity.PropertyDisplayName" xml:space="preserve">
+    <value>Target Activities</value>
+    <comment>PropertyDisplayName for DomainRole &apos;SourceActivity&apos; on DomainRelationship &apos;Flow&apos;</comment>
+  </data>
+  <data name="Architect.Flow/TargetActivity.Description" xml:space="preserve">
+    <value>Description for Architect.Flow.TargetActivity</value>
+    <comment>Description for DomainRole &apos;TargetActivity&apos; on DomainRelationship &apos;Flow&apos;</comment>
+  </data>
+  <data name="Architect.Flow/TargetActivity.DisplayName" xml:space="preserve">
+    <value>Target Activity</value>
+    <comment>DisplayName for DomainRole &apos;TargetActivity&apos; on DomainRelationship &apos;Flow&apos;</comment>
+  </data>
+  <data name="Architect.Flow/TargetActivity.PropertyDisplayName" xml:space="preserve">
+    <value>Source Activities</value>
+    <comment>PropertyDisplayName for DomainRole &apos;TargetActivity&apos; on DomainRelationship &apos;Flow&apos;</comment>
+  </data>
+  <data name="Architect.FlowMinimal.Description" xml:space="preserve">
+    <value>Description for Architect.FlowMinimal</value>
+    <comment>Description for DomainClass &apos;FlowMinimal&apos;</comment>
+  </data>
+  <data name="Architect.FlowMinimal.DisplayName" xml:space="preserve">
+    <value>Flow Minimal</value>
+    <comment>DisplayName for DomainClass &apos;FlowMinimal&apos;</comment>
+  </data>
+  <data name="Architect.FlowMinimal/Outcome.Description" xml:space="preserve">
+    <value>Description for Architect.FlowMinimal.Outcome</value>
+    <comment>Description for DomainProperty &apos;Outcome&apos; on DomainClass &apos;FlowMinimal&apos;</comment>
+  </data>
+  <data name="Architect.FlowMinimal/Outcome.DisplayName" xml:space="preserve">
+    <value>Outcome</value>
+    <comment>DisplayName for DomainProperty &apos;Outcome&apos; on DomainClass &apos;FlowMinimal&apos;</comment>
+  </data>
+  <data name="Architect.FlowMinimal/Storyline.Description" xml:space="preserve">
+    <value>Description for Architect.FlowMinimal.Storyline</value>
+    <comment>Description for DomainProperty &apos;Storyline&apos; on DomainClass &apos;FlowMinimal&apos;</comment>
+  </data>
+  <data name="Architect.FlowMinimal/Storyline.DisplayName" xml:space="preserve">
+    <value>Storyline</value>
+    <comment>DisplayName for DomainProperty &apos;Storyline&apos; on DomainClass &apos;FlowMinimal&apos;</comment>
+  </data>
+  <data name="Architect.FlowMinimal/SActivity.Description" xml:space="preserve">
+    <value>Description for Architect.FlowMinimal.SActivity</value>
+    <comment>Description for DomainRole &apos;SActivity&apos; on DomainRelationship &apos;FlowMinimal&apos;</comment>
+  </data>
+  <data name="Architect.FlowMinimal/SActivity.DisplayName" xml:space="preserve">
+    <value>SActivity</value>
+    <comment>DisplayName for DomainRole &apos;SActivity&apos; on DomainRelationship &apos;FlowMinimal&apos;</comment>
+  </data>
+  <data name="Architect.FlowMinimal/SActivity.PropertyDisplayName" xml:space="preserve">
+    <value>TActivity</value>
+    <comment>PropertyDisplayName for DomainRole &apos;SActivity&apos; on DomainRelationship &apos;FlowMinimal&apos;</comment>
+  </data>
+  <data name="Architect.FlowMinimal/TActivity.Description" xml:space="preserve">
+    <value>Description for Architect.FlowMinimal.TActivity</value>
+    <comment>Description for DomainRole &apos;TActivity&apos; on DomainRelationship &apos;FlowMinimal&apos;</comment>
+  </data>
+  <data name="Architect.FlowMinimal/TActivity.DisplayName" xml:space="preserve">
+    <value>TActivity</value>
+    <comment>DisplayName for DomainRole &apos;TActivity&apos; on DomainRelationship &apos;FlowMinimal&apos;</comment>
+  </data>
+  <data name="Architect.FlowMinimal/TActivity.PropertyDisplayName" xml:space="preserve">
+    <value>SActivity</value>
+    <comment>PropertyDisplayName for DomainRole &apos;TActivity&apos; on DomainRelationship &apos;FlowMinimal&apos;</comment>
+  </data>
+  <data name="Architect.FlowBase.Description" xml:space="preserve">
+    <value>Flow between activities</value>
+    <comment>Description for DomainClass &apos;FlowBase&apos;</comment>
+  </data>
+  <data name="Architect.FlowBase.DisplayName" xml:space="preserve">
+    <value>Flow</value>
+    <comment>DisplayName for DomainClass &apos;FlowBase&apos;</comment>
+  </data>
+  <data name="Architect.FlowBase/Type.Description" xml:space="preserve">
+    <value>Description for Architect.FlowBase.Type</value>
+    <comment>Description for DomainProperty &apos;Type&apos; on DomainClass &apos;FlowBase&apos;</comment>
+  </data>
+  <data name="Architect.FlowBase/Type.DisplayName" xml:space="preserve">
+    <value>Type</value>
+    <comment>DisplayName for DomainProperty &apos;Type&apos; on DomainClass &apos;FlowBase&apos;</comment>
+  </data>
+  <data name="Architect.FlowBase/VisioId.Description" xml:space="preserve">
+    <value>Description for Architect.FlowBase.Visio Id</value>
+    <comment>Description for DomainProperty &apos;VisioId&apos; on DomainClass &apos;FlowBase&apos;</comment>
+  </data>
+  <data name="Architect.FlowBase/VisioId.DisplayName" xml:space="preserve">
+    <value>Visio Id</value>
+    <comment>DisplayName for DomainProperty &apos;VisioId&apos; on DomainClass &apos;FlowBase&apos;</comment>
+  </data>
+  <data name="Architect.FlowBase/SourceActivity.Description" xml:space="preserve">
+    <value>Description for Architect.FlowBase.SourceActivity</value>
+    <comment>Description for DomainRole &apos;SourceActivity&apos; on DomainRelationship &apos;FlowBase&apos;</comment>
+  </data>
+  <data name="Architect.FlowBase/SourceActivity.DisplayName" xml:space="preserve">
+    <value>Source Activity</value>
+    <comment>DisplayName for DomainRole &apos;SourceActivity&apos; on DomainRelationship &apos;FlowBase&apos;</comment>
+  </data>
+  <data name="Architect.FlowBase/SourceActivity.PropertyDisplayName" xml:space="preserve">
+    <value>Target Acts</value>
+    <comment>PropertyDisplayName for DomainRole &apos;SourceActivity&apos; on DomainRelationship &apos;FlowBase&apos;</comment>
+  </data>
+  <data name="Architect.FlowBase/TargetActivity.Description" xml:space="preserve">
+    <value>Description for Architect.FlowBase.TargetActivity</value>
+    <comment>Description for DomainRole &apos;TargetActivity&apos; on DomainRelationship &apos;FlowBase&apos;</comment>
+  </data>
+  <data name="Architect.FlowBase/TargetActivity.DisplayName" xml:space="preserve">
+    <value>Target Activity</value>
+    <comment>DisplayName for DomainRole &apos;TargetActivity&apos; on DomainRelationship &apos;FlowBase&apos;</comment>
+  </data>
+  <data name="Architect.FlowBase/TargetActivity.PropertyDisplayName" xml:space="preserve">
+    <value>Source Acts</value>
+    <comment>PropertyDisplayName for DomainRole &apos;TargetActivity&apos; on DomainRelationship &apos;FlowBase&apos;</comment>
+  </data>
+  <data name="Architect.SubProcessHasActivities.Description" xml:space="preserve">
+    <value>Description for Architect.SubProcessHasActivities</value>
+    <comment>Description for DomainClass &apos;SubProcessHasActivities&apos;</comment>
+  </data>
+  <data name="Architect.SubProcessHasActivities.DisplayName" xml:space="preserve">
+    <value>Sub Process Has Activities</value>
+    <comment>DisplayName for DomainClass &apos;SubProcessHasActivities&apos;</comment>
+  </data>
+  <data name="Architect.SubProcessHasActivities/SubProcess.Description" xml:space="preserve">
+    <value>Description for Architect.SubProcessHasActivities.SubProcess</value>
+    <comment>Description for DomainRole &apos;SubProcess&apos; on DomainRelationship &apos;SubProcessHasActivities&apos;</comment>
+  </data>
+  <data name="Architect.SubProcessHasActivities/SubProcess.DisplayName" xml:space="preserve">
+    <value>Sub Process</value>
+    <comment>DisplayName for DomainRole &apos;SubProcess&apos; on DomainRelationship &apos;SubProcessHasActivities&apos;</comment>
+  </data>
+  <data name="Architect.SubProcessHasActivities/SubProcess.PropertyDisplayName" xml:space="preserve">
+    <value>Activities</value>
+    <comment>PropertyDisplayName for DomainRole &apos;SubProcess&apos; on DomainRelationship &apos;SubProcessHasActivities&apos;</comment>
+  </data>
+  <data name="Architect.SubProcessHasActivities/Activity.Description" xml:space="preserve">
+    <value>Description for Architect.SubProcessHasActivities.Activity</value>
+    <comment>Description for DomainRole &apos;Activity&apos; on DomainRelationship &apos;SubProcessHasActivities&apos;</comment>
+  </data>
+  <data name="Architect.SubProcessHasActivities/Activity.DisplayName" xml:space="preserve">
+    <value>Activity</value>
+    <comment>DisplayName for DomainRole &apos;Activity&apos; on DomainRelationship &apos;SubProcessHasActivities&apos;</comment>
+  </data>
+  <data name="Architect.SubProcessHasActivities/Activity.PropertyDisplayName" xml:space="preserve">
+    <value>Sub Process</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Activity&apos; on DomainRelationship &apos;SubProcessHasActivities&apos;</comment>
+  </data>
+  <data name="Architect.YesNo/Yes.DisplayName" xml:space="preserve">
+    <value>Yes</value>
+    <comment>Display name for EnumerationLiteral &apos;Yes&apos; on DomainEnumeration &apos;YesNo&apos;</comment>
+  </data>
+  <data name="Architect.YesNo/Yes.Description" xml:space="preserve">
+    <value>Description for Architect.YesNo.Yes</value>
+    <comment>Description for EnumerationLiteral &apos;Yes&apos; on DomainEnumeration &apos;YesNo&apos;</comment>
+  </data>
+  <data name="Architect.YesNo/No.DisplayName" xml:space="preserve">
+    <value>No</value>
+    <comment>Display name for EnumerationLiteral &apos;No&apos; on DomainEnumeration &apos;YesNo&apos;</comment>
+  </data>
+  <data name="Architect.YesNo/No.Description" xml:space="preserve">
+    <value>Description for Architect.YesNo.No</value>
+    <comment>Description for EnumerationLiteral &apos;No&apos; on DomainEnumeration &apos;YesNo&apos;</comment>
+  </data>
+  <data name="Architect.FlowType/none.DisplayName" xml:space="preserve">
+    <value>none</value>
+    <comment>Display name for EnumerationLiteral &apos;none&apos; on DomainEnumeration &apos;FlowType&apos;</comment>
+  </data>
+  <data name="Architect.FlowType/none.Description" xml:space="preserve">
+    <value>Description for Architect.FlowType.none</value>
+    <comment>Description for EnumerationLiteral &apos;none&apos; on DomainEnumeration &apos;FlowType&apos;</comment>
+  </data>
+  <data name="Architect.FlowType/Optimal.DisplayName" xml:space="preserve">
+    <value>Optimal</value>
+    <comment>Display name for EnumerationLiteral &apos;Optimal&apos; on DomainEnumeration &apos;FlowType&apos;</comment>
+  </data>
+  <data name="Architect.FlowType/Optimal.Description" xml:space="preserve">
+    <value>Description for Architect.FlowType.Optimal</value>
+    <comment>Description for EnumerationLiteral &apos;Optimal&apos; on DomainEnumeration &apos;FlowType&apos;</comment>
+  </data>
+  <data name="Architect.FlowType/Negative.DisplayName" xml:space="preserve">
+    <value>Negative</value>
+    <comment>Display name for EnumerationLiteral &apos;Negative&apos; on DomainEnumeration &apos;FlowType&apos;</comment>
+  </data>
+  <data name="Architect.FlowType/Negative.Description" xml:space="preserve">
+    <value>Description for Architect.FlowType.Negative</value>
+    <comment>Description for EnumerationLiteral &apos;Negative&apos; on DomainEnumeration &apos;FlowType&apos;</comment>
+  </data>
+  <data name="Architect.WorkflowRuleShape.Description" xml:space="preserve">
+    <value>Rule makes a decision in the process</value>
+    <comment>Description for DomainClass &apos;WorkflowRuleShape&apos;</comment>
+  </data>
+  <data name="Architect.WorkflowRuleShape.DisplayName" xml:space="preserve">
+    <value>Rule</value>
+    <comment>DisplayName for DomainClass &apos;WorkflowRuleShape&apos;</comment>
+  </data>
+  <data name="Architect.PageShape.Description" xml:space="preserve">
+    <value>Page has a web page linked to it for user input</value>
+    <comment>Description for DomainClass &apos;PageShape&apos;</comment>
+  </data>
+  <data name="Architect.PageShape.DisplayName" xml:space="preserve">
+    <value>Page</value>
+    <comment>DisplayName for DomainClass &apos;PageShape&apos;</comment>
+  </data>
+  <data name="Architect.SQLEventShape.Description" xml:space="preserve">
+    <value>Used to do any database processing</value>
+    <comment>Description for DomainClass &apos;SQLEventShape&apos;</comment>
+  </data>
+  <data name="Architect.SQLEventShape.DisplayName" xml:space="preserve">
+    <value>Event</value>
+    <comment>DisplayName for DomainClass &apos;SQLEventShape&apos;</comment>
+  </data>
+  <data name="Architect.StopShape.Description" xml:space="preserve">
+    <value>Stop of process</value>
+    <comment>Description for DomainClass &apos;StopShape&apos;</comment>
+  </data>
+  <data name="Architect.StopShape.DisplayName" xml:space="preserve">
+    <value>Stop</value>
+    <comment>DisplayName for DomainClass &apos;StopShape&apos;</comment>
+  </data>
+  <data name="Architect.SQLParkShape.Description" xml:space="preserve">
+    <value>Parked DB Activity</value>
+    <comment>Description for DomainClass &apos;SQLParkShape&apos;</comment>
+  </data>
+  <data name="Architect.SQLParkShape.DisplayName" xml:space="preserve">
+    <value>DB Parked</value>
+    <comment>DisplayName for DomainClass &apos;SQLParkShape&apos;</comment>
+  </data>
+  <data name="Architect.BaseActivityShape.Description" xml:space="preserve">
+    <value>Description for Architect.BaseActivityShape</value>
+    <comment>Description for DomainClass &apos;BaseActivityShape&apos;</comment>
+  </data>
+  <data name="Architect.BaseActivityShape.DisplayName" xml:space="preserve">
+    <value>Base Activity Shape</value>
+    <comment>DisplayName for DomainClass &apos;BaseActivityShape&apos;</comment>
+  </data>
+  <data name="Architect.ToProcessConnectorShape.Description" xml:space="preserve">
+    <value>Description for Architect.ToProcessConnectorShape</value>
+    <comment>Description for DomainClass &apos;ToProcessConnectorShape&apos;</comment>
+  </data>
+  <data name="Architect.ToProcessConnectorShape.DisplayName" xml:space="preserve">
+    <value>To Process Connector Shape</value>
+    <comment>DisplayName for DomainClass &apos;ToProcessConnectorShape&apos;</comment>
+  </data>
+  <data name="ToProcessConnectorShapeNameDecoratorDefaultText" xml:space="preserve">
+    <value>NameDecorator</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Architect.FromProcessConnectorShape.Description" xml:space="preserve">
+    <value>Description for Architect.FromProcessConnectorShape</value>
+    <comment>Description for DomainClass &apos;FromProcessConnectorShape&apos;</comment>
+  </data>
+  <data name="Architect.FromProcessConnectorShape.DisplayName" xml:space="preserve">
+    <value>From Process Connector Shape</value>
+    <comment>DisplayName for DomainClass &apos;FromProcessConnectorShape&apos;</comment>
+  </data>
+  <data name="FromProcessConnectorShapeNameDecoratorDefaultText" xml:space="preserve">
+    <value>NameDecorator</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Architect.CSharpEventShape.Description" xml:space="preserve">
+    <value>Description for Architect.CSharpEventShape</value>
+    <comment>Description for DomainClass &apos;CSharpEventShape&apos;</comment>
+  </data>
+  <data name="Architect.CSharpEventShape.DisplayName" xml:space="preserve">
+    <value>CSharp Event Shape</value>
+    <comment>DisplayName for DomainClass &apos;CSharpEventShape&apos;</comment>
+  </data>
+  <data name="Architect.PostageAppShape.Description" xml:space="preserve">
+    <value>Description for Architect.PostageAppShape</value>
+    <comment>Description for DomainClass &apos;PostageAppShape&apos;</comment>
+  </data>
+  <data name="Architect.PostageAppShape.DisplayName" xml:space="preserve">
+    <value>Postage App Shape</value>
+    <comment>DisplayName for DomainClass &apos;PostageAppShape&apos;</comment>
+  </data>
+  <data name="Architect.ClickatellShape.Description" xml:space="preserve">
+    <value>Description for Architect.ClickatellShape</value>
+    <comment>Description for DomainClass &apos;ClickatellShape&apos;</comment>
+  </data>
+  <data name="Architect.ClickatellShape.DisplayName" xml:space="preserve">
+    <value>Clickatell</value>
+    <comment>DisplayName for DomainClass &apos;ClickatellShape&apos;</comment>
+  </data>
+  <data name="Architect.SQLCostingShape.Description" xml:space="preserve">
+    <value>Description for Architect.SQLCostingShape</value>
+    <comment>Description for DomainClass &apos;SQLCostingShape&apos;</comment>
+  </data>
+  <data name="Architect.SQLCostingShape.DisplayName" xml:space="preserve">
+    <value>Cost DB</value>
+    <comment>DisplayName for DomainClass &apos;SQLCostingShape&apos;</comment>
+  </data>
+  <data name="Architect.CSharpCostingShape.Description" xml:space="preserve">
+    <value>Description for Architect.CSharpCostingShape</value>
+    <comment>Description for DomainClass &apos;CSharpCostingShape&apos;</comment>
+  </data>
+  <data name="Architect.CSharpCostingShape.DisplayName" xml:space="preserve">
+    <value>CSharp Costing Shape</value>
+    <comment>DisplayName for DomainClass &apos;CSharpCostingShape&apos;</comment>
+  </data>
+  <data name="Architect.SQLBatchStartShape.Description" xml:space="preserve">
+    <value>Description for Architect.SQLBatchStartShape</value>
+    <comment>Description for DomainClass &apos;SQLBatchStartShape&apos;</comment>
+  </data>
+  <data name="Architect.SQLBatchStartShape.DisplayName" xml:space="preserve">
+    <value>SQLBatch Start Shape</value>
+    <comment>DisplayName for DomainClass &apos;SQLBatchStartShape&apos;</comment>
+  </data>
+  <data name="Architect.CSharpBatchStartShape.Description" xml:space="preserve">
+    <value>Description for Architect.CSharpBatchStartShape</value>
+    <comment>Description for DomainClass &apos;CSharpBatchStartShape&apos;</comment>
+  </data>
+  <data name="Architect.CSharpBatchStartShape.DisplayName" xml:space="preserve">
+    <value>CSharp Batch Start Shape</value>
+    <comment>DisplayName for DomainClass &apos;CSharpBatchStartShape&apos;</comment>
+  </data>
+  <data name="Architect.BatchWaitShape.Description" xml:space="preserve">
+    <value>Description for Architect.BatchWaitShape</value>
+    <comment>Description for DomainClass &apos;BatchWaitShape&apos;</comment>
+  </data>
+  <data name="Architect.BatchWaitShape.DisplayName" xml:space="preserve">
+    <value>Batch Wait Shape</value>
+    <comment>DisplayName for DomainClass &apos;BatchWaitShape&apos;</comment>
+  </data>
+  <data name="BatchWaitShapeNameDecoratorDefaultText" xml:space="preserve">
+    <value>NameDecorator</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Architect.CSharpParkShape.Description" xml:space="preserve">
+    <value>Description for Architect.CSharpParkShape</value>
+    <comment>Description for DomainClass &apos;CSharpParkShape&apos;</comment>
+  </data>
+  <data name="Architect.CSharpParkShape.DisplayName" xml:space="preserve">
+    <value>CSharp Park Shape</value>
+    <comment>DisplayName for DomainClass &apos;CSharpParkShape&apos;</comment>
+  </data>
+  <data name="Architect.CorticonShape.Description" xml:space="preserve">
+    <value>Description for Architect.CorticonShape</value>
+    <comment>Description for DomainClass &apos;CorticonShape&apos;</comment>
+  </data>
+  <data name="Architect.CorticonShape.DisplayName" xml:space="preserve">
+    <value>Corticon Shape</value>
+    <comment>DisplayName for DomainClass &apos;CorticonShape&apos;</comment>
+  </data>
+  <data name="Architect.StartableShape.Description" xml:space="preserve">
+    <value>Description for Architect.StartableShape</value>
+    <comment>Description for DomainClass &apos;StartableShape&apos;</comment>
+  </data>
+  <data name="Architect.StartableShape.DisplayName" xml:space="preserve">
+    <value>Startable Shape</value>
+    <comment>DisplayName for DomainClass &apos;StartableShape&apos;</comment>
+  </data>
+  <data name="StartableShapeNameDecoratorDefaultText" xml:space="preserve">
+    <value>NameDecorator</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Architect.CustomUserShape.Description" xml:space="preserve">
+    <value>Description for Architect.CustomUserShape</value>
+    <comment>Description for DomainClass &apos;CustomUserShape&apos;</comment>
+  </data>
+  <data name="Architect.CustomUserShape.DisplayName" xml:space="preserve">
+    <value>Custom User Shape</value>
+    <comment>DisplayName for DomainClass &apos;CustomUserShape&apos;</comment>
+  </data>
+  <data name="Architect.DatabaseBatchWaitShape.Description" xml:space="preserve">
+    <value>Description for Architect.DatabaseBatchWaitShape</value>
+    <comment>Description for DomainClass &apos;DatabaseBatchWaitShape&apos;</comment>
+  </data>
+  <data name="Architect.DatabaseBatchWaitShape.DisplayName" xml:space="preserve">
+    <value>Database Batch Wait Shape</value>
+    <comment>DisplayName for DomainClass &apos;DatabaseBatchWaitShape&apos;</comment>
+  </data>
+  <data name="DatabaseBatchWaitShapeNameDecoratorDefaultText" xml:space="preserve">
+    <value>NameDecorator</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Architect.EmailShape.Description" xml:space="preserve">
+    <value>Description for Architect.EmailShape</value>
+    <comment>Description for DomainClass &apos;EmailShape&apos;</comment>
+  </data>
+  <data name="Architect.EmailShape.DisplayName" xml:space="preserve">
+    <value>Email Shape</value>
+    <comment>DisplayName for DomainClass &apos;EmailShape&apos;</comment>
+  </data>
+  <data name="Architect.MobileShape.Description" xml:space="preserve">
+    <value>Description for Architect.MobileShape</value>
+    <comment>Description for DomainClass &apos;MobileShape&apos;</comment>
+  </data>
+  <data name="Architect.MobileShape.DisplayName" xml:space="preserve">
+    <value>Mobile Shape</value>
+    <comment>DisplayName for DomainClass &apos;MobileShape&apos;</comment>
+  </data>
+  <data name="Architect.HybridShape.Description" xml:space="preserve">
+    <value>Description for Architect.HybridShape</value>
+    <comment>Description for DomainClass &apos;HybridShape&apos;</comment>
+  </data>
+  <data name="Architect.HybridShape.DisplayName" xml:space="preserve">
+    <value>Hybrid Shape</value>
+    <comment>DisplayName for DomainClass &apos;HybridShape&apos;</comment>
+  </data>
+  <data name="Architect.UserActivityShape.Description" xml:space="preserve">
+    <value>Description for Architect.UserActivityShape</value>
+    <comment>Description for DomainClass &apos;UserActivityShape&apos;</comment>
+  </data>
+  <data name="Architect.UserActivityShape.DisplayName" xml:space="preserve">
+    <value>User Activity Shape</value>
+    <comment>DisplayName for DomainClass &apos;UserActivityShape&apos;</comment>
+  </data>
+  <data name="Architect.FlowConnector.Description" xml:space="preserve">
+    <value>Flow between activities</value>
+    <comment>Description for DomainClass &apos;FlowConnector&apos;</comment>
+  </data>
+  <data name="Architect.FlowConnector.DisplayName" xml:space="preserve">
+    <value>Flow</value>
+    <comment>DisplayName for DomainClass &apos;FlowConnector&apos;</comment>
+  </data>
+  <data name="Architect.FlowConnector/Color.Description" xml:space="preserve">
+    <value>Description for Architect.FlowConnector.Color</value>
+    <comment>Description for DomainProperty &apos;Color&apos; on DomainClass &apos;FlowConnector&apos;</comment>
+  </data>
+  <data name="Architect.FlowConnector/Color.DisplayName" xml:space="preserve">
+    <value>Color</value>
+    <comment>DisplayName for DomainProperty &apos;Color&apos; on DomainClass &apos;FlowConnector&apos;</comment>
+  </data>
+  <data name="FlowConnectorOutcomeDecoratorDefaultText" xml:space="preserve">
+    <value>Outcome</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Architect.FlowMinimalConnector.Description" xml:space="preserve">
+    <value>Flow between activities</value>
+    <comment>Description for DomainClass &apos;FlowMinimalConnector&apos;</comment>
+  </data>
+  <data name="Architect.FlowMinimalConnector.DisplayName" xml:space="preserve">
+    <value>Flow</value>
+    <comment>DisplayName for DomainClass &apos;FlowMinimalConnector&apos;</comment>
+  </data>
+  <data name="Architect.FlowMinimalConnector/Color.Description" xml:space="preserve">
+    <value>Description for Architect.FlowMinimalConnector.Color</value>
+    <comment>Description for DomainProperty &apos;Color&apos; on DomainClass &apos;FlowMinimalConnector&apos;</comment>
+  </data>
+  <data name="Architect.FlowMinimalConnector/Color.DisplayName" xml:space="preserve">
+    <value>Color</value>
+    <comment>DisplayName for DomainProperty &apos;Color&apos; on DomainClass &apos;FlowMinimalConnector&apos;</comment>
+  </data>
+  <data name="FormatList" xml:space="preserve">
+    <value>CloudCore - Architect Sub-Process Designer (*.subprocess)|*.subprocess</value>
+    <comment>A list of file format specifiers for the Save dialog box</comment>
+  </data>
+  <data name="ModelExplorerTitle" xml:space="preserve">
+    <value>CloudCore - Architect Sub-Process Designer Explorer</value>
+    <comment>Model Explorer Toolwindow title</comment>
+  </data>
+  <data name="Architect.SubProcessDiagram.Description" xml:space="preserve">
+    <value>Description for Architect.SubProcessDiagram</value>
+    <comment>Description for DomainClass &apos;SubProcessDiagram&apos;</comment>
+  </data>
+  <data name="Architect.SubProcessDiagram.DisplayName" xml:space="preserve">
+    <value>SubProcess Designer</value>
+    <comment>DisplayName for DomainClass &apos;SubProcessDiagram&apos;</comment>
+  </data>
+  <data name="Database ActivitiesToolboxTab" xml:space="preserve">
+    <value>Database Activities</value>
+    <comment>Toolbox item tab name</comment>
+  </data>
+  <data name="SQLEventToolboxItem" xml:space="preserve">
+    <value>Database Custom Activity</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="SQLEventToolboxTooltip" xml:space="preserve">
+    <value>Create Process Event</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="SQLCostingToolboxItem" xml:space="preserve">
+    <value>Database Costing</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="SQLCostingToolboxTooltip" xml:space="preserve">
+    <value>SQLCosting</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="SQLBatchStartToolboxItem" xml:space="preserve">
+    <value>Database Batch Start</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="SQLBatchStartToolboxTooltip" xml:space="preserve">
+    <value>Batch DB Start</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="SQLParkedToolboxItem" xml:space="preserve">
+    <value>Database Parked Activity</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="SQLParkedToolboxTooltip" xml:space="preserve">
+    <value>SQLParked</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="SQLBatchWaitToolboxItem" xml:space="preserve">
+    <value>Database Batch Wait Activity</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="SQLBatchWaitToolboxTooltip" xml:space="preserve">
+    <value>SQLBatch Wait</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="Cloud ActivitiesToolboxTab" xml:space="preserve">
+    <value>Cloud Activities</value>
+    <comment>Toolbox item tab name</comment>
+  </data>
+  <data name="ClickaltellToolboxItem" xml:space="preserve">
+    <value>Clickatell Activity</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="ClickaltellToolboxTooltip" xml:space="preserve">
+    <value>Clickaltell</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="PostageAppToolboxItem" xml:space="preserve">
+    <value>PostageApp Activity</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="PostageAppToolboxTooltip" xml:space="preserve">
+    <value>PostageApp</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="CSharpEventToolboxItem" xml:space="preserve">
+    <value>Cloud Custom Activity</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="CSharpEventToolboxTooltip" xml:space="preserve">
+    <value>CSharp Event</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="CSharpCostingToolboxItem" xml:space="preserve">
+    <value>Cloud Costing</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="CSharpCostingToolboxTooltip" xml:space="preserve">
+    <value>Create Process Costing Class</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="CSharpBatchStartToolboxItem" xml:space="preserve">
+    <value>Cloud Batch Start</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="CSharpBatchStartToolboxTooltip" xml:space="preserve">
+    <value>CSharp Batch Start</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="CSharpParkedToolboxItem" xml:space="preserve">
+    <value>Cloud Parked Activity</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="CSharpParkedToolboxTooltip" xml:space="preserve">
+    <value>CSharp Parked</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="CorticonToolboxItem" xml:space="preserve">
+    <value>Corticon Business Rule</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="CorticonToolboxTooltip" xml:space="preserve">
+    <value>Connect to your Corticon server.</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="BatchWaitToolboxItem" xml:space="preserve">
+    <value>Cloud Batch Wait</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="BatchWaitToolboxTooltip" xml:space="preserve">
+    <value>Batch Wait</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="EmailToolboxItem" xml:space="preserve">
+    <value>Email</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="EmailToolboxTooltip" xml:space="preserve">
+    <value>Email</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="Process ControlToolboxTab" xml:space="preserve">
+    <value>Process Control</value>
+    <comment>Toolbox item tab name</comment>
+  </data>
+  <data name="FlowToolboxItem" xml:space="preserve">
+    <value>Flow</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="FlowToolboxTooltip" xml:space="preserve">
+    <value>Flow</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="StopToolboxItem" xml:space="preserve">
+    <value>Process Stop/End</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="StopToolboxTooltip" xml:space="preserve">
+    <value>Stop</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="SubProcessConnectorToolboxItem" xml:space="preserve">
+    <value>Sub Process Out</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="SubProcessConnectorToolboxTooltip" xml:space="preserve">
+    <value>Sub Process Connector</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="WorkflowRuleToolboxItem" xml:space="preserve">
+    <value>Workflow Rule</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="WorkflowRuleToolboxTooltip" xml:space="preserve">
+    <value>Workflow Rule</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="User ActivitiesToolboxTab" xml:space="preserve">
+    <value>User Activities</value>
+    <comment>Toolbox item tab name</comment>
+  </data>
+  <data name="CloudcoreUserActivityToolboxItem" xml:space="preserve">
+    <value>Cloudcore User Activity</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="CloudcoreUserActivityToolboxTooltip" xml:space="preserve">
+    <value>Cloudcore User Activity</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="CustomUserActivityToolboxItem" xml:space="preserve">
+    <value>Custom User Activity</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="CustomUserActivityToolboxTooltip" xml:space="preserve">
+    <value>Custom User Activity</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="MobileUserActivityToolboxItem" xml:space="preserve">
+    <value>MobileUserActivity</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="MobileUserActivityToolboxTooltip" xml:space="preserve">
+    <value>Mobile User Activity</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="HybridUserActivityToolboxItem" xml:space="preserve">
+    <value>HybridUserActivity</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="HybridUserActivityToolboxTooltip" xml:space="preserve">
+    <value>Hybrid User Activity</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="UnresolvedToolboxItem" xml:space="preserve">
+    <value>ToolboxItem {0} was not found</value>
+    <comment>Invalid toolId</comment>
+  </data>
+  <data name="UnsupportedToolboxFormat" xml:space="preserve">
+    <value>Unsupported toolbox format: {0}</value>
+    <comment>Unsupported format Id</comment>
+  </data>
+  <data name="UnrecognizedElementType" xml:space="preserve">
+    <value>ElementType {0} is not recognized as a type of domain class which belongs to this domain model.</value>
+    <comment>Incorrect ElementType passed in to Model.CreateElement method</comment>
+  </data>
+  <data name="UnrecognizedElementLinkType" xml:space="preserve">
+    <value>ElementLinkType {0} is not recognized as a type of domain relationship which belongs to this domain model.</value>
+    <comment>Incorrect ElementLinkType passed in to Model.CreateElementLink method</comment>
+  </data>
+  <data name="AmbiguousSchema" xml:space="preserve">
+    <value>More than one schema found for target namespace &apos;{0}&apos;, use the first one at &apos;{1}&apos;.</value>
+    <comment>Serialization Warning: AmbiguousSchema</comment>
+  </data>
+  <data name="ExpectingFullFormRelationship" xml:space="preserve">
+    <value>Element &apos;{0}&apos; is treated as the target role-player of a relationship &apos;{1}&apos; instance, which should be serialized in full-form.</value>
+    <comment>Serialization Warning: ExpectingFullFormRelationship</comment>
+  </data>
+  <data name="ExpectingShortFormRelationship" xml:space="preserve">
+    <value>Instances of relationship &apos;{0}&apos; should be serialized in short-form.</value>
+    <comment>Serialization Warning: ExpectingShortFormRelationship</comment>
+  </data>
+  <data name="IgnoredPropertyValue" xml:space="preserve">
+    <value>Invalid property value &apos;{0}&apos; for property &apos;{1}&apos; with type &apos;{2}&apos;, ignored.</value>
+    <comment>Serialization Warning: IgnoredPropertyValue</comment>
+  </data>
+  <data name="MissingId" xml:space="preserve">
+    <value>Missing &apos;Id&apos; attribute, a new Guid &apos;{0}&apos; is auto-generated.</value>
+    <comment>Serialization Warning: MissingId</comment>
+  </data>
+  <data name="MonikerResolvedToDuplicateLink" xml:space="preserve">
+    <value>Resolving moniker &apos;{0}&apos; causes a duplicate link to be created, so the link and the moniker are ignored.</value>
+    <comment>Serialization Warning: MonikerResolvedToDuplicateLink</comment>
+  </data>
+  <data name="NoSchema" xml:space="preserve">
+    <value>Cannot find a schema that defines target namespace &apos;{0}&apos;, schema validation skipped.</value>
+    <comment>Serialization Warning: NoSchema</comment>
+  </data>
+  <data name="UnexpectedXmlElement" xml:space="preserve">
+    <value>Unexpected XML element &apos;{0}&apos;, ignored.</value>
+    <comment>Serialization Warning: UnexpectedXmlElement</comment>
+  </data>
+  <data name="AmbiguousMoniker" xml:space="preserve">
+    <value>Ambiguous moniker &apos;{0}&apos; encountered. It is used for both &apos;{1}&apos; and &apos;{2}&apos;.</value>
+    <comment>Serialization Error: AmbiguousMoniker</comment>
+  </data>
+  <data name="CannotMonikerizeElement" xml:space="preserve">
+    <value>Instances of DomainClass &apos;{0}&apos; cannot be serialized as a moniker.
+A DomainClass can be serialized as a moniker only if 
+1) it has a defined/inherited DomainProperty marked as IsMonikerKey=true, or 
+2) it is marked/inherited with SerializeId=true.</value>
+    <comment>Serialization Error: CannotMonikerizeElement</comment>
+  </data>
+  <data name="CannotOpenDocument" xml:space="preserve">
+    <value>Error encountered, check Error List window for details.</value>
+    <comment>Serialization Error: CannotOpenDocument</comment>
+  </data>
+  <data name="CannotSaveDocument" xml:space="preserve">
+    <value>Error encountered, check Error List window for details.</value>
+    <comment>Serialization Error: CannotSaveDocument</comment>
+  </data>
+  <data name="DanglingRelationship" xml:space="preserve">
+    <value>Relationship &apos;{0}&apos; instance is missing target role-player.</value>
+    <comment>Serialization Error: DanglingRelationship</comment>
+  </data>
+  <data name="InvalidPropertyValue" xml:space="preserve">
+    <value>Invalid property value &apos;{0}&apos; for property &apos;{1}&apos; with type &apos;{2}&apos;.</value>
+    <comment>Serialization Error: InvalidPropertyValue</comment>
+  </data>
+  <data name="MissingMoniker" xml:space="preserve">
+    <value>Missing moniker. A moniker is expected in attribute &apos;{0}&apos;.</value>
+    <comment>Serialization Error: MissingMoniker</comment>
+  </data>
+  <data name="MissingTransaction" xml:space="preserve">
+    <value>This must be called within the context of an active transaction.</value>
+    <comment>Serialization Error: MissingTransaction</comment>
+  </data>
+  <data name="UnresolvedMoniker" xml:space="preserve">
+    <value>Cannot resolve moniker &apos;{0}&apos;.</value>
+    <comment>Serialization Error: UnresolvedMoniker</comment>
+  </data>
+  <data name="VersionMismatch" xml:space="preserve">
+    <value>Unsupported version &apos;{0}&apos;, can only support &apos;{1}&apos;.</value>
+    <comment>Serialization Error: VersionMismatch</comment>
+  </data>
+  <data name="CannotCloseExistingDiagramDocument" xml:space="preserve">
+    <value>Diagram file &apos;{0}&apos; cannot be closed.</value>
+    <comment>User cancel closing diagram file. Hence, the DSL model file cannot be opened</comment>
+  </data>
+  <data name="BindingErrorOccurred" xml:space="preserve">
+    <value>Extensions for this designer may not be found as a MEF binding error has occurred. The error that occurred was:
+{0}</value>
+    <comment>MEF binding error occurred - exception message being logged in the error window so the user is aware.</comment>
+  </data>
+  <data name="InvalidSaveRootElementType" xml:space="preserve">
+    <value>&apos;{0}&apos; is not a valid root element type.</value>
+    <comment>Exception message used if an invalid root element type is passed to IDomainModelSerializer.SaveModel / SaveModelAndDiagram</comment>
+  </data>
+  <data name="InvalidSaveDiagramType" xml:space="preserve">
+    <value>&apos;{0}&apos; is not a valid diagram type.</value>
+    <comment>Exception message used if an invalid diagram type is passed to IDomainModelSerializer.SaveModelAndDiagram</comment>
+  </data>
+  <data name="MinimumMultiplicityMissingLink" xml:space="preserve">
+    <value>{0} {1} has no {2}.</value>
+    <comment>Multiplicity underflow validation.</comment>
+  </data>
+  <data name="SaveOperationCancelled" xml:space="preserve">
+    <value>Save operation cancelled.</value>
+    <comment>Message when save is cancelled on validation errors</comment>
+  </data>
+  <data name="SaveValidationFailed" xml:space="preserve">
+    <value>There were validation errors, continue save?</value>
+    <comment>Message when validation errors are found on save</comment>
+  </data>
+  <data name="UnloadableSaveValidationFailed" xml:space="preserve">
+    <value>There were validation errors. Continuing to save may cause the file to become unloadable, do you want to continue?</value>
+    <comment>Message when validation errors are found on save that will cause file to become unloadable</comment>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="WorkflowRuleShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\Flow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>WorkflowRuleShape shape image</comment>
+  </data>
+  <data name="PageShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\UserActivity.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>PageShape shape image</comment>
+  </data>
+  <data name="SQLEventShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\CustomEvent-SQL.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>SQLEventShape shape image</comment>
+  </data>
+  <data name="StopShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\Stop.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>StopShape shape image</comment>
+  </data>
+  <data name="SQLParkShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\Parked-SQL.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>SQLParkShape shape image</comment>
+  </data>
+  <data name="BaseActivityShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\UserActivity.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>BaseActivityShape shape image</comment>
+  </data>
+  <data name="ToProcessConnectorShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\Outgoing.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>ToProcessConnectorShape shape image</comment>
+  </data>
+  <data name="FromProcessConnectorShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\Incoming.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>FromProcessConnectorShape shape image</comment>
+  </data>
+  <data name="CSharpEventShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\CustomEvent-C#.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>CSharpEventShape shape image</comment>
+  </data>
+  <data name="PostageAppShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\PostageAppActivity.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>PostageAppShape shape image</comment>
+  </data>
+  <data name="ClickatellShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\ClickatellActivity.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>ClickatellShape shape image</comment>
+  </data>
+  <data name="SQLCostingShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\Costing-SQL.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>SQLCostingShape shape image</comment>
+  </data>
+  <data name="CSharpCostingShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\Costing-C#.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>CSharpCostingShape shape image</comment>
+  </data>
+  <data name="SQLBatchStartShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\BatchStart-SQL.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>SQLBatchStartShape shape image</comment>
+  </data>
+  <data name="CSharpBatchStartShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\BatchStart-C#.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>CSharpBatchStartShape shape image</comment>
+  </data>
+  <data name="BatchWaitShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\BatchWait-C#.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>BatchWaitShape shape image</comment>
+  </data>
+  <data name="CSharpParkShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\Parked-C#.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>CSharpParkShape shape image</comment>
+  </data>
+  <data name="CorticonShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\Corticon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>CorticonShape shape image</comment>
+  </data>
+  <data name="StartableShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\UserActivity.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>StartableShape shape image</comment>
+  </data>
+  <data name="StartableShapeIsStartableIconDecoratorDefaultImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\SmallStart.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Icon decorator default image</comment>
+  </data>
+  <data name="CustomUserShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\UserActivity2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>CustomUserShape shape image</comment>
+  </data>
+  <data name="DatabaseBatchWaitShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\BatchWait-SQL.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>DatabaseBatchWaitShape shape image</comment>
+  </data>
+  <data name="EmailShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\Email.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>EmailShape shape image</comment>
+  </data>
+  <data name="MobileShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\UserActivityMobile.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>MobileShape shape image</comment>
+  </data>
+  <data name="HybridShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\UserActivityHybrid.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>HybridShape shape image</comment>
+  </data>
+  <data name="UserActivityShapeImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\UserActivity.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>UserActivityShape shape image</comment>
+  </data>
+  <data name="UserActivityShapeOnlyVisibleAtLocationDefaultImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\Shapes\SmallLocation.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Icon decorator default image</comment>
+  </data>
+  <data name="SQLEventToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\EventTool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="SQLCostingToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\CostDBTool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="SQLBatchStartToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\BatchStartTool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="SQLParkedToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\DatabaseParkedTool.BMP;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="SQLBatchWaitToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\BatchWaitTool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="ClickaltellToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\Clickatell.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="PostageAppToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\PostageApp.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="CSharpEventToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\CustomTool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="CSharpCostingToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\CostClassTool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="CSharpBatchStartToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\BatchStartTool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="CSharpParkedToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\CloudParkedTool.BMP;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="CorticonToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\CorticonTool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="BatchWaitToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\BatchWaitTool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="EmailToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\EmailTool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="FlowToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\FlowTool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="FlowSourceCursor" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ConnectorSourceSearch.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Custom connection tool cursor</comment>
+  </data>
+  <data name="FlowTargetCursor" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ConnectorTargetSearch.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Custom connection tool cursor</comment>
+  </data>
+  <data name="StopToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\StopTool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="SubProcessConnectorToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\SubProcessTool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="WorkflowRuleToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\RuleTool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="CloudcoreUserActivityToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\PageTool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="CustomUserActivityToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\CustomUserActivity.BMP;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="MobileUserActivityToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\mobile-16px.BMP;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="HybridUserActivityToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ToolBox\mobile-16px.BMP;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+</root>
+
+

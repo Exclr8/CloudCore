@@ -1,0 +1,101 @@
+﻿<style>
+
+    body
+    {
+        font-family: Verdana,Geneva,Arial,Helvetica,Sans-serif;
+        font-size: 12px;
+    }
+
+    #SystemError
+    {
+        border: 1px solid #B6B6B6;
+        border-radius: 5px 5px 5px 5px;
+        -moz-border-radius: 5px 5px 5px 5px;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        box-shadow: 0 1px 0 #FFFFFF inset;
+        -moz-box-shadow: 0 1px 0 #FFFFFF inset;
+        -webkit-box-shadow: 0 1px 0 #FFFFFF inset;
+        height: 200px;
+        left: 50%;
+        margin-left: -350px;
+        margin-top: -200px;
+        padding: 10px;
+        position: fixed;
+        top: 50%;
+        width: 700px;
+    }
+
+    .errorheader
+    {
+        color: #888888;
+        font-size: 18px;
+        margin: 10px 0;
+        text-align: left;
+        text-shadow: 0 1px 1px #FFFFFF;
+        -moz-text-shadow: 0 1px 1px #FFFFFF;
+        -webkit-text-shadow: 0 1px 1px #FFFFFF;
+    }
+
+    .errorbody
+    {
+        background-color: white;
+        margin-left: 60px;
+        padding: 7px 10px;
+    }
+
+    .tablestyle
+    {
+        width:100%;
+        font-size:12px;
+    }
+
+    .ErrorImageIcon
+    {
+        background-image: url("../../asset/Get?file=ErrorWarning.png");
+        display: block;
+        height: 55px;
+        margin-bottom: 5px;
+        margin-right: 10px;
+        width: 55px;
+    }
+
+
+    .header
+    {
+        background: url("../../asset/Get?file=/layout/toolbar_bg.png") repeat scroll 0 0 transparent;
+        color: white;
+        height: 35px;
+        margin: -10px -10px 10px;
+        text-align: center;
+    }
+
+    .headertext
+    {
+        font-size: 14px;
+        vertical-align: -23px;
+    }
+</style>
+
+<div id="SystemError">
+    <div class="header"><span class="headertext">CloudCore</span></div>
+    <div >
+        <table>
+            <tr>
+                <td style="width:55px; height:55px;" ><span class="ErrorImageIcon"></span></td>
+                <td class="errorheader">Sorry, an error has occurred.</td>
+            </tr>
+        </table>
+        
+
+    </div>
+
+    <div class="errorbody">
+        <div style="color: #999999;">An error has occured while trying to process an action in Cloudcore. This error has been logged successfully, and will be attended to shortly.</div>
+        <br />
+        <div></div>
+        <br />
+        <div style="display: inline-block;">
+            <A HREF="javascript:history.back()">Go back</A>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿/*@media screen and (max-width: 960px) {
+    #l_hs1, div#l_mnu4.headerglyph.rticon.fs1,
+    div#l_mnu5.headerglyph.rticon.fs1,
+    div#l_mnu6.rticon .username {
+        display: none;
+    }
+
+    #l_sidebar, #l_sb, #l_cro {
+        display: none;
+    }
+
+    #l_hs3 {
+        width: 25%;
+    }
+
+    #l_formtitle {
+        font-size: 20px;
+    }
+
+    #l_workspace {
+        padding: 8px;
+    }
+
+    form .title {
+        font-size: 15px;
+        height: 20px;
+        margin-top: 10px;
+        padding-top: 5px;
+    }
+
+    .field-validation-error {
+        float: left;
+        padding-left: 3px;
+        margin-top: 3px;
+        display: block;
+    }
+
+    #l_head {
+        text-align: left;
+    }
+
+    #l_hs2 {
+        padding-left: 5px;
+    }
+
+    .notifyBase {
+        width: 100% !important;
+        min-width: 300px !important;
+        left: 0 !important;
+    }
+}*/

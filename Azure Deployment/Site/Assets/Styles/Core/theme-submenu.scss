@@ -1,0 +1,453 @@
+/* Theme overrides base styles */
+
+@import 'theme-color';
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* Set button text color based on backgorund color lightness */
+
+@function text-color($primary-color) {
+	@if (lightness($primary-color) > 75) {
+		@return #000000;
+	}
+	@else {
+		@return #ffffff;
+	}
+}
+.btn-custom {
+	color: text-color($primary-color);
+	background-color: $primary-color !important;
+	border-color: lighten($primary-color, 10%);
+}
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom.focus,
+.btn-custom:active,
+.btn-custom.active,
+.open > .dropdown-toggle.btn-custom {
+	color: text-color($primary-color);
+	background-color: lighten($primary-color, 10%);
+	border-color: lighten($primary-color, 10%);
+}
+.btn-custom:active,
+.btn-custom.active,
+.open > .dropdown-toggle.btn-custom {
+	background-image: none;
+}
+.btn-custom.disabled,
+.btn-custom[disabled],
+fieldset[disabled] .btn-custom,
+.btn-custom.disabled:hover,
+.btn-custom[disabled]:hover,
+fieldset[disabled] .btn-custom:hover,
+.btn-custom.disabled:focus,
+.btn-custom[disabled]:focus,
+fieldset[disabled] .btn-custom:focus,
+.btn-custom.disabled.focus,
+.btn-custom[disabled].focus,
+fieldset[disabled] .btn-custom.focus,
+.btn-custom.disabled:active,
+.btn-custom[disabled]:active,
+fieldset[disabled] .btn-custom:active,
+.btn-custom.disabled.active,
+.btn-custom[disabled].active,
+fieldset[disabled] .btn-custom.active {
+	background-color: #cccccc;
+	border-color: #aaaaaa;
+	color: #ffffff;
+}
+.btn-custom .badge {
+	color: #fff;
+	background-color: #333;
+}
+
+/* Main Menu Classes */
+
+.navbar-inverse {
+	background-color: $primary-color;
+	border-color: lighten($primary-color, 10%);
+}
+.navbar-inverse .navbar-brand {
+	color: text-color($primary-color);
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+	color: text-color($primary-color);
+	background-color: lighten($primary-color, 10%);
+}
+.navbar-inverse .navbar-text {
+	color: text-color($primary-color);
+}
+.navbar-inverse .navbar-nav > li > a {
+	color: text-color($primary-color);
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+	color: text-color($primary-color);
+	background-color: lighten($primary-color, 10%);
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+	color: text-color($primary-color);
+	background-color: darken($primary-color, 10%);
+}
+.navbar-inverse .navbar-nav > .active > a:after {
+	background-color: $primary-color;
+}
+.navbar-inverse .navbar-nav > .disabled > a,
+.navbar-inverse .navbar-nav > .disabled > a:hover,
+.navbar-inverse .navbar-nav > .disabled > a:focus {
+	color: text-color($primary-color);
+	background-color: transparent;
+}
+.navbar-inverse .navbar-toggle {
+	border-color: lighten($primary-color, 50%);
+}
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+	background-color: $primary-color;
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+	background-color: lighten($primary-color, 50%);
+}
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+	border-color: $primary-color;
+}
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+	color: text-color($primary-color);
+	background-color: $primary-color;
+}
+
+/* Submenu Classes */
+
+.navbar-inverse .sub-menu {
+	background-color: $submenu-color;
+	border-color: lighten($submenu-color, 10%);
+}
+.navbar-inverse .sub-menu .navbar-brand {
+	color: text-color($submenu-color);
+}
+.navbar-inverse .sub-menu .navbar-brand:hover,
+.navbar-inverse .sub-menu .navbar-brand:focus {
+	color: text-color($submenu-color);
+	background-color: lighten($submenu-color, 10%);
+}
+.navbar-inverse .sub-menu .navbar-text {
+	color: text-color($submenu-color);
+}
+.navbar-inverse .sub-menu .navbar-nav > li > a {
+	color: text-color($submenu-color);
+}
+.navbar-inverse .sub-menu .navbar-nav > li > a:hover,
+.navbar-inverse .sub-menu .navbar-nav > li > a:focus {
+	color: text-color($submenu-color);
+	background-color: lighten($submenu-color, 10%);
+}
+.navbar-inverse .sub-menu .navbar-nav > .active > a,
+.navbar-inverse .sub-menu .navbar-nav > .active > a:hover,
+.navbar-inverse .sub-menu .navbar-nav > .active > a:focus {
+	color: text-color($submenu-color);
+	background-color: darken($submenu-color, 10%);
+}
+.navbar-inverse .sub-menu .navbar-nav > .disabled > a,
+.navbar-inverse .sub-menu .navbar-nav > .disabled > a:hover,
+.navbar-inverse .sub-menu .navbar-nav > .disabled > a:focus {
+	color: text-color($submenu-color);
+	background-color: transparent;
+}
+.navbar-inverse .navbar-toggle .sub-menu {
+	border-color: lighten($submenu-color, 45%);
+}
+.navbar-inverse .sub-menu .navbar-toggle:hover,
+.navbar-inverse .sub-menu .navbar-toggle:focus {
+	background-color: $submenu-color;
+}
+.navbar-inverse .sub-menu .navbar-toggle .icon-bar {
+	background-color: lighten($submenu-color, 45%);
+}
+.navbar-inverse .sub-menu .navbar-collapse,
+.navbar-inverse .sub-menu .navbar-form {
+	border-color: lighten($submenu-color, 50%);
+}
+.navbar-inverse .sub-menu .navbar-nav > .open > a,
+.navbar-inverse .sub-menu .navbar-nav > .open > a:hover,
+.navbar-inverse .sub-menu .navbar-nav > .open > a:focus {
+	color: text-color($submenu-color);
+	background-color: darken($submenu-color, 10%);
+}
+.sub-menu > ul.navbar-nav > li.dropdown > ul.dropdown-menu {
+	background-color: lighten($submenu-color, 10%);
+	border-top: 1px solid #fff;
+	& > li > a {
+		color: text-color($submenu-color);
+		padding: 10px;
+	}
+	& > li > a:hover {
+		background-color: lighten($submenu-color, 15%);
+		color: text-color($primary-color);
+	}
+	& > li > a:active,
+	& > li > a:focus {
+		background-color: darken($submenu-color, 15%);
+		color: text-color($primary-color);
+	}
+	& > li:nth-child(even) {
+		background-color: $submenu-color;
+	}
+}
+.dropdown > .dropdown-menu > li > .list-group > .list-group-item {
+	background-color: $primary-color;
+	border: 1px solid lighten($primary-color, 15%);
+    border-radius: 0;
+	& > a {
+		color: text-color($primary-color);
+	}
+	&:hover {
+		background-color: lighten($primary-color, 15%);
+	}
+}
+.dropdown-menu.messages {
+	background-color: #eee;
+	border-top: 1px solid #fff;
+	& > .message-header {
+		background-color: #eee;
+		border-bottom: 1px solid #fefefe;
+	}
+	& > .day-received-title {
+		background-color: lighten($primary-color, 45%);
+		color: text-color($primary-color);
+	}
+	& > li {
+		border-bottom: 1px solid #fefefe;
+		&.important {
+			background-color: lighten(#900, 60%);
+		}
+		& > a {
+			color: #353535;
+			&:hover {
+				background-color: transparent !important;
+			}
+			&:active,
+			&:focus {
+				background-color: transparent !important;
+			}
+		}
+		&:hover {
+			background-color: lighten($submenu-color, 35%);
+		}
+	}
+	& > li:nth-child(even) {
+		background-color: #fff;
+		&:hover {
+			background-color: lighten($submenu-color, 35%);
+		}
+		&.important {
+			background-color: lighten(#900, 60%);
+		}
+	}
+	& > .message-controls {
+		border-top: 1px solid #fefefe;
+		background-color: #eee;
+	}
+}
+p.user-message-text {
+	color: #353535;
+}
+ul.breadcrumb-dropdown {
+	background-color: #efefef;
+	border: 0;
+	border-top: 1px solid #efefef;
+	& > li > a {
+		color: #333;
+	}
+	& > li > a:hover {
+		color: $submenu-color;
+		background-color: #fff;
+	}
+	& > li:nth-child(even) {
+		background-color: #ddd;
+	}
+}
+@media (max-width: 767px) {
+	.navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
+		border-color: lighten($primary-color, 45%);
+	}
+	.navbar-inverse .navbar-nav .open .dropdown-menu .divider {
+		background-color: lighten($primary-color, 45%);
+	}
+	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+		color: text-color($primary-color);
+	}
+	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
+	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
+		color: text-color($primary-color);
+		background-color: darken($primary-color, 10%);
+	}
+	.navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
+	.navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
+	.navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: text-color($primary-color);
+		background-color: darken($primary-color, 10%);
+	}
+	.navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a,
+	.navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+	.navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+		color: text-color($primary-color);
+		background-color: transparent;
+	}
+}
+.navbar-inverse .navbar-link {
+	color: text-color($primary-color);
+}
+.navbar-inverse .navbar-link:hover {
+	color: text-color(lighten($primary-color, 10%));
+}
+.navbar-inverse .btn-link {
+	color: text-color($primary-color);
+}
+.navbar-inverse .btn-link:hover,
+.navbar-inverse .btn-link:focus {
+	color: text-color(lighten($primary-color, 10%));
+}
+.navbar-inverse .btn-link[disabled]:hover,
+fieldset[disabled] .navbar-inverse .btn-link:hover,
+.navbar-inverse .btn-link[disabled]:focus,
+fieldset[disabled] .navbar-inverse .btn-link:focus {
+	color: #444;
+}
+.footer {
+	background-color: $primary-color;
+	p {
+		color: text-color($primary-color);
+	}
+}
+.cc-signin {
+	background: $primary-color;
+	background: -webkit-radial-gradient(30% 50%, $primary-color, darken($primary-color, 25%));
+	/* Safari 5.1 to 6.0 */
+	background: -o-radial-gradient(30% 50%, $primary-color, darken($primary-color, 25%));
+	/* For Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(30% 50%, $primary-color, darken($primary-color, 25%));
+	/* For Firefox 3.6 to 15 */
+	background: radial-gradient(30% 50%, $primary-color, darken($primary-color, 25%));
+	/* Standard syntax */
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	margin-bottom: 0 !important;
+}
+.form-signin {
+	color: text-color($primary-color);
+}
+.panel {
+	background: #f5f5f5;
+	border-top: 1px solid rgba($primary-color, 0.2) !important;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	-moz-box-shadow: none;
+}
+.panel-default {
+	border-color: transparent;
+}
+.panel-default > .panel-heading {
+	border-bottom: 1px solid rgba($primary-color, 0.2);
+}
+.panel-default > .panel-body {
+	border-bottom: 1px solid rgba($primary-color, 0.2);
+}
+.panel-title {
+	color: rgba($primary-color, 0.7);
+}
+.panel-heading {
+	background: none !important;
+}
+
+/*a {
+    color: $submenu-color;
+
+    &:hover {
+        color: lighten($submenu-color, 20%);
+    }
+
+    &:active {
+        color: lighten($submenu-color, 20%);
+    }
+
+    &:focus {
+        color: darken($submenu-color, 10%);
+    }
+}*/
+
+.progress-loader-item {
+	color: $primary-color;
+}
+li.active > a.menu-item-active::after {
+	border-bottom: 12px solid $submenu-color;
+}
+.cc-signin {
+	a {
+		color: text-color($primary-color);
+		&:hover {
+			color: #fff;
+		}
+		&:visited {
+			color: #efefef;
+		}
+		&:focus {
+			color: #ccc;
+		}
+		&:active {
+			color: #ccc;
+		}
+	}
+}
+input[type="button"],
+input[type="submit"],
+button,
+#l_head,
+#l_foot,
+#l_favtitle,
+.tasklistitem,
+.popUpStructure,
+.uploadimage,
+#l_fav td,
+.toolitem {
+	background-color: $primary-color;
+	color: text-color($primary-color);
+	border-color: $primary-color;
+}
+.submit-btn-loader::after {
+	background-color: $primary-color;
+}
+.field-validation-error {
+	color: #ff0000;
+	padding: 5px 10px;
+}
+a {
+	color: $primary-color;
+}
+.badge.messages-badge {
+	color: text-color($primary-color);
+	background-color: $submenu-color;
+}
+.infowebgrid .title {
+	color: $primary-color;
+}
+#l_cro .title,
+.l_ft .title,
+#l_sb .title,
+.tool_heading {
+	color: $primary-color;
+}
+.menuaccent {
+	color: $primary-color;
+}
+.sboptions div.sbitem:hover,
+#breadcrumbs .breadcrumb:hover {
+	color: $primary-color !important;
+}

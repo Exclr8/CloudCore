@@ -1,0 +1,144 @@
+﻿.dashboardpcontainer {
+    text-align: center;
+    width: 100%;
+}
+.dashcontainer {
+    background: none repeat scroll 0 0 #FAFAFA;
+    /*background-size: 100%;*/
+    border: 1px solid #0A0D13;
+    border-collapse: collapse;
+    float: left;
+    height: 222px;
+    margin: 3px;
+    vertical-align: top;
+    width: 300px;
+}
+.dashRemove {
+    text-align: right;
+    vertical-align: middle;
+    width: 100px;
+}
+.dashRemoveImg {
+    cursor: pointer;
+    margin-top: -3px;
+    width: 12px;
+}
+.dashErrorDiv {
+    height: 150px;
+    margin-top: 55px;
+    overflow: auto;
+    width: 295px;
+}
+.dashcontainerEmpty {
+    border: 1px dashed silver;
+    border-collapse: collapse;
+    float: left;
+    height: 222px;
+    margin: 3px;
+    text-align: center;
+    vertical-align: top;
+    width: 300px;
+}
+
+.dashboardRemove {
+    width: 70px;
+    float: right;
+    cursor: pointer;
+    border-left: 1px solid silver;
+    border-bottom: 1px solid silver;
+    border-radius: 0px 5px 0px;
+    /* box-shadow: -1px 1px 0px #cacaca; */
+    background-color: lightgrey;
+    color: #fff;
+}
+
+.dashcontainer {
+    background-image: url("../../../asset/Get?file=/DashboardIcon.png&resourceArea=CUI");
+    background-size: 100%;
+    background-color:#EFEFF1;
+    border: 1px solid silver;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-collapse: collapse;
+    box-shadow: 0 2px 1px -1px #FFFFFF inset;
+    -moz-box-shadow: 0 2px 1px -1px #FFFFFF inset;
+    -webkit-box-shadow: 0 2px 1px -1px #FFFFFF inset;
+    float: left;
+    height: 222px;
+    margin: 3px;
+    text-align: center;
+    vertical-align: top;
+    width: 300px;
+}
+
+.dashcontainer:hover {
+    cursor: pointer;
+    background-color: #EAEBF0;
+}
+
+.dashcontainerEmpty:hover {
+    background-color: #EAEBF0;
+    border: 1px solid silver;
+    border-collapse: collapse;
+    cursor: pointer;
+    float: left;
+    height: 222px;
+    margin: 3px;
+    text-align: center;
+    vertical-align: top;
+    width: 300px;
+}
+
+.dashcontainerEmptyText {
+    color: #dddddd;
+    margin-top: 105px;
+}
+
+.dashcontainerText {
+    color: #999999;
+    margin-top: 175px;
+}
+
+.dashcontainer img.dashPreImage {
+    height: 195px;
+    width: 295px;
+}
+
+.dashcontainer img.dashboardtitlebutton {
+    float: right;
+}
+
+.dashcontainer td.content {
+    background-color: #F1F1F1;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.dashcontainer td.footer {
+    border-top: 1px solid #0A0D13;
+    font-size: 11px;
+    font-style: italic;
+    padding: 3px 3px 10px 10px;
+    text-align: left;
+}
+
+.dashIMGPopBack {
+    background-color: black;
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 900;
+}
+
+.dashContainingDiv {
+    vertical-align: top; 
+    margin-top:20px;
+}
+
+.dashContainingTable {
+    width: 100%;
+}

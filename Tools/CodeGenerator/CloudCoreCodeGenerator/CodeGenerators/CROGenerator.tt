@@ -1,0 +1,76 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="FrameworkOne.CloudCoreCodeGenerator.CodeGenerators.Data" #>
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using CloudCore.Core;
+
+namespace <#= Data.NameSpace#>
+{
+	public class <#= Data.ClassName#> : BaseCachedReusableObject<<#= Data.ClassName#>>
+	{
+		<#
+		foreach(CRO_DataColumn column in Data.GetSelectedColumns())
+		{
+			var getSet = @"{ get; set; }";
+
+			if(column.IsPrimary)
+				getSet = @"{ get { return Convert.ToInt32(Key); } }";
+
+			WriteLine(@"public {0} {1} {2}", column.VariableType, column.ColumnName, getSet);
+		}
+		#>
+
+		public override string GetTitle()
+		{
+			return "<#= Data.Title#>";
+		}
+
+		public override void GetContent()
+        {
+			<#
+			foreach(CRO_DataColumn column in Data.GetSelectedColumns())
+			{
+				if(column is CRO_DataColumn)
+				{
+					WriteLine(@"AddHtmlContent(""{0}"", {1});", column.ColumnName, column.ColumnName);
+				}
+				else if(column is CRO_DataColumn_Email)
+				{
+					var c = column as CRO_DataColumn_Email;
+					WriteLine(@"AddEmailContent(""{0}"", {1}, {2});", c.ColumnName, c.ColumnName, c.EmailColumn);
+				}
+				else if (column is CRO_DataColumn_Url)
+				{
+					var c = column as CRO_DataColumn_Url;
+					WriteLine(@"AddUrlContent(""{0}"", {1}, ""{2}"");", c.ColumnName, c.ColumnName, c.UrlColumn);
+				}
+			}
+			#>
+        }
+
+		protected override void GetPropertyValues()
+        {
+			var db = new <#= Data.ContextName#>();
+
+			var result = (<#= Data.Query#>).SingleOrDefault();
+
+			if (result == null)
+			{
+				throw new Exception("No values were returned for this CRO query.");
+			}
+
+			<#
+			foreach(CRO_DataColumn column in Data.GetSelectedColumns())
+			{
+				WriteLine(@"{0} = result.{0};", column.ColumnName);
+			}
+			#>
+		}
+	}
+}

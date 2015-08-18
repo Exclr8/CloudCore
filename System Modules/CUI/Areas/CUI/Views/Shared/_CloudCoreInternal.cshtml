@@ -1,0 +1,114 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.Master.InternalMaster<dynamic>
+@using System.Web.Optimization
+@using CloudCore.Configuration.ConfigFile
+@using CloudCore.Web.Core.Security.Authentication
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@ViewBag.Title</title>
+
+    @*
+        TODO: Tip: Increase speed download only bundles needed for the page.
+    *@
+
+    @Styles.Render("~/Content/Core")
+    @Styles.Render("~/Content/Internal")
+    @Styles.Render("~/Content/Page")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Assets/Scripts/Bootstrap/bootstrap")
+
+    <!-- Framework Assets -->
+    @Html.InternalFrameworkAssets()
+
+    @*<script src="@Url.ApplicationProfile()" type="text/javascript"></script>*@
+
+    <!-- Allow child pages to render the code -->
+    @RenderSection("Assets", false)
+
+    @*@Html.SessionProtectionReference()*@
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            window.initialiseDisableSubmit('@VirtualPathUtility.ToAbsolute("~")');
+        });
+    </script>
+</head>
+
+<body>
+    @if (IsSectionDefined("Navigation"))
+    {
+        <div class="message-overlay"></div>
+        @Html.Partial("~/Areas/CUI/Views/Shared/_ModalPopUp.cshtml")    
+        @Html.Partial("~/Areas/CUI/Views/Shared/_ModalPopUpContainer.cshtml")    
+        
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                @RenderSection("Navigation", false)
+            </div>
+            <div class="sub-menu-container">
+                @RenderSection("SubNavigationSearch", false)
+                @RenderSection("SubNavigation", false)
+            </div>
+        </nav>
+    }
+
+    <div class="container-fluid">
+        <div class="row">
+            @if (IsSectionDefined("Sidebar"))
+            {
+                <div id="sidebar" class="col-lg-2 col-md-2 sidebar">
+                    @RenderSection("Sidebar", false)
+                </div>
+            }
+
+            <div class="@(IsSectionDefined("Sidebar") ? Html.Raw("col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 main") : Html.Raw("col-lg-12 col-md-12 main"))">
+                @*<div class="container-fluid">*@
+                <h3 class="page-header">@ViewBag.Title</h3>
+                @if (IsSectionDefined("Searchbar"))
+                {
+                    <div class="row">
+                        @RenderSection("Searchbar", false)
+                    </div>
+                }
+                @if (IsSectionDefined("CachedReusableObjects"))
+                {
+                    <div class="row">
+                        @RenderSection("CachedReusableObjects", false)
+                    </div>
+                }
+                @RenderBody()
+                @*</div>*@
+            </div>
+
+
+        </div>
+    </div>
+
+    @*@if (IsSectionDefined("Footer"))
+        {
+            <footer id="footer" class="footer">
+                @if (IsSectionDefined("MenuFavourites"))
+                {
+                    <div class="container-fluid">
+                        <h5 class="page-header page-header-margin white">Favourites</h5>
+                        <div class="favourites-items-container" id="favouriteitems"></div>
+                    </div>
+
+                    @RenderSection("MenuFavourites", false)
+                }
+
+                @RenderSection("Footer", false)
+            </footer>
+            }*@
+
+    @Scripts.Render("~/bundles/localStorageCache")
+    @Scripts.Render("~/bundles/highcharts")
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

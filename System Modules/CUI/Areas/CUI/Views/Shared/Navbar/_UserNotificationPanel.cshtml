@@ -1,0 +1,121 @@
+﻿@model CloudCore.Web.Models.UserNotificationSideBarModel
+
+<a href="@Url.Action("Notifications", "Tools", new {area = "CUI"})" class=" hidden-lg hidden-md">
+    <span class="glyphicon glyphicon-envelope"></span>
+    NOTIFICATIONS
+</a>
+
+<a href="#" id="user-messages" class="dropdown-toggle hidden-sm hidden-xs" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="glyphicon glyphicon-envelope"></span>
+    <span class="hidden-lg">
+        NOTIFICATIONS
+    </span>
+    @{ var msgCount = Model.Notifications.Count(m => !m.HasRead); }
+    @if (msgCount > 0)
+    {
+        <span class="badge messages-badge">@msgCount</span>
+    }
+</a>
+
+<ul class="dropdown-menu messages hidden-xs hidden-sm" role="menu">
+
+    <div class="message-header">NEW NOTIFICATIONS</div>
+
+    @if (Model.TodayList != null && Model.TodayList.Count > 0)
+    {
+        <div class="day-received-title margin-extra-top">Today</div>
+        foreach (var message in Model.TodayList)
+        {
+            @Html.Partial("~/Areas/CUI/Views/Shared/Navbar/_UserNotificationSidebarItem.cshtml", message)
+        }
+    }
+
+    @if (Model.YesterdayList != null && Model.YesterdayList.Count > 0)
+    {
+        <div class="day-received-title margin-extra-top">Yesterday</div>
+
+        foreach (var message in Model.YesterdayList)
+        {
+            @Html.Partial("~/Areas/CUI/Views/Shared/Navbar/_UserNotificationSidebarItem.cshtml", message)
+        }
+    }
+
+    @if (Model.WeekList != null && Model.WeekList.Count > 0)
+    {
+        <div class="day-received-title margin-extra-top">Earlier this Week</div>
+
+        foreach (var message in Model.WeekList)
+        {
+            @Html.Partial("~/Areas/CUI/Views/Shared/Navbar/_UserNotificationSidebarItem.cshtml", message)
+        }
+    }
+
+    @if (Model.OlderList != null && Model.OlderList.Count > 0)
+    {
+        <div class="day-received-title margin-extra-top">Older</div>
+
+        foreach (var message in Model.OlderList)
+        {
+            @Html.Partial("~/Areas/CUI/Views/Shared/Navbar/_UserNotificationSidebarItem.cshtml", message)
+        }
+    }
+
+
+
+    <div class="message-controls">
+        @*<a href="#" class="btn btn-default pull-left" data-toggle="tooltip" data-placement="top" title="LOAD MORE"><span class="glyphicon glyphicon-option-horizontal"></span></a>*@
+        <a href="@Url.Action("Notifications", "Tools", new {area = "CUI"})" class="btn btn-default pull-left" data-toggle="tooltip" data-placement="top" title="ARCHIVE"><span class="glyphicon glyphicon-list-alt"></span></a>
+        <a href="#" class="btn btn-default pull-right" data-toggle="tooltip" data-placement="top" title="MARK SELECTED AS READ" onclick="MarkSelectedNotificationsAsRead()"><span class="glyphicon glyphicon-saved"></span></a>
+    </div>
+</ul>
+
+<script type="text/javascript">   
+
+    function MarkSelectedNotificationsAsRead() {
+        $('.message-checkbox input:checked').each(function() {
+            MarkAsRead(parseInt($(this).attr('id')));
+            $(this).attr('checked', false);
+        });
+    }
+
+    function MarkAsRead(id) {
+        $.ajax({
+            type: 'POST',
+            url: '@(Url.Action("MarkNotificationAsRead", "SystemNotification", new { area = "CUI" }))',
+            data: { notificationId: id },
+            success: function(updatedId) {                
+                $('#item-' + updatedId + ' .expandable-link > span').addClass('text-muted');
+                $('#btn-mark-read-' + updatedId).addClass('disabled');
+
+                var totalMsg = parseInt($('.badge').html());
+                totalMsg--;
+
+                if (totalMsg > 0) {
+                    $('.badge').html(totalMsg);
+                }else {
+                    $('.badge').css('display', 'none');
+                }
+            },
+            dataType: 'json'
+        });
+    }
+
+    function ToggleImportant(id) {
+        $.ajax({
+            type: 'POST',
+            url: '@(Url.Action("ToggleImportant", "SystemNotification", new { area = "CUI" }))',
+            data: { notificationId: id },
+            success: function (important) {
+
+                if (important === 1) {
+                    $('#item-' + id).addClass('important');
+                    $('#btn-flag-' + id).removeClass('btn-default').addClass('btn-warning');
+                } else {
+                    $('#item-' + id).removeClass('important');
+                    $('#btn-flag-' + id).addClass('btn-default').removeClass('btn-warning');
+                }
+            },
+            dataType: 'json'
+        });
+    }
+</script>

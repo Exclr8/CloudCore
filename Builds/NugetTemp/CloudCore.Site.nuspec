@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <version>$version$</version>
+    <authors>Exclr8 Business Automation</authors>
+    <owners>Exclr8</owners>
+    <projectUrl>http://www.exclr8.co.za</projectUrl>
+    <iconUrl>http://www.exclr8.co.za/resources/cloudcore.png</iconUrl>
+    <id>CloudCore.Site</id>
+    <title>CloudCore Site</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The modules required to build CloudCore-based web roles/sites.</description>
+    <copyright>2014</copyright>
+    <language>en-ZA</language>
+    <dependencies>
+      <dependency id="Antlr" version="3.5.0.2" xmlns="" />
+      <dependency id="Microsoft.AspNet.Mvc" version="5.2.3" xmlns="" />
+      <dependency id="Microsoft.AspNet.Razor" version="3.2.3" xmlns="" />
+      <dependency id="Microsoft.AspNet.Web.Optimization" version="1.1.3" xmlns="" />
+      <dependency id="Microsoft.AspNet.WebPages" version="3.2.3" xmlns="" />
+      <dependency id="Microsoft.Web.Infrastructure" version="1.0.0.0" xmlns="" />
+      <dependency id="Newtonsoft.Json" version="6.0.8" xmlns="" />
+      <dependency id="WebGrease" version="1.6.0" xmlns="" />
+      <dependency id="bootstrap" version="3.3.4" xmlns="" />
+      <dependency id="jQuery" version="2.1.3" xmlns="" />
+      <dependency id="Microsoft.AspNet.SignalR" version="2.2.0" xmlns="" />
+      <dependency id="Microsoft.AspNet.SignalR.Core" version="2.2.0" xmlns="" />
+      <dependency id="Microsoft.AspNet.SignalR.JS" version="2.2.0" xmlns="" />
+      <dependency id="Microsoft.AspNet.SignalR.SystemWeb" version="2.2.0" xmlns="" />
+      <dependency id="Microsoft.Owin" version="3.0.1" xmlns="" />
+      <dependency id="Microsoft.Owin.Host.SystemWeb" version="3.0.1" xmlns="" />
+      <dependency id="Microsoft.Owin.Security" version="3.0.1" xmlns="" />
+      <dependency id="Modernizr" version="2.8.3" xmlns="" />
+      <dependency id="Owin" version="1.0" xmlns="" />
+      <dependency id="CloudCore.Core" version="$version$" xmlns="" />
+      <dependency id="CloudCore.Web" version="$version$" xmlns="" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="lib\net45\CloudCore.Web.dll" target="lib\net45" />
+    <file src="lib\net45\CloudCore.Web.pdb" target="lib\net45" />
+    <file src="lib\net45\CloudCore.Admin.dll" target="lib\net45" />
+    <file src="lib\net45\CloudCore.Admin.pdb" target="lib\net45" />
+  </files>
+</package>

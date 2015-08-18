@@ -1,0 +1,40 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="CloudCore.VSExtension.Wizards" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+@inherits CloudCore.Web.Core.BaseViews.WebView<$rootnamespace$.Models.<#= templateData.ContextName #>ListViewModel>
+@{
+    ViewBag.Title = "<#= templateData.PageTitle #>";
+}              
+
+@using CloudCore.Controls.UI.Grid;
+
+
+@using (Html.BeginForm())
+{
+     @(Html.SearchGrid(@Model.<#= templateData.GridDataSourceName #>)
+            .Columns(column =>
+            {
+                     <#
+                     foreach(DisplayColumn column in templateData.DisplayColumns)
+                     {
+                           string col = "";
+                           if(column.IsPrimary)
+                           {
+                                  col = string.Format(@"Html.ActionLink(result.{0}, ""{1}"", new {{ {2} = result.{2} }})"
+                                                      ,column.DisplayProperty, column.Action, column.ValueProperty);
+                           }
+                           else
+                           {
+                                  col = string.Format(@"result.{0}", column.DisplayProperty);
+                           }
+
+                           WriteLine(@"column.For(result => {0}).Named(""{1}"");", col, column.ColumnName);
+                     }
+                     #>
+            }
+            ).Title("<#= templateData.GridTitle #>")
+       )
+}

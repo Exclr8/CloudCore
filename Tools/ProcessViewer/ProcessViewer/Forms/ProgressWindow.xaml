@@ -1,0 +1,18 @@
+﻿<Window x:Class="ProcessViewer.Forms.ProgressWindow"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ProgressWindow" WindowStartupLocation="CenterOwner"
+        WindowStyle="None" 
+        AllowsTransparency="True" 
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Background="Transparent">
+    <Grid Height="194" Width="375">
+        <Grid.Background>
+            <ImageBrush AlignmentX="Left" AlignmentY="Top"  Stretch="Fill"  TileMode="None" ImageSource="..\Resources\Images\progressBackdrop.png" />
+        </Grid.Background>
+        <TextBox Name="txtStatus" Background="Transparent" BorderThickness="0" Margin="20,15,150,153" Width="259">Generating Diagram...</TextBox>
+        <ProgressBar Name="pbarTotal" Margin="86,91,42,77" />
+        <Button Name="btnCancel" Content="Cancel" Margin="257,134,42,38" Click="btnCancel_Click" Width="76" />
+    </Grid>
+</Window>

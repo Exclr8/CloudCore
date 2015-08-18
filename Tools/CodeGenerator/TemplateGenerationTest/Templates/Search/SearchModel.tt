@@ -1,0 +1,49 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="$(ProjectDir)bin\TemplateGenerationTest.dll" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.Data.Linq" #>
+<#@ import namespace="System.Data.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="TestGenerationTest.TemplateGenerationModels" #>
+<#@ output extension=".cs" #>
+
+<# var templateData = ViewDataGenerator.GetSearchViewData(); #>
+using System;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using <#= templateData.DataContextNamespace #>;
+
+namespace <#=templateData.Namespace #>.Models
+{
+	public class <#=templateData.ContextName #>Model
+	{
+<# WriteProperties(templateData.ModelProperties); #>
+
+		public IEnumerable SearchResult { get; set; }
+		
+		public void Search()
+        {
+			var db = new <#= templateData.DataContextName#>();
+
+			var result = (<#= templateData.SearchQuery#>);
+
+			SearchResult = result;
+		}
+	}
+}
+
+<#+ void WriteProperties(IEnumerable<PropertyItem> properties)
+{
+
+ foreach(var property in properties)
+{#>
+		[Display(Name="<#= property.DisplayName#>")]
+		public <#= property.PropertyType.ToString()#> <#= property.PropertyName#> { get; set; }
+
+<#+}
+}
+#>

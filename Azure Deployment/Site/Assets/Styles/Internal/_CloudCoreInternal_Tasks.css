@@ -1,0 +1,297 @@
+﻿.pagetoolbar
+{
+    font-size: 12px;
+    font-weight: bold;
+    height: 28px;
+    padding: 13px 10px 12px;
+    text-align: left;
+    text-transform: capitalize;
+    vertical-align: 8px;
+}
+
+.worklistdasboardbutton 
+{
+    background-color: #1F75C0;
+    font-size: 12px;
+    font-weight: bold;
+    height: 20px;
+    padding: 8px 0 4px;
+    text-align: left;
+    vertical-align: 8px;
+    margin-right: 23px;
+}
+
+.tasklistitem
+{
+    float: left;
+    height: 210px;
+    margin: 10px 10px 10px 0;
+    width: 238px;
+    font: Sans-serif;
+    cursor:pointer;
+}
+
+.tasklistitem:hover
+{
+    color: #FFFFFF;
+}
+
+.tasklistitemimage
+{
+    margin-top: 8px; 
+    margin-left: 15px;
+    border: 0;
+}
+
+.tasklistitem .headertop
+{
+    font-size: 16px;
+    font-weight: normal;
+    height: 18px;
+    line-height: 24px;
+    margin-top: 5px;
+    padding-left: 10px;
+}
+
+.tasklistitem .headerbottom
+{
+    font-size: 12px;
+    font-weight: normal;
+    height: 18px;
+    line-height: 14px;
+    margin-top: 5px;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+.tasklistitem .headercontents
+{
+    font-size: 11px;
+    line-height: 12px;
+    margin: 15px;
+    vertical-align: -10px;
+}
+
+
+.searchtextbox {
+    font-size: 12px;
+    width: 150px;
+}
+
+.text-label {
+    color: #999999;
+    font-style: italic;
+}
+
+
+.tasktypes
+{ 
+    background-color: #666666;
+    background-repeat:repeat-x; 
+    height: 28px;
+}
+
+.selectedoptionimg
+{
+    height: 24px; 
+    width: 24px; 
+    margin-top: 8px; 
+    padding: 0px 5px 0px 10px;
+}
+
+
+.processitemtable {
+    margin-bottom: 20px;
+    width: 100%;
+}
+.ProcessItem {
+    padding: 0 20px;
+}
+.ProcessImage {
+    padding-right: 10px;
+    width: 30px;
+}
+
+.processImageDiv
+{
+    border: 1px solid #E0E0E0;
+    color: #999999;
+    background-color: #E2E3E8;
+    padding: 7px 6px 4px;
+    position: relative;
+    top: 7px;
+}
+
+.ProcessName {
+    border-bottom: 1px solid #CECECE;
+    font-size: 16px;
+}
+
+.SubProcessItem {
+    background-color: #E2E3E8;
+    border: 1px solid #cbccce;
+    color: #767674;
+    max-height: 573px;
+    overflow: auto;
+    padding: 10px 10px 0;
+    position: relative;
+    width: 309px;
+    /*min-height:147px;*/
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.ActivityItem {
+    background-color: #E2E3E8;
+    border: 1px solid #B6B6B6;
+    margin: 10px;
+    padding: 5px;
+    width:260px;
+    float:left;
+}
+
+.worklistdashboardtable tbody
+{
+    border: 1px solid #B6B6B6;
+    background-color: #FFFFFF;
+}
+
+.worklistdashboardtable thead {
+    color: #999999;
+    font-weight: bold;
+    height: 28px;
+    text-transform: capitalize;
+}
+
+.worklistdashboardtable thead th
+{
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.worklistdashboardtable
+{
+    border-collapse:collapse;
+    font-size:11px;	
+    width:100%;
+}
+
+.worklistdashboardtable tr td
+{
+    padding: 6px;
+    padding: 4px 0;
+}
+
+.worklistdashboardtable tr > td:first-child
+{
+    text-align:left;
+}
+
+.ActivityItemTitle {
+    color: #1f75c0;
+    font-weight: bold;
+}
+.ActivityTotalCount {
+    border: 1px solid #a6a4a9;
+    color: #1F75C0;
+    float: right;
+    font-size: 9px;
+    margin-right: 10px;
+    min-width: 15px;
+    padding: 4px 3px;
+    text-align: center;
+    
+}
+.SummaryCount {
+    background-color: #e5e6eb;
+    border: 1px solid #cbccce;
+    color: #1F75C0;
+    float: right;
+    font-size: 9px;
+    padding: 4px 3px;
+    text-align: center;
+    min-width: 15px;
+    margin-right: 9px;
+}
+.SummaryTitle {
+    font-size: 11px;
+    cursor:pointer;
+    padding-left: 10px;
+}
+
+
+.selectablerow:hover
+{
+    background-color: #1f75c0;
+}
+
+.selectablerow:hover td
+{
+    color: #ffffff;
+}
+
+.selectablerow:hover td div
+{
+    background-color: #1f75c0;
+    border: 1px solid #1f75c0;
+    color: #ffffff;
+}
+
+.tasklistcategories
+{
+    background-color: #C1C2C6;
+    vertical-align: top;
+    width: 31px;
+}
+
+.tasklistcategoriesitem
+{
+    background: none repeat scroll 0 0 #DFE0E5;
+    border-bottom: 1px solid #B6B7BC;
+    border-right: 1px solid #B6B7BC;
+    height: 45px;
+    cursor:pointer;
+}
+
+.tasklistcategoriesitemselected
+{
+    background: none repeat scroll 0 0 #EAEBF0;
+    border-bottom: 1px solid #B6B7BC;
+    border-right: none;
+    height: 45px;
+    cursor:pointer;
+}
+
+.tasklistcategoriesitemselected img
+{
+    margin-left: 6px;
+    margin-top: 13px;
+}
+
+.tasklistcategoriesitem img
+{
+    margin-left: 6px;
+    margin-top: 13px;
+}
+
+.topVerticalAlign
+{
+    vertical-align:top;
+}
+
+.tablehundredpercent
+{
+    height:100%; 
+    width:100%
+}
+
+.worklistdashboardtable .selectablerow .SummaryTitle
+{
+    padding-left: 10px;
+}
+
+.worklistdashboardtable .ActivityHeaderRow .ImgCell
+{
+    width:36px;
+}
+

@@ -1,0 +1,47 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="$(ProjectDir)bin\TemplateGenerationTest.dll" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="TestGenerationTest.TemplateGenerationModels" #>
+<#@ import namespace="TemplateGenerationTest.TemplateGenerationModels" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cshtml" #> 
+
+
+<# var templateData = ViewDataGenerator.GetSearchViewData(); #>
+
+@inherits CloudCore.Views.PopUpHelperViewPage<<#= templateData.Namespace #>.<#= templateData.ContextName #>>
+@{
+    ViewBag.Title = "<#= templateData.PageTitle #>";
+}              
+
+@using CloudCore.Controls.UI.Grid;
+
+
+@using (Html.BeginForm())
+{
+     @(Html.SearchGrid(@Model.<#= templateData.GridDataSourceName #>)
+            .Columns(column =>
+            {
+                     <#
+                     foreach(DisplayColumn column in templateData.DisplayColumns)
+                     {
+                           string col = "";
+                           if(column.IsIdentifier)
+                           {
+                                  col = string.Format(@"Html.ActionLink(result.{0}, ""{1}"", new {{ {2} = result.{2} }})"
+                                                      ,column.DisplayProperty, column.Action, column.ValueProperty);
+                           }
+                           else
+                           {
+                                  col = string.Format(@"result.{0}", column.DisplayProperty);
+                           }
+
+                           WriteLine(@"column.For(result => {0}).Named(""{1}"");", col, column.ColumnName);
+                     }
+                     #>
+            }
+            ).Title("<#= templateData.GridTitle #>")
+       )
+}

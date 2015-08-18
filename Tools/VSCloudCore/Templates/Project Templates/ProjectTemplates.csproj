@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{D74B0B72-FDE1-41BC-A7E7-C6BB7B33FD48}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CloudCore.VSExtension.ProjectTemplates</RootNamespace>
+    <AssemblyName>CloudCore.VSExtension.ProjectTemplates</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <GeneratePkgDefFile>false</GeneratePkgDefFile>
+    <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
+    <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
+    <IncludeDebugSymbolsInLocalVSIXDeployment>false</IncludeDebugSymbolsInLocalVSIXDeployment>
+    <CreateVsixContainer>false</CreateVsixContainer>
+    <DeployExtension>false</DeployExtension>
+    <DeployVSTemplates>false</DeployVSTemplates>
+    <CopyVsixManifestToOutput>false</CopyVsixManifestToOutput>
+    <CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
+    <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>3</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.CoreUtility">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <VSTemplate Include="CC Web Module.vstemplate">
+      <OutputSubPath>CloudCore</OutputSubPath>
+      <SubType>Designer</SubType>
+    </VSTemplate>
+    <VSTemplate Include="CC Process Module.vstemplate">
+      <OutputSubPath>CloudCore</OutputSubPath>
+    </VSTemplate>
+    <EmbeddedResource Include="processmodule.ico" />
+    <Content Include="ProjectTemplates\Cache\CacheWorkerRole.csproj" />
+    <None Include="..\..\..\..\Shared Files\cloudcore.snk">
+      <Link>cloudcore.snk</Link>
+    </None>
+    <None Include="ProjectTemplates\Cache\packages.config" />
+    <None Include="ProjectTemplates\Database\CloudCore\CloudCoreDB.dacpac" />
+    <None Include="ProjectTemplates\Database\Database.local.publish.xml" />
+    <None Include="ProjectTemplates\Database\Database.vstemplate">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectTemplates\Database\Scripts\Post-Deployment\Script.PostDeployment.sql" />
+    <None Include="ProjectTemplates\Database\Scripts\Pre-Deployment\Script.PreDeployment.sql" />
+    <None Include="ProjectTemplates\Database\Schema Objects\Database Level Objects\Security\Schemas\Schema.schema.sql" />
+    <None Include="ProjectTemplates\Cache\CacheTemplate.vstemplate">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ProjectTemplates\Database\CloudCore\CloudCoreDB.dll" />
+    <Content Include="ProjectTemplates\Database\CloudCore\CloudCoreDB.pdb" />
+    <None Include="ProjectTemplates\Database\Scripts\Post-Deployment\cloudcore\Generate.System.Data.sql" />
+    <None Include="ProjectTemplates\Database\Scripts\Post-Deployment\cloudcore\Generate.Administration.Data.sql" />
+    <None Include="ProjectTemplates\Database\Scripts\Post-Deployment\cloudcore\Generate.Exclr8.Data.sql" />
+    <Content Include="ProjectTemplates\ProcessModule\ProcessModuleTemplate.csproj" />
+    <EmbeddedResource Include="webmodule.ico" />
+    <None Include="App.Config" />
+    <None Include="ProjectTemplates\Cache\app.config" />
+    <None Include="ProjectTemplates\Database\Database.sqlproj">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectTemplates\Datalayer\buildbase\VSCommandPrompt.lnk" />
+    <None Include="ProjectTemplates\Datalayer\packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectTemplates\ProcessModule\packages.config" />
+    <None Include="ProjectTemplates\ProcessModule\ProcessModuleTemplate.vstemplate">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectTemplates\SharedFiles\cloudcore.snk" />
+    <None Include="ProjectTemplates\Site\packages.config" />
+    <None Include="ProjectTemplates\VirtualWorker\packages.config" />
+    <None Include="ProjectTemplates\VirtualWorker\VirtualWorkerTemplate.vstemplate">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectTemplates\Site\Web.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectTemplates\SharedFiles\SharedFiles.vstemplate">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectTemplates\SharedFiles\SharedFiles.csproj">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ProjectTemplates\VirtualWorker\VirtualWorkerTemplate.csproj">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="siteinstance.ico" />
+    <None Include="ProjectTemplates\VirtualWorker\app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectTemplates\WebModule\packages.config" />
+    <None Include="ProjectTemplates\WebModule\WebModuleTemplate.vstemplate">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectTemplates\WebModule\WebModuleTemplate.csproj">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectTemplates\Azure\ServiceConfiguration.Cloud.cscfg" />
+    <None Include="ProjectTemplates\Azure\ServiceConfiguration.Local.cscfg" />
+    <None Include="ProjectTemplates\Azure\ServiceDefinition.csdef" />
+    <None Include="ProjectTemplates\Azure\AzureTemplate.ccproj">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectTemplates\Datalayer\buildbase\createdbbase.bat" />
+    <None Include="ProjectTemplates\Site\Areas\Web.config" />
+    <None Include="ProjectTemplates\Site\Properties\AssemblyInfo.cs" />
+    <None Include="ProjectTemplates\Datalayer\properties\AssemblyInfo.cs" />
+    <None Include="ProjectTemplates\Datalayer\buildbase\dbcontextbase.cs" />
+    <Content Include="ProjectTemplates\Site\cloudcore.ico" />
+    <None Include="ProjectTemplates\WebModule\Areas\Area\AreaRegistration.cs" />
+    <None Include="ProjectTemplates\WebModule\Properties\AssemblyInfo.cs" />
+    <None Include="ProjectTemplates\ProcessModule\Properties\AssemblyInfo.cs" />
+    <None Include="ProjectTemplates\VirtualWorker\Properties\AssemblyInfo.cs" />
+    <None Include="ProjectTemplates\VirtualWorker\WorkerRole.cs" />
+    <None Include="ProjectTemplates\Datalayer\Data\dbcontext.cs" />
+    <None Include="ProjectTemplates\WebModule\Areas\Activities\AreaRegistration.cs" />
+    <None Include="ProjectTemplates\WebModule\ModuleConfiguration.cs" />
+    <Compile Include="..\..\..\..\Shared Files\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="ProjectTemplates\Cache\Properties\AssemblyInfo.cs" />
+    <None Include="ProjectTemplates\Cache\WorkerRole.cs" />
+    <None Include="ProjectTemplates\SharedFiles\GlobalAssemblyInfo.cs" />
+    <None Include="ProjectTemplates\Site\WebRole.cs" />
+    <None Include="ProjectTemplates\VirtualWorker\VirtualWorker.cs" />
+    <None Include="ProjectTemplates\Site\WebApplication.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <VSTemplate Include="CC Site Instance.vstemplate">
+      <SubType>Designer</SubType>
+      <OutputSubPath>CloudCore</OutputSubPath>
+    </VSTemplate>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProjectTemplates\Site\Global.asax" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProjectTemplates\Site\SiteTemplate.csproj">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProjectTemplates\Site\SiteTemplate.vstemplate">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProjectTemplates\Azure\AzureTemplate.vstemplate" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProjectTemplates\Datalayer\DatalayerTemplate.csproj">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectTemplates\Datalayer\DatalayerTemplate.vstemplate">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ProjectTemplates\Database\Schema Comparisons\" />
+    <Folder Include="ProjectTemplates\Database\Schema Objects\Schemas\schemaname\Programmability\Functions\" />
+    <Folder Include="ProjectTemplates\Database\Schema Objects\Schemas\schemaname\Programmability\Stored Procedures\" />
+    <Folder Include="ProjectTemplates\Database\Schema Objects\Schemas\schemaname\Tables\Constraints\" />
+    <Folder Include="ProjectTemplates\Database\Schema Objects\Schemas\schemaname\Tables\Indexes\" />
+    <Folder Include="ProjectTemplates\Database\Schema Objects\Schemas\schemaname\Tables\Keys\" />
+    <Folder Include="ProjectTemplates\Database\Schema Objects\Schemas\schemaname\Tables\Triggers\" />
+    <Folder Include="ProjectTemplates\Database\Schema Objects\Schemas\schemaname\Views\" />
+    <Folder Include="ProjectTemplates\Database\Scripts\Post-Deployment\schemaname\" />
+    <Folder Include="ProjectTemplates\ProcessModule\Activities\" />
+    <Folder Include="ProjectTemplates\ProcessModule\Processes\" />
+    <Folder Include="ProjectTemplates\ProcessModule\Scheduled Tasks\" />
+    <Folder Include="ProjectTemplates\WebModule\Areas\Area\Controllers\" />
+    <Folder Include="ProjectTemplates\WebModule\Areas\Area\Models\" />
+    <Folder Include="ProjectTemplates\WebModule\Areas\Area\Views\" />
+    <Folder Include="ProjectTemplates\WebModule\CRO\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\..\..\Shared Files\cloudcore.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v11.0\VSSDK\Microsoft.VsSDK.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

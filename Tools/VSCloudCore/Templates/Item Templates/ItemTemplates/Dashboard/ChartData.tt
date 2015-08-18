@@ -1,0 +1,57 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="CloudCore.VSExtension.Wizards" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+using System.Collections.Generic;
+using CloudCore.VirtualWorker.ScheduledTasks;
+
+namespace $rootnamespace$
+{
+	public class _<#= templateData.DashboardGuid.ToString().Replace("-","_") #> : ImgKpiScheduledTask<<#= templateData.GetDashboardClassType #>, <#= templateData.GetDashboardReturnType #>>
+	{
+		public override Guid UniqueId
+		{
+			get
+			{
+				return new Guid("<#= templateData.DashboardGuid #>");
+			}
+		}
+
+		public override int IntervalInMinutes
+	    {
+	        get { throw new NotImplementedException(); }
+	    }
+
+		public override string Name
+		{
+			get 
+			{ 
+				return "<#= templateData.ContextName #>"; 
+			}
+		}
+
+		public override string Title
+		{
+			get 
+			{ 
+				return "<#= templateData.DashboardTitle #>"; 
+			}
+		}
+
+		public override string Description
+		{
+			get 
+			{ 
+				return "My Dashboard Description"; 
+			}
+		}
+
+		protected override void GetKpiData(long userId, <#= templateData.GetDashboardClassType #> series)
+		{
+			// Populate series data here
+		}
+	}
+}

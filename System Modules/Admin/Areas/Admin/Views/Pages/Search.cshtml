@@ -1,0 +1,33 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.PagesSearchModel>
+
+@{
+    ViewBag.Title = "Search for Pages";
+}              
+
+@using (Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddFilterEditRowFor(m => m.ActionTitle, m => m.FilterOptionsActionTitle);
+        @FormLayout.AddFilterEditRowFor(m => m.ActionType, m => m.FilterOptionsActionType);
+        @FormLayout.AddFilterEditRowFor(m => m.Area, m => m.FilterOptionsArea);
+        @FormLayout.AddFilterEditRowFor(m => m.Controller, m => m.FilterOptionsController);
+        @FormLayout.AddFilterEditRowFor(m => m.Action, m => m.FilterOptionsAction);
+        @FormLayout.AddFilterEditRowFor(m => m.SystemModule, m => m.FilterOptionsSysModule);
+    }
+    FormLayout.AddSubmitButtonWithBar("Search");    
+     @(Html.SearchGrid(Model.SearchResults)
+            .Columns(column =>
+            {
+                column.For(result => Html.ActionLink(result.ActionTitle, "Details", new { ActionId = result.ActionId })).Named("Action Title");
+                column.For(result => result.ActionType);
+                column.For(result => result.Area);
+                column.For(result => result.Controller);
+                column.For(result => result.Action);
+                column.For(result => result.SystemModule);
+            }
+            )
+            .Title("Page Search Results")
+       )
+    
+}

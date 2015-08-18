@@ -1,0 +1,26 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.WorkListItemModel>
+
+@{
+    ViewBag.Title = "Change Worklist Item User";
+}
+
+<script type="text/javascript">
+    function htmlEncode(value) {
+        return $('<div/>').text(value).html();
+    }
+
+    function UpdateUserLookupValues(userId, fullName) {
+        var encodedFullName = htmlEncode(fullName);
+        $("#UserId").val(userId);
+        $("#UserName").val(encodedFullName);
+    }
+</script>
+
+@using (Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddLookupFor(model => model.UserId, model => model.UserName, "User Lookup", Url.Action("UserLookup", "AdminPopup"), true)
+    }
+    FormLayout.AddSubmitButtonWithBar("Save");   
+}

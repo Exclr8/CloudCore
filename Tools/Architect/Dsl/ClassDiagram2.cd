@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FrameworkOne.Btomic.BTProcess" Collapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQAACAAAAAAAAAIAAQAQAAAgAAQAAAwAACAAAEgAAAA=</HashCode>
+      <FileName>CustomCode\Validation\BTProcess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FrameworkOne.Btomic.BTTask" Collapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQAAAAIAAAAAAQAEgcAIAgQgAAQQAEmAAAAAAAQoIAA=</HashCode>
+      <FileName>CustomCode\Validation\BTTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FrameworkOne.Btomic.BTActivity" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ASAAAAABAAAAAAEAAGAAAARggAAAAKEAAAIAAAAAAAA=</HashCode>
+      <FileName>CustomCode\BTActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FrameworkOne.Btomic.BTRule" Collapsed="true">
+    <Position X="9.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAgAAAAIAAAAAAAABAAAACAAAABAAAAAAAAA=</HashCode>
+      <FileName>CustomCode\Validation\BTRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FrameworkOne.Btomic.BTPage" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAgAAAAAAAAEAAAAAAIAACAAAABAAAAAAAAA=</HashCode>
+      <FileName>CustomCode\Validation\BTPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FrameworkOne.Btomic.BTInPort" Collapsed="true">
+    <Position X="5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CustomCode\Validation\BTInPort.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FrameworkOne.Btomic.BTOutPort" Collapsed="true">
+    <Position X="7.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>CustomCode\Validation\BTOutPort.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FrameworkOne.Btomic.BTEvent" Collapsed="true">
+    <Position X="11.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAgAAAAAAAAAgAAAAAAAACAAAABAAAAAAAAA=</HashCode>
+      <FileName>CustomCode\Validation\BTEvent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FrameworkOne.Btomic.BTStop" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CustomCode\Validation\BTStop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FrameworkOne.Btomic.Params" Collapsed="true">
+    <Position X="16" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAABAQAQAAEAAAAAAAAAAAAAAIBAAQAgQAAAAAA=</HashCode>
+      <FileName>GeneratedCode\DomainClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FrameworkOne.Btomic.BTTrigger" Collapsed="true">
+    <Position X="14.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GeneratedCode\DomainClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

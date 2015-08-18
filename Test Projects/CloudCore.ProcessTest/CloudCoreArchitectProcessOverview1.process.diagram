@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<processOverviewDiagram dslVersion="1.0.0.0" Id="2f7b129b-ff17-49df-beb1-94a802251542" absoluteBounds="0, 0, 11, 8.5" diagramId="fb837bc2-ccb7-451d-952e-e2a52d8b3f03" name="CloudCoreArchitectProcessOverview1">
+  <processMoniker Id="b2318944-d545-41e3-9f97-712310a7b53a" />
+  <nestedChildShapes>
+    <subProcessShape Id="62f0f176-d4ff-4540-abd8-6d7e059252e2" absoluteBounds="0.625, 0.5, 2, 0.75">
+      <subProcessElementMoniker name="/b2318944-d545-41e3-9f97-712310a7b53a/Test Subprocess 1" />
+    </subProcessShape>
+  </nestedChildShapes>
+</processOverviewDiagram>

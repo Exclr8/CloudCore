@@ -1,0 +1,103 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace="CloudCore.VSExtension.Wizards" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.Data.Linq" #>
+<#@ import namespace="System.Data.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+using System.Linq;
+using System.Data.Linq;
+using System.Data.Linq.SqlClient;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using CloudCore.Web.Core.BaseModels;
+using <#= templateData.DBContextNamespace#>;
+
+namespace $rootnamespace$.Models
+{
+
+    public class <#=templateData.ContextName #>SearchModelResult
+    {
+       <# 
+	      PushIndent("\t\t");
+	      foreach(var column in templateData.Columns)
+	  	  {
+
+		          WriteLine(@"[Display(Name=""{0}"")]", column.DisplayName);
+		          WriteLine(@"public {0} {1} {{ get; set; }}",column.ColumnType.Name, column.ColumnName); 
+			      WriteLine("");
+     	  } 
+		  PopIndent();
+		  ClearIndent();
+	   #>
+    }
+
+    public class <#=templateData.ContextName #>SearchModel : BaseSearchModel<<#=templateData.ContextName #>SearchModelResult>
+    {
+       <# 
+	      PushIndent("\t\t");
+	      foreach(var column in templateData.Columns)
+	  	  {
+		       if (column.AddAsFilter)
+		       {
+		          WriteLine(@"[Display(Name=""{0}"")]", column.DisplayName);
+		          WriteLine(@"public {0} {1} {{ get; set; }}",column.ColumnType.Name, column.ColumnName); 
+			      WriteLine("");
+				  WriteLine(@"public string {0}Filter {{ get; set; }}", column.ColumnName); 
+                  WriteLine("");
+			    }
+			} 
+			PopIndent();
+			ClearIndent();
+	   #>
+
+        public override void Search()
+        {
+            var db = new <#= templateData.DBContextClassname#>();
+
+            var result = (<#= templateData.Query#>);
+               
+	     <#           
+	        PushIndent("\t\t\t");
+	        foreach(var column in templateData.Columns)
+	  	    {
+		       if (column.AddAsFilter)
+		       { 
+			      WriteLine(@"if (!string.IsNullOrEmpty({0}))", column.ColumnName);
+				  WriteLine("{");
+				  PushIndent("\t");
+		          WriteLine(@"result = result.Where(r => SqlMethods.Like(r.{0}, string.Format({0}Filter, {0})));", column.ColumnName); 
+				  PopIndent();
+                  WriteLine("}");
+				  WriteLine("");
+			    }
+			} 
+			PopIndent();
+			ClearIndent();
+         
+		    PushIndent("\t\t\t");
+			WriteLine(@"SearchResults = result.Select(l => new {0}SearchModelResult", templateData.ContextName);
+			PushIndent("\t\t");
+			WriteLine("{");
+		    PushIndent("\t");
+			bool isFirst = true;
+			foreach(var column in templateData.Columns)
+	  		{ 
+			   if (!isFirst) { Write(",\r\n"); }
+			   Write(@"{0} = l.{0}", column.ColumnName); 
+			   isFirst = false;
+			} 
+			WriteLine("");
+			PopIndent();
+			WriteLine("});");
+			PopIndent();
+			ClearIndent();
+		#>
+        }
+    }
+
+
+}

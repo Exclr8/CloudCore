@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>$ProductDBName$</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>$guid1$</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureDatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>$ProductDBName$</RootNamespace>
+    <AssemblyName>$ProductDBName$</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>True</SqlServerVerification>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="CloudCore" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Scripts\Pre-Deployment" />
+    <Folder Include="Schema Objects" />
+    <Folder Include="Schema Objects\Database Level Objects" />
+    <Folder Include="Schema Objects\Database Level Objects\Security" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Schemas" />
+    <Folder Include="Schema Objects\Schemas" />
+    <Folder Include="Schema Objects\Schemas\$cc.schemaname$" />
+    <Folder Include="Schema Objects\Schemas\$cc.schemaname$\Programmability" />
+    <Folder Include="Schema Objects\Schemas\$cc.schemaname$\Programmability\Functions" />
+    <Folder Include="Schema Objects\Schemas\$cc.schemaname$\Programmability\Stored Procedures" />
+    <Folder Include="Schema Objects\Schemas\$cc.schemaname$\Tables" />
+    <Folder Include="Schema Objects\Schemas\$cc.schemaname$\Tables\Constraints" />
+    <Folder Include="Schema Objects\Schemas\$cc.schemaname$\Tables\Indexes" />
+    <Folder Include="Schema Objects\Schemas\$cc.schemaname$\Tables\Keys" />
+    <Folder Include="Schema Objects\Schemas\$cc.schemaname$\Tables\Triggers" />
+    <Folder Include="Schema Objects\Schemas\$cc.schemaname$\Views" />
+    <Folder Include="Schema Comparisons" />
+    <Folder Include="Scripts\Post-Deployment\cloudcore" />
+    <Folder Include="Scripts\Post-Deployment\$cc.schemaname$" />
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\Azure\SqlSchemas\master.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\Azure\SqlSchemas\master.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+    <ArtifactReference Include="CloudCore\CloudCoreDB.dacpac">
+      <HintPath>CloudCore\CloudCoreDB.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+    </ArtifactReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$ProductDBName$.local.publish.xml" />
+    <None Include="CloudCore\CloudCoreDB.dacpac" />
+    <None Include="CloudCore\CloudCoreDB.dll" />
+    <None Include="CloudCore\CloudCoreDB.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\Post-Deployment\cloudcore\01 - Generate System Data.sql" />
+    <None Include="Scripts\Post-Deployment\cloudcore\02 - Generate Administration Data.sql" />
+    <None Include="Scripts\Post-Deployment\cloudcore\03 - Generate Exclr8 Data.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="AdminPassword">
+      <Value>masterkey</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="ApplicationKey">
+      <Value>$ApplicationKey$</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="BuildConfiguration">
+      <Value>Debug</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="CCIsRuntime">
+      <Value>0</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="CCLicenceKey">
+      <Value>00000000000000000000000</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="EnableAdminAccount">
+      <Value>1</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="LicenceKey">
+      <Value>00000000000000000000000</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="LicenseMode">
+      <Value>Development</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="master">
+      <Value>master</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="UiApplicationKey">
+      <Value>$ApplicationKey$</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+</Project>

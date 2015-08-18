@@ -1,0 +1,47 @@
+﻿@using CloudCore.Core.Domain
+@inherits PopupView<CloudCore.Admin.Models.ActivityLookupModel>
+
+@using (FormLayout.BeginModal("Search for Activity to add to applicationy"))
+{
+    using (Html.BeginForm())
+    {
+        @Html.HiddenFor(m => m.ApplicationId)
+        using (FormLayout.BeginTable(FormLayoutType.Popup))
+        {
+            @FormLayout.AddFilterEditRowFor(m => m.ActivityName, m => m.ActivityNameFilter)
+            @FormLayout.AddFilterEditRowFor(m => m.SubProcessName, m => m.SubProcessNameFilter)
+            @FormLayout.AddFilterEditRowFor(m => m.ProcessName, m => m.ProcessNameFilter)
+            @FormLayout.AddFilterEditRowFor(m => m.ModuleName, m => m.ModuleNameFilter)
+        }
+
+        @(Html.SearchGrid(ViewData.Model.Activities)
+              .Empty("There are no Activity items available")
+              .Columns(column =>
+              {
+                  column.For(item => Html.Raw(String.Format("<a href='#' onclick='closeAndReloadParent({0}, \"{1}\")'>{2}</a>", item.ActivityId, Model.ApplicationId, item.ActivityName))).Named("Activity");
+                  column.For(item => item.ProcessName).Named("Process");
+                  column.For(item => item.SubProcessName).Named("Sub-Process");
+                  column.For(item => item.ModuleName).Named("Module");
+              }).Title("Activty Search Results")
+        )
+
+        @FormLayout.AddModalSearchButtonBar(Url.Action("ActivityLookup", "AdminPopup", null))
+    }
+}
+
+<script type="text/javascript">
+
+    function closeAndReloadParent(activityId, applicationId) {
+
+        $.ajax({
+            type: 'POST',
+            url: '@(Url.Action("AddActivityToApplication", "AdminPopup", null))',
+            data: { ActivityId: activityId, ApplicationId: applicationId },
+            success: function (data) {
+                window.location.href = data;
+            },
+            dataType: 'json'
+        });
+    }
+
+</script>

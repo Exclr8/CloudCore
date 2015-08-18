@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BTProcess xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="7c293d3f-bad7-445d-8935-ea78a94421cd" subProcessName="Test Subprocess 1" visioId="7c293d3f-bad7-445d-8935-ea78a94421cd" processRef="modelbus://Architect.ProcessOverview.CloudCoreArchitectProcessOverviewAdapter/CloudCoreArchitectProcessOverview1//.\CloudCoreArchitectProcessOverview1.process" processOverviewSubProcessRef="modelbus://Architect.ProcessOverview.CloudCoreArchitectProcessOverviewAdapter/CloudCoreArchitectProcessOverview1/Test Subprocess 1/.\CloudCoreArchitectProcessOverview1.process%2f47feea56-e460-45eb-9ac5-b30390be5498" xmlns="http://schemas.microsoft.com/dsltools/CloudCoreArchitectSubProcess">
+  <activities>
+    <subProcessHasActivities Id="91eed1cc-2b00-4efe-b340-c7eb60223fb6">
+      <Event Id="31ba9bf0-6bdb-4850-9a92-f9b82ae1b008" name="Some DB Stuff" isMenuItem="false" visioId="31ba9bf0-6bdb-4850-9a92-f9b82ae1b008" isLocationAware="false" isStartable="true">
+        <targetActs>
+          <flowMinimal Id="e8ea2bed-bfe8-4a45-8b36-c30703348b2a" visioId="e8ea2bed-bfe8-4a45-8b36-c30703348b2a">
+            <BTPageMoniker Id="c9e8e0c2-06ef-4dc1-b51c-9ca6ad1c6d46" />
+          </flowMinimal>
+        </targetActs>
+      </Event>
+    </subProcessHasActivities>
+    <subProcessHasActivities Id="07e437c3-ae52-4874-8d4a-38f843b2c4d1">
+      <BTStop Id="05477667-9449-4ed3-b713-91d787f856b2" name="Stop1" isMenuItem="false" visioId="05477667-9449-4ed3-b713-91d787f856b2" isLocationAware="false" />
+    </subProcessHasActivities>
+    <subProcessHasActivities Id="f4c96ae0-caa2-4e02-8dc5-e88b74d2206c">
+      <BTPage Id="c9e8e0c2-06ef-4dc1-b51c-9ca6ad1c6d46" name="CloudcoreUser1" isMenuItem="false" visioId="c9e8e0c2-06ef-4dc1-b51c-9ca6ad1c6d46" isLocationAware="false" docWait="false">
+        <targetActs>
+          <flowMinimal Id="4cac9e22-77cd-4e25-8183-546e120fc049" visioId="4cac9e22-77cd-4e25-8183-546e120fc049">
+            <BTStopMoniker Id="05477667-9449-4ed3-b713-91d787f856b2" />
+          </flowMinimal>
+        </targetActs>
+      </BTPage>
+    </subProcessHasActivities>
+  </activities>
+</BTProcess>

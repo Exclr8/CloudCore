@@ -1,0 +1,17 @@
+﻿@using CloudCore.Core.Domain
+@inherits PopupView<UserNotificationModel>
+
+@using (FormLayout.BeginModal("User Notification"))
+{
+    using (Html.BeginForm())
+    {
+        using (FormLayout.BeginTable(FormLayoutType.Popup))
+        {
+            @FormLayout.AddDisplayRowFor(m => m.Created)
+            @FormLayout.AddDisplayRowFor(m => m.Subject)
+            @Html.Raw(Model.MessageWithLinks)
+        }
+        
+        FormLayout.AddModalSubmitButton("DELETE");
+    }
+}

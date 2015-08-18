@@ -1,0 +1,587 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{477AC7F0-9779-4607-A255-1889E6A74B0B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CloudCore.Web.Core</RootNamespace>
+    <AssemblyName>CloudCore.Web.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+    <SccProjectName>&lt;Project Location In Database&gt;</SccProjectName>
+    <SccLocalPath>&lt;Local Binding Root of Project&gt;</SccLocalPath>
+    <SccAuxPath>&lt;Source Control Database&gt;</SccAuxPath>
+    <SccProvider>Mercurial Source Control Package</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>3</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>1591</NoWarn>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>
+    </DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\Shared Files\cloudcore.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationServer.Caching.AzureClientHelper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.Caching.2.6.0.0\lib\net40-full\Microsoft.ApplicationServer.Caching.AzureClientHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationServer.Caching.AzureCommon, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.Caching.2.6.0.0\lib\net40-full\Microsoft.ApplicationServer.Caching.AzureCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationServer.Caching.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.Caching.2.6.0.0\lib\net40-full\Microsoft.ApplicationServer.Caching.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationServer.Caching.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.Caching.2.6.0.0\lib\net40-full\Microsoft.ApplicationServer.Caching.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.ServiceBus">
+      <HintPath>..\..\packages\Microsoft.AspNet.SignalR.ServiceBus.2.2.0\lib\net45\Microsoft.AspNet.SignalR.ServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SqlServer">
+      <HintPath>..\..\packages\Microsoft.AspNet.SignalR.SqlServer.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.Data.Edm.5.6.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.Data.OData.5.6.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Mvc">
+      <HintPath>..\..\packages\Unity.Mvc.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ServiceBus, Version=2.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WindowsAzure.ServiceBus.2.6.6\lib\net40-full\Microsoft.ServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.DistributedCache, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.Caching.2.6.0.0\lib\net40-full\Microsoft.Web.DistributedCache.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration">
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.ConfigurationManager.3.1.0\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=2.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.7\bin\runtimes\base\x64\Microsoft.WindowsAzure.ServiceRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=4.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WindowsAzure.Storage.4.3.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsFabric.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.Caching.2.6.0.0\lib\net40-full\Microsoft.WindowsFabric.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsFabric.Data.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.Caching.2.6.0.0\lib\net40-full\Microsoft.WindowsFabric.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.identitymodel.services" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\..\packages\WebActivatorEx.2.0.6\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Shared Files\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Api\ApiException.cs" />
+    <Compile Include="Api\ApiPaths.cs" />
+    <Compile Include="Api\AreaRegistration\AreaRegistrationContextExtension.cs" />
+    <Compile Include="Api\Client\ApiClientBase.cs" />
+    <Compile Include="Api\Client\ApplicationApiClientBase.cs" />
+    <Compile Include="Api\Client\UserApiClientBase.cs" />
+    <Compile Include="Api\Documentation\CustomSamples.cs" />
+    <Compile Include="Api\Filters\ModelValidationFilter.cs" />
+    <Compile Include="Api\Models\ApiToken.cs" />
+    <Compile Include="Api\Models\ApplicationAuthorization.cs" />
+    <Compile Include="Api\Models\ApplicationDetails.cs" />
+    <Compile Include="Api\Models\ChangePassword.cs" />
+    <Compile Include="Api\Models\ResetPassword.cs" />
+    <Compile Include="Api\Models\UserAuthorization.cs" />
+    <Compile Include="Api\Models\UserDetails.cs" />
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="BaseControllers\AuthenticatedController.cs" />
+    <Compile Include="BaseControllers\InternalAuthenticatedController.cs" />
+    <Compile Include="BaseControllers\PopupController.cs" />
+    <Compile Include="BaseModels\BaseModel.cs" />
+    <Compile Include="Caching\ReferenceType.cs" />
+    <Compile Include="Caching\ReferenceTypeList.cs" />
+    <Compile Include="Caching\TaskQuery.cs" />
+    <Compile Include="Caching\TaskQueryList.cs" />
+    <Compile Include="Configuration\BundleConfig.cs" />
+    <Compile Include="Dashboard\KpiDashboardService.cs" />
+    <Compile Include="Dashboard\UserConnectionTableEntity.cs" />
+    <Compile Include="Dashboard\UserDictionaryStorageTable.cs" />
+    <Compile Include="Helpers\FormLayout\ModalPopupWrapper.cs" />
+    <Compile Include="Menu\SubMenuModel.cs" />
+    <Compile Include="MvcFilters\GlobalExceptionFilter.cs" />
+    <Compile Include="NotificationBaloonMessage\NotificationBaloonType.cs" />
+    <Compile Include="NotificationBaloonMessage\NotificationBaloonRender.cs" />
+    <Compile Include="Razor\Extensions\InfoGridExtensions.cs" />
+    <Compile Include="Razor\Extensions\SearchGridExtensions.cs" />
+    <Compile Include="Reporting\SqlReport.cs" />
+    <Compile Include="Security\Api\Filters\CloudCoreExceptionFilter.cs" />
+    <Compile Include="Security\Api\Identity\CloudCoreApiIdentity.cs" />
+    <Compile Include="Security\Api\Attributes\ApplicationSecurityAttribute.cs" />
+    <Compile Include="Security\Api\Attributes\UserSecurityAttribute.cs" />
+    <Compile Include="Areas\ApiAuthentication\ApiAuthenticationAreaRegistration.cs" />
+    <Compile Include="Areas\ApiAuthentication\Controllers\AuthenticationController.cs" />
+    <Compile Include="Areas\ApiAuthentication\Models\Request\SingleAuthenticationRequestModel.cs" />
+    <Compile Include="Areas\ApiAuthentication\Models\Response\SingleAuthenticationResponseModel.cs" />
+    <Compile Include="Areas\ApiHelp\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\ApiHelp\ApiHelpAreaRegistration.cs" />
+    <Compile Include="Areas\ApiHelp\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\ApiHelp\Controllers\HelpController.cs" />
+    <Compile Include="Areas\ApiHelp\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\ApiHelp\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\ApiHelp\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\ApiHelp\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\ApiHelp\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\ApiHelp\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\ApiHelp\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\ApiHelp\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\ApiHelp\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\ApiHelp\XmlDocumentationProvider.cs" />
+    <Compile Include="BaseControllers\CloudCoreApiController.cs" />
+    <Compile Include="BaseControllers\CoreController.cs" />
+    <Compile Include="BaseControllers\AuthenticatedPopupController.cs" />
+    <Compile Include="BaseControllers\AnonymousController.cs" />
+    <Compile Include="BaseControllers\AnonymousPopupController.cs" />
+    <Compile Include="BaseControllers\ProcessBaseController.cs" />
+    <Compile Include="Areas\Core\CoreAreaRegistration.cs" />
+    <Compile Include="BaseModels\BaseContextModel.cs" />
+    <Compile Include="BaseModels\BaseSearchModel.cs" />
+    <Compile Include="BaseModels\ICRORenderer.cs" />
+    <Compile Include="BaseViews\Master\FrameworkMaster.cs" />
+    <Compile Include="BaseViews\PopupView.cs" />
+    <Compile Include="BaseViews\Master\SidebarMaster.cs" />
+    <Compile Include="BaseViews\WebView.cs" />
+    <Compile Include="BaseViews\LookupView.cs" />
+    <Compile Include="BaseViews\CoreView.cs" />
+    <Compile Include="BaseViews\Master\CoreMaster.cs" />
+    <Compile Include="Areas\Activities\ActivitiesAreaRegistration.cs" />
+    <Compile Include="BaseViews\WorkItemView.cs" />
+    <Compile Include="Security\Authentication\CloudCoreIdentity.cs" />
+    <Compile Include="Security\Authentication\Exceptions\DuplicateLoginException.cs" />
+    <Compile Include="Security\Authentication\ICloudAuthentication.cs" />
+    <Compile Include="Security\Authentication\SessionInfo.cs" />
+    <Compile Include="Security\SystemActionAttribute.cs" />
+    <Compile Include="Security\ValidateMultipleTabLoginAttribute.cs" />
+    <Compile Include="Security\Authorization\UserPermission.cs" />
+    <Compile Include="ActionResults\RedirectToDefault.cs" />
+    <Compile Include="ActionResults\RedirectToLogin.cs" />
+    <Compile Include="Dashboard\BaseDashboardItem.cs" />
+    <Compile Include="Controls\Grid\Common\Hash.cs" />
+    <Compile Include="Controls\Grid\Components\IGridSortOptions.cs" />
+    <Compile Include="Controls\Pager\Pager.cs" />
+    <Compile Include="Controls\Pager\PaginationExtensions.cs" />
+    <Compile Include="Controls\Pagination\CustomPagination.cs" />
+    <Compile Include="Controls\Pagination\DelegatePagination.cs" />
+    <Compile Include="Controls\Pagination\IPagination.cs" />
+    <Compile Include="Controls\Pagination\LazyPagination.cs" />
+    <Compile Include="Controls\Pagination\PaginationHelper.cs" />
+    <Compile Include="Controls\Pagination\SingleQueryPagination.cs" />
+    <Compile Include="Controls\Sorting\SortExtensions.cs" />
+    <Compile Include="Controls\Grid\Components\AutoColumnBuilder.cs" />
+    <Compile Include="Controls\Grid\Components\IGridPageOptions.cs" />
+    <Compile Include="Controls\Grid\Components\ColumnBuilder.cs" />
+    <Compile Include="Controls\Grid\Components\GridColumn.cs" />
+    <Compile Include="Controls\Grid\Wrappers\GridExtensions.cs" />
+    <Compile Include="Controls\Grid\Grid.cs" />
+    <Compile Include="Controls\Grid\Components\GridModel.cs" />
+    <Compile Include="Controls\Grid\Components\GridRow.cs" />
+    <Compile Include="Controls\Grid\Components\GridRowViewData.cs" />
+    <Compile Include="Controls\Grid\Components\GridSections.cs" />
+    <Compile Include="Controls\Grid\Components\IGridColumn.cs" />
+    <Compile Include="Controls\Grid\Components\IGridModel.cs" />
+    <Compile Include="Controls\Grid\Components\IGridRenderer.cs" />
+    <Compile Include="Controls\Grid\Components\GridOptions.cs" />
+    <Compile Include="Controls\Grid\Renderering\GridRenderer.cs" />
+    <Compile Include="Controls\Grid\Renderering\HtmlTableGridRenderer.cs" />
+    <Compile Include="Controls\Grid\Renderering\RenderingContext.cs" />
+    <Compile Include="Controls\Grid\Common\Syntax.cs" />
+    <Compile Include="Security\Authorization\Attributes\CloudCoreAuthorized.cs" />
+    <Compile Include="Caching\CachedReusableObjects\CROContent.cs" />
+    <Compile Include="EditorTemplateAttributes\MaxDateAttribute.cs" />
+    <Compile Include="EditorTemplateAttributes\MinDateAttribute.cs" />
+    <Compile Include="Menu\MenuItem.cs" />
+    <Compile Include="Menu\MenuStructure.cs" />
+    <Compile Include="Menu\ModuleActionAndParent.cs" />
+    <Compile Include="Modules\RegisterModule.cs" />
+    <Compile Include="Caching\menudata.cs" />
+    <Compile Include="Configuration\CultureConfig.cs" />
+    <Compile Include="Configuration\FilterConfig.cs" />
+    <Compile Include="Configuration\RouteConfig.cs" />
+    <Compile Include="Configuration\ViewEngineConfig.cs" />
+    <Compile Include="Helpers\FormLayout\FormToolbar.cs" />
+    <Compile Include="Helpers\ControlWrappers.cs" />
+    <Compile Include="Helpers\FormLayout\BaseFormTable.cs" />
+    <Compile Include="Helpers\FormLayout\FormLayoutHelper_Controls.cs" />
+    <Compile Include="Helpers\FormLayout\FormLayoutHelper.cs" />
+    <Compile Include="Helpers\FormLayout\TDFillerPosition.cs" />
+    <Compile Include="LayoutAttributes\ExternalLayoutAttribute.cs" />
+    <Compile Include="LayoutAttributes\InternalLayoutAttribute.cs" />
+    <Compile Include="LayoutAttributes\AnonymousPopupLayoutAttribute.cs" />
+    <Compile Include="LayoutAttributes\AuthenticatedPopUpLayoutAttribute.cs" />
+    <Compile Include="LayoutAttributes\WorkItemLayoutAttribute.cs" />
+    <Compile Include="NotificationBaloonMessage\NotificationBaloonMessage.cs" />
+    <Compile Include="CloudCoreStartUp.cs" />
+    <Compile Include="Workflow\ActiveCampaignQuery.cs" />
+    <Compile Include="Workflow\BaseCampaignQuery.cs" />
+    <Compile Include="Workflow\ICampaignQuery.cs" />
+    <Compile Include="Workflow\Models\BaseWorkItemModel.cs" />
+    <Compile Include="BaseViews\Master\InternalMaster.cs" />
+    <Compile Include="Security\Authentication\CloudAuthentication.cs" />
+    <Compile Include="Security\Authentication\CloudCoreAuthenticated.cs" />
+    <Compile Include="Security\RedirectToHttps.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="Dashboard\DashboardItem_Base.cs" />
+    <Compile Include="Razor\Extensions\DropDownHelpers.cs" />
+    <Compile Include="Workflow\Models\IWorkItemModel.cs" />
+    <Compile Include="Workflow\Models\WorkItemCachedReusableObject.cs" />
+    <Compile Include="ActionFilters\FillDropDownsAttribute.cs" />
+    <Compile Include="WebApplication.cs" />
+    <Compile Include="Areas\Core\Controllers\AssetController.cs" />
+    <Compile Include="Caching\applicationprofile.cs" />
+    <Compile Include="Caching\literalcache.cs" />
+    <Compile Include="Caching\userprofile.cs" />
+    <Compile Include="Caching\userstate.cs" />
+    <Compile Include="PopUps\Popup.cs" />
+    <Compile Include="Sidebar\SidebarObject.cs" />
+    <Compile Include="Caching\CachedReusableObjects\BaseCachedReusableObject.cs" />
+    <Compile Include="Caching\CachedReusableObjects\EmailContentItem.cs" />
+    <Compile Include="Caching\CachedReusableObjects\HtmlContentItem.cs" />
+    <Compile Include="Caching\CachedReusableObjects\LinkContentItem.cs" />
+    <Compile Include="Caching\CachedReusableObjects\CachedReusableObject.cs" />
+    <Compile Include="UIHints\CloudCoreDropDownAttribute.cs" />
+    <Compile Include="UIHints\DatePickerAttribute.cs" />
+    <Compile Include="UIHints\EnumDropDownListAttribute.cs" />
+    <Compile Include="Workflow\StartedCampaignQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewEngine.cs" />
+    <Compile Include="BaseModels\FilterEditModel.cs" />
+    <Compile Include="BaseViews\Master\CROMaster.cs" />
+    <Compile Include="Extensions\AssetResolver.cs" />
+    <Compile Include="Extensions\CoreAttributes.cs" />
+    <Compile Include="Razor\Extensions\PoweredBy.cs" />
+    <Compile Include="Razor\Extensions\AntiMultipleTabLoginToken.cs" />
+    <Compile Include="Razor\Extensions\EnumDropDownList.cs" />
+    <Compile Include="Razor\Extensions\FilterEdit.cs" />
+    <Compile Include="Extensions\ImageActionLink.cs" />
+    <Compile Include="Razor\Extensions\PasswordControl.cs" />
+    <Compile Include="Razor\Extensions\RadioButtonList.cs" />
+    <Compile Include="Razor\Extensions\WebGrid.cs" />
+    <Compile Include="Helpers\PopUpHelper.cs" />
+    <Compile Include="Razor\Extensions\Framework.cs" />
+    <Compile Include="Razor\Extensions\Label.cs" />
+    <Compile Include="Razor\Extensions\Image.cs" />
+    <Compile Include="Extensions\Framework_Tags.cs" />
+    <Compile Include="Razor\Extensions\UrlExtensions.cs" />
+    <Compile Include="Razor\Extensions\WebImageExtensions.cs" />
+    <Compile Include="Caching\Cache.cs" />
+    <Compile Include="BaseControllers\AuthorizedController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Areas\ApiHelp\HelpPage.css" />
+    <None Include="..\..\Shared Files\cloudcore.snk">
+      <Link>cloudcore.snk</Link>
+    </None>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Areas\ApiHelp\Views\Help\Api.cshtml" />
+    <None Include="Areas\ApiHelp\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <None Include="Areas\ApiHelp\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <None Include="Areas\ApiHelp\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <None Include="Areas\ApiHelp\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <None Include="Areas\ApiHelp\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <None Include="Areas\ApiHelp\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <None Include="Areas\ApiHelp\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <None Include="Areas\ApiHelp\Views\Help\Index.cshtml" />
+    <None Include="Areas\ApiHelp\Views\Shared\_Layout.cshtml" />
+    <None Include="Areas\ApiHelp\Views\Web.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Areas\ApiHelp\Views\_ViewStart.cshtml" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DataLayer\Data\CloudCore.Data.csproj">
+      <Project>{246e33e8-86a8-4e21-a966-9387d3563b4d}</Project>
+      <Name>CloudCore.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CloudCore.Core\CloudCore.Core.csproj">
+      <Project>{C9D0D0DD-1BC4-4DE6-96EE-730BBAB6B467}</Project>
+      <Name>CloudCore.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'SqlExpress|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\SqlExpress\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Label="SlowCheetah">
+    <SlowCheetahToolsPath>$([System.IO.Path]::GetFullPath( $(MSBuildProjectDirectory)\..\..\packages\SlowCheetah.2.5.12\tools\))</SlowCheetahToolsPath>
+    <SlowCheetah_EnableImportFromNuGet Condition=" '$(SlowCheetah_EnableImportFromNuGet)'=='' ">true</SlowCheetah_EnableImportFromNuGet>
+    <SlowCheetah_NuGetImportPath Condition=" '$(SlowCheetah_NuGetImportPath)'=='' ">$([System.IO.Path]::GetFullPath( $(MSBuildProjectDirectory)\Properties\SlowCheetah\SlowCheetah.Transforms.targets ))</SlowCheetah_NuGetImportPath>
+    <SlowCheetahTargets Condition=" '$(SlowCheetah_EnableImportFromNuGet)'=='true' and Exists('$(SlowCheetah_NuGetImportPath)') ">$(SlowCheetah_NuGetImportPath)</SlowCheetahTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'SqlExpress|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\SqlExpress\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="BeforeBuild">
+    <ItemGroup>
+      <EmbeddedResource Include="**\*.ico;**\*.aspx;**\*.ascx;**\*.png;**\*.css;**\*.js;**\*.gif;**\*.ashx;**\*.jpg;**\*.resx;**\*.xml;**\*.btomic;**\*.sql;**\*.asmx;**\*.cshtml;**\*.config" />
+    </ItemGroup>
+  </Target>
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="$(SlowCheetahTargets)" Condition="Exists('$(SlowCheetahTargets)')" Label="SlowCheetah" />
+</Project>

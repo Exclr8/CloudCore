@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseName>CloudCoreDB</TargetDatabaseName>
+    <DeployScriptFileName>CloudCoreDB.sql</DeployScriptFileName>
+    <TargetConnectionString>Data Source=.;Integrated Security=True;Pooling=False;Connect Timeout=30</TargetConnectionString>
+    <ProfileVersionNumber>1</ProfileVersionNumber>
+    <ScriptDatabaseOptions>True</ScriptDatabaseOptions>
+    <BlockOnPossibleDataLoss>True</BlockOnPossibleDataLoss>
+    <CreateNewDatabase>True</CreateNewDatabase>
+  </PropertyGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="AdminPassword">
+      <Value>ad135fn:24da30FN_Sw531qe42_7up12_s24_oe135</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="BuildConfiguration">
+      <Value>Debug</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="EnableAdminAccount">
+      <Value>1</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="LicenceKey">
+      <Value>00000000000000000000000</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="LicenseMode">
+      <Value>Development</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="UiApplicationKey">
+      <Value>11000000-0000-0000-0000-000000000001</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="VwApplicationKey">
+      <Value>11000000-0000-0000-0000-000000000002</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+</Project>

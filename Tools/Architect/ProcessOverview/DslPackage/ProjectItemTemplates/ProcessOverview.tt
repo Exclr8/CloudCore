@@ -1,0 +1,27 @@
+<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
+<#@ output extension=".vstemplate" #>
+<#@ Dsl processor="DslDirectiveProcessor" requires="fileName='..\..\Dsl\DslDefinition.dsl'" #>
+<!--DSL Tools Language Template-->
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+	<TemplateData>
+		<Name Package="{<#= this.Dsl.PackageGuid #>}" ID="103"/>
+		<Description Package="{<#= this.Dsl.PackageGuid #>}" ID="102"/>
+		<Icon Package="{<#= this.Dsl.PackageGuid #>}" ID="201" />
+		<TemplateID>{<#= this.Dsl.PackageGuid #>}</TemplateID>
+		<TemplateGroupID>CloudCore</TemplateGroupID>
+		<ProjectType>CSharp</ProjectType>
+		<ProjectSubType>CloudCore</ProjectSubType>	
+		<RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+		<SortOrder>360</SortOrder>
+		<DefaultName><#=  this.Dsl.Name #>.<#=this.Dsl.Editor.FileExtension#></DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem TargetFileName="$fileinputname$.<#=this.Dsl.Editor.FileExtension#>" CustomTool=""><#=this.Dsl.Editor.FileExtension#>.<#=this.Dsl.Editor.FileExtension#></ProjectItem>
+		<ProjectItem TargetFileName="$fileinputname$.<#=this.Dsl.Editor.FileExtension#>.diagram"><#=this.Dsl.Editor.FileExtension#>.diagram</ProjectItem>
+	</TemplateContent>
+	<WizardExtension>
+        <Assembly>Architect.ProcessOverview.DslPackage</Assembly>
+        <FullClassName>Architect.CustomCode.Forms.NewProcess</FullClassName>
+    </WizardExtension>
+</VSTemplate>
+

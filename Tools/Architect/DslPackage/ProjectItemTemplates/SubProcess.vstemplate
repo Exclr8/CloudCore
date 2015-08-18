@@ -1,0 +1,24 @@
+﻿<!--DSL Tools Language Template-->
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <TemplateData>
+        <Name Package="{3a60313d-10af-44d3-b0c1-3cdbef0caa43}" ID="103"/>
+        <Description Package="{3a60313d-10af-44d3-b0c1-3cdbef0caa43}" ID="102"/>
+        <Icon Package="{3a60313d-10af-44d3-b0c1-3cdbef0caa43}" ID="201" />
+        <TemplateID>{3a60313d-10af-44d3-b0c1-3cdbef0caa43}</TemplateID>
+        <TemplateGroupID>CloudCore</TemplateGroupID>
+        <ProjectType>CSharp</ProjectType>	
+        <ProjectSubType>CloudCore</ProjectSubType>
+        <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+        <SortOrder>360</SortOrder>
+        <DefaultName>CloudCoreArchitectSubProcess.subprocess</DefaultName>
+    </TemplateData>
+    <TemplateContent>
+        <ProjectItem TargetFileName="$fileinputname$.subprocess" CustomTool="">subprocess.subprocess</ProjectItem>
+        <ProjectItem TargetFileName="$fileinputname$.subprocess.diagram">subprocess.diagram</ProjectItem>
+    </TemplateContent>
+    <WizardExtension>
+        <Assembly>Architect.DslPackage</Assembly>
+        <FullClassName>Architect.CustomCode.Forms.NewSubProcess</FullClassName>
+    </WizardExtension>
+</VSTemplate>
+

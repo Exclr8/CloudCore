@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>CloudCore Lookup Form</Name>
+    <Description>Template for a Lookup Form</Description>
+    <Icon>lookupform.ico</Icon>
+    <TemplateID>CloudCore.Form.Lookup</TemplateID>
+    <TemplateGroupID>CloudCore</TemplateGroupID>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <DefaultName>LookupContext</DefaultName>
+  </TemplateData>
+  <TemplateContent>  
+      <ProjectItem ReplaceParameters="true" TargetFileName="Models\$ContextName$\Lookup.cs">ItemTemplates\Lookup\Model.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Controllers\$ContextName$\Lookup.cs">ItemTemplates\Lookup\Controller.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Views\$ContextName$\Lookup.cshtml">ItemTemplates\Lookup\View.tt</ProjectItem>
+  </TemplateContent>
+    <WizardExtension>
+        <Assembly>CloudCore.VSExtension.Wizards, Version=2015.5.14.1814, Culture=neutral, PublicKeyToken=e7a823e48f920dce</Assembly>
+        <FullClassName>CloudCore.VSExtension.Wizards.T4LookupFormWizard</FullClassName>
+    </WizardExtension>
+</VSTemplate>          

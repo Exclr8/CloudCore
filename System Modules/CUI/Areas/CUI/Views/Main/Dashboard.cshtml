@@ -1,0 +1,87 @@
+﻿@using System
+@using System.IdentityModel.Configuration
+@using System.Security.Policy
+@using System.Text
+@using CloudCore.Configuration.ConfigFile
+@using CloudCore.Web.Core.Security.Authentication
+@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Web.Areas.CUI.Models.DashboardModel>
+
+<div>
+    <table class="dashContainingTable" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td align="center">
+                    <table width="925px" cellspacing="0" cellpadding="0" style="padding-top:30px;">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @for (int i = 0; i < 6; i++)
+                                    {
+                                        PopUps.Add(string.Format("AddDashboard_{0}", i), "Select a Dashboard Item", 600, 400, Url.Action("AddDashboard", "CUIPopup", new { tilePosition = i }));
+
+                                        var dashboardTile = Model.GetTileByPosition(i);
+                                        if (dashboardTile == null)
+                                        {
+                                            PopUps.Add(string.Format("ViewDashboard_{0}", i), "", 800, 600, Url.Action("ViewDashboard", "CUIPopup", new { tilePosition = i }));
+                                            
+                                            <div class="dashcontainerEmpty" id="zone_@(i)">
+                                                <div class="dashcontainerEmptyText">
+                                                    &lt;Dashboard Item @(i + 1)&gt;
+                                                </div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            if (dashboardTile.HasUrl)
+                                            {
+                                                <text>
+                                                    <script type="text/javascript">
+                                                        function load_ViewDashboard_@(i)() {
+                                                            window.location.href = "@(dashboardTile.Url)";
+                                                        }
+                                                    </script>
+                                                </text>
+                                            }
+                                            else
+                                            {
+                                                PopUps.Add(string.Format("ViewDashboard_{0}", i), "", 800, 600, Url.Action("ViewDashboard", "CUIPopup", new { tilePosition = i }));
+                                            }
+
+                                            if (dashboardTile.HasImageData)
+                                            {
+                                                <div class="dashcontainer" id="zone_@(i)" data-imagestorage="tablestorage" style="background-image: url(data:image/gif;base64,@(Convert.ToBase64String(dashboardTile.TileContext)));">
+                                                    <div class="dashboardRemove" style="display:none;">Remove</div>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="dashcontainer" id="zone_@(i)" data-imagestorage="trylocal">
+                                                    <div class="dashboardRemove" style="display:none;">Remove</div>
+                                                </div>
+                                            }
+                                        }
+                                    }                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/dashboard")
+    <script src="~/signalr/hubs"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            @if (ReadConfig.CommonCloudCoreApplicationSettings.ServiceBus.IsServiceBusDefined())
+            {
+                //from Dashboard.js
+                @: window.dashboard.enableLiveDashboardUpdates();
+            }
+            window.dashboard.initDashboard(@(CloudCoreIdentity.UserId), '@(Url.Action("RemoveDashboardItem", "Main"))');
+        }
+</script>
+}

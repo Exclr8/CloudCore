@@ -1,0 +1,134 @@
+﻿#pagetoolbartext
+{
+    margin-top: 4px;
+    color: #787878;
+    float:left;
+    margin-top: 0px;
+}
+
+
+/*input[type="button"], input[type="submit"], button
+{
+    padding: 8px;
+}*/
+
+div.rticon.msg
+{
+    text-decoration:blink;
+}
+
+/*This script below is for Glyphs*/
+
+@font-face {
+	font-family: 'icomoon';
+	src:url("../../../asset/Get?file=icomoon.eot&resourceArea=CUI");
+	src:url('../../../asset/Get?area=CUI&file=icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../../../asset/Get?area=CUI&file=icomoon.svg#icomoon') format('svg'),
+		url('../../../asset/Get?file=icomoon.woff&resourceArea=CUI') format('woff'),
+		url('../../../asset/Get?file=icomoon.ttf&resourceArea=CUI') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'icomoon';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+.headerglyph
+{
+    /*top: 4px;*/
+    position: relative;
+    font-size:20px !important;
+}
+
+
+.fs2
+{
+	position: absolute;
+	font-size:58px;
+}
+
+.menuglyphicon
+{
+	float: left;
+    height: 60px;
+    width: 110px;
+    margin-left: 5px;
+}
+
+.menuaccent
+{
+	z-index: 1;
+}
+
+.menufiller
+{
+	z-index: 1;
+	color: white;
+}
+
+.menuborder
+{
+	z-index:0;
+	color: #666666;
+}
+
+.menuicon
+{
+	color: white;
+	z-index: 3;
+}
+
+
+/* This will generate the blink effect using css3*/
+.blink {
+    -webkit-animation: blink .75s linear infinite;
+    -moz-animation: blink .75s linear infinite;
+    -ms-animation: blink .75s linear infinite;
+    -o-animation: blink .75s linear infinite;
+    animation: blink .75s linear infinite;
+    color: #ffffff !important;
+}
+
+@-webkit-keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 1; }
+    50.01% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@-moz-keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 1; }
+    50.01% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@-ms-keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 1; }
+    50.01% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@-o-keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 1; }
+    50.01% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 1; }
+    50.01% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* @end */

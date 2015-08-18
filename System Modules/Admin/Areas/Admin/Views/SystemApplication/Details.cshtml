@@ -1,0 +1,21 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.SystemApplicationActivitiesModel>
+@{
+    ViewBag.Title = "System Application Details";
+}
+
+@using (Html.BeginForm())
+{
+    @(Html.InfoGrid(Model.ApplicationActivities)
+              .EmptyTableItemName("Activity")
+              .Columns(column =>
+              {
+                  column.For(item => item.ActivityName);
+                  column.For(item => item.SubProcessName);
+                  column.For(item => item.ProcessName);
+                  column.For(item => item.ModuleName);
+                  column.For(item => Html.ActionLink("Remove", "DeleteActivityFromApplication", "SystemApplication", new { ApplicationId = Model.ApplicationId, ActivityId = item.ActivityId }, new { }));
+              })
+              .Title(string.Format("Activities Allocated to \"{0}\"", Model.ApplicationName))
+    )
+    FormLayout.AddPopupButtonWithBar("Add Activity", Url.Action("ActivityLookup", "AdminPopup", new { applicationId = Model.ApplicationId }));
+}

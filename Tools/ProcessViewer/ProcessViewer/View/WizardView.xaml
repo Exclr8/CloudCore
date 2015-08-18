@@ -1,0 +1,221 @@
+﻿<UserControl 
+  x:Class="ProcessViewer.View.ProcessViewerWizardView"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:res="clr-namespace:ProcessViewer.Resources" xmlns:View="clr-namespace:ProcessViewer.View" xmlns:ViewModel="clr-namespace:ProcessViewer.ViewModel">
+  <UserControl.Resources>
+    
+    <!-- These dtemplates map a ViewModel to a View. -->
+    <DataTemplate DataType="{x:Type ViewModel:WelcomePageViewModel}">
+      <View:WelcomePageView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:DisplayLevelViewModel}">
+            <View:ProcessViewerDisplayLevelPageView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:DatabaseViewModel}">
+            <View:ProcessViewerDatabasePageView />
+    </DataTemplate>
+
+        <DataTemplate DataType="{x:Type ViewModel:ProcessRevisionViewModel}">
+            <View:ProcessRevisionPageView />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type ViewModel:OptionsViewModel}">
+            <View:ProcessViewerOptionsPageView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:ProcessViewModel}">
+            <View:ProcessViewerProcessPageView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:SummaryPageViewModel}">
+            <View:ProcessViewerSummaryPageView />
+    </DataTemplate>
+
+    <Style TargetType="{x:Type Button}">
+      <Setter Property="Padding" Value="3.5,0" />
+      <Setter Property="Margin" Value="3.5" />
+      <Setter Property="MinWidth" Value="80" />
+    </Style>
+
+    <!-- This Style inherits from the Button style seen above. -->
+    <Style BasedOn="{StaticResource {x:Type Button}}" TargetType="{x:Type Button}" x:Key="moveNextButtonStyle">
+      <Setter Property="Content" Value="{x:Static res:Strings.View_Button_MoveNext}" />
+      <Style.Triggers>
+        <DataTrigger Binding="{Binding Path=IsOnLastPage}" Value="True">
+          <Setter Property="Content" Value="{x:Static res:Strings.View_Button_Finish}" />
+        </DataTrigger>
+      </Style.Triggers>
+    </Style>
+
+    <!-- HEADERED CONTENT CONTROL STYLE -->
+    <Style TargetType="{x:Type HeaderedContentControl}">
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="{x:Type HeaderedContentControl}">
+            <StackPanel Margin="2,0">
+              <Grid Margin="1,1,1,12" >
+                <Rectangle
+                  Fill="#8CADC6"
+                  Height="3"
+                  Margin="10,0"
+                  Opacity="0.6"
+                  RadiusX="8"
+                  RadiusY="8"
+                  VerticalAlignment="Bottom" 
+                  />
+                <ContentPresenter
+                  ContentSource="Header"
+                  TextBlock.FontSize="22"
+                  TextBlock.FontWeight="DemiBold"
+                  TextBlock.Foreground="#739500"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center" 
+                  />
+                <Grid.Effect>
+                  <DropShadowEffect Opacity="0.1" />
+                </Grid.Effect>
+              </Grid>
+              <Grid>
+                <Rectangle Fill="{TemplateBinding Background}" />
+                <ContentPresenter ContentSource="Content" />
+              </Grid>
+            </StackPanel>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+
+    <!-- WIZARD STEP TEMPLATE -->
+    <DataTemplate x:Key="wizardStepTemplate">
+      <Border
+        x:Name="bdOuter"
+        BorderBrush="Black"
+        BorderThickness="0,0,1,1"
+        CornerRadius="12"
+        Margin="1,1,1,12"
+        Opacity="0.25"
+        SnapsToDevicePixels="True"
+        >
+        <Border
+          x:Name="bdInner"
+          Background="#FFFEFEFE"
+          BorderBrush="#8CADC6"
+          BorderThickness="2,2,1,1"
+          CornerRadius="12"
+          Padding="2"
+          >
+          <TextBlock
+            x:Name="txt"
+            Margin="4,0,0,0"
+            Text="{Binding Path=DisplayName}" 
+            />
+        </Border>
+      </Border>
+
+      <DataTemplate.Triggers>
+        <DataTrigger Binding="{Binding Path=IsCurrentPage}" Value="True">
+          <Setter
+            TargetName="txt"
+            Property="FontWeight"
+            Value="Bold"
+            />
+          <Setter
+            TargetName="bdInner"
+            Property="Background"
+            Value="#C2E4FE" 
+            />
+          <Setter
+            TargetName="bdOuter"
+            Property="Opacity"
+            Value="1" 
+            />
+        </DataTrigger>
+      </DataTemplate.Triggers>
+    </DataTemplate>
+  </UserControl.Resources>
+  
+  <Grid Background="#11000000" Margin="1">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="200" />
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="30" />
+    </Grid.RowDefinitions>
+
+    <!-- WIZARD STEP LISTING -->
+    <HeaderedContentControl Header="{x:Static res:Strings.View_Header_Steps}">
+      <ItemsControl 
+        ItemsSource="{Binding Path=Pages}" 
+        ItemTemplate="{StaticResource wizardStepTemplate}" 
+        />
+    </HeaderedContentControl>
+
+    <!-- CURRENT PAGE AREA -->
+    <Border  Grid.Column="1" Grid.Row="0">
+            <Border.Background>
+                <ImageBrush 
+                      ImageSource="Resources/Images/f1logo.png" 
+                      Opacity="1" 
+                      Stretch="UniformToFill"
+                      
+                  />
+            </Border.Background>
+                <HeaderedContentControl 
+        Content="{Binding Path=CurrentPage}" 
+        Header="{Binding Path=CurrentPage.DisplayName}" 
+        />
+    </Border>
+
+    <Border
+      Grid.Column="0"
+      Grid.Row="1"
+      Background="LightGray"
+      Grid.ColumnSpan="2"
+      >
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!-- NAVIGATION BUTTONS -->
+        <Grid
+          Grid.Column="2"
+          Grid.IsSharedSizeScope="True"
+          HorizontalAlignment="Right"          
+          >
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition SharedSizeGroup="Buttons" />
+            <ColumnDefinition SharedSizeGroup="Buttons" />
+            <ColumnDefinition Width="11" />
+            <ColumnDefinition SharedSizeGroup="Buttons" />
+          </Grid.ColumnDefinitions>
+          <Button
+            Grid.Column="0"
+            Grid.Row="0"
+            Command="{Binding Path=MovePreviousCommand}"
+            Content="{x:Static res:Strings.View_Button_MovePrevious}" 
+            />
+          <Button
+            Grid.Column="1"
+            Grid.Row="0"
+            Command="{Binding Path=MoveNextCommand}"
+            Style="{StaticResource moveNextButtonStyle}" 
+            />
+          <Button
+            Grid.Column="3"
+            Grid.Row="0"
+            Command="{Binding Path=CancelCommand}"
+            Content="{x:Static res:Strings.View_Button_Cancel}"
+            />
+        </Grid>
+      </Grid>
+    </Border>
+  </Grid>
+</UserControl>

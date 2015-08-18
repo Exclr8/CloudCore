@@ -1,0 +1,43 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="CloudCore.VSExtension.Wizards" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System.Linq;
+using System;
+using System.Web.Mvc;
+using CloudCore.Web.Core.BaseControllers;
+using $rootnamespace$.Models;
+
+namespace $rootnamespace$.Controllers
+{
+    public partial class <#= templateData.ContextName#>Controller : AuthenticatedController
+    {
+        public ActionResult Create()
+        {
+            var model = new <#= templateData.ContextName #>CreateModel();
+            return View(model);
+        }
+
+		[HttpPost]
+		public ActionResult Create(<#= templateData.ContextName #>CreateModel model)
+        {
+			if (ModelState.IsValid)
+            {
+                try
+                {
+                    model.Create();
+                    <# if (templateData.PrimaryKey != null) { #>
+                    return RedirectToAction("Details", "<#= templateData.ContextName#>", new { <#= templateData.PrimaryKey.ColumnName#> = model.<#= templateData.PrimaryKey.ColumnName#>.Value });
+                    <# } #>
+                }
+                catch (Exception ex)
+                {
+                    ShowErrorMessage(ex.Message);
+                }
+            }
+            return View();
+        }
+	}
+}

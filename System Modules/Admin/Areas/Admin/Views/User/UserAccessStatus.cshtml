@@ -1,0 +1,24 @@
+﻿@using CloudCore.Web.Core.Security.Authentication;
+@using CloudCore.Web.Core.BaseViews;
+@using CloudCore.Admin.Models;
+@using System.Web.Mvc.Html;
+@using CloudCore.Web.Core.Razor.Extensions;
+@inherits WebView<UserContextModel>
+
+@using (Html.BeginForm())
+{
+        using (FormLayout.BeginTable())
+        {
+            @FormLayout.AddCheckboxRowFor(model => model.InternalAccess)
+            @FormLayout.AddCheckboxRowFor(model => model.ExternalAccess )
+            if (CloudCoreIdentity.IsAdministrator)
+            { 
+               @FormLayout.AddCheckboxRowFor(model => model.IsAdministrator)
+            }
+        }
+
+    FormLayout.AddSubmitButtonWithBar("Update");
+}
+
+
+

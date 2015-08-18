@@ -1,0 +1,31 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="CloudCore.VSExtension.Wizards" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Security;
+using $rootnamespace$.Models;
+
+namespace $rootnamespace$.Controllers
+{
+    public partial class <#= templateData.ContextName #>Controller : Controller
+    {
+        public ActionResult Delete()
+        {
+            var model = new <#= templateData.ContextName #>DeleteModel();
+            return View(model);
+        }
+
+		public ActionResult Delete(<#= templateData.ContextName #>DeleteModel model)
+        {
+			return View(model);
+        }
+	}
+}

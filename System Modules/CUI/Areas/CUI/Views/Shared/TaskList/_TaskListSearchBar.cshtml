@@ -1,0 +1,41 @@
+﻿@using CloudCore.Web.Models
+@model CloudCore.Web.Areas.CUI.Models.TaskList.TaskListSearchReferencesModel
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tasklistSearchBar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <span class="navbar-brand" id="activeTabTitle"></span>
+        </div>
+        <div class="collapse navbar-collapse" id="tasklistSearchBar">
+
+            @using (Ajax.BeginForm(null, null,
+                new AjaxOptions
+                {
+                    Url = Url.Action("GetTasks", "Tasklist"),
+                    HttpMethod = "GET",
+                    AllowCache = false,
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = TaskListModel.ContentPlaceHolderName,
+                    LoadingElementId = "loaderGlyph",
+                    OnBegin = "clearPlaceHolderContent"
+                },
+                new { @class = "navbar-form navbar-right", role = "search" }))
+            {
+                <input type="hidden" value="0" name="listType" id="listType"/>
+                <input type="hidden" value="" name="activeTab" id="activeTab" />
+                <input type="hidden" value="" name="isStandard" id="isStandard" />
+                <div class="form-group">
+                    @Html.DropDownList("referenceType", Model.ReferenceTypes, new { @class = "form-control" })
+                    <input type="text" class="form-control" placeholder="Search" id="referenceValue" name="referenceValue" />
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                </div>
+            }
+        </div>
+    </div>
+</nav>

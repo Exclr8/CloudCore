@@ -1,0 +1,16 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.AccessPoolContextModel>
+
+@{
+    ViewBag.Title = "Create Access Pool";
+}
+
+@using (Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddTextboxRowFor(field => field.AccessPoolName)
+        @FormLayout.AddLookupFor(l => l.ManagerUserId, p => p.ManagerName, "User Lookup", Url.Action("UserLookup", "AdminPopup"), true)
+    }
+    FormLayout.AddSubmitButtonWithBar("Save");
+}
+

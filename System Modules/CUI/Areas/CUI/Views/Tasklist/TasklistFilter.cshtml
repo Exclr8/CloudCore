@@ -1,0 +1,137 @@
+﻿@section Assets {
+    <link href="@Url.Asset("TasklistFilter.css")" rel="stylesheet" />
+
+}
+@{
+    ViewBag.Title = "Tasklist Filter";
+}
+@*  
+    Access Pool
+    Process
+    Activity
+    Status
+    Delayed
+    Awaiting Documentation
+*@
+<script type="text/javascript">
+    $('div.header#tbAccessPool').on('click', function () {
+        $('div#AccessPoolTab').css('display', 'block');
+        $('div#ProcessTab').css('display', 'none');
+        $('div#SubProcessTab').css('display', 'none');
+        $('div#ActivityTab').css('display', 'none');
+        $('div#OtherTab').css('display', 'none');
+    });
+
+    $('div.header#tbProcess').on('click', function () {
+        $('div#ProcessTab').css('display', 'block');
+        $('div#AccessPoolTab').css('display', 'none');
+        $('div#SubProcessTab').css('display', 'none');
+        $('div#ActivityTab').css('display', 'none');
+        $('div#OtherTab').css('display', 'none');
+    });
+
+    $('div.header#tbSubProcess').on('click', function () {
+        $('div#ProcessTab').css('display', 'none');
+        $('div#AccessPoolTab').css('display', 'none');
+        $('div#SubProcessTab').css('display', 'block');
+        $('div#ActivityTab').css('display', 'none');
+        $('div#OtherTab').css('display', 'none');
+    });
+
+    $('div.header#tbActivity').on('click', function () {
+        $('div#ProcessTab').css('display', 'none');
+        $('div#AccessPoolTab').css('display', 'none');
+        $('div#SubProcessTab').css('display', 'none');
+        $('div#ActivityTab').css('display', 'block');
+        $('div#OtherTab').css('display', 'none');
+    });
+
+    $('div.header#tbOther').on('click', function () {
+        $('div#ProcessTab').css('display', 'none');
+        $('div#AccessPoolTab').css('display', 'none');
+        $('div#SubProcessTab').css('display', 'none');
+        $('div#ActivityTab').css('display', 'none');
+        $('div#OtherTab').css('display', 'block');
+    });
+</script>
+
+<div style="margin: 25px;">
+    <table>
+        <tr>
+            <td><div class="header" id="tbAccessPool">Access Pool</div></td>
+            <td><div class="header" id="tbProcess">Process</div></td>
+            <td><div class="header" id="tbSubProcess">Sub Process</div></td>
+            <td><div class="header" id="tbActivity">Activity</div></td>
+            <td><div class="header" id="tbOther">Other</div></td>
+        </tr>
+    </table>
+</div>
+
+<div class="tab" id="AccessPoolTab" style="display: none;">
+    <table>
+        <tr> 
+            <td class="label">Access Pool</td>
+            <td><input type="text" id="txtAccessPool" style="width: 250px;"/></td>
+            <td><input type="button" id="btnFindAccessPool" value="..." /></td>
+        </tr>
+        <tr><td></td></tr>
+        <tr> 
+            <td colspan="3"><div id="grdAccessPool"></div></td>
+        </tr>
+    </table>
+</div>
+<div class="tab" id="ProcessTab" style="display: none;">
+    <table>
+        <tr>
+            <td class="label">Process Name</td>
+            <td><input type="text" id="txtProcess" style="width: 250px;"/></td>
+            <td><input type="button" id="btnFindProcess" value="..." /></td>
+        </tr>
+        <tr><td></td></tr>
+        <tr>
+            <td colspan="3"><div id="grdProcess"></div></td>
+        </tr>
+    </table>
+</div>
+<div class="tab" id="SubProcessTab" style="display: none;">
+    <table>
+        <tr>
+            <td class="label">Sub Process Name</td>
+            <td><input type="text" id="txtSubProcess" /></td>
+            <td><input type="button" id="btnFindSubProcess" value="..." /></td>
+        </tr>
+        <tr><td></td></tr>
+        <tr>
+            <td colspan="3"><div id="grdSubProcess"></div></td>
+        </tr>
+    </table>
+</div>
+<div class="tab" id="ActivityTab" style="display: none;">
+    <table>
+        <tr>
+            <td class="label">Activity Name</td>
+            <td><input type="text" id="txtActivity" /></td>
+            <td><input type="button" id="btnFindActivity" value="..." /></td>
+        </tr>
+        <tr><td></td></tr>
+        <tr>
+            <td colspan="3"><div id="grdActivity"></div></td>
+        </tr>
+    </table>
+</div>
+<div class="tab" id="OtherTab" style="display: none;">
+    <table>
+        <tr>
+            <td class="label">Task Status</td>
+            <td><select type="button" id="ddlFindStatus" value="..." style="width:250px" /></td>
+        </tr>
+        <tr>
+            <td class="label">Delayed</td>
+            <td><select type="button" id="ddlFindDelayed" value="..." style="width:250px" /></td>
+        </tr>
+        <tr>
+            <td class="label">Awaiting Documentation</td>
+            <td><select type="button" id="ddlFindDocWait" value="..." style="width:250px" /></td>
+        </tr>
+    </table>
+</div>

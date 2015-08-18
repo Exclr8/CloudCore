@@ -1,0 +1,15 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Web.Models.NotificationModelForPool>
+@{
+    ViewBag.Title = "Notify Users In Access Pool";
+}
+
+@using (Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddTextboxRowFor(m => m.Subject)
+        @FormLayout.AddTextAreaFor(m => m.Message, 7, 75)
+        @FormLayout.AddLookupFor(m => m.AccessPoolId, p => p.AccessPoolName, "Select Access Pool", Url.Action("AccessPoolLookup", "CUIPopup", new { area = "CUI" }))
+    }
+    FormLayout.AddSubmitButtonWithBar("Send");
+}  

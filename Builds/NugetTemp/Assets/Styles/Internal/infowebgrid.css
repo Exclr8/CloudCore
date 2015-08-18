@@ -1,0 +1,124 @@
+﻿/* infowebgrid */
+
+.infowebgrid {
+    margin-bottom: 10px;
+}
+
+.infowebgrid    .gridtable
+{
+    border-collapse:collapse;
+    font-size:11px;	
+    width:100%;
+}
+
+.infowebgrid .gridtable thead tr th
+{
+    color: #333333 !important;  
+}
+
+.infowebgrid tbody
+{
+    background-color: #ffffff;
+}
+
+.infowebgrid .title
+{
+    border-bottom: 1px solid #c5c5c5;
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+
+.infowebgrid .spacer {
+    line-height: 5px;
+    padding: 0px;
+}
+
+.infowebgrid tfoot tr td
+{
+    border-bottom:none;
+}
+
+.infowebgrid tfoot .pagination {
+    background-color: #c5c5c5;
+    color: #ffffff;
+    padding: 3px 5px;
+}
+
+.infowebgrid tfoot .pagination .left
+{
+    float: left;
+    font-style: italic;
+    font-weight:bold;
+}
+
+.infowebgrid tfoot .pagination .right
+{
+    float: right;
+}
+
+.infowebgrid tr td
+{
+    padding: 6px;
+    border-bottom: 1px dotted #EEEEEE;
+    text-align:left;
+    color: #888888;
+}
+
+.infowebgrid > tr:first-child
+{
+    margin-top: 10px;
+}
+
+.infowebgrid tr > td:first-child
+{
+    text-align:left;
+}
+
+.infowebgrid th:first-child
+
+{
+    text-align:left;
+    border-left: 0px none;
+}
+
+.infowebgrid th:last-child {
+    border-right: 0px none;
+}
+
+.infowebgrid thead th
+{
+    text-align:left;
+    border-left: 1px solid #c5c5c5;
+    border-bottom: 2px solid #c5c5c5;
+    padding: 4px 8px;
+    text-transform: uppercase;
+    font-weight: normal;
+    color: #333333;
+}
+
+.infowebgrid tr th.sort_asc,
+.infowebgrid tr th.sort_desc {
+    background-color: #f2f2f2;
+
+}
+
+.infowebgrid tr th.sort_asc a
+{
+    background-image: url("../../../asset/Get?file=/ascending.png&resourceArea=CUI");
+    background-position: right -2px;
+    background-repeat: no-repeat;
+    padding-right: 20px;
+}
+
+.infowebgrid tr th.sort_desc a
+{
+    background-image: url("../../../asset/Get?file=/descending.png&resourceArea=CUI");
+    background-position: right -4px;
+    background-repeat: no-repeat;
+    padding-right: 20px;
+}
+
+.gridrow_alternate
+{
+    background-color: #F6F6F6;
+}

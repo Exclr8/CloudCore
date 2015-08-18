@@ -1,0 +1,46 @@
+// custom code for Framework One
+
+var changeSelectMenuEvent = function (event, item) {
+    $(this).trigger('change', item);
+};
+
+$(document).ready(function () {
+    $('select').selectmenu({
+        maxHeight: 170,
+        change: changeSelectMenuEvent
+    });
+});
+
+$(document).ready(function () {
+    $(".datefield").datepicker({
+        dateFormat: 'yy-mm-dd',
+        showOn: "button",
+        buttonImage: '../../../asset/Get?file=/datepicker/datepicker.gif&resourceArea=CUI',
+        buttonImageOnly: true,
+        changeMonth: true,
+        changeYear: true
+    });
+    /*$("input.datefield").attr('disabled', 'disabled');*/
+});
+
+jQuery(function($){
+	$.datepicker.regional['en-ZA'] = {
+		closeText: 'Done',
+		prevText: 'Prev',
+		nextText: 'Next',
+		currentText: 'Today',
+		monthNames: ['January','February','March','April','May','June',
+		'July','August','September','October','November','December'],
+		monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+		'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+		dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+		dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+		dayNamesMin: ['Su','Mo','Tu','We','Th','Fr','Sa'],
+		weekHeader: 'Wk',
+		dateFormat: 'yyyy/mm/dd',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: false,
+		yearSuffix: ''};
+	$.datepicker.setDefaults($.datepicker.regional['en-ZA']);
+});

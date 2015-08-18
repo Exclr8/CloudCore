@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<scheduledTasksDiagram dslVersion="1.0.0.0" Id="9c56a6d6-bd85-4216-8a35-918d72af6ddc" absoluteBounds="0, 0, 11, 8.5" name="ScheduledTasks1">
+  <groupMoniker Id="d2ba6fb1-832d-4d5f-b561-09fd5d5b7545" />
+  <nestedChildShapes>
+    <scheduledTaskShape Id="f798c29e-14b6-4002-bcb6-77d81a02c099" absoluteBounds="1.7000000000000002, 1.7, 1.6, 1.4">
+      <sqlScheduledTaskMoniker name="/d2ba6fb1-832d-4d5f-b561-09fd5d5b7545/SqlScheduledTask1" />
+    </scheduledTaskShape>
+    <scheduledTaskShape Id="0c338367-ec2c-4dfd-ae37-82c6ae15fd43" absoluteBounds="3.4, 1.7, 1.6, 1.4">
+      <cSharpScheduledTaskMoniker name="/d2ba6fb1-832d-4d5f-b561-09fd5d5b7545/CSharpScheduledTask1" />
+    </scheduledTaskShape>
+  </nestedChildShapes>
+</scheduledTasksDiagram>

@@ -1,0 +1,43 @@
+﻿@inherits PopupView<CloudCore.Admin.Models.PageAccessPoolLookupModel>
+
+@using (FormLayout.BeginModal("Search for Security Group to Add to the page"))
+{
+    using (Html.BeginForm())
+    {
+        @Html.HiddenFor(m => m.ActionId)
+
+        using (FormLayout.BeginTable())
+        {
+            @FormLayout.AddFilterEditRowFor(mod => mod.Name, m => m.FilterOptions)
+        }
+
+        @(Html.SearchGrid(ViewData.Model.SearchResults)
+              .Title("Access pools")
+              .Empty("There are no access pools available to this user")
+              .Columns(column =>
+              {
+                  column.For(item => Html.Raw(String.Format("<a href='#' onclick='closeAndReloadParent({0}, {1})'>{2}</a>", item.AccessPoolId, Model.ActionId, item.AccessPoolName))).Named("Access Pool Name");
+              })
+        )
+        @FormLayout.AddModalSearchButtonBar(Url.Action("PageAccessPoolLookup", "AdminPopup", null))
+    }
+}
+
+<script type="text/javascript">
+
+    function closeAndReloadParent(accessPoolId, actionId) {
+
+        $('#modal-container').modal('hide');
+
+        $.ajax({
+            type: 'POST',
+            url: '@(Url.Action("AddPageToAccessGroup", "AdminPopup", null))',
+            data: { accessGroupId: accessPoolId, actionId: actionId },
+            success: function (data) {
+                window.location.href = data;
+            },
+            dataType: 'json'
+        });
+    }
+
+</script>

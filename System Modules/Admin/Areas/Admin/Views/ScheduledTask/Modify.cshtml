@@ -1,0 +1,23 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.ScheduledTaskModel>
+
+@{
+    ViewBag.Title = "Modify Details";
+}
+
+
+@using (Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddTitleHeaderRow("Scheduled Task Information")
+        @FormLayout.AddTextboxRowFor(model => model.ScheduledTaskName)
+        @FormLayout.AddDropDownRowFor(model => model.IntervalType, Model.LstIntervalTypes)
+        @FormLayout.AddTextboxRowFor(model => model.IntervalValue)
+        @FormLayout.AddDateTimePickerRowFor(model => model.NextRunDate)
+        @FormLayout.AddTextboxRowFor(model => model.NotifyEmail)
+        @FormLayout.AddCheckboxRowFor(model => model.IsActive)
+        @Html.HiddenFor(model => model.ScheduledTaskId);
+    }
+    
+    FormLayout.AddSubmitButtonWithBar("Save");    
+}

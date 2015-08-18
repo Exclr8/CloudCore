@@ -1,0 +1,26 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.SystemValueCategoryDetailsModel>
+@{
+    ViewBag.Title = "System Value Category Details";
+}
+
+
+
+@using (Html.BeginForm())
+{ 
+    
+    @(Html.InfoGrid(Model.CategorySystemValues.AsQueryable())
+    .Columns(column => 
+        {
+            column.For(result => Html.ActionLink(result.ValueName, "ModifySystemValue", new { valueId = result.ValueId })).Named("Value Name").SortColumnName("ValueName");
+            column.For(result => result.ValueData);
+            column.For(result => result.ValueDescription);
+        })
+        .Title("System Values")
+    )
+    FormLayout.AddRedirectButtonWithBar("Add System Value", Url.Action("AddSystemValue", "SystemValues", new { CategoryId = Model.CategoryId }));
+    
+    @*using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddRedirectButtonRow("Add System Value", Url.Action("AddSystemValue", "SystemValues", new { CategoryId = Model.CategoryId }), CloudCore.Core.Helpers.FormLayout.TDFillerPosition.None)
+    }*@
+}      

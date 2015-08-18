@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>Shared Files Template</Name>
+    <Description>Shared files by CloudCore Systems</Description>
+    <Icon>
+    </Icon>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>9021CC28-4A0D-4104-8FBF-5243AD799BD2</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>$safeprojectname$.Shared</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="$safeprojectname$.csproj" File="SharedFiles.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="false" TargetFileName="cloudcore.snk">cloudcore.snk</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="GlobalAssemblyInfo.cs">GlobalAssemblyInfo.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>CloudCore.VSExtension.Wizards, Version=2015.5.14.1814, Culture=neutral, PublicKeyToken=e7a823e48f920dce</Assembly>
+    <FullClassName>CloudCore.VSExtension.Wizards.ICCSISharedFilesImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>

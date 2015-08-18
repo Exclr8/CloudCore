@@ -1,0 +1,10 @@
+E:\Repositories\cloudcore\DataLayer\DB\CloudCoreDB\bin\Output\CloudCoreDB.dacpac
+E:\Repositories\cloudcore\DataLayer\DB\CloudCoreDB\bin\Output\CloudCoreDB.dll
+E:\Repositories\cloudcore\DataLayer\DB\CloudCoreDB\bin\Output\CloudCoreDB.pdb
+E:\Repositories\cloudcore\DataLayer\DB\CloudCoreDB\bin\Output\master.dacpac
+E:\Repositories\cloudcore\DataLayer\DB\CloudCoreDB\obj\Debug\CloudCoreDB.dll
+E:\Repositories\cloudcore\DataLayer\DB\CloudCoreDB\obj\Debug\CloudCoreDB.pdb
+E:\Repositories\cloudcore\DataLayer\DB\CloudCoreDB\obj\Debug\Model.xml
+E:\Repositories\cloudcore\DataLayer\DB\CloudCoreDB\obj\Debug\refactor.xml
+E:\Repositories\cloudcore\DataLayer\DB\CloudCoreDB\obj\Debug\postdeploy.sql
+E:\Repositories\cloudcore\DataLayer\DB\CloudCoreDB\obj\Debug\predeploy.sql

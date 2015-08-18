@@ -1,0 +1,14 @@
+﻿@using CloudCore.Web.Core.UIHints
+@model object
+
+<script type='text/javascript'>
+    $(document).ready(function () {
+        $('.selectmenu').selectmenu({
+            maxHeight: 250
+        });
+    });
+</script>
+@{
+    IEnumerable<SelectListItem> items = EnumDropDownListAttribute.GetItemsFromTypeMetaData(ViewData);
+}
+@Html.DropDownListFor(m => m, items, new { @class = "selectmenu" })

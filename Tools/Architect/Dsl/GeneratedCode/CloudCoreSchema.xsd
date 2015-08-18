@@ -1,0 +1,1016 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema id="CloudCoreArchitectSubProcessSchema" targetNamespace="http://schemas.microsoft.com/dsltools/CloudCoreArchitectSubProcess" elementFormDefault="qualified" xmlns="http://schemas.microsoft.com/dsltools/CloudCoreArchitectSubProcess" xmlns:core="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import id="CoreSchema" namespace="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" />
+  <!-- SubProcess -->
+  <xsd:element name="BTProcess" type="SubProcess" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="SubProcess">
+    <xsd:annotation>
+      <xsd:documentation>The root in which all other elements are embedded. Appears as a diagram.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Relationship: SubProcessHasActivities -->
+          <xsd:element name="activities" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of SubProcessHasActivities</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="subProcessHasActivities" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of SubProcessHasActivities needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- dslVersion -->
+        <xsd:attribute name="dslVersion" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Version of the model serialized in this file.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: SubProcessName -->
+        <xsd:attribute name="subProcessName" type="xsd:string" />
+        <!-- Property: VisioId -->
+        <xsd:attribute name="visioId" type="xsd:string" />
+        <!-- Property: ProcessRef -->
+        <xsd:attribute name="processRef" type="xsd:string" />
+        <!-- Property: ProcessOverviewSubProcessRef -->
+        <xsd:attribute name="processOverviewSubProcessRef" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- SubProcess Moniker -->
+  <xsd:element name="BTProcessMoniker" type="SubProcessMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="SubProcessMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for SubProcess instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Activity -->
+  <xsd:element name="Activity" abstract="true" type="Activity" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="Activity" abstract="true" >
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Relationship: FlowBase -->
+          <xsd:element name="targetActs" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of FlowBase</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="flowBase" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of FlowBase needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Name -->
+        <xsd:attribute name="name" type="xsd:string" />
+        <!-- Property: IsMenuItem -->
+        <xsd:attribute name="isMenuItem" type="xsd:boolean" />
+        <!-- Property: Width -->
+        <xsd:attribute name="width" type="xsd:double" />
+        <!-- Property: Height -->
+        <xsd:attribute name="height" type="xsd:double" />
+        <!-- Property: Top -->
+        <xsd:attribute name="top" type="xsd:double" />
+        <!-- Property: Left -->
+        <xsd:attribute name="left" type="xsd:double" />
+        <!-- Property: VisioId -->
+        <xsd:attribute name="visioId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Activity Moniker -->
+  <xsd:element name="ActivityMoniker" abstract="true" type="ActivityMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ActivityMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Activity instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- WorkflowRule -->
+  <xsd:element name="BTRule" type="WorkflowRule" substitutionGroup="BTStart" />
+  <xsd:complexType name="WorkflowRule">
+    <xsd:annotation>
+      <xsd:documentation>Rule makes a decision in the process</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="Start">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- WorkflowRule Moniker -->
+  <xsd:element name="BTRuleMoniker" type="WorkflowRuleMoniker" substitutionGroup="BTStartMoniker" />
+  <xsd:complexType name="WorkflowRuleMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for WorkflowRule instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="StartMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CloudcoreUser -->
+  <xsd:element name="BTPage" type="CloudcoreUser" substitutionGroup="userActivity" />
+  <xsd:complexType name="CloudcoreUser">
+    <xsd:annotation>
+      <xsd:documentation>Page has a web page linked to it for user input</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="UserActivity">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: DocWait -->
+        <xsd:attribute name="docWait" type="xsd:boolean" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CloudcoreUser Moniker -->
+  <xsd:element name="BTPageMoniker" type="CloudcoreUserMoniker" substitutionGroup="userActivityMoniker" />
+  <xsd:complexType name="CloudcoreUserMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for CloudcoreUser instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="UserActivityMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DatabaseEvent -->
+  <xsd:element name="Event" type="DatabaseEvent" substitutionGroup="BTStart" />
+  <xsd:complexType name="DatabaseEvent">
+    <xsd:annotation>
+      <xsd:documentation>Used to do any database processing</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="Start">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DatabaseEvent Moniker -->
+  <xsd:element name="EventMoniker" type="DatabaseEventMoniker" substitutionGroup="BTStartMoniker" />
+  <xsd:complexType name="DatabaseEventMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for DatabaseEvent instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="StartMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Stop -->
+  <xsd:element name="BTStop" type="Stop" substitutionGroup="Activity" />
+  <xsd:complexType name="Stop">
+    <xsd:annotation>
+      <xsd:documentation>Stop of process</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="Activity">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Stop Moniker -->
+  <xsd:element name="BTStopMoniker" type="StopMoniker" substitutionGroup="ActivityMoniker" />
+  <xsd:complexType name="StopMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Stop instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="ActivityMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Start -->
+  <xsd:element name="BTStart" abstract="true" type="Start" substitutionGroup="Activity" />
+  <xsd:complexType name="Start" abstract="true" >
+    <xsd:annotation>
+      <xsd:documentation>Start of a process</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="Activity">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: IsStartable -->
+        <xsd:attribute name="isStartable" type="xsd:boolean" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Start Moniker -->
+  <xsd:element name="BTStartMoniker" abstract="true" type="StartMoniker" substitutionGroup="ActivityMoniker" />
+  <xsd:complexType name="StartMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Start instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="ActivityMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DatabasePark -->
+  <xsd:element name="databasePark" type="DatabasePark" substitutionGroup="BTStart" />
+  <xsd:complexType name="DatabasePark">
+    <xsd:complexContent>
+      <xsd:extension base="Start">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DatabasePark Moniker -->
+  <xsd:element name="databaseParkMoniker" type="DatabaseParkMoniker" substitutionGroup="BTStartMoniker" />
+  <xsd:complexType name="DatabaseParkMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for DatabasePark instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="StartMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ToProcessConnector -->
+  <xsd:element name="toProcessConnector" type="ToProcessConnector" substitutionGroup="BTStop" />
+  <xsd:complexType name="ToProcessConnector">
+    <xsd:complexContent>
+      <xsd:extension base="Stop">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: ToProcessConnectorRef -->
+        <xsd:attribute name="toProcessConnectorRef" type="xsd:string" />
+        <!-- Property: ExternalActivityRef -->
+        <xsd:attribute name="externalActivityRef" type="xsd:string" />
+        <!-- Property: ToProcessConnectorName -->
+        <xsd:attribute name="toProcessConnectorName" type="xsd:string" />
+        <!-- Property: ToActivityGuid -->
+        <xsd:attribute name="toActivityGuid" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ToProcessConnector Moniker -->
+  <xsd:element name="toProcessConnectorMoniker" type="ToProcessConnectorMoniker" substitutionGroup="BTStopMoniker" />
+  <xsd:complexType name="ToProcessConnectorMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ToProcessConnector instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="StopMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- FromProcessConnector -->
+  <xsd:element name="fromProcessConnector" type="FromProcessConnector" substitutionGroup="Activity" />
+  <xsd:complexType name="FromProcessConnector">
+    <xsd:complexContent>
+      <xsd:extension base="Activity">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: FromProcessConnectorRef -->
+        <xsd:attribute name="fromProcessConnectorRef" type="xsd:string" />
+        <!-- Property: CanDelete -->
+        <xsd:attribute name="canDelete" type="xsd:boolean" />
+        <!-- Property: FromProcessConnectorName -->
+        <xsd:attribute name="fromProcessConnectorName" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- FromProcessConnector Moniker -->
+  <xsd:element name="fromProcessConnectorMoniker" type="FromProcessConnectorMoniker" substitutionGroup="ActivityMoniker" />
+  <xsd:complexType name="FromProcessConnectorMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for FromProcessConnector instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="ActivityMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CloudCustom -->
+  <xsd:element name="cloudCustom" type="CloudCustom" substitutionGroup="userActivity" />
+  <xsd:complexType name="CloudCustom">
+    <xsd:complexContent>
+      <xsd:extension base="UserActivity">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CloudCustom Moniker -->
+  <xsd:element name="cloudCustomMoniker" type="CloudCustomMoniker" substitutionGroup="userActivityMoniker" />
+  <xsd:complexType name="CloudCustomMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for CloudCustom instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="UserActivityMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- PostageApp -->
+  <xsd:element name="PostageApp" type="PostageApp" substitutionGroup="BTStart" />
+  <xsd:complexType name="PostageApp">
+    <xsd:complexContent>
+      <xsd:extension base="Start">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- PostageApp Moniker -->
+  <xsd:element name="PostageAppMoniker" type="PostageAppMoniker" substitutionGroup="BTStartMoniker" />
+  <xsd:complexType name="PostageAppMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for PostageApp instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="StartMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Clickatell -->
+  <xsd:element name="clickatell" type="Clickatell" substitutionGroup="BTStart" />
+  <xsd:complexType name="Clickatell">
+    <xsd:complexContent>
+      <xsd:extension base="Start">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Clickatell Moniker -->
+  <xsd:element name="clickatellMoniker" type="ClickatellMoniker" substitutionGroup="BTStartMoniker" />
+  <xsd:complexType name="ClickatellMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Clickatell instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="StartMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DatabaseCosting -->
+  <xsd:element name="databaseCosting" type="DatabaseCosting" substitutionGroup="BTStart" />
+  <xsd:complexType name="DatabaseCosting">
+    <xsd:complexContent>
+      <xsd:extension base="Start">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DatabaseCosting Moniker -->
+  <xsd:element name="databaseCostingMoniker" type="DatabaseCostingMoniker" substitutionGroup="BTStartMoniker" />
+  <xsd:complexType name="DatabaseCostingMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for DatabaseCosting instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="StartMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CloudCosting -->
+  <xsd:element name="cloudCosting" type="CloudCosting" substitutionGroup="BTStart" />
+  <xsd:complexType name="CloudCosting">
+    <xsd:complexContent>
+      <xsd:extension base="Start">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CloudCosting Moniker -->
+  <xsd:element name="cloudCostingMoniker" type="CloudCostingMoniker" substitutionGroup="BTStartMoniker" />
+  <xsd:complexType name="CloudCostingMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for CloudCosting instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="StartMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DatabaseBatchStart -->
+  <xsd:element name="databaseBatchStart" type="DatabaseBatchStart" substitutionGroup="baseBatchStart" />
+  <xsd:complexType name="DatabaseBatchStart">
+    <xsd:complexContent>
+      <xsd:extension base="BaseBatchStart">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DatabaseBatchStart Moniker -->
+  <xsd:element name="databaseBatchStartMoniker" type="DatabaseBatchStartMoniker" substitutionGroup="baseBatchStartMoniker" />
+  <xsd:complexType name="DatabaseBatchStartMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for DatabaseBatchStart instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="BaseBatchStartMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CloudBatchStart -->
+  <xsd:element name="cloudBatchStart" type="CloudBatchStart" substitutionGroup="baseBatchStart" />
+  <xsd:complexType name="CloudBatchStart">
+    <xsd:complexContent>
+      <xsd:extension base="BaseBatchStart">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CloudBatchStart Moniker -->
+  <xsd:element name="cloudBatchStartMoniker" type="CloudBatchStartMoniker" substitutionGroup="baseBatchStartMoniker" />
+  <xsd:complexType name="CloudBatchStartMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for CloudBatchStart instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="BaseBatchStartMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CloudBatchWait -->
+  <xsd:element name="cloudBatchWait" type="CloudBatchWait" substitutionGroup="Activity" />
+  <xsd:complexType name="CloudBatchWait">
+    <xsd:complexContent>
+      <xsd:extension base="Activity">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CloudBatchWait Moniker -->
+  <xsd:element name="cloudBatchWaitMoniker" type="CloudBatchWaitMoniker" substitutionGroup="ActivityMoniker" />
+  <xsd:complexType name="CloudBatchWaitMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for CloudBatchWait instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="ActivityMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CloudPark -->
+  <xsd:element name="cloudPark" type="CloudPark" substitutionGroup="BTStart" />
+  <xsd:complexType name="CloudPark">
+    <xsd:complexContent>
+      <xsd:extension base="Start">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CloudPark Moniker -->
+  <xsd:element name="cloudParkMoniker" type="CloudParkMoniker" substitutionGroup="BTStartMoniker" />
+  <xsd:complexType name="CloudParkMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for CloudPark instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="StartMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Corticon -->
+  <xsd:element name="corticon" type="Corticon" substitutionGroup="BTStart" />
+  <xsd:complexType name="Corticon">
+    <xsd:complexContent>
+      <xsd:extension base="Start">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Corticon Moniker -->
+  <xsd:element name="corticonMoniker" type="CorticonMoniker" substitutionGroup="BTStartMoniker" />
+  <xsd:complexType name="CorticonMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Corticon instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="StartMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CustomUser -->
+  <xsd:element name="customUser" type="CustomUser" substitutionGroup="userActivity" />
+  <xsd:complexType name="CustomUser">
+    <xsd:complexContent>
+      <xsd:extension base="UserActivity">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: DocWait -->
+        <xsd:attribute name="docWait" type="xsd:boolean" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CustomUser Moniker -->
+  <xsd:element name="customUserMoniker" type="CustomUserMoniker" substitutionGroup="userActivityMoniker" />
+  <xsd:complexType name="CustomUserMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for CustomUser instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="UserActivityMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DatabaseBatchWait -->
+  <xsd:element name="databaseBatchWait" type="DatabaseBatchWait" substitutionGroup="Activity" />
+  <xsd:complexType name="DatabaseBatchWait">
+    <xsd:complexContent>
+      <xsd:extension base="Activity">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- DatabaseBatchWait Moniker -->
+  <xsd:element name="databaseBatchWaitMoniker" type="DatabaseBatchWaitMoniker" substitutionGroup="ActivityMoniker" />
+  <xsd:complexType name="DatabaseBatchWaitMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for DatabaseBatchWait instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="ActivityMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- BaseBatchStart -->
+  <xsd:element name="baseBatchStart" abstract="true" type="BaseBatchStart" substitutionGroup="BTStart" />
+  <xsd:complexType name="BaseBatchStart" abstract="true" >
+    <xsd:complexContent>
+      <xsd:extension base="Start">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: StartActivityGuid -->
+        <xsd:attribute name="startActivityGuid" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- BaseBatchStart Moniker -->
+  <xsd:element name="baseBatchStartMoniker" abstract="true" type="BaseBatchStartMoniker" substitutionGroup="BTStartMoniker" />
+  <xsd:complexType name="BaseBatchStartMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for BaseBatchStart instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="StartMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Email -->
+  <xsd:element name="email" type="Email" substitutionGroup="BTStart" />
+  <xsd:complexType name="Email">
+    <xsd:complexContent>
+      <xsd:extension base="Start">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Email Moniker -->
+  <xsd:element name="emailMoniker" type="EmailMoniker" substitutionGroup="BTStartMoniker" />
+  <xsd:complexType name="EmailMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Email instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="StartMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- MobileActivity -->
+  <xsd:element name="mobileActivity" type="MobileActivity" substitutionGroup="userActivity" />
+  <xsd:complexType name="MobileActivity">
+    <xsd:complexContent>
+      <xsd:extension base="UserActivity">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- MobileActivity Moniker -->
+  <xsd:element name="mobileActivityMoniker" type="MobileActivityMoniker" substitutionGroup="userActivityMoniker" />
+  <xsd:complexType name="MobileActivityMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for MobileActivity instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="UserActivityMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- HybridActivity -->
+  <xsd:element name="hybridActivity" type="HybridActivity" substitutionGroup="userActivity" />
+  <xsd:complexType name="HybridActivity">
+    <xsd:complexContent>
+      <xsd:extension base="UserActivity">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- HybridActivity Moniker -->
+  <xsd:element name="hybridActivityMoniker" type="HybridActivityMoniker" substitutionGroup="userActivityMoniker" />
+  <xsd:complexType name="HybridActivityMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for HybridActivity instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="UserActivityMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- UserActivity -->
+  <xsd:element name="userActivity" type="UserActivity" substitutionGroup="BTStart" />
+  <xsd:complexType name="UserActivity">
+    <xsd:complexContent>
+      <xsd:extension base="Start">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: OnlyVisibleAtLocation -->
+        <xsd:attribute name="onlyVisibleAtLocation" type="xsd:boolean" />
+        <!-- Property: LocationRadius -->
+        <xsd:attribute name="locationRadius" type="xsd:integer" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- UserActivity Moniker -->
+  <xsd:element name="userActivityMoniker" type="UserActivityMoniker" substitutionGroup="BTStartMoniker" />
+  <xsd:complexType name="UserActivityMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for UserActivity instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="StartMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Flow -->
+  <xsd:element name="flow" type="Flow" substitutionGroup="flowBase" />
+  <xsd:complexType name="Flow">
+    <xsd:complexContent>
+      <xsd:extension base="FlowBase">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Outcome -->
+        <xsd:attribute name="outcome" type="xsd:string" />
+        <!-- Property: Storyline -->
+        <xsd:attribute name="storyline" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Flow Moniker -->
+  <xsd:element name="flowMoniker" type="FlowMoniker" substitutionGroup="flowBaseMoniker" />
+  <xsd:complexType name="FlowMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Flow instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="FlowBaseMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- FlowMinimal -->
+  <xsd:element name="flowMinimal" type="FlowMinimal" substitutionGroup="flowBase" />
+  <xsd:complexType name="FlowMinimal">
+    <xsd:complexContent>
+      <xsd:extension base="FlowBase">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Outcome -->
+        <xsd:attribute name="outcome" type="xsd:string" />
+        <!-- Property: Storyline -->
+        <xsd:attribute name="storyline" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- FlowMinimal Moniker -->
+  <xsd:element name="flowMinimalMoniker" type="FlowMinimalMoniker" substitutionGroup="flowBaseMoniker" />
+  <xsd:complexType name="FlowMinimalMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for FlowMinimal instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="FlowBaseMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- FlowBase -->
+  <xsd:element name="flowBase" type="FlowBase" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="FlowBase">
+    <xsd:annotation>
+      <xsd:documentation>Flow between activities</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end Activity -->
+          <xsd:element ref="ActivityMoniker" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Type -->
+        <xsd:attribute name="type" type="FlowType" />
+        <!-- Property: VisioId -->
+        <xsd:attribute name="visioId" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- FlowBase Moniker -->
+  <xsd:element name="flowBaseMoniker" type="FlowBaseMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="FlowBaseMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for FlowBase instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- SubProcessHasActivities -->
+  <xsd:element name="subProcessHasActivities" type="SubProcessHasActivities" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="SubProcessHasActivities">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end Activity -->
+          <xsd:element ref="Activity" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- SubProcessHasActivities Moniker -->
+  <xsd:element name="subProcessHasActivitiesMoniker" type="SubProcessHasActivitiesMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="SubProcessHasActivitiesMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for SubProcessHasActivities instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Enum YesNo -->
+  <xsd:simpleType name="YesNo">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Yes"/>
+      <xsd:enumeration value="No"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <!-- Enum FlowType -->
+  <xsd:simpleType name="FlowType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="none"/>
+      <xsd:enumeration value="Optimal"/>
+      <xsd:enumeration value="Negative"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+</xsd:schema>
+

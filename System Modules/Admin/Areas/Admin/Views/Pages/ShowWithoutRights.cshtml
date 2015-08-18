@@ -1,0 +1,23 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.PageWithoutRightsModel>
+
+@{
+    ViewBag.Title = "Pages Without Access Pools";
+}
+
+
+@using (Html.BeginForm())
+{
+    @(Html.InfoGrid(Model.SearchResults)
+              .EmptyTableItemName("Page")
+              .Columns(column =>
+              {
+                  column.For(col => col.ActionTitle, col => Html.ActionLink(col.ActionTitle, "Details", new { ActionId = col.ActionId })).Named("Action Title").Sortable(true);
+                  column.For(col => col.ActionType);
+                  column.For(col => col.Area);
+                  column.For(col => col.Controller);
+                  column.For(col => col.Action);
+                  column.For(col => col.SystemModule);
+              })
+              .Title("Pages without Rights")
+            )
+}

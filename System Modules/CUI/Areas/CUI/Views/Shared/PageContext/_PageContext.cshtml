@@ -1,0 +1,62 @@
+﻿@using CloudCore.Web.Core.Caching.CachedReusableObjects;
+@model System.Collections.Generic.List<CROContent>
+
+    @*
+        TODO: Refactor this page or find a slightly more elegant solution.
+    *@
+
+    <div class="panel panel-default">
+        @foreach (var pageContext in Model)
+        {
+            <div class="panel-heading">
+                <h3 class="panel-title">@pageContext.CROTitle</h3>
+            </div>
+            <div class="panel-body cro">
+                @while (pageContext.Items.Any())
+                {
+                    const int maxItemsPerRow = 3;
+
+                    var contentItems = pageContext.Items.Take(maxItemsPerRow).ToList();
+                    pageContext.Items.RemoveRange(0, contentItems.Count());
+
+                    foreach (var contentItem in contentItems)
+                    {
+                        switch (contentItem.Type)
+                        {
+                            case CroContentType.Html:
+                                <div>
+                                    @contentItem.Title:
+                                    @contentItem.Value
+                                </div>
+                                break;
+
+                            case CroContentType.Email:
+                            <div>
+                                @contentItem.Title:
+                                <a href="mailto:@(((EmailContentItem)contentItem).Email)">@contentItem.Value</a>
+                            </div>
+                                break;
+
+                            case CroContentType.Link:
+                            <div>
+                                @contentItem.Title:
+                                <a href="@(((LinkContentItem)contentItem).Url)">@contentItem.Value</a>
+                            </div>
+                                break;
+                        }
+                    }
+
+                    @*@if (contentItems.Count() < maxItemsPerRow)
+                        {
+                            var difference = maxItemsPerRow - contentItems.Count();
+
+                            for (int i = 0; i < difference; i++)
+                            {
+                                <div></div>
+                                <div></div>
+                            }
+                        }*@
+                }
+            </div>
+        }
+    </div>

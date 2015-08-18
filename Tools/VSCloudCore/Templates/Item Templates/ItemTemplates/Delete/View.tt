@@ -1,0 +1,23 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="CloudCore.VSExtension.Wizards" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+@inherits CloudCore.Web.Core.BaseViews.WebView<$rootnamespace$.Models.<#= templateData.ContextName #>DeleteModel>
+@{
+    ViewBag.Title = "<#= templateData.PageTitle #>";
+}
+
+    @using (Html.BeginForm())
+    { 
+        @Html.HiddenFor(field => field.<#= templateData.KeyFieldPropertyName #>)                     
+        using (FormLayout.BeginTable())
+        {
+			<span><#= templateData.DeleteConfirmMessage #></span>
+			@FormLayout.AddSubmitRow("Confirm");
+		}
+	}
+
+
+

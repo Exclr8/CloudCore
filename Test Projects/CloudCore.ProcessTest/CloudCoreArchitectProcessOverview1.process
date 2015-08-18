@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<process xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="b2318944-d545-41e3-9f97-712310a7b53a" processName="Test Process" visioId="b2318944-d545-41e3-9f97-712310a7b53a" xmlns="http://schemas.microsoft.com/dsltools/CloudCoreArchitectProcessOverview">
+  <bTSubProcess>
+    <subProcessElement Id="47feea56-e460-45eb-9ac5-b30390be5498" name="Test Subprocess 1" subProcessRef="modelbus://Architect.CloudCoreArchitectSubProcessAdapter/CloudCoreArchitectSubProcess1//.\CloudCoreArchitectSubProcess1.subprocess" visioId="7c293d3f-bad7-445d-8935-ea78a94421cd" />
+  </bTSubProcess>
+</process>

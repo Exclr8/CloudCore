@@ -1,0 +1,37 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="$(ProjectDir)bin\TemplateGenerationTest.dll" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="TestGenerationTest.TemplateGenerationModels" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #> 
+
+<# var templateData = ViewDataGenerator.GetSearchViewData(); #>
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Security;
+using <#= templateData.Namespace #>.Models;
+
+
+
+namespace <#= templateData.Namespace #>.Controllers
+{
+    public class <#= templateData.ContextName #>SearchController : Controller
+    {
+        public ActionResult Search()
+        {
+            var model = new SearchModel();
+            return View(model);
+        }
+
+		public ActionResult Search(SearchModel model)
+        {
+			return View(model);
+        }
+	}
+}

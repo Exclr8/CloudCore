@@ -1,0 +1,1 @@
+sqlmetal /server:. /namespace:FrameworkOne.EditorExtensions.Data.Version1 /database:btomic1-7 /code:"%~dp0\btomicdbbase.cs" /views /functions /sprocs /language:c# /context:BtomicDBBase

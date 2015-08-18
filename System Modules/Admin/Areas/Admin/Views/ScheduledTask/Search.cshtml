@@ -1,0 +1,26 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.ScheduledTaskSearchModel>
+@{
+    ViewBag.Title = "Search for Scheduled Tasks";
+}
+@using (Html.BeginForm())
+{
+    using (FormLayout.BeginTable())
+    {
+        @FormLayout.AddFilterEditRowFor(m => m.ScheduledTaskName, m => m.ScheduledTaskNameFilter)
+        @FormLayout.AddDropDownRowFor(m => m.ScheduledTaskType, Model.ScheduledTaskTypes)
+        @FormLayout.AddFilterEditRowFor(m => m.IntervalTypeName, m => m.IntervalTypeNameFilter)
+    }
+    FormLayout.AddSubmitButtonWithBar("Search");
+
+    
+    @(Html.SearchGrid(Model.SearchResults)
+            .Empty("No Records To Be Displayed")
+            .Columns(column =>
+            {
+                column.For(resultItem => Html.ActionLink(resultItem.ScheduledTaskName, "Details", new { scheduledTaskId = resultItem.ScheduledTaskId }));
+                column.For(resultItem => resultItem.ScheduledTaskType);
+                column.For(resultItem => resultItem.IntervalTypeName);
+            })
+                .Title("Scheduled Task Search Results")
+        )​
+}

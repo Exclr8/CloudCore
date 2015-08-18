@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="ProjectGroup"
+    xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>CloudCore Site Instance</Name>
+    <Description>Creates a instance of a default CloudCore site.</Description>
+    <Icon>siteinstance.ico</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>Eisk</ProjectSubType>
+    <DefaultName>CloudCoreSystem</DefaultName>
+    <TemplateGroupID>CloudCore</TemplateGroupID>
+    <TemplateID>CloudCore.Site</TemplateID>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+      <SolutionFolder Name="Shared Files">
+        <ProjectTemplateLink ProjectName="$Product.Shared$">
+          ProjectTemplates\SharedFiles\SharedFiles.vstemplate
+        </ProjectTemplateLink>
+      </SolutionFolder>
+      <SolutionFolder Name="Database Layer">
+        <ProjectTemplateLink ProjectName="$ProductDBName$">
+          ProjectTemplates\Database\Database.vstemplate
+        </ProjectTemplateLink>        
+        <ProjectTemplateLink ProjectName="$Product.Lib.Data$">
+          ProjectTemplates\Datalayer\DatalayerTemplate.vstemplate
+        </ProjectTemplateLink>
+      </SolutionFolder>
+      <SolutionFolder Name="Custom Modules">
+        <ProjectTemplateLink ProjectName="$Product.Lib.Web$">
+          ProjectTemplates\WebModule\WebModuleTemplate.vstemplate
+        </ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$Product.Lib.Process$">
+          ProjectTemplates\ProcessModule\ProcessModuleTemplate.vstemplate
+        </ProjectTemplateLink>
+      </SolutionFolder>
+      <SolutionFolder Name="Azure Deployment">
+        <ProjectTemplateLink ProjectName="$Product.Lib.Cache$">
+          ProjectTemplates\Cache\CacheTemplate.vstemplate
+        </ProjectTemplateLink>  
+        <ProjectTemplateLink ProjectName="$Product.Lib.Site$">
+          ProjectTemplates\Site\SiteTemplate.vstemplate
+        </ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$Product.Lib.VWorker$">
+          ProjectTemplates\VirtualWorker\VirtualWorkerTemplate.vstemplate
+        </ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$Product.Lib.Azure$">
+          ProjectTemplates\Azure\AzureTemplate.vstemplate
+        </ProjectTemplateLink>
+      </SolutionFolder>
+    </ProjectCollection>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>CloudCore.VSExtension.Wizards, Version=2015.5.14.1814, Culture=neutral, PublicKeyToken=e7a823e48f920dce</Assembly>
+    <FullClassName>CloudCore.VSExtension.Wizards.ICloudCoreSystemImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>

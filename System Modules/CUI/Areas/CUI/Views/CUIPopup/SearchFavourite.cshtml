@@ -1,0 +1,19 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.PopupView<CloudCore.Web.Models.AddFavouritesSearchModel>
+@{
+    ViewBag.Title = "Select Menu Item Favourite";
+}              
+
+@using (Html.BeginForm())
+{ 
+    using(FormLayout.BeginTable())
+    {
+        @FormLayout.AddTextboxRowFor(m => m.Title);
+    }
+    FormLayout.AddSubmitButtonWithBar("Search");
+    @(Html.SearchGrid(Model.SearchResults)
+    .Columns(column => 
+        {
+            column.For(item => Html.ActionLink(item.Title, "AddFavourite", "CUIPopUp", new { Reference = item.Reference }, null)).Named("Menu Item");
+        }).Title("Menu Item Search Results")
+    )
+}      

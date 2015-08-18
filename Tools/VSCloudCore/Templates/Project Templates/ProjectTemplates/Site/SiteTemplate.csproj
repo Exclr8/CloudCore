@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectTypeGuids>{D790A903-EF92-46E7-811A-47AF5FA5E3E9};{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{$guid1$}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>$safeprojectname$</RootNamespace>
+    <AssemblyName>$safeprojectname$</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>true</MvcBuildViews>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CloudCore.Core.Data">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\CloudCore.Core.2015.5.14.1814\lib\45\CloudCore.Core.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="CloudCore.Core.Common">
+      <HintPath>..\..\..\packages\CloudCore.Core.1.1.81.0\lib\45\CloudCore.Core.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="CloudCore.Logging">
+      <HintPath>..\..\..\packages\CloudCore.Core.2015.5.14.1814\lib\45\CloudCore.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="CloudCore.Core.Web">
+      <HintPath>..\..\..\packages\CloudCore.Web.2015.5.14.1814\lib\45\CloudCore.Web.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CloudCore.CUI">
+      <HintPath>..\..\..\packages\CloudCore.Site.2015.5.14.1814\lib\45\CloudCore.Web.CUI.dll</HintPath>
+    </Reference>
+    <Reference Include="CloudCore.CUI.Assets">
+      <HintPath>..\..\..\packages\CloudCore.Site.2015.5.14.1814\lib\45\CloudCore.Web.CUI.Assets.dll</HintPath>
+    </Reference>
+    <Reference Include="CloudCore.Admin">
+      <HintPath>..\..\..\packages\CloudCore.Site.2015.05.13.1014\lib\\CloudCore.Admin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.Data.Edm.5.6.1\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.Data.OData.5.6.1\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\System.Spatial.5.6.1\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=2.0.6.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\WindowsAzure.Storage.2.0.6.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Shared Files\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.Config" />
+    <Content Include="packages.config" />
+    <Content Include="favicon.ico" />
+    <Content Include="Areas\Web.Config" />
+    <None Include="..\..\Shared Files\cloudcore.snk">
+      <Link>cloudcore.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Custom Modules\$webmodule.safeprojectname$\$webmodule.safeprojectname$.csproj">
+      <Project>{$webmodule.guid$}</Project>
+      <Name>$webmodule.safeprojectname$</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Database Layer\$datalayer.safeprojectname$\$datalayer.safeprojectname$.csproj">
+      <Project>{$datalayer.guid$}</Project>
+      <Name>$datalayer.safeprojectname$</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v11.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)\bin" />
+  </Target>
+  <Target Name="BeforeBuild">
+    <ItemGroup>
+      <EmbeddedResource Include="**\*.ico;**\*.config" />
+    </ItemGroup>
+  </Target>
+</Project>

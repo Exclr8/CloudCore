@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>Database Project Template</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <Icon>
+    </Icon>
+    <ProjectType>SSDT</ProjectType>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>$ProductDBName$</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="$ProductDBName$.sqlproj" File="Database.sqlproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="$ProductDBName$.local.publish.xml">Database.local.publish.xml</ProjectItem>
+      <Folder Name="CloudCore" TargetFolderName="CloudCore">
+        <ProjectItem ReplaceParameters="false" TargetFileName="CloudCoreDB.dacpac">CloudCoreDB.dacpac</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="CloudCoreDB.dll">CloudCoreDB.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="CloudCoreDB.pdb">CloudCoreDB.pdb</ProjectItem>
+      </Folder>
+      <Folder Name="Scripts" TargetFolderName="Scripts">
+        <Folder Name="Post-Deployment" TargetFolderName="Post-Deployment">
+          <Folder Name="cloudcore" TargetFolderName="cloudcore" >
+            <ProjectItem ReplaceParameters="true" TargetFileName="01 - Generate System Data.sql">Generate.System.Data.sql</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="02 - Generate Administration Data.sql">Generate.Administration.Data.sql</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="03 - Generate Exclr8 Data.sql">Generate.Exclr8.Data.sql</ProjectItem>
+          </Folder>
+          <Folder Name="schemaname" TargetFolderName="$cc.schemaname$" />
+          <ProjectItem ReplaceParameters="true" TargetFileName="Script.PostDeployment.sql">Script.PostDeployment.sql</ProjectItem>
+        </Folder>
+        <Folder Name="Pre-Deployment" TargetFolderName="Pre-Deployment">
+          <ProjectItem ReplaceParameters="true" TargetFileName="Script.PreDeployment.sql">Script.PreDeployment.sql</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="Schema Comparisons" />
+      <Folder Name="Schema Objects">
+        <Folder Name="Database Level Objects">
+          <Folder Name="Security">
+            <Folder Name="Schemas">
+              <ProjectItem ReplaceParameters="true" TargetFileName="$cc.schemaname$.schema.sql">Schema.schema.sql</ProjectItem>
+            </Folder>
+          </Folder>
+        </Folder>
+        <Folder Name="Schemas">
+          <Folder Name="schemaname" TargetFolderName="$cc.schemaname$">
+            <Folder Name="Programmability">
+              <Folder Name="Functions" />
+              <Folder Name="Stored Procedures" />
+            </Folder>
+            <Folder Name="Tables">
+              <Folder Name="Constraints" />
+              <Folder Name="Indexes" />
+              <Folder Name="Keys" />
+              <Folder Name="Triggers" />
+            </Folder>
+            <Folder Name="Views" />
+          </Folder>
+        </Folder>
+      </Folder>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>CloudCore.VSExtension.Wizards, Version=2015.5.14.1814, Culture=neutral, PublicKeyToken=e7a823e48f920dce</Assembly>
+    <FullClassName>CloudCore.VSExtension.Wizards.ICCSIDatabaseImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>

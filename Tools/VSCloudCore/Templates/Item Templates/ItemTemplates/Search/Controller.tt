@@ -1,0 +1,33 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="CloudCore.VSExtension.Wizards" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Security;
+using CloudCore.Web.Core.BaseControllers;
+using $rootnamespace$.Models;
+
+namespace $rootnamespace$.Controllers
+{
+    public partial class <#= templateData.ContextName #>Controller : AuthenticatedController
+    {
+        public ActionResult Search()
+        {
+            var model = new <#= templateData.ContextName #>SearchModel();
+            return View(model);
+        }
+
+		[HttpPost]
+		public ActionResult Search(<#= templateData.ContextName #>SearchModel model)
+        {
+		    model.Search();
+			return View(model);
+        }
+	}
+}

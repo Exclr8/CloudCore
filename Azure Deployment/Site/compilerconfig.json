@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "Assets/Styles/Core/cloudcore-custom.css",
+    "inputFile": "Assets/Styles/Core/cloudcore-custom.scss"
+  },
+  {
+    "outputFile": "Assets/Styles/Core/theme-submenu.css",
+    "inputFile": "Assets/Styles/Core/theme-submenu.scss"
+  }
+]

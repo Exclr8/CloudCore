@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="ProjectGroup"
+    xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>CloudCore Web Module</Name>
+    <Description>Template for CloudCore Web Module</Description>
+    <Icon>webmodule.ico</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>Eisk</ProjectSubType>
+    <DefaultName>CloudCoreWebModule</DefaultName>
+    <TemplateGroupID>CloudCore</TemplateGroupID>
+    <TemplateID>CloudCore.Module.Web</TemplateID>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+      <ProjectTemplateLink ProjectName="$ProductName$.Web">
+        ProjectTemplates\WebModule\WebModuleTemplate.vstemplate
+      </ProjectTemplateLink>
+    </ProjectCollection>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>CloudCore.VSExtension.Wizards, Version=2015.5.14.1814, Culture=neutral, PublicKeyToken=e7a823e48f920dce</Assembly>
+    <FullClassName>CloudCore.VSExtension.Wizards.ICCNewWebModuleImplementation</FullClassName>
+  </WizardExtension>
+</VSTemplate>

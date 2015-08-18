@@ -1,0 +1,28 @@
+﻿@inherits CloudCore.Web.Core.BaseViews.WebView<CloudCore.Admin.Models.ActivitySearchModel>
+
+@{
+    ViewBag.Title = "Find Activities";
+}
+
+@using (Html.BeginForm())
+{ 
+    using(FormLayout.BeginTable())
+    {
+        @FormLayout.AddFilterEditRowFor(m => m.ActivityName, m => m.ActivityNameFilter);
+        @FormLayout.AddFilterEditRowFor(m => m.ModuleName, m => m.ModuleNameFilter);
+        @FormLayout.AddFilterEditRowFor(m => m.SubProcessName, m => m.SubProcessNameFilter);
+        @FormLayout.AddFilterEditRowFor(m => m.ProcessName, m => m.ProcessNameFilter);
+
+    }
+    FormLayout.AddSubmitButtonWithBar("Search");   
+    @(Html.SearchGrid(Model.SearchResults)
+    .Columns(column => 
+        {
+            column.For(item => Html.ActionLink(item.ActivityName, "AccessPoolAllocation", new { activityId = item.ActivityId })).Named("Activity");
+            column.For(item => item.ProcessName).Named("Process");
+            column.For(item => item.SubProcessName).Named("Sub-Process");
+            column.For(item => item.ModuleName).Named("Module");
+        })
+            .Title("Activity Search Results")
+    )
+}      

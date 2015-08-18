@@ -1,0 +1,43 @@
+﻿@model CloudCore.Web.Models.LogOnModel
+
+@{
+    ViewBag.Title = "Log On";
+}
+
+@using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @class = "form-signin" }))
+{
+    if (ViewBag.AlreadyLoggedIn)
+    {
+        <div class="form-group">
+            You are already signed in as @ViewBag.UserFullName.
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-default pull-left" onclick="location.href='@(Url.Action("Index", "Main", new { area = "CUI" }))'">Go To Main Site</button>
+            <button type="button" class="btn btn-default pull-right" onclick="location.href='@(Url.Action("SignOut", "Login", new { area = "CUI" }))'">Sign Out</button>
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Login/Username" })
+        </div>
+        <div class="form-group">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+            <a href="@(Url.Action("ForgotPassword", "Login", new { area = "CUI" }))" class="form-signin-forgotlink text-muted small pull-right">forgot password?</a>
+        </div>
+
+        <p/>
+    
+        <button class="btn btn-default" type="submit">Login <i class="glyphicon glyphicon-log-in"></i></button>
+        <div class="clearfix"></div>
+    }
+
+    <br />
+    <br />
+    @Html.ValidationSummary(false, string.Empty)
+}

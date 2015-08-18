@@ -1,0 +1,27 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="$(ProjectDir)bin\TemplateGenerationTest.dll" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.Data.Linq" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="TestGenerationTest.TemplateGenerationModels" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+<#@ include file="../Includes/Helper.tt" #>
+<# var templateData = ViewDataGenerator.GetModifyViewData(); #>
+using System;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+namespace <#=templateData.Namespace #>.Models
+{
+	public class <#=templateData.ContextName #>Model
+	{
+<# WriteProperties(templateData.ModelProperties); #>
+	}
+}

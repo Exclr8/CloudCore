@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "RequestError";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-signin" }))
+{
+    <h3>Page Request Error</h3>
+    <p/>
+    <label>@ViewBag.Message</label>
+    <p/>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-default pull-left" value="btnMainSite" name="btnMainSite" id="btnMainSite">Go To Main Site</button>
+        <button type="submit" class="btn btn-default pull-right" value="btnSignOut" name="btnSignOut" id="btnSignOut">Sign Out</button>
+    </div>
+}

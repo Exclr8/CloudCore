@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Major>1</Major>
+    <Minor>1</Minor>
+    <FixVersion>0</FixVersion>
+    <VersionNumber>1.0.0.0</VersionNumber>
+    <FileVersionNumber>1.0.0.0</FileVersionNumber>
+    <BuildNumber Condition="'$(BuildNumber)' == ''">1</BuildNumber>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>CloudCoreDB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{e1e79ae1-6bc5-4647-ac7e-4cf54c4fefc3}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureDatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>CloudCoreDB</RootNamespace>
+    <AssemblyName>CloudCoreDB</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>True</SqlServerVerification>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <DefaultSchema>cloudcore</DefaultSchema>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DacVersion>2.0.54.0</DacVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Security" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Scripts\Pre-Deployment" />
+    <Folder Include="cloudcore" />
+    <Folder Include="cloudcoremodel" />
+    <Folder Include="cloudcore\Functions" />
+    <Folder Include="cloudcore\Tables" />
+    <Folder Include="cloudcore\Views" />
+    <Folder Include="cloudcore\Stored Procedures" />
+    <Folder Include="cloudcoremodel\Stored Procedures" />
+    <Folder Include="cloudcoremodel\Tables" />
+    <Folder Include="cloudcoremodel\Views" />
+    <Folder Include="Scripts\Upgrade Scripts" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Functions" />
+    <Folder Include="dbo\Stored Procedures" />
+    <Folder Include="dbo\Tables" />
+    <Folder Include="cloudcore\Types" />
+    <Folder Include="cloudcoremodel\Functions" />
+    <Folder Include="cloudcoremodel\Types" />
+    <Folder Include="dbo\Views" />
+    <Folder Include="dbo\Types" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Security\cloudcore.sql" />
+    <Build Include="Security\cloudcoremodel.sql" />
+    <None Include="Scripts\Post-Deployment\02 - Generate Administration Data.sql" />
+    <None Include="Scripts\Post-Deployment\03 - Generate Framework One Data.sql" />
+    <None Include="Scripts\Post-Deployment\01 - Generate System Data.sql" />
+    <Build Include="cloudcore\Functions\CalculateNextInitDate.sql" />
+    <Build Include="cloudcore\Functions\SystemValue_GetValueData.sql" />
+    <Build Include="cloudcore\Functions\CalculateNextRunDate.sql" />
+    <Build Include="cloudcore\Functions\CreatePasswordHash.sql" />
+    <Build Include="cloudcore\Functions\FlowHasTrigger.sql" />
+    <Build Include="cloudcore\Functions\ModuleAuthorizationCheck.sql" />
+    <Build Include="cloudcore\Functions\Period_Get.sql" />
+    <Build Include="cloudcore\Functions\Period_Today.sql" />
+    <Build Include="cloudcore\Functions\PROPER.sql" />
+    <Build Include="cloudcore\Functions\Split.sql" />
+    <Build Include="cloudcoremodel\Stored Procedures\ActivityModelCreate.sql" />
+    <Build Include="cloudcoremodel\Stored Procedures\ActivityModelReplacementUpd.sql" />
+    <Build Include="cloudcoremodel\Stored Procedures\FlowModelCreate.sql" />
+    <Build Include="cloudcoremodel\Stored Procedures\ProcessModelCreate.sql" />
+    <Build Include="cloudcoremodel\Stored Procedures\ProcessModelDeploy.sql" />
+    <Build Include="cloudcoremodel\Stored Procedures\ProcessRevisionCreate.sql" />
+    <Build Include="cloudcoremodel\Stored Procedures\RevisionUpdate.sql" />
+    <Build Include="cloudcoremodel\Stored Procedures\SubProcessCreate.sql" />
+    <Build Include="cloudcoremodel\Tables\ActivityModel.sql" />
+    <Build Include="cloudcoremodel\Tables\CostType.sql" />
+    <Build Include="cloudcoremodel\Tables\FlowModel.sql" />
+    <Build Include="cloudcoremodel\Tables\ProcessModel.sql" />
+    <Build Include="cloudcoremodel\Tables\ProcessRevision.sql" />
+    <Build Include="cloudcoremodel\Tables\StatusType.sql" />
+    <Build Include="cloudcoremodel\Tables\SubProcess.sql" />
+    <Build Include="cloudcoremodel\Views\vwLiveActivity.sql" />
+    <Build Include="cloudcoremodel\Views\vwProcessModel.sql" />
+    <Build Include="cloudcoremodel\Tables\ActivityType.sql" />
+    <Build Include="cloudcoremodel\Views\vwLiveFlow.sql" />
+    <Build Include="cloudcoremodel\Views\vwLiveFlowDetails.sql" />
+    <Build Include="cloudcoremodel\Views\vwLiveProcess.sql" />
+    <Build Include="cloudcoremodel\Stored Procedures\CostTypeCreate.sql" />
+    <Build Include="cloudcoremodel\Stored Procedures\CostTypeModify.sql" />
+    <Build Include="cloudcoremodel\Stored Procedures\CostTypeDelete.sql" />
+    <Build Include="cloudcore\Stored Procedures\AccessPoolCreate.sql" />
+    <Build Include="cloudcore\Stored Procedures\WorkItemStartByInstance.sql" />
+    <Build Include="cloudcore\Stored Procedures\AccessPoolUpdate.sql" />
+    <Build Include="cloudcore\Stored Procedures\AccessPoolUserCreate.sql" />
+    <Build Include="cloudcore\Stored Procedures\AccessPoolUserRemove.sql" />
+    <Build Include="cloudcore\Stored Procedures\ActivityAllocationCreate.sql" />
+    <Build Include="cloudcore\Stored Procedures\ActivityAllocationDelete.sql" />
+    <Build Include="cloudcore\Stored Procedures\ActivityByPass.sql" />
+    <Build Include="cloudcore\Stored Procedures\WorklistItemFail.sql" />
+    <Build Include="cloudcore\Stored Procedures\ActivitySpawn.sql" />
+    <Build Include="cloudcore\Stored Procedures\ActivityStart.sql" />
+    <Build Include="cloudcore\Stored Procedures\CampaignArc.sql" />
+    <Build Include="cloudcore\Stored Procedures\CampaignCancel.sql" />
+    <Build Include="cloudcore\Stored Procedures\CampaignHandover.sql" />
+    <Build Include="cloudcore\Stored Procedures\CampaignItemFinish.sql" />
+    <Build Include="cloudcore\Stored Procedures\CampaignUserCreate.sql" />
+    <Build Include="cloudcore\Stored Procedures\CampaignUserDelete.sql" />
+    <Build Include="cloudcore\Stored Procedures\DashboardCreate.sql" />
+    <Build Include="cloudcore\Stored Procedures\DashboardDelete.sql" />
+    <Build Include="cloudcore\Stored Procedures\DashboardModify.sql" />
+    <Build Include="cloudcore\Stored Procedures\DashboardRightCreate.sql" />
+    <Build Include="cloudcore\Stored Procedures\DashboardRightDelete.sql" />
+    <Build Include="cloudcore\Stored Procedures\FavouriteAdd.sql" />
+    <Build Include="cloudcore\Stored Procedures\FavouriteRemove.sql" />
+    <Build Include="cloudcore\Stored Procedures\LoginDetailsGet.sql" />
+    <Build Include="cloudcore\Stored Procedures\LoginUpdate.sql" />
+    <Build Include="cloudcore\Stored Procedures\MaintainPeriods.sql" />
+    <Build Include="cloudcore\Stored Procedures\PeriodCreate.sql" />
+    <Build Include="cloudcore\Stored Procedures\PeriodDelete.sql" />
+    <Build Include="cloudcore\Stored Procedures\PeriodModify.sql" />
+    <Build Include="cloudcore\Stored Procedures\ProcessChangeOwner.sql" />
+    <Build Include="cloudcore\Stored Procedures\ScheduledTaskActivate.sql" />
+    <Build Include="cloudcore\Stored Procedures\ScheduledTaskDeploy.sql" />
+    <Build Include="cloudcore\Stored Procedures\ScheduledTaskUpdateOutcome.sql" />
+    <Build Include="cloudcore\Stored Procedures\ScheduledTaskGroupDeploy.sql" />
+    <Build Include="cloudcore\Stored Procedures\ScheduledTasksToRun.sql" />
+    <Build Include="cloudcore\Stored Procedures\ScheduledTaskUpdateConfig.sql" />
+    <Build Include="cloudcore\Stored Procedures\ServerInfo.sql" />
+    <Build Include="cloudcore\Stored Procedures\SProcessDailyStats.sql" />
+    <Build Include="cloudcore\Stored Procedures\SProcessTop10TaskAge.sql" />
+    <Build Include="cloudcore\Stored Procedures\STaskSummary.sql" />
+    <Build Include="cloudcore\Stored Procedures\SystemActionAllocationCreate.sql" />
+    <Build Include="cloudcore\Stored Procedures\SystemActionAllocationDelete.sql" />
+    <Build Include="cloudcore\Stored Procedures\SystemActionCreate.sql" />
+    <Build Include="cloudcore\Stored Procedures\SystemActionDelete.sql" />
+    <Build Include="cloudcore\Stored Procedures\SystemActionModify.sql" />
+    <Build Include="cloudcore\Stored Procedures\SystemValueCategoryCreate.sql" />
+    <Build Include="cloudcore\Stored Procedures\SystemModuleRemove.sql" />
+    <Build Include="cloudcore\Stored Procedures\SystemModuleUpload.sql" />
+    <Build Include="cloudcore\Stored Procedures\SystemValueCreate.sql" />
+    <Build Include="cloudcore\Stored Procedures\SystemValueUpdate.sql" />
+    <Build Include="cloudcore\Stored Procedures\UpdateUserImage.sql" />
+    <Build Include="cloudcore\Stored Procedures\UserCampaignSelect.sql" />
+    <Build Include="cloudcore\Stored Procedures\UserCreate.sql" />
+    <Build Include="cloudcore\Stored Procedures\UserModify.sql" />
+    <Build Include="cloudcore\Stored Procedures\UserPasswordUpdate.sql" />
+    <Build Include="cloudcore\Stored Procedures\WorkItemCancel.sql" />
+    <Build Include="cloudcore\Stored Procedures\WorkItemChangePriority.sql" />
+    <Build Include="cloudcore\Stored Procedures\WorkItemChangeUser.sql" />
+    <Build Include="cloudcore\Stored Procedures\WorkItemDelay.sql" />
+    <Build Include="cloudcore\Stored Procedures\WorkItemFlow.sql" />
+    <Build Include="cloudcore\Stored Procedures\WorkItemFlowCosting.sql" />
+    <Build Include="cloudcore\Stored Procedures\WorkItemRelease.sql" />
+    <Build Include="cloudcore\Stored Procedures\WorkItemStartByActivity.sql" />
+    <Build Include="cloudcore\Stored Procedures\WorkItemStartFromVirtualWorker.sql" />
+    <Build Include="cloudcore\Tables\AccessPool.sql" />
+    <Build Include="cloudcore\Tables\WorklistReference.sql" />
+    <Build Include="cloudcore\Tables\AccessPoolUser.sql" />
+    <Build Include="cloudcore\Tables\Activity.sql" />
+    <Build Include="cloudcore\Tables\ActivityAllocation.sql" />
+    <Build Include="cloudcore\Tables\WorklistFailure.sql" />
+    <Build Include="cloudcore\Tables\ActivityHistory.sql" />
+    <Build Include="cloudcore\Tables\Campaign.sql" />
+    <Build Include="cloudcore\Tables\CampaignArchive.sql" />
+    <Build Include="cloudcore\Tables\CampaignItem.sql" />
+    <Build Include="cloudcore\Tables\CampaignUser.sql" />
+    <Build Include="cloudcore\Tables\CostLedger.sql" />
+    <Build Include="cloudcore\Tables\Dashboard.sql" />
+    <Build Include="cloudcore\Tables\DashboardRight.sql" />
+    <Build Include="cloudcore\Tables\Favourite.sql" />
+    <Build Include="cloudcore\Tables\LoginHistory.sql" />
+    <Build Include="cloudcore\Tables\Period.sql" />
+    <Build Include="cloudcore\Tables\ProcessHistory.sql" />
+    <Build Include="cloudcore\Tables\ReferenceType.sql" />
+    <Build Include="cloudcore\Tables\ScheduledTask.sql" />
+    <Build Include="cloudcore\Tables\ScheduledTaskFailed.sql" />
+    <Build Include="cloudcore\Tables\ScheduledTaskGroup.sql" />
+    <Build Include="cloudcore\Tables\SystemAction.sql" />
+    <Build Include="cloudcore\Tables\SystemActionAllocation.sql" />
+    <Build Include="cloudcore\Tables\SystemModule.sql" />
+    <Build Include="cloudcore\Tables\SystemTally.sql" />
+    <Build Include="cloudcore\Tables\SystemValue.sql" />
+    <Build Include="cloudcore\Tables\SystemValueCategory.sql" />
+    <Build Include="cloudcore\Tables\User.sql" />
+    <Build Include="cloudcore\Tables\Worklist.sql" />
+    <Build Include="cloudcore\Views\vwAccessPool.sql" />
+    <Build Include="cloudcore\Stored Procedures\ActivityBatchSpawn.sql" />
+    <Build Include="cloudcore\Stored Procedures\ActionAllocationRemove.sql" />
+    <Build Include="cloudcore\Stored Procedures\RestartFailedWorklistItem.sql" />
+    <Build Include="cloudcore\Tables\SystemApplication.sql" />
+    <Build Include="cloudcore\Tables\SystemApplicationAllocation.sql" />
+    <Build Include="cloudcore\Stored Procedures\SystemApplicationCreate.sql" />
+    <Build Include="cloudcore\Stored Procedures\ApplicationAllocationCreate.sql" />
+    <Build Include="cloudcore\Stored Procedures\ApplicationAllocationDelete.sql" />
+    <Build Include="cloudcore\Stored Procedures\SystemApplicationUpdate.sql" />
+    <Build Include="cloudcore\Stored Procedures\SystemApplicationDelete.sql" />
+    <Build Include="cloudcore\Tables\ActivityFailureHistory.sql" />
+    <Build Include="cloudcore\Stored Procedures\WorkItemStartFromVirtualWorkerByLocation.sql" />
+    <Build Include="cloudcore\Tables\UserAccessMapping.sql" />
+    <Build Include="cloudcore\Tables\UserAccessProvider.sql" />
+    <Build Include="cloudcore\Functions\GenerateUniqueKey.sql" />
+    <Build Include="cloudcore\Functions\Ordinals.sql" />
+    <Build Include="cloudcore\Tables\DashboardUserAllocation.sql" />
+    <Build Include="cloudcore\Tables\Notification.sql" />
+    <Build Include="cloudcore\Tables\UserNotification.sql" />
+    <Build Include="cloudcore\Stored Procedures\NotificationRemove.sql" />
+    <Build Include="cloudcore\Stored Procedures\NotificationRemoveAll.sql" />
+    <Build Include="cloudcore\Stored Procedures\NotificationCreateByUser.sql" />
+    <Build Include="cloudcore\Stored Procedures\NotificationCreateByAccessPool.sql" />
+    <Build Include="cloudcore\Views\vwUserNotification.sql" />
+    <Build Include="cloudcore\Stored Procedures\NotificationMarkAsRead.sql" />
+    <Build Include="cloudcore\Stored Procedures\NotificationDelete.sql" />
+    <Build Include="cloudcore\Stored Procedures\UserResetPasswordRequest.sql" />
+    <Build Include="cloudcore\Views\vwPermittedSystemActions.sql" />
+    <Build Include="cloudcore\Stored Procedures\UserUpdateAccess.sql" />
+    <Build Include="cloudcore\Stored Procedures\ScheduledTaskGroupUpdate.sql" />
+    <Build Include="cloudcore\Stored Procedures\RestartFailedWorklistItemByActivity.sql" />
+    <Build Include="cloudcore\Stored Procedures\ActivityRetryUpdate.sql" />
+    <Build Include="cloudcore\Stored Procedures\ResetRunningOutdatedScheduledTasks.sql" />
+    <Build Include="cloudcore\Stored Procedures\ScheduledTaskKeepAlive.sql" />
+    <None Include="Scripts\Post-Deployment\04 - Test-Data.sql">
+      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
+    </None>
+    <Build Include="cloudcore\Stored Procedures\ResetRunningOutdatedWorkflowItems.sql" />
+    <Build Include="cloudcore\Stored Procedures\WorkflowKeepAlive.sql" />
+    <Build Include="dbo\Stored Procedures\sp_MSforeach_worker.sql" />
+    <Build Include="dbo\Stored Procedures\sp_MSforeachtable.sql" />
+    <Build Include="cloudcore\Functions\fn_strPadLeft.sql" />
+    <Build Include="cloudcore\Functions\fn_strPadRight.sql" />
+    <Build Include="cloudcore\Functions\fn_varbintohexstr.sql" />
+    <Build Include="cloudcore\Stored Procedures\SystemValueCategoryDelete.sql" />
+    <Build Include="cloudcore\Stored Procedures\SystemValueCategoryUpdate.sql" />
+    <Build Include="cloudcore\Stored Procedures\SystemValueDelete.sql" />
+    <Build Include="cloudcore\Stored Procedures\UserUpdateExternalAccess.sql" />
+    <Build Include="cloudcore\Stored Procedures\UserClearReferenceGuid.sql" />
+    <Build Include="cloudcore\Stored Procedures\DashboardTasksToRun.sql" />
+    <Build Include="cloudcore\Stored Procedures\DashboardTaskUpdate.sql" />
+    <Build Include="cloudcore\Stored Procedures\DashboardsAvailableToUser.sql" />
+    <Build Include="cloudcore\Stored Procedures\DashboardAddToUser.sql" />
+    <Build Include="cloudcore\Stored Procedures\DashboardUserAllocationDelete.sql" />
+    <Build Include="cloudcore\Stored Procedures\ScheduledTasksPerGroupId.sql" />
+    <Build Include="cloudcore\Stored Procedures\StartDashboard.sql" />
+    <Build Include="cloudcore\Stored Procedures\ScheduledTaskUpdateStatus.sql" />
+    <Build Include="cloudcore\Tables\DashboardFailure.sql" />
+    <Build Include="cloudcore\Stored Procedures\DashboardFailed.sql" />
+    <Build Include="cloudcore\Stored Procedures\NotificationToggleImportant.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="local.publish.xml" />
+    <Build Include="cloudcore\Views\vwNotificationHistory.sql" />
+    <None Include="Scripts\Post-Deployment\05 - SimulateLongRunningScheduledTask.sql" />
+    <None Include="Scripts\Post-Deployment\06 - More Workflow Data.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="cloudcore\Views\vwActivityAllocationPriority.sql" />
+    <Build Include="cloudcore\Views\vwCampaign.sql" />
+    <Build Include="cloudcore\Views\vwCampaignDailyStats.sql" />
+    <Build Include="cloudcore\Views\vwCampaignManager.sql" />
+    <Build Include="cloudcore\Views\vwCampaignStats.sql" />
+    <Build Include="cloudcore\Views\vwCampaignUserStats.sql" />
+    <Build Include="cloudcore\Views\vwCostLedger.sql" />
+    <Build Include="cloudcore\Views\vwLedgerInfo.sql" />
+    <Build Include="cloudcore\Views\vwOpenTasks.sql" />
+    <Build Include="cloudcore\Views\vwProcessDailyStats.sql" />
+    <Build Include="cloudcore\Views\vwProcessStats.sql" />
+    <Build Include="cloudcore\Views\vwTasklist.sql" />
+    <Build Include="cloudcore\Views\vwTaskListFilter.sql" />
+    <Build Include="cloudcore\Views\vwTasklistHistory.sql" />
+    <Build Include="cloudcore\Views\vwUserAccess.sql" />
+    <Build Include="cloudcore\Views\vwUserDashboard.sql" />
+    <Build Include="cloudcore\Views\vwUserModule.sql" />
+    <Build Include="cloudcore\Views\vwUserMonthlyTaskAgeAverage.sql" />
+    <Build Include="cloudcore\Views\vwUserMonthlyTaskCompletedCount.sql" />
+    <Build Include="cloudcore\Views\vwUserWeeklyTaskCompletedCount.sql" />
+    <Build Include="cloudcore\Views\vwWorklist.sql" />
+    <Build Include="cloudcore\Views\vwWorklistEx.sql" />
+  </ItemGroup>
+  <PropertyGroup>
+    <MyDacPacRootPath Condition="'$(VisualStudioVersion)' == '10.0' AND '$(MyDacPacRootPath)' == ''">$(VS100COMNTOOLS)..\..\</MyDacPacRootPath>
+    <MyDacPacRootPath Condition="'$(VisualStudioVersion)' == '11.0' AND '$(MyDacPacRootPath)' == ''">$(VS110COMNTOOLS)..\..\</MyDacPacRootPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nuget|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nuget|x64' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="AdminPassword">
+      <DefaultValue>ad135fn:24da30FN_Sw531qe42_7up12_s24_oe135</DefaultValue>
+      <Value>$(SqlCmdVar__7)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="BuildConfiguration">
+      <DefaultValue>Debug</DefaultValue>
+      <Value>$(SqlCmdVar__5)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="EnableAdminAccount">
+      <DefaultValue>1</DefaultValue>
+      <Value>$(SqlCmdVar__6)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="LicenseMode">
+      <DefaultValue>Development</DefaultValue>
+      <Value>$(SqlCmdVar__4)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="LicenceKey">
+      <DefaultValue>00000000000000000000000</DefaultValue>
+      <Value>$(SqlCmdVar__3)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="UiApplicationKey">
+      <DefaultValue>11000000-0000-0000-0000-000000000001</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="VwApplicationKey">
+      <DefaultValue>11000000-0000-0000-0000-000000000002</DefaultValue>
+      <Value>$(SqlCmdVar__2)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\Azure\SqlSchemas\master.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\Azure\SqlSchemas\master.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+  </ItemGroup>
+  <Target Name="SetVersionNumber">
+    <CreateProperty Value="$(Major).$(Minor).$([MSBuild]::Add($(BuildNumber), 79)).$(FixVersion)">
+      <Output TaskParameter="Value" PropertyName="VersionNumber" />
+    </CreateProperty>
+    <CreateProperty Value="$([System.DateTime]::Now.ToString(`yyyy.MM.dd.HHmm`))">
+      <Output TaskParameter="Value" PropertyName="FileVersionNumber" />
+    </CreateProperty>
+    <CreateProperty Value="$(VersionNumber)">
+      <Output TaskParameter="Value" PropertyName="DacVersion" />
+    </CreateProperty>
+  </Target>
+</Project>

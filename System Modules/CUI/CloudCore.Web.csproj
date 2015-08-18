@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{81BD974A-E465-4727-9839-149CA249F78A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CloudCore.Web</RootNamespace>
+    <AssemblyName>CloudCore.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <MvcBuildViews>true</MvcBuildViews>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\Shared Files\cloudcore.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=4.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WindowsAzure.Storage.4.3.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Shared Files\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Areas\CUI\Controllers\AccessController.cs" />
+    <Compile Include="Areas\CUI\Controllers\ParentReloadController.cs" />
+    <Compile Include="Areas\CUI\Controllers\ErrorController.cs" />
+    <Compile Include="Areas\CUI\Controllers\LoginController.cs" />
+    <Compile Include="Areas\CUI\Controllers\MainController.cs" />
+    <Compile Include="Areas\CUI\Controllers\CUIPopupController.cs" />
+    <Compile Include="Areas\CUI\Controllers\OfflineController.cs" />
+    <Compile Include="Areas\CUI\Controllers\SubMenuController.cs" />
+    <Compile Include="Areas\CUI\Controllers\UserLookup.cs" />
+    <Compile Include="Areas\CUI\Controllers\SystemNotificationController.cs" />
+    <Compile Include="Areas\CUI\Controllers\NotifyPool.cs" />
+    <Compile Include="Areas\CUI\Controllers\NotifyUser.cs" />
+    <Compile Include="Areas\CUI\Controllers\AccessPoolLookup.cs" />
+    <Compile Include="Areas\CUI\Controllers\TasklistController.cs" />
+    <Compile Include="Areas\CUI\Controllers\ToolsController.cs" />
+    <Compile Include="Areas\CUI\Helpers\DashboardHelper.cs" />
+    <Compile Include="Areas\CUI\Html\HtmlAnchor.cs" />
+    <Compile Include="Areas\CUI\Hubs\KpiService.cs" />
+    <Compile Include="Areas\CUI\Models\SystemAdminModel.cs" />
+    <Compile Include="Classes\CachedReusableObjects\PersonalInfoCachedReusableObject.cs" />
+    <Compile Include="Areas\CUI\Models\AccessPoolLookupModel.cs" />
+    <Compile Include="Areas\CUI\Models\AccessPoolModel.cs" />
+    <Compile Include="Areas\CUI\Models\AddDashboardSearchModel.cs" />
+    <Compile Include="Areas\CUI\Models\AddFavouritesSearchModel.cs" />
+    <Compile Include="Areas\CUI\Models\DashboardModel.cs" />
+    <Compile Include="Areas\CUI\Models\ForgotPassword.cs" />
+    <Compile Include="Areas\CUI\Models\LogItemModel.cs" />
+    <Compile Include="Areas\CUI\Models\LogOnModel.cs" />
+    <Compile Include="Areas\CUI\Models\LogsModel.cs" />
+    <Compile Include="Areas\CUI\Models\RemoveDashboardItem.cs" />
+    <Compile Include="Areas\CUI\Models\TaskList\TaskListPageSidebar.cs" />
+    <Compile Include="Areas\CUI\Models\TaskList\TaskListSearchReferencesModel.cs" />
+    <Compile Include="Areas\CUI\Models\UserLookupModel.cs" />
+    <Compile Include="Areas\CUI\Models\SystemNotificationModel.cs" />
+    <Compile Include="Areas\CUI\Models\UserNotificationModel.cs" />
+    <Compile Include="Areas\CUI\Models\ViewFavouritesModel.cs" />
+    <Compile Include="Areas\CUI\Models\PersonalDetailsModel.cs" />
+    <Compile Include="Areas\CUI\Models\SystemModuleModel.cs" />
+    <Compile Include="Areas\CUI\Models\ModuleModel.cs" />
+    <Compile Include="Areas\CUI\Models\UserSystemModuleModelResult.cs" />
+    <Compile Include="Areas\CUI\Models\ChangePasswordModel.cs" />
+    <Compile Include="Areas\CUI\Models\ViewDashboardModel.cs" />
+    <Compile Include="Areas\CUI\Models\GlobalLoginHistorySearchModel.cs.cs" />
+    <Compile Include="Areas\CUI\Models\PasswordResetModel.cs" />
+    <Compile Include="Areas\CUI\Models\PersonalLoginHistorySearchModel.cs" />
+    <Compile Include="Areas\CUI\Models\ReferenceTypes.cs" />
+    <Compile Include="Areas\CUI\Models\TaskList\TaskListModel.cs" />
+    <Compile Include="Areas\CUI\Models\LoggedInUserModel.cs" />
+    <Compile Include="Areas\CUI\CUIAreaRegistration.cs" />
+    <Compile Include="Areas\CUI\Models\UserSystemModuleModel.cs" />
+    <Compile Include="Classes\CachedReusableObjects\ModuleCachedReusableObject.cs" />
+    <Compile Include="CoreCuiModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CUI\Assets\fonts\icomoon.dev.svg" />
+    <Content Include="Areas\CUI\Assets\fonts\icomoon.svg" />
+    <Content Include="Areas\CUI\Assets\images\0.png" />
+    <Content Include="Areas\CUI\Assets\images\ascending.png" />
+    <Content Include="Areas\CUI\Assets\images\controls\Search.png" />
+    <Content Include="Areas\CUI\Assets\images\controls\Wrench.png" />
+    <Content Include="Areas\CUI\Assets\images\DashboardIcon.png" />
+    <Content Include="Areas\CUI\Assets\images\dashboard\Graph1.png" />
+    <Content Include="Areas\CUI\Assets\images\dashboard\Graph2.png" />
+    <Content Include="Areas\CUI\Assets\images\dashboard\Graph3.png" />
+    <Content Include="Areas\CUI\Assets\images\dashboard\Graph4.png" />
+    <Content Include="Areas\CUI\Assets\images\dashboard\Graph5.png" />
+    <Content Include="Areas\CUI\Assets\images\dashboard\Graph6.png" />
+    <Content Include="Areas\CUI\Assets\images\datepicker\datepicker.gif" />
+    <Content Include="Areas\CUI\Assets\images\descending.png" />
+    <Content Include="Areas\CUI\Assets\images\ErrorWarning.png" />
+    <Content Include="Areas\CUI\Assets\images\favicon_none.png" />
+    <Content Include="Areas\CUI\Assets\images\favicon_normal.png" />
+    <Content Include="Areas\CUI\Assets\images\ImageCrop\border-anim-h.gif" />
+    <Content Include="Areas\CUI\Assets\images\ImageCrop\border-anim-v.gif" />
+    <Content Include="Areas\CUI\Assets\images\ImageCrop\border-h.gif" />
+    <Content Include="Areas\CUI\Assets\images\ImageCrop\border-v.gif" />
+    <Content Include="Areas\CUI\Assets\images\info.png" />
+    <Content Include="Areas\CUI\Assets\images\jquery.ui\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Areas\CUI\Assets\images\jquery.ui\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Areas\CUI\Assets\images\jquery.ui\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Areas\CUI\Assets\images\jquery.ui\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Areas\CUI\Assets\images\jquery.ui\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Areas\CUI\Assets\images\jquery.ui\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Areas\CUI\Assets\images\jquery.ui\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Areas\CUI\Assets\images\jquery.ui\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Areas\CUI\Assets\images\jquery.ui\ui-icons_222222_256x240.png" />
+    <Content Include="Areas\CUI\Assets\images\jquery.ui\ui-icons_228ef1_256x240.png" />
+    <Content Include="Areas\CUI\Assets\images\jquery.ui\ui-icons_6a6a6a_256x240.png" />
+    <Content Include="Areas\CUI\Assets\images\jquery.ui\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Areas\CUI\Assets\images\jquery.ui\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Areas\CUI\Assets\images\jquery.ui\ui-icons_ffffff_256x240.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\arrow.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\button_bg.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\dashboarditem_bg.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\dashboard_add_bg.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\dashboard_viewer_bg.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\exit_ia.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\exit_sel.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\ExternalSubmit.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\favheader_bg.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\favitem_bg.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\footer_bg.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\module_active_bg.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\module_inactive_bg.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\notif_msg.gif" />
+    <Content Include="Areas\CUI\Assets\images\layout\notif_nomsg.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\notif_sel.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\sett_ia.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\sett_sel.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\SubtitleIcon.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\toolbar_bg.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\tooloption_bg.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\tos.png" />
+    <Content Include="Areas\CUI\Assets\images\layout\usericon.png" />
+    <Content Include="Areas\CUI\Assets\images\corelogo.png" />
+    <Content Include="Areas\CUI\Assets\images\LoadingIndicator.gif" />
+    <Content Include="Areas\CUI\Assets\images\module\DeployIcon-HoverOver.png" />
+    <Content Include="Areas\CUI\Assets\images\module\DeployIcon.png" />
+    <Content Include="Areas\CUI\Assets\images\module\Deploying.gif" />
+    <Content Include="Areas\CUI\Assets\images\module\ModuleEditIcon-HoverOver.png" />
+    <Content Include="Areas\CUI\Assets\images\module\ModuleEditIcon-NonSelected.png" />
+    <Content Include="Areas\CUI\Assets\images\module\ModuleEditIcon.png" />
+    <Content Include="Areas\CUI\Assets\images\module\modulepuzzleicon.png" />
+    <Content Include="Areas\CUI\Assets\images\module\ModuleRemove-HoverOver.png" />
+    <Content Include="Areas\CUI\Assets\images\module\ModuleRemove-NonSelected.png" />
+    <Content Include="Areas\CUI\Assets\images\module\ModuleRemove.png" />
+    <Content Include="Areas\CUI\Assets\images\module\NonSelectedIcon.png" />
+    <Content Include="Areas\CUI\Assets\images\module\SelectedIcon.png" />
+    <Content Include="Areas\CUI\Assets\images\module\SyncIcon-HoverOver.png" />
+    <Content Include="Areas\CUI\Assets\images\module\SyncIcon.png" />
+    <Content Include="Areas\CUI\Assets\images\module\Syncing.gif" />
+    <Content Include="Areas\CUI\Assets\images\module\SyncSummaryIcon-HoverOver.png" />
+    <Content Include="Areas\CUI\Assets\images\module\SyncSummaryIcon.png" />
+    <Content Include="Areas\CUI\Assets\images\NotAvailable.png" />
+    <Content Include="Areas\CUI\Assets\images\notification\Error.png" />
+    <Content Include="Areas\CUI\Assets\images\notification\Message.png" />
+    <Content Include="Areas\CUI\Assets\images\notification\NotificationCloseBtn.png" />
+    <Content Include="Areas\CUI\Assets\images\notification\Success.png" />
+    <Content Include="Areas\CUI\Assets\images\popups\popupclose.png" />
+    <Content Include="Areas\CUI\Assets\images\popups\PopUpIcon.png" />
+    <Content Include="Areas\CUI\Assets\images\poweredby\large.png" />
+    <Content Include="Areas\CUI\Assets\images\poweredby\medium.png" />
+    <Content Include="Areas\CUI\Assets\images\poweredby\small.png" />
+    <Content Include="Areas\CUI\Assets\images\process\0.png" />
+    <Content Include="Areas\CUI\Assets\images\process\1.png" />
+    <Content Include="Areas\CUI\Assets\images\process\2.png" />
+    <Content Include="Areas\CUI\Assets\images\process\3.png" />
+    <Content Include="Areas\CUI\Assets\images\settings\Favorite.png" />
+    <Content Include="Areas\CUI\Assets\images\settings\Folder-Cube.png" />
+    <Content Include="Areas\CUI\Assets\images\settings\ID-Card.png" />
+    <Content Include="Areas\CUI\Assets\images\settings\Important.png" />
+    <Content Include="Areas\CUI\Assets\images\settings\SystemLogIcon.png" />
+    <Content Include="Areas\CUI\Assets\images\settings\User-Time.png" />
+    <Content Include="Areas\CUI\Assets\images\submitWait.gif" />
+    <Content Include="Areas\CUI\Assets\images\tasklist\optionarrow.png" />
+    <Content Include="Areas\CUI\Assets\images\tasklist\ProcessIcon.png" />
+    <Content Include="Areas\CUI\Assets\images\tasklist\remove_favitem.png" />
+    <Content Include="Areas\CUI\Assets\images\tooltip\Critical.png" />
+    <Content Include="Areas\CUI\Assets\images\tooltip\Help.png" />
+    <Content Include="Areas\CUI\Assets\images\tooltip\Info.png" />
+    <Content Include="Areas\CUI\Assets\images\tooltip\Warning.png" />
+    <Content Include="Areas\CUI\Views\Shared\EditorTemplates\CloudCoreDropDown.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\DisplayTemplates\CloudCoreDropDown.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\DisplayTemplates\DatePicker.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\EditorTemplates\EnumDropDownList.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\DisplayTemplates\EnumDropDownList.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\_CloudCoreAuthenticatedPopup.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\NotAvailable.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\IE9GradientFix.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\_PopUp.cshtml" />
+    <Content Include="Areas\CUI\Views\Login\IdentificationError.cshtml" />
+    <Content Include="Areas\CUI\Views\SystemNotification\NotifyUser.cshtml" />
+    <Content Include="Areas\CUI\Views\SystemNotification\NotifyPool.cshtml" />
+    <Content Include="Areas\CUI\Views\Error\NotFound.cshtml" />
+    <Content Include="Areas\CUI\Views\Error\Error.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\NotFound.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\Error.cshtml" />
+    <Content Include="Areas\CUI\Assets\fonts\icomoon.eot" />
+    <Content Include="Areas\CUI\Assets\fonts\icomoon.ttf" />
+    <Content Include="Areas\CUI\Assets\fonts\icomoon.woff" />
+    <Content Include="..\..\Shared Files\cloudcore.snk">
+      <Link>cloudcore.snk</Link>
+    </Content>
+    <Content Include="Areas\CUI\Views\Access\Index.cshtml" />
+    <Content Include="Areas\CUI\Views\Access\Undefined.cshtml" />
+    <Content Include="Areas\CUI\Views\ParentReload\DoParentReload.cshtml" />
+    <Content Include="Areas\CUI\Views\Offline\Index.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\_CloudCoreAnonymousPopup.cshtml" />
+    <Content Include="Areas\CUI\Views\CUIPopup\AccessPoolLookup.cshtml" />
+    <Content Include="Areas\CUI\Views\CUIPopup\AddDashboard.cshtml" />
+    <Content Include="Areas\CUI\Views\CUIPopup\SearchFavourite.cshtml" />
+    <Content Include="Areas\CUI\Views\CUIPopup\UserLookup.cshtml" />
+    <Content Include="Areas\CUI\Views\CUIPopup\UserNotification.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\_CloudCoreExternal.cshtml" />
+    <Content Include="Areas\CUI\Views\Tasklist\TasklistFilter.cshtml" />
+    <Content Include="Areas\CUI\Views\CUIPopup\ViewDashboard.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\Sidebar\_SidebarContainer.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\Navbar\_NavbarHeader.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\Navbar\_NavbarMenu.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\Footer\_Footer.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\PageContext\_PageContext.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\Sidebar\_DetailPageSidebarItem.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\TaskList\_TaskListPageSidebarItem.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\TaskList\_TaskListSearchResults.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\TaskList\_TaskListSearchBar.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\EditorTemplates\DatePicker.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CUI\Views\Login\Index.cshtml" />
+    <Content Include="Areas\CUI\Views\Login\SignOut.cshtml" />
+    <Content Include="Areas\CUI\Views\Main\Dashboard.cshtml" />
+    <Content Include="Areas\CUI\Views\Main\Menu.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\_CloudCoreInternal.cshtml" />
+    <Content Include="Areas\CUI\Views\Tasklist\Standard.cshtml" />
+    <Content Include="Areas\CUI\Views\Tools\Campaigns.cshtml" />
+    <Content Include="Areas\CUI\Views\Tools\Favourites.cshtml" />
+    <Content Include="Areas\CUI\Views\Tools\GlobalLoginHistory.cshtml" />
+    <Content Include="Areas\CUI\Views\Tools\Index.cshtml" />
+    <Content Include="Areas\CUI\Views\Tools\Modules.cshtml" />
+    <Content Include="Areas\CUI\Views\Tools\PersonalDetails.cshtml" />
+    <Content Include="Areas\CUI\Views\Tools\PersonalLoginHistory.cshtml" />
+    <Content Include="Areas\CUI\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\CUI\Views\Shared\Navbar\_NavbarSubMenu.cshtml" />
+    <Content Include="Areas\CUI\Views\Shared\Navbar\_NavbarSubMenuSearch.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\CUI\Views\Shared\_CloudCoreWorkItem.cshtml" />
+    <Content Include="Areas\CUI\Views\Login\ForgotPassword.cshtml" />
+    <Content Include="Areas\CUI\Views\Login\ResetPassword.cshtml" />
+    <Content Include="Areas\CUI\Views\Tools\ViewAccessPools.cshtml" />
+    <Content Include="Areas\CUI\Views\Tools\UpdatePersonalDetails.cshtml" />
+    <Content Include="Areas\CUI\Views\Tools\ModuleDetails.cshtml" />
+    <Content Include="Areas\CUI\Views\Tools\ChangePassword.cshtml" />
+    <Content Include="Areas\CUI\Views\Tools\Notifications.cshtml" />
+    <Content Include="Areas\CUI\Views\SystemNotification\Index.cshtml" />
+    <Content Include="Areas\CUI\Views\Tools\Logs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\CUI\Assets\reports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core Libraries\CloudCore.Core\CloudCore.Core.csproj">
+      <Project>{c9d0d0dd-1bc4-4de6-96ee-730bbab6b467}</Project>
+      <Name>CloudCore.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core Libraries\CloudCore.Web.Core\CloudCore.Web.Core.csproj">
+      <Project>{477ac7f0-9779-4607-a255-1889e6a74b0b}</Project>
+      <Name>CloudCore.Web.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataLayer\Data\CloudCore.Data.csproj">
+      <Project>{246e33e8-86a8-4e21-a966-9387d3563b4d}</Project>
+      <Name>CloudCore.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CUI\Views\SubMenu\SystemAdmin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CUI\Views\Shared\Navbar\_UserNotificationPanel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CUI\Views\Shared\Navbar\_UserNotificationSidebarItem.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CUI\Views\Shared\_ModalPopUp.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CUI\Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CUI\Views\Shared\_ModalPopUpContainer.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'SqlExpress|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'SqlExpress|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="BeforeBuild">
+    <ItemGroup>
+      <EmbeddedResource Include="**\*.ico;**\*.aspx;**\*.ascx;**\*.png;**\*.js;**\*.css;**\*.gif;**\*.ashx;**\*.jpg;**\*.resx;**\*.xml;**\*.btomic;**\*.sql;**\*.asmx;**\*.cshtml;**\*.config;**\*.htm;**\*.html;**\*.svg;**\*.woff;**\*.eot;**\*.ttf" />
+    </ItemGroup>
+  </Target>
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>28056</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+</Project>
